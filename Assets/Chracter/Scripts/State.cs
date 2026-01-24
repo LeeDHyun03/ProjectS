@@ -3,6 +3,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class EntityType
 {
+    public string name;
     public float maxHp;
     public float attackDamage;
     public float attackRange;
@@ -16,12 +17,16 @@ public class PlayerType : EntityType
 }
 public abstract class State : MonoBehaviour
 {
-    protected EntityType myType;
+    [SerializeField]protected EntityType myType;
     protected float currentHp;
     public bool isDead = false;
 
     public virtual void Awake()
     {
+    }
+    public virtual void Start()
+    {
+        
         currentHp = myType.maxHp;
     }
     public abstract void Dead();
@@ -34,5 +39,9 @@ public abstract class State : MonoBehaviour
             isDead = true;
             Dead();
         }
+    }
+    public float GetCurrentHp()
+    {
+        return currentHp;
     }
 }

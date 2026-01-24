@@ -1,11 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-[System.Serializable]
-public struct CombatStat
-{
-    public float detectionRange;    // 인식 범위
-    public float pursuitRange;      // 추적 시작 범위
-}
+
 public enum ECombatType     //전투 유형
 {
     Chase,
@@ -19,14 +14,12 @@ public class MonsterType : EntityType
 {
     public ECombatType combatType;
 
-    public bool isPatrol;
-
-    public string name;
+    public float pursuitRange;      // 추적 시작 범위
+    public float patrolRange;
 }
 public class MonsterManager : MonoBehaviour
 {
     public static MonsterManager inst { get; private set; }
-    public List<CombatStat> CombatStatList = new List<CombatStat>();
     public List<MonsterType> MonsterTypes = new List<MonsterType>();
     private void Awake()
     {
@@ -37,14 +30,22 @@ public class MonsterManager : MonoBehaviour
         }
         inst = this;
         DontDestroyOnLoad(gameObject);
+        foreach(var type in MonsterTypes)
+        {
+            Debug.Log(type.name);
+        }
     }
     void Start()
     {
-
     }
 
     void Update()
     {
 
+    }
+    public MonsterType SetMonsterType(int index)
+    {
+        Debug.Log("spawn"+MonsterTypes[index]);
+        return MonsterTypes[index];
     }
 }

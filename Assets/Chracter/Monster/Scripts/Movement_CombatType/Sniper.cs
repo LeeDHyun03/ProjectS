@@ -4,4 +4,8 @@ public class Sniper : MonsterMovement
     {
         throw new System.NotImplementedException();
     }
+    public override bool KeepTargeting()
+    {
+        return currentTarget != null;
+    }
 }
