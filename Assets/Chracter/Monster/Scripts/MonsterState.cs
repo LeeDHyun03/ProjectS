@@ -1,13 +1,20 @@
+using UnityEngine;
+
 public class MonsterState : State
 {
     MonsterMovement movement => GetComponent<MonsterMovement>();
-    public MonsterType monsterType => (MonsterType)myType;
-    CombatStat myCombatStat;
+    public MonsterType monsterType;
 
     public override void Awake()
     {
         base.Awake();
-        myCombatStat = MonsterManager.inst.CombatStatList[(int)monsterType.combatType];
+    }
+    public override void Start()
+    {
+        base.Start();
+        Debug.Log("내 타입: "+ MonsterManager.inst.SetMonsterType(0).name);
+        myType = MonsterManager.inst.SetMonsterType(0); //임시
+        monsterType = (MonsterType)myType;
     }
     public override void Dead()
     {
