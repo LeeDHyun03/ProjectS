@@ -1,6 +1,11 @@
-using UnityEngine;
-
-public class CharacterState : MonoBehaviour
+public class CharacterState : State
 {
-    
+    public override void Awake()
+    {
+        base.Awake();
+    }
+    public override void Dead()
+    {
+        throw new System.NotImplementedException();
+    }
 }
