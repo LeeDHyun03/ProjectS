@@ -1,17 +1,18 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class SpecialWeapon : MonoBehaviour
 {
-    [SerializeField] private PlayerCombat combat;
     [SerializeField] private BoxCollider specialAttackCollider;
+
+    public event Action OnSpecialAttackComplete;
+    
     void Awake()
     {
-        combat ??= GetComponentInParent<PlayerCombat>();
         specialAttackCollider ??= GetComponent<BoxCollider>();
         specialAttackCollider.enabled = false;
-        combat.SpecialAttackTriggered += EnableSpecialAttackCollider;
     }
 
     public void EnableSpecialAttackCollider()
@@ -32,7 +33,7 @@ public class SpecialWeapon : MonoBehaviour
     {
         transform.localScale = new Vector3(0, 0, 0);
         specialAttackCollider.enabled = false;
-        combat.OnSpecialAttackAnimationComplete();
+        OnSpecialAttackComplete?.Invoke();
     }
 
     private void AimToMouse()

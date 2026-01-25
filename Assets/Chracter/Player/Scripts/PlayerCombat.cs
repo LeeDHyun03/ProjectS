@@ -12,6 +12,16 @@ public class PlayerCombat : MonoBehaviour
     private bool isNormalAttacking = false;
     private bool isSpecialAttacking = false;
 
+    void OnEnable()
+    {
+        specialWeapon.OnSpecialAttackComplete += OnSpecialAttackAnimationComplete;
+    }
+
+    void OnDisable()
+    {
+        specialWeapon.OnSpecialAttackComplete -= OnSpecialAttackAnimationComplete;
+    }
+    
     public void OnNormalAttack()
     {
         if(isSpecialAttacking)
@@ -31,6 +41,7 @@ public class PlayerCombat : MonoBehaviour
         if(isNormalAttacking)
             return;
         isSpecialAttacking = true;
+        specialWeapon.EnableSpecialAttackCollider();
         SpecialAttackTriggered?.Invoke();
     }
 
