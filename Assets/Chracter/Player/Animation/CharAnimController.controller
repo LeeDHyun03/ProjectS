@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1102 &-8734127189386419370
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CharWalkLD_Temp4
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 90dc6c3e633d8ed40bfe9d3aee932013, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1107 &-7012754480666100711
 AnimatorStateMachine:
   serializedVersion: 6
@@ -24,7 +50,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 5332776425889831189}
+  m_DefaultState: {fileID: 2974440856013050802}
 --- !u!1107 &-5708137299869737206
 AnimatorStateMachine:
   serializedVersion: 6
@@ -40,6 +66,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 2992023179323677869}
     m_Position: {x: 310, y: 140, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -8734127189386419370}
+    m_Position: {x: 646.4146, y: 573.57324, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -139,10 +168,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 5332776425889831189}
-    m_Position: {x: 290, y: 30, z: 0}
+    m_Position: {x: 300, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1634014380182725773}
-    m_Position: {x: 290, y: 120, z: 0}
+    m_Position: {x: 300, y: 120, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -209,7 +238,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a9757e00b4d1fd248978109c7da6540e, type: 2}
+  m_Motion: {fileID: 7400000, guid: ed6b66230ca7a9642afc587e8fe04763, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -279,7 +308,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CharDLIdle
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3279743348259844360}
@@ -293,7 +322,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1c0c35cc1321d964d8c462d85fd5c97d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 96747e185353e4744bc84eac75f2be06, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -307,7 +336,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CharIULIdle
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1670713986898399407}
@@ -321,7 +350,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 48846e4d10b319b4f89830bf9db9161d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4fca72410d9669f479928d1d59c339b8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -402,7 +431,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 858fd75c0e9ee544884adcf3eca143d7, type: 2}
+  m_Motion: {fileID: 7400000, guid: c4dc75ea1d3df6647b18e3d8c339e207, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
