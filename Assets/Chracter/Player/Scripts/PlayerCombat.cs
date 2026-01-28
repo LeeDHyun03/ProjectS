@@ -49,4 +49,16 @@ public class PlayerCombat : MonoBehaviour
     {
         isSpecialAttacking = false;
     }
+
+    public void EnableRestMode()
+    {
+        isNormalAttacking = true;
+        normalWeapon.StartAttack();
+    }
+
+    public void DisableRestMode()
+    {
+        isNormalAttacking = false;
+        normalWeapon.EndAttack();
+    }
 }

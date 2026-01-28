@@ -23,6 +23,8 @@ public class PlayerCharacter : State
     private float currentMp;
     private float currentExp;
 
+    [SerializeField] private float sprintSpeed = 10f;
+
     [SerializeField] private float maxMp = 100f;
     [SerializeField] private float maxExp = 100f;
     [SerializeField] private float specialAttackUsedMp = 5;
@@ -35,7 +37,7 @@ public class PlayerCharacter : State
     {
         base.Awake();
         ui ??= GetComponent<PlayerUI>();
-        movement.SetSpeed(myType.moveSpeed, myType.moveSpeed * 1.5f);
+        movement.SetSpeed(myType.moveSpeed, sprintSpeed);
     }
     private void OnEnable()
     {
@@ -86,6 +88,12 @@ public class PlayerCharacter : State
 
     void RestModeChanged(bool isResting)
     {
+        if(isResting)
+            combat.EnableRestMode();
+        else
+            combat.DisableRestMode();
+
+        animator.ToggledRestAnimation(isResting);
         rest.RestModeChanged(isResting);
     }
 

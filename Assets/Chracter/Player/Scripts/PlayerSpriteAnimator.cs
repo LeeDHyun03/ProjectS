@@ -25,7 +25,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
     {
         animator.SetFloat("speed", movement.IsMoving ? 1f : 0f);
         animator.SetInteger("direction", (int)facing.CurrentDirection);
-
+        animator.SetBool("isSprint", movement.IsSprinting ? true : false);
         ApplyFlip(facing.CurrentDirection);
     }
 
@@ -39,5 +39,10 @@ public class PlayerSpriteAnimator : MonoBehaviour
             scale.x = Mathf.Abs(scale.x);
         
         visualRoot.localScale = scale;
+    }
+
+    public void ToggledRestAnimation(bool isRest)
+    {
+        animator.SetBool("isRest", isRest);
     }
 }

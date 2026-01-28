@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 moveDir;
     public bool IsMoving => moveDir.sqrMagnitude > 0.0001f;
+    public bool IsSprinting => currentSpeed == sprintSpeed;
     private void Awake()
     {
         currentSpeed = moveSpeed;
