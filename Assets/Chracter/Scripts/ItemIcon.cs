@@ -15,7 +15,6 @@ public class ItemIcon : MonoBehaviour
 
     public void OnDescriptionDisplay(bool isActivate)
     {
-        Debug.Log("Description Display: " + isActivate);
         DescriptionPanel.gameObject.SetActive(isActivate);
     }
 }
