@@ -26,8 +26,8 @@ public class PlayerInputManager : MonoBehaviour
     public event Action StatusToggled;
 
     private float dashPressTime = 0;
-    private bool isSprinting = false;
     private float sprintHoldTime;
+    private bool isSprinting = false;
 
     private void Awake()
     {

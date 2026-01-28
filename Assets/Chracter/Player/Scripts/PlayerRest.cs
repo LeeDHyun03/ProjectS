@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerRest : MonoBehaviour
 {
-    public event Action<float> OnHpCure;
-    bool currentRestMode = false;
     [SerializeField] private float restBenefitInterval = 1f;
-
     [SerializeField] private float cureHp = 1f;
-    float currentTime = 0f;
+
+    public event Action<float> OnHpCure;
+    
+    private bool currentRestMode = false;
+    private float currentTime = 0f;
+
     public void RestModeChanged(bool isResting)
     {
         currentTime = 0f;
