@@ -63,5 +63,11 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
     }
 
+    public void SetSpeed(float newMoveSpeed, float newSprintSpeed)
+    {
+        moveSpeed = newMoveSpeed;
+        sprintSpeed = newSprintSpeed;
+    }
+    
     public Vector3 GetMoveDir() => moveDir;
 }

@@ -12,6 +12,8 @@ public class PlayerInputManager : MonoBehaviour
     private InputAction specialAttackAction;
     private InputAction dashAction;
     private InputAction interactAction;
+    private InputAction restAction;
+    private InputAction statusAction;
 
     public event Action<Vector2> MoveVectorChanged;
     public event Action NormalAttackTriggered;
@@ -20,6 +22,8 @@ public class PlayerInputManager : MonoBehaviour
     public event Action SprintStarted;
     public event Action SprintEnded;
     public event Action InteractTriggered;
+    public event Action<bool> RestTriggered;
+    public event Action StatusToggled;
 
     private float dashPressTime = 0;
     private bool isSprinting = false;
@@ -34,6 +38,8 @@ public class PlayerInputManager : MonoBehaviour
         specialAttackAction = playerInput.actions["SpecialAttack"];
         dashAction = playerInput.actions["Dash"];
         interactAction = playerInput.actions["Interaction"];
+        restAction = playerInput.actions["Rest"];
+        statusAction = playerInput.actions["Status"];
     }
 
     private void OnEnable()
@@ -46,6 +52,8 @@ public class PlayerInputManager : MonoBehaviour
         dashAction.started += OnDashStart;
         dashAction.canceled += OnDashEnd;
         interactAction.performed += OnInteract;
+        restAction.performed += OnRestChanged;
+        statusAction.performed += OnStatusToggled;
     }
 
     private void OnDisable()
@@ -58,18 +66,35 @@ public class PlayerInputManager : MonoBehaviour
         dashAction.started -= OnDashStart;
         dashAction.canceled -= OnDashEnd;
         interactAction.performed -= OnInteract;
+        restAction.performed -= OnRestChanged;
+        statusAction.performed -= OnStatusToggled;
     }
-
+    private void OnRestChanged(InputAction.CallbackContext ctx) => RestTriggered?.Invoke(true);
+    private void OnStatusToggled(InputAction.CallbackContext ctx) => StatusToggled?.Invoke();
     private void OnMove(InputAction.CallbackContext ctx)
     {
+        RestTriggered?.Invoke(false);
         MoveVectorChanged?.Invoke(ctx.ReadValue<Vector2>());
     }
 
-    private void OnNormalAttack(InputAction.CallbackContext ctx) => NormalAttackTriggered?.Invoke();
-    private void OnSpecialAttack(InputAction.CallbackContext ctx) => SpecialAttackTriggered?.Invoke();
-    private void OnInteract(InputAction.CallbackContext ctx) => InteractTriggered?.Invoke();
+    private void OnNormalAttack(InputAction.CallbackContext ctx)
+    {
+        RestTriggered?.Invoke(false);
+        NormalAttackTriggered?.Invoke();
+    } 
+    private void OnSpecialAttack(InputAction.CallbackContext ctx)
+    {
+        RestTriggered?.Invoke(false);
+        SpecialAttackTriggered?.Invoke();
+    }
+    private void OnInteract(InputAction.CallbackContext ctx)
+    {
+        RestTriggered?.Invoke(false);
+        InteractTriggered?.Invoke();
+    }
     private void OnDashStart(InputAction.CallbackContext ctx)
     {
+        RestTriggered?.Invoke(false);
         Vector2 dashDir;
         if (moveAction.IsPressed())
         {
