@@ -9,12 +9,22 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float spriteAngleOffset = 180f;
 
+    private Camera mainCam;
     private bool isAttacking = false;
 
     private void Reset()
     {
         weaponSocket = transform;
         visualRoot = transform.parent;
+    }
+
+    private void Start()
+    {
+        mainCam = Camera.main;
+        if(mainCam == null)
+        {
+            mainCam = FindFirstObjectByType<Camera>();
+        }
     }
 
     private void Update()
@@ -38,31 +48,29 @@ public class Weapon : MonoBehaviour
 
     private void AimToMouse()
     {
-        Vector2 center = new(Screen.width * 0.5f, Screen.height * 0.5f);
+        if (mainCam == null) return;
 
-        Vector2 mousePos = Mouse.current != null
-            ? Mouse.current.position.ReadValue()
-            : center;
+        Vector2 mousePos = Mouse.current.position.ReadValue();
 
-        Vector2 dir = mousePos - center;
-        if (dir.sqrMagnitude < 0.0001f)
-            return;
+        Vector3 weaponScreenPos = mainCam.WorldToScreenPoint(weaponSocket.position);
+
+        Vector2 dir = mousePos - (Vector2)weaponScreenPos;
+
+        if (dir.sqrMagnitude < 0.1f) return;
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        angle += spriteAngleOffset;
-        
-        bool flipped = visualRoot.lossyScale.x > 0f;
-        if (flipped)
+
+        if (visualRoot.lossyScale.x > 0f)
         {
-            angle = -angle;
+            angle = -angle + 180f;
         }
 
         Quaternion targetWorldRot = Quaternion.Euler(0f, 0f, angle);
-
         Quaternion parentWorldRot = visualRoot.rotation;
-        Quaternion inverseQuat = Quaternion.Inverse(parentWorldRot) * targetWorldRot;
-        inverseQuat.x = 0f;
-        inverseQuat.y = 0f;
-        weaponSocket.localRotation = inverseQuat;
+
+        Quaternion relativeRot = Quaternion.Inverse(parentWorldRot) * targetWorldRot;
+
+        weaponSocket.localRotation = Quaternion.Euler(0, 0, relativeRot.eulerAngles.z + spriteAngleOffset);
     }
 }
+
