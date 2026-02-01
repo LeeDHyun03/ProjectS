@@ -1,0 +1,4543 @@
+fileFormatVersion: 2
+guid: 6d83b5946f8fcb0469ea996baa3b6e28
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2202885217157402906
+    second: Field_0
+  - first:
+      213: -4331708151623139810
+    second: Field_1
+  - first:
+      213: 2849549510069401678
+    second: Field_2
+  - first:
+      213: 8775658263177468239
+    second: Field_3
+  - first:
+      213: 3851069564723084477
+    second: Field_4
+  - first:
+      213: 2800591520618250668
+    second: Field_5
+  - first:
+      213: -8270025733737639108
+    second: Field_6
+  - first:
+      213: 4900936959511177549
+    second: Field_7
+  - first:
+      213: -7979248815992957524
+    second: Field_8
+  - first:
+      213: 7267149506618891292
+    second: Field_9
+  - first:
+      213: -1645706165789343864
+    second: Field_10
+  - first:
+      213: -8820868445188342575
+    second: Field_11
+  - first:
+      213: -440189393312385744
+    second: Field_12
+  - first:
+      213: 2588098782979795341
+    second: Field_13
+  - first:
+      213: -5040602008161488838
+    second: Field_14
+  - first:
+      213: -4719516895935553671
+    second: Field_15
+  - first:
+      213: 352520455656617593
+    second: Field_16
+  - first:
+      213: 5397179369931239615
+    second: Field_17
+  - first:
+      213: 5323072875898153726
+    second: Field_18
+  - first:
+      213: -8322660129267955479
+    second: Field_19
+  - first:
+      213: -6444443347886054149
+    second: Field_20
+  - first:
+      213: -4324632312305191011
+    second: Field_21
+  - first:
+      213: 2971001870257777205
+    second: Field_22
+  - first:
+      213: -2295411802883347283
+    second: Field_23
+  - first:
+      213: -5626956122710296470
+    second: Field_24
+  - first:
+      213: 5589840636554888553
+    second: Field_25
+  - first:
+      213: -6062304874825488329
+    second: Field_26
+  - first:
+      213: -5906410225684569605
+    second: Field_27
+  - first:
+      213: 7944229503840818405
+    second: Field_28
+  - first:
+      213: 3491807872114796336
+    second: Field_29
+  - first:
+      213: -623665013829516558
+    second: Field_30
+  - first:
+      213: -2477088580729387348
+    second: Field_31
+  - first:
+      213: -7221697003196359113
+    second: Field_32
+  - first:
+      213: -3673041906565345984
+    second: Field_33
+  - first:
+      213: -5269264090282188853
+    second: Field_34
+  - first:
+      213: 5591272443734151623
+    second: Field_35
+  - first:
+      213: 750619357494476196
+    second: Field_36
+  - first:
+      213: 2319940359004184140
+    second: Field_37
+  - first:
+      213: 8280692509562558798
+    second: Field_38
+  - first:
+      213: 1220462770453560406
+    second: Field_39
+  - first:
+      213: 4232498003818995444
+    second: Field_40
+  - first:
+      213: -6940644109445662870
+    second: Field_41
+  - first:
+      213: -8629002456838218335
+    second: Field_42
+  - first:
+      213: 5589886196643239007
+    second: Field_43
+  - first:
+      213: 8720827030671274960
+    second: Field_44
+  - first:
+      213: 5418129093759781294
+    second: Field_45
+  - first:
+      213: 1953662562605575923
+    second: Field_46
+  - first:
+      213: 1996108650436309196
+    second: Field_47
+  - first:
+      213: 5417592772075227185
+    second: Field_48
+  - first:
+      213: 878971169730477815
+    second: Field_49
+  - first:
+      213: -1695592351531654089
+    second: Field_50
+  - first:
+      213: -6882467553266571962
+    second: Field_51
+  - first:
+      213: 1328408545134881862
+    second: Field_52
+  - first:
+      213: -3631275970890359706
+    second: Field_53
+  - first:
+      213: -2838275243649677828
+    second: Field_54
+  - first:
+      213: 3316166300430976816
+    second: Field_55
+  - first:
+      213: -4152732175843286829
+    second: Field_56
+  - first:
+      213: -2989142919349444137
+    second: Field_57
+  - first:
+      213: 1444987555752688546
+    second: Field_58
+  - first:
+      213: -8509515713990759533
+    second: Field_59
+  - first:
+      213: 4295909871276419732
+    second: Field_60
+  - first:
+      213: 6013832641168679192
+    second: Field_61
+  - first:
+      213: -2755620362228209336
+    second: Field_62
+  - first:
+      213: 3051065965722471666
+    second: Field_63
+  - first:
+      213: 3925479464413340020
+    second: Field_64
+  - first:
+      213: 3147034421672693031
+    second: Field_65
+  - first:
+      213: -3659069560497393393
+    second: Field_66
+  - first:
+      213: 8936752942580928355
+    second: Field_67
+  - first:
+      213: -6726354103843899087
+    second: Field_68
+  - first:
+      213: -2736123108218052193
+    second: Field_69
+  - first:
+      213: 5401521012542713023
+    second: Field_70
+  - first:
+      213: 5890436097235452254
+    second: Field_71
+  - first:
+      213: 8409108119657158184
+    second: Field_72
+  - first:
+      213: -3302080501433638356
+    second: Field_73
+  - first:
+      213: 4719860036239063388
+    second: Field_74
+  - first:
+      213: -7866664051836184091
+    second: Field_75
+  - first:
+      213: -5206280158087767990
+    second: Field_76
+  - first:
+      213: 6238781119520572959
+    second: Field_77
+  - first:
+      213: -8155235130491622843
+    second: Field_78
+  - first:
+      213: -173162084967102589
+    second: Field_79
+  - first:
+      213: 4212787333274515532
+    second: Field_80
+  - first:
+      213: -5987278272630208140
+    second: Field_81
+  - first:
+      213: 750876638614381749
+    second: Field_82
+  - first:
+      213: 4488977106072256810
+    second: Field_83
+  - first:
+      213: 4269135458035893308
+    second: Field_84
+  - first:
+      213: 4653980163845819191
+    second: Field_85
+  - first:
+      213: -7519096638939177369
+    second: Field_86
+  - first:
+      213: 3354040044662106855
+    second: Field_87
+  - first:
+      213: 2282144899195114995
+    second: Field_88
+  - first:
+      213: -7128266562632137125
+    second: Field_89
+  - first:
+      213: 6334495018525058745
+    second: Field_90
+  - first:
+      213: 7196743137416917127
+    second: Field_91
+  - first:
+      213: -1833789122392130862
+    second: Field_92
+  - first:
+      213: 6719683933673734918
+    second: Field_93
+  - first:
+      213: -7095620510156550062
+    second: Field_94
+  - first:
+      213: -513415679709839544
+    second: Field_95
+  - first:
+      213: 5760502875499900942
+    second: Field_96
+  - first:
+      213: 3106162282587648506
+    second: Field_97
+  - first:
+      213: 1789508053375320981
+    second: Field_98
+  - first:
+      213: -956018349931446923
+    second: Field_99
+  - first:
+      213: -2930998703449534465
+    second: Field_100
+  - first:
+      213: -8936952922929775356
+    second: Field_101
+  - first:
+      213: 2878305098489262934
+    second: Field_102
+  - first:
+      213: 8611416265011595233
+    second: Field_103
+  - first:
+      213: -1890045308427263772
+    second: Field_104
+  - first:
+      213: -8533832553032022985
+    second: Field_105
+  - first:
+      213: -8160456606609603623
+    second: Field_106
+  - first:
+      213: 6793495558703468300
+    second: Field_107
+  - first:
+      213: 9174935793883775004
+    second: Field_108
+  - first:
+      213: -6739315523522477968
+    second: Field_109
+  - first:
+      213: -8621102059095407804
+    second: Field_110
+  - first:
+      213: 7753676658633406027
+    second: Field_111
+  - first:
+      213: 2803002976624322468
+    second: Field_112
+  - first:
+      213: -8843088502005733716
+    second: Field_113
+  - first:
+      213: -7902854721317424748
+    second: Field_114
+  - first:
+      213: -3623090549768242708
+    second: Field_115
+  - first:
+      213: 8837737499122369980
+    second: Field_116
+  - first:
+      213: -9195469729071638681
+    second: Field_117
+  - first:
+      213: -8859144625658223535
+    second: Field_118
+  - first:
+      213: -7822978996124210359
+    second: Field_119
+  - first:
+      213: -1877601452984139635
+    second: Field_120
+  - first:
+      213: -36384411551820859
+    second: Field_121
+  - first:
+      213: 3031169641722904568
+    second: Field_122
+  - first:
+      213: 3730818768148917784
+    second: Field_123
+  - first:
+      213: -6082584298374141155
+    second: Field_124
+  - first:
+      213: -3123709495704262782
+    second: Field_125
+  - first:
+      213: -107095173741912188
+    second: Field_126
+  - first:
+      213: -5374483978892820782
+    second: Field_127
+  - first:
+      213: 3741578580348975371
+    second: Field_128
+  - first:
+      213: 1678534478946348145
+    second: Field_129
+  - first:
+      213: 3281163977817828439
+    second: Field_130
+  - first:
+      213: 2116505589138221899
+    second: Field_131
+  - first:
+      213: -1034483753701572655
+    second: Field_132
+  - first:
+      213: -4275178339407399485
+    second: Field_133
+  - first:
+      213: 2604451578441046391
+    second: Field_134
+  - first:
+      213: -2393452225045243525
+    second: Field_135
+  - first:
+      213: 4234991110055495549
+    second: Field_136
+  - first:
+      213: 8759372898868556237
+    second: Field_137
+  - first:
+      213: 541837799965316901
+    second: Field_138
+  - first:
+      213: 5416005291826325549
+    second: Field_139
+  - first:
+      213: -4072351401576713117
+    second: Field_140
+  - first:
+      213: 5399447132165005206
+    second: Field_141
+  - first:
+      213: 5194735523463466307
+    second: Field_142
+  - first:
+      213: 8237398736466633911
+    second: Field_143
+  - first:
+      213: 1809611717548925364
+    second: Field_144
+  - first:
+      213: 2707659201633625873
+    second: Field_145
+  - first:
+      213: -8917948469637677458
+    second: Field_146
+  - first:
+      213: -3310337038328036712
+    second: Field_147
+  - first:
+      213: 7166124693834322525
+    second: Field_148
+  - first:
+      213: -1222085386336703395
+    second: Field_149
+  - first:
+      213: -4250505893048693489
+    second: Field_150
+  - first:
+      213: 5231919844342909939
+    second: Field_151
+  - first:
+      213: 4202830689989512561
+    second: Field_152
+  - first:
+      213: 8454209276205874289
+    second: Field_153
+  - first:
+      213: 1748604125775907162
+    second: Field_154
+  - first:
+      213: 5076967810490479125
+    second: Field_155
+  - first:
+      213: -1647101196681931144
+    second: Field_156
+  - first:
+      213: 3315193444793531655
+    second: Field_157
+  - first:
+      213: -8826030099195216216
+    second: Field_158
+  - first:
+      213: -6007937674586014389
+    second: Field_159
+  - first:
+      213: 1310352897258548465
+    second: Field_160
+  - first:
+      213: 9209902595815791898
+    second: Field_161
+  - first:
+      213: -6511154779731975837
+    second: Field_162
+  - first:
+      213: 7247220197622647155
+    second: Field_163
+  - first:
+      213: 2670113077373272644
+    second: Field_164
+  - first:
+      213: -2637184617676192629
+    second: Field_165
+  - first:
+      213: 9044198073398423509
+    second: Field_166
+  - first:
+      213: 8001450882818837573
+    second: Field_167
+  - first:
+      213: 3642734274882426538
+    second: Field_168
+  - first:
+      213: -6244150215919345169
+    second: Field_169
+  - first:
+      213: -1757777553393673372
+    second: Field_170
+  - first:
+      213: -3422041774436327808
+    second: Field_171
+  - first:
+      213: -3656545468178986491
+    second: Field_172
+  - first:
+      213: -2645134493506703827
+    second: Field_173
+  - first:
+      213: -784901681612426922
+    second: Field_174
+  - first:
+      213: -2643141518411715399
+    second: Field_175
+  - first:
+      213: 2467542839377758552
+    second: Field_176
+  - first:
+      213: 2567684395228902646
+    second: Field_177
+  - first:
+      213: -2255355204439942165
+    second: Field_178
+  - first:
+      213: 6669344189131852622
+    second: Field_179
+  - first:
+      213: 1396473077272860826
+    second: Field_180
+  - first:
+      213: 2103385529758759351
+    second: Field_181
+  - first:
+      213: -7030401470541294218
+    second: Field_182
+  - first:
+      213: -3586162964756817884
+    second: Field_183
+  - first:
+      213: 3715769717444416990
+    second: Field_184
+  - first:
+      213: 589407731066516229
+    second: Field_185
+  - first:
+      213: -1393548896382728170
+    second: Field_186
+  - first:
+      213: 7397691483097700830
+    second: Field_187
+  - first:
+      213: -7043252754907060636
+    second: Field_188
+  - first:
+      213: 7080863838146211813
+    second: Field_189
+  - first:
+      213: -8725778463082854389
+    second: Field_190
+  - first:
+      213: 8992515403215204225
+    second: Field_191
+  - first:
+      213: -7778833828443973814
+    second: Field_192
+  - first:
+      213: 6173665529710744402
+    second: Field_193
+  - first:
+      213: 5049017020696065079
+    second: Field_194
+  - first:
+      213: 143322890639625886
+    second: Field_195
+  - first:
+      213: 4619016509165048829
+    second: Field_196
+  - first:
+      213: -1382579965505435418
+    second: Field_197
+  - first:
+      213: 2317385786347775046
+    second: Field_198
+  - first:
+      213: -7548304729225608077
+    second: Field_199
+  - first:
+      213: -4736967306781257724
+    second: Field_200
+  - first:
+      213: -2106362576225899480
+    second: Field_201
+  - first:
+      213: -4016139558143712740
+    second: Field_202
+  - first:
+      213: 8083580122424908457
+    second: Field_203
+  - first:
+      213: -7460832770429007476
+    second: Field_204
+  - first:
+      213: -2672768927184347036
+    second: Field_205
+  - first:
+      213: 463631435731498076
+    second: Field_206
+  - first:
+      213: 338008191240331886
+    second: Field_207
+  - first:
+      213: -2166826679185726579
+    second: Field_208
+  - first:
+      213: 5922843042777545433
+    second: Field_209
+  - first:
+      213: 648960205485877014
+    second: Field_210
+  - first:
+      213: 3574097913400511792
+    second: Field_211
+  - first:
+      213: 1483162824456193046
+    second: Field_212
+  - first:
+      213: 7772422879969913651
+    second: Field_213
+  - first:
+      213: -5345416442847598390
+    second: Field_214
+  - first:
+      213: -8963139118450754162
+    second: Field_215
+  - first:
+      213: 2936068179785516469
+    second: Field_216
+  - first:
+      213: -3984154909851226770
+    second: Field_217
+  - first:
+      213: 1644893161538083220
+    second: Field_218
+  - first:
+      213: -2178613981541109075
+    second: Field_219
+  - first:
+      213: -2252812784173773329
+    second: Field_220
+  - first:
+      213: -1696432288963424994
+    second: Field_221
+  - first:
+      213: -6839252033616787551
+    second: Field_222
+  - first:
+      213: -9133262808601753945
+    second: Field_223
+  - first:
+      213: 6602302211723817172
+    second: Field_224
+  - first:
+      213: -6469369261583836281
+    second: Field_225
+  - first:
+      213: 2888360232982874010
+    second: Field_226
+  - first:
+      213: 3345195340979270049
+    second: Field_227
+  - first:
+      213: 982001867538745595
+    second: Field_228
+  - first:
+      213: -8219530934383703191
+    second: Field_229
+  - first:
+      213: -7274481543875247341
+    second: Field_230
+  - first:
+      213: 5821754024093517189
+    second: Field_231
+  - first:
+      213: -5662964294341450660
+    second: Field_232
+  - first:
+      213: 6429656667476239072
+    second: Field_233
+  - first:
+      213: 1906906661647683324
+    second: Field_234
+  - first:
+      213: -1382280394469302602
+    second: Field_235
+  - first:
+      213: -6888272342696494024
+    second: Field_236
+  - first:
+      213: 8807077601878546257
+    second: Field_237
+  - first:
+      213: -4837660891366317243
+    second: Field_238
+  - first:
+      213: 6026938784942103214
+    second: Field_239
+  - first:
+      213: -3407300449322928792
+    second: Field_240
+  - first:
+      213: -8799961917568951291
+    second: Field_241
+  - first:
+      213: 2975238006942895502
+    second: Field_242
+  - first:
+      213: 4365725718968106284
+    second: Field_243
+  - first:
+      213: -5700506780990571206
+    second: Field_244
+  - first:
+      213: 221882144300784180
+    second: Field_245
+  - first:
+      213: 3000834163147831611
+    second: Field_246
+  - first:
+      213: 3399621160916313703
+    second: Field_247
+  - first:
+      213: -6823900731777946192
+    second: Field_248
+  - first:
+      213: -8450277671896420866
+    second: Field_249
+  - first:
+      213: -7444246527069799623
+    second: Field_250
+  - first:
+      213: 901256004412712553
+    second: Field_251
+  - first:
+      213: 5177564649612283742
+    second: Field_252
+  - first:
+      213: 1370744578165684267
+    second: Field_253
+  - first:
+      213: 4489756655733741255
+    second: Field_254
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stone 52
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 405
+        width: 46
+        height: 40
+      alignment: 9
+      pivot: {x: 0.49657068, y: 0.28309554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1150a10f68329e10800000000000000
+      internalID: 2202885217157402906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 0
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 443
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1eb6dfe26ea2e3c0800000000000000
+      internalID: -4331708151623139810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 443
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e48339d8e22ab8720800000000000000
+      internalID: 2849549510069401678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower 0
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 399
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f491ae6e1b669c970800000000000000
+      internalID: 8775658263177468239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower 3
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 357
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc33a28d5fb17530800000000000000
+      internalID: 3851069564723084477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 0
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 433
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca10c6b5623bdd620800000000000000
+      internalID: 2800591520618250668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 1
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 433
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca5984c4a73044190800000000000000
+      internalID: -7979248815992957524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 1
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 432
+        width: 38
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c9ca729f91ad460800000000000000
+      internalID: 7267149506618891292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 8
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 425
+        width: 34
+        height: 21
+      alignment: 9
+      pivot: {x: 0.49380136, y: 0.31936353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88fb47726f64929e0800000000000000
+      internalID: -1645706165789343864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 16
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 427
+        width: 30
+        height: 21
+      alignment: 9
+      pivot: {x: 0.48444518, y: 0.25557163}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dcb81252eaf59580800000000000000
+      internalID: -8820868445188342575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 17
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 409
+        width: 46
+        height: 41
+      alignment: 9
+      pivot: {x: 0.4954177, y: 0.2530808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03578b9341224e9f0800000000000000
+      internalID: -440189393312385744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 2
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 429
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30f9690e2f2c0ab0800000000000000
+      internalID: -5040602008161488838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 4
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 425
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf46f125becb096a0800000000000000
+      internalID: -6444443347886054149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 3
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 422
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a6cbfb57e1b3920800000000000000
+      internalID: 2971001870257777205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 2
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 413
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac26eb702f0520e0800000000000000
+      internalID: -2295411802883347283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 413
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf126587137380ea0800000000000000
+      internalID: -5906410225684569605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 9
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 402
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037a05162c4657030800000000000000
+      internalID: 3491807872114796336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 10
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 400
+        width: 23
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.38584772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f24ad769fb4857f0800000000000000
+      internalID: -623665013829516558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 414
+        width: 5
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6c27c5f0d9f9dd0800000000000000
+      internalID: -2477088580729387348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 5
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 390
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf12074a30dfd6b0800000000000000
+      internalID: -5269264090282188853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 31
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 410
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c1543be9a0389d40800000000000000
+      internalID: 5591272443734151623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower 1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 399
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad7df4245cba6a00800000000000000
+      internalID: 750619357494476196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower 2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 400
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4e59860775123020800000000000000
+      internalID: 2319940359004184140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 37
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 392
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c39766c64ffe010800000000000000
+      internalID: 1220462770453560406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 393
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe5e2e728adcba30800000000000000
+      internalID: 4232498003818995444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 6
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 392
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a677510a4f0edaf90800000000000000
+      internalID: -6940644109445662870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 53
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 364
+        width: 55
+        height: 38
+      alignment: 9
+      pivot: {x: 0.4808416, y: 0.15615684}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad5f22ebff9f3880800000000000000
+      internalID: -8629002456838218335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 0
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 380
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5497cd11e3439d40800000000000000
+      internalID: 5589886196643239007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 32
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 394
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d339cebaf9960970800000000000000
+      internalID: 8720827030671274960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 7
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 377
+        width: 29
+        height: 21
+      alignment: 9
+      pivot: {x: 0.4927326, y: 0.35950434}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9c2cc44bf013b40800000000000000
+      internalID: 5418129093759781294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 18
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 393
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fea51fefbdcc1b10800000000000000
+      internalID: 1953662562605575923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 19
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 390
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc03752ed3a93bb10800000000000000
+      internalID: 1996108650436309196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 35
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 369
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 138844d2ce72f2b40800000000000000
+      internalID: 5417592772075227185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 34
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 385
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe38933f9bb23c00800000000000000
+      internalID: 878971169730477815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 38
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 372
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 734261b6dbb0878e0800000000000000
+      internalID: -1695592351531654089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 39
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 372
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 645e465a9309c70a0800000000000000
+      internalID: -6882467553266571962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 6
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 372
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64cab5998847f6210800000000000000
+      internalID: 1328408545134881862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 11
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 365
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c1ba96ebd1b9dc0800000000000000
+      internalID: -3631275970890359706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 20
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 367
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5c97724bb6c98d0800000000000000
+      internalID: -2838275243649677828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 7
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 370
+        width: 22
+        height: 17
+      alignment: 9
+      pivot: {x: 0.49110273, y: 0.51152307}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0374f413ea3650e20800000000000000
+      internalID: 3316166300430976816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 9
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 357
+        width: 41
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d0a68396188e56c0800000000000000
+      internalID: -4152732175843286829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 36
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 371
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d16d4d1a5e6486d0800000000000000
+      internalID: -2989142919349444137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 1
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 354
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a668864432e9b30800000000000000
+      internalID: 4295909871276419732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 21
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 364
+        width: 28
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811228bacec657350800000000000000
+      internalID: 6013832641168679192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 5
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 345
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 849ed8561e112c9d0800000000000000
+      internalID: -2755620362228209336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 6
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 345
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 471a27956ca1a7630800000000000000
+      internalID: 3925479464413340020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 8
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 352
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01bb1e0f9f583dc0800000000000000
+      internalID: -3659069560497393393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit 0
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 355
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36f86fbc379b50c70800000000000000
+      internalID: 8936752942580928355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit 1
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 348
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 139b4ee849037a2a0800000000000000
+      internalID: -6726354103843899087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 13
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 342
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91ece89786570ad0800000000000000
+      internalID: -2736123108218052193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 43
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 335
+        width: 49
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbcaa6f0ebe06fa40800000000000000
+      internalID: 5401521012542713023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 12
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 341
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e518bdbeb680fb150800000000000000
+      internalID: 5890436097235452254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 40
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 338
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38748fc400ec89df0800000000000000
+      internalID: -173162084967102589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 41
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 338
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c48b71262c3d67a30800000000000000
+      internalID: 4212787333274515532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 42
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 331
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 479467c022ae8eca0800000000000000
+      internalID: -5987278272630208140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 14
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 314
+        width: 37
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b564406145f431d90800000000000000
+      internalID: -7128266562632137125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 9
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 308
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6eaa268a5a8e750800000000000000
+      internalID: 6334495018525058745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 310
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7803775e0c7ffd360800000000000000
+      internalID: 7196743137416917127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 11
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 306
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da77de42821d86e0800000000000000
+      internalID: -1833789122392130862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Root 0
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 319
+        width: 32
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 603c58d6fec114d50800000000000000
+      internalID: 6719683933673734918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 14
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 307
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 250942f7dba478d90800000000000000
+      internalID: -7095620510156550062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 44
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 302
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84f77c4d82bffd8f0800000000000000
+      internalID: -513415679709839544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence 0
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 283
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 653f5a6bc3bc1f720800000000000000
+      internalID: 2878305098489262934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence 1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 290
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e78901c775e18770800000000000000
+      internalID: 8611416265011595233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence 2
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 284
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e0accd4ec535c5e0800000000000000
+      internalID: -1890045308427263772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence 3
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 285
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7348cd7d18cb19980800000000000000
+      internalID: -8533832553032022985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence 4
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 284
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d38b06c3fb30ce80800000000000000
+      internalID: -8160456606609603623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Root 1
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 295
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0fc6b79738574e50800000000000000
+      internalID: 6793495558703468300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 12
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 228
+        width: 43
+        height: 78
+      alignment: 9
+      pivot: {x: 0.4908121, y: 0.13192005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c10857f5e7be35f70800000000000000
+      internalID: 9174935793883775004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 261
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce93df7475238bdc0800000000000000
+      internalID: -3623090549768242708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 12
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 271
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb5865d5e63f5aa70800000000000000
+      internalID: 8837737499122369980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 13
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 273
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767d3d74001236080800000000000000
+      internalID: -9195469729071638681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 14
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 274
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 154a4d596eefd0580800000000000000
+      internalID: -8859144625658223535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 22
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 252
+        width: 12
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5067813, y: 0.1534676}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94bacaa0d023f6390800000000000000
+      internalID: -7822978996124210359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 23
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 251
+        width: 12
+        height: 23
+      alignment: 9
+      pivot: {x: 0.48483148, y: 0.15263034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d808f1d2d6b61f5e0800000000000000
+      internalID: -1877601452984139635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 8
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 257
+        width: 17
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5100708, y: 0.18941215}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c3971a029cbe7ff0800000000000000
+      internalID: -36384411551820859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 15
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 271
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff77d4bab0e01a20800000000000000
+      internalID: 3031169641722904568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 15
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 252
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48f54f3c185838ef0800000000000000
+      internalID: -107095173741912188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 16
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 254
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2deb013eb4ff965b0800000000000000
+      internalID: -5374483978892820782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 24
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 250
+        width: 12
+        height: 19
+      alignment: 9
+      pivot: {x: 0.52214634, y: 0.22601776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0939e425e1cce330800000000000000
+      internalID: 3741578580348975371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 25
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 257
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ca7d0273a5b4710800000000000000
+      internalID: 1678534478946348145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 26
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 253
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ca3a3e049098d20800000000000000
+      internalID: 3281163977817828439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Root 2
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 258
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4b66bd9e965f5d10800000000000000
+      internalID: 2116505589138221899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 9
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 215
+        width: 17
+        height: 41
+      alignment: 9
+      pivot: {x: 0.4848956, y: 0.17432162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1df74b6c186c4a1f0800000000000000
+      internalID: -1034483753701572655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 3
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 212
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d778bc50af5b5ca30800000000000000
+      internalID: 4234991110055495549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 205
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc17e3c0e3b8f8970800000000000000
+      internalID: 8759372898868556237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 17
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 230
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527dfc8bb9ef48700800000000000000
+      internalID: 541837799965316901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 27
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 215
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.48773575, y: 0.270761}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28a1f02e14892b40800000000000000
+      internalID: 5416005291826325549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 28
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 213
+        width: 16
+        height: 33
+      alignment: 9
+      pivot: {x: 0.49176884, y: 0.25978827}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364b47cf9f91c77c0800000000000000
+      internalID: -4072351401576713117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 29
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 215
+        width: 16
+        height: 21
+      alignment: 9
+      pivot: {x: 0.48773575, y: 0.38306972}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f52382f80beea40800000000000000
+      internalID: 5399447132165005206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 30
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 227
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b46858d18e115270800000000000000
+      internalID: 8237398736466633911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 10
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 216
+        width: 17
+        height: 37
+      alignment: 9
+      pivot: {x: 0.49225393, y: 0.14049922}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b163e5f4480d1910800000000000000
+      internalID: 1809611717548925364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 11
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 216
+        width: 18
+        height: 37
+      alignment: 9
+      pivot: {x: 0.4634179, y: 0.14049922}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 117a036b2b9839520800000000000000
+      internalID: 2707659201633625873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 19
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 208
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d4fe7be34735a30800000000000000
+      internalID: 4202830689989512561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 20
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 209
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c301d5b82635570800000000000000
+      internalID: 8454209276205874289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 21
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 198
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3612d74b93bb3a5a0800000000000000
+      internalID: -6511154779731975837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 31
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 183
+        width: 12
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2156518}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37985505f5c439460800000000000000
+      internalID: 7247220197622647155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 32
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 183
+        width: 12
+        height: 23
+      alignment: 9
+      pivot: {x: 0.48732504, y: 0.23549022}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44285fe62b52e0520800000000000000
+      internalID: 2670113077373272644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 33
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 183
+        width: 13
+        height: 18
+      alignment: 9
+      pivot: {x: 0.57562023, y: 0.2867813}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8449480096d66bd0800000000000000
+      internalID: -2637184617676192629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 34
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 183
+        width: 13
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4957205, y: 0.23312557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df6f23ca32738d70800000000000000
+      internalID: 9044198073398423509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 35
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 200
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54c07263f2dda0f60800000000000000
+      internalID: 8001450882818837573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 36
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 196
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa6d181e5879d8230800000000000000
+      internalID: 3642734274882426538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 171
+        width: 19
+        height: 15
+      alignment: 9
+      pivot: {x: 0.4999994, y: 0.544338}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e666351389a4bd0800000000000000
+      internalID: -2645134493506703827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 169
+        width: 34
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5123094, y: 0.53276175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65172e344187b15f0800000000000000
+      internalID: -784901681612426922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 22
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 186
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcabfffacca15bd0800000000000000
+      internalID: -2643141518411715399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 37
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 175
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4bee07a5f32a320800000000000000
+      internalID: 2567684395228902646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 23
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 176
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503b616653ffd2800800000000000000
+      internalID: 589407731066516229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 41
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 144
+        width: 52
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4926535, y: 0.26818228}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61848fd79ae19ace0800000000000000
+      internalID: -1393548896382728170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 6
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 129
+        width: 36
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.57800347}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed998ff8531e9a660800000000000000
+      internalID: 7397691483097700830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 24
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 168
+        width: 5
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4662978afe6514e90800000000000000
+      internalID: -7043252754907060636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 38
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 132
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4825716, y: 0.25116777}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ef2d9f0528444260800000000000000
+      internalID: 7080863838146211813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 39
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 132
+        width: 16
+        height: 33
+      alignment: 9
+      pivot: {x: 0.48160458, y: 0.24978961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b08413f08bec7e680800000000000000
+      internalID: -8725778463082854389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 29
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 134
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3744b1667d80f3790800000000000000
+      internalID: -7548304729225608077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 30
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 134
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4001aaef459e24eb0800000000000000
+      internalID: -4736967306781257724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 26
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 144
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ce0eb9562b4c2e0800000000000000
+      internalID: -2106362576225899480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 40
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 132
+        width: 16
+        height: 22
+      alignment: 9
+      pivot: {x: 0.500967, y: 0.35635445}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12237ca95ec348c0800000000000000
+      internalID: -4016139558143712740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 15
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 79
+        width: 59
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5014255, y: 0.11637461}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 617a9595ed1910900800000000000000
+      internalID: 648960205485877014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 27
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 130
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03dc3b8ad1fb99130800000000000000
+      internalID: 3574097913400511792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 28
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 131
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614c6cf0bb0459410800000000000000
+      internalID: 1483162824456193046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 44
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 98
+        width: 52
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49332193, y: 0.2641678}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33ba9b4ed613ddb60800000000000000
+      internalID: 7772422879969913651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 13
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 33
+        width: 43
+        height: 78
+      alignment: 9
+      pivot: {x: 0.48418248, y: 0.18027179}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d603ce73075b8c0800000000000000
+      internalID: -3984154909851226770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 42
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 92
+        width: 51
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49665713, y: 0.2780006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49952fa8d95d3d610800000000000000
+      internalID: 1644893161538083220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 43
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 84
+        width: 41
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49419162, y: 0.26690555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da2fa87602204c1e0800000000000000
+      internalID: -2178613981541109075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree 14
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 31
+        width: 43
+        height: 78
+      alignment: 9
+      pivot: {x: 0.49261776, y: 0.17442429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a17c5360758c6e20800000000000000
+      internalID: 3345195340979270049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 45
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 44
+        width: 51
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2481674}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8ca63ee75c0ad00800000000000000
+      internalID: 982001867538745595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 46
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 42
+        width: 41
+        height: 32
+      alignment: 9
+      pivot: {x: 0.48838323, y: 0.27009404}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96b89b30a2c5eed80800000000000000
+      internalID: -8219530934383703191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 47
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 59
+        width: 63
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49783325, y: 0.28380537}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3134e24e399db0b90800000000000000
+      internalID: -7274481543875247341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 50
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 17
+        width: 63
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49042958, y: 0.2540335}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543af42ec0d2ddcb0800000000000000
+      internalID: -4837660891366317243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 51
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 10
+        width: 28
+        height: 44
+      alignment: 9
+      pivot: {x: 0.49518475, y: 0.25750712}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bde8d36072ac41a0800000000000000
+      internalID: -6823900731777946192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 45
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 29
+        width: 30
+        height: 24
+      alignment: 9
+      pivot: {x: 0.4955078, y: 0.38771662}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efde2399a359aba80800000000000000
+      internalID: -8450277671896420866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 48
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 8
+        width: 33
+        height: 19
+      alignment: 9
+      pivot: {x: 0.5000005, y: 0.3139453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93bb1959939b0b890800000000000000
+      internalID: -7444246527069799623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone 49
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 9
+        width: 33
+        height: 19
+      alignment: 9
+      pivot: {x: 0.49278352, y: 0.3139453}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96625ba9f87e18c00800000000000000
+      internalID: 901256004412712553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 349
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ea3f84191d1ec4a8cd9d8e8b06763c
+      internalID: -8270025733737639108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 33
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 386
+        width: 5
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13806716cc541ef4ba403b351e971585
+      internalID: 4900936959511177549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass 25
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 158
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 579a30669ea364e408c8d51c5c796236
+      internalID: 434705949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit 2
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 343
+        width: 13
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c73963051f57e42966f131292a841f
+      internalID: 2084974610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 2
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 425
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17d1e5338318aec49a91d497c748ce45
+      internalID: 418342452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 3
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 425
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 670220fd1f0a0e14ea818a9241ca1edf
+      internalID: -1705462627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 4
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 428
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4e8c973fdc45d40bb43a32ec4de045
+      internalID: -776845670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 418
+        width: 22
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f227d029f2fdfa44b9020a24d4e5d27e
+      internalID: 502639574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 0
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 438
+        width: 32
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af992c94296165643ab841c95ac3250c
+      internalID: 303754242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 7
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 367
+        width: 15
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9749dae64f84ac4fbe07f7428eb3f54
+      internalID: -1899192847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 354
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc229ab16b567ea489bb268338cf2e3b
+      internalID: -1539548902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 13
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 314
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13fc1b003be6fe946b57b1bc0cd55195
+      internalID: 1685598592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 15
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 298
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c89f9a256cacc243917469a6f288a80
+      internalID: -1960263750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 16
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 302
+        width: 34
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a1b6b349a0d384b930e6b83a4e47e5
+      internalID: 1265073411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 8
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 368
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f863b26f8885934d8d7539757c75dce
+      internalID: -382405862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 11
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 352
+        width: 31
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef4cca002b8c704fa013561ee8fb26a
+      internalID: 326487126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pool 12
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 348
+        width: 21
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43bde8886527b8a4bb427c3694c4287c
+      internalID: 1266513396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall 0
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 255
+        width: 16
+        height: 49
+      alignment: 9
+      pivot: {x: 0.47073746, y: 0.0986378}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38e0461a58ba30409d1e11db351bcf8
+      internalID: -1307279198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall 1
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 256
+        width: 31
+        height: 49
+      alignment: 9
+      pivot: {x: 0.46686578, y: 0.0986378}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42dc42af02e710c448057a30cdc35759
+      internalID: -887744580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall 2
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 203
+        width: 31
+        height: 44
+      alignment: 9
+      pivot: {x: 0.4869798, y: 0.0986378}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6f7193469074247a30042cd078d4b9
+      internalID: -1072526419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall 3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 152
+        width: 15
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0986378}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f848480965232d4da521ba48a201b3f
+      internalID: -422909529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall 4
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 152
+        width: 16
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5, y: 0.0986378}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a494edba71dbdf428a84fe76a0a00d8
+      internalID: 316368395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6671871fe7d6bcf4a93034867da74550
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Fence 0: 2878305098489262934
+      Fence 1: 8611416265011595233
+      Fence 2: -1890045308427263772
+      Fence 3: -8533832553032022985
+      Fence 4: -8160456606609603623
+      Field_100: -2930998703449534465
+      Field_101: -8936952922929775356
+      Field_109: -6739315523522477968
+      Field_110: -8621102059095407804
+      Field_111: 7753676658633406027
+      Field_112: 2803002976624322468
+      Field_113: -8843088502005733716
+      Field_114: -7902854721317424748
+      Field_123: 3730818768148917784
+      Field_124: -6082584298374141155
+      Field_125: -3123709495704262782
+      Field_13: 2588098782979795341
+      Field_133: -4275178339407399485
+      Field_134: 2604451578441046391
+      Field_135: -2393452225045243525
+      Field_146: -8917948469637677458
+      Field_147: -3310337038328036712
+      Field_148: 7166124693834322525
+      Field_149: -1222085386336703395
+      Field_15: -4719516895935553671
+      Field_150: -4250505893048693489
+      Field_151: 5231919844342909939
+      Field_154: 1748604125775907162
+      Field_155: 5076967810490479125
+      Field_156: -1647101196681931144
+      Field_157: 3315193444793531655
+      Field_158: -8826030099195216216
+      Field_159: -6007937674586014389
+      Field_16: 352520455656617593
+      Field_160: 1310352897258548465
+      Field_161: 9209902595815791898
+      Field_169: -6244150215919345169
+      Field_17: 5397179369931239615
+      Field_170: -1757777553393673372
+      Field_171: -3422041774436327808
+      Field_172: -3656545468178986491
+      Field_178: -2255355204439942165
+      Field_179: 6669344189131852622
+      Field_18: 5323072875898153726
+      Field_180: 1396473077272860826
+      Field_181: 2103385529758759351
+      Field_182: -7030401470541294218
+      Field_183: -3586162964756817884
+      Field_184: 3715769717444416990
+      Field_19: -8322660129267955479
+      Field_191: 8992515403215204225
+      Field_192: -7778833828443973814
+      Field_193: 6173665529710744402
+      Field_194: 5049017020696065079
+      Field_195: 143322890639625886
+      Field_196: 4619016509165048829
+      Field_197: -1382579965505435418
+      Field_198: 2317385786347775046
+      Field_203: 8083580122424908457
+      Field_204: -7460832770429007476
+      Field_205: -2672768927184347036
+      Field_206: 463631435731498076
+      Field_207: 338008191240331886
+      Field_208: -2166826679185726579
+      Field_209: 5922843042777545433
+      Field_21: -4324632312305191011
+      Field_214: -5345416442847598390
+      Field_215: -8963139118450754162
+      Field_216: 2936068179785516469
+      Field_220: -2252812784173773329
+      Field_221: -1696432288963424994
+      Field_222: -6839252033616787551
+      Field_223: -9133262808601753945
+      Field_224: 6602302211723817172
+      Field_225: -6469369261583836281
+      Field_226: 2888360232982874010
+      Field_231: 5821754024093517189
+      Field_232: -5662964294341450660
+      Field_233: 6429656667476239072
+      Field_234: 1906906661647683324
+      Field_235: -1382280394469302602
+      Field_236: -6888272342696494024
+      Field_237: 8807077601878546257
+      Field_239: 6026938784942103214
+      Field_24: -5626956122710296470
+      Field_240: -3407300449322928792
+      Field_241: -8799961917568951291
+      Field_242: 2975238006942895502
+      Field_243: 4365725718968106284
+      Field_244: -5700506780990571206
+      Field_245: 221882144300784180
+      Field_246: 3000834163147831611
+      Field_247: 3399621160916313703
+      Field_25: 5589840636554888553
+      Field_252: 5177564649612283742
+      Field_253: 1370744578165684267
+      Field_254: 4489756655733741255
+      Field_26: -6062304874825488329
+      Field_28: 7944229503840818405
+      Field_32: -7221697003196359113
+      Field_33: -3673041906565345984
+      Field_38: 8280692509562558798
+      Field_58: 1444987555752688546
+      Field_59: -8509515713990759533
+      Field_63: 3051065965722471666
+      Field_65: 3147034421672693031
+      Field_72: 8409108119657158184
+      Field_73: -3302080501433638356
+      Field_74: 4719860036239063388
+      Field_75: -7866664051836184091
+      Field_76: -5206280158087767990
+      Field_77: 6238781119520572959
+      Field_78: -8155235130491622843
+      Field_82: 750876638614381749
+      Field_83: 4488977106072256810
+      Field_84: 4269135458035893308
+      Field_85: 4653980163845819191
+      Field_86: -7519096638939177369
+      Field_87: 3354040044662106855
+      Field_88: 2282144899195114995
+      Field_96: 5760502875499900942
+      Field_97: 3106162282587648506
+      Field_98: 1789508053375320981
+      Field_99: -956018349931446923
+      Flower 0: 8775658263177468239
+      Flower 1: 750619357494476196
+      Flower 2: 2319940359004184140
+      Flower 3: 3851069564723084477
+      Grass 0: -4331708151623139810
+      Grass 1: 2849549510069401678
+      Grass 10: 7196743137416917127
+      Grass 11: -1833789122392130862
+      Grass 12: 8837737499122369980
+      Grass 13: -9195469729071638681
+      Grass 14: -8859144625658223535
+      Grass 15: -107095173741912188
+      Grass 16: -5374483978892820782
+      Grass 17: 541837799965316901
+      Grass 18: 8759372898868556237
+      Grass 19: 4202830689989512561
+      Grass 2: -5040602008161488838
+      Grass 20: 8454209276205874289
+      Grass 21: -6511154779731975837
+      Grass 22: -2643141518411715399
+      Grass 23: 589407731066516229
+      Grass 24: -7043252754907060636
+      Grass 25: 434705949
+      Grass 26: -2106362576225899480
+      Grass 27: 3574097913400511792
+      Grass 28: 1483162824456193046
+      Grass 29: -7548304729225608077
+      Grass 3: 2971001870257777205
+      Grass 30: -4736967306781257724
+      Grass 31: 5591272443734151623
+      Grass 32: 8720827030671274960
+      Grass 33: 4900936959511177549
+      Grass 34: 878971169730477815
+      Grass 35: 5417592772075227185
+      Grass 36: -2989142919349444137
+      Grass 37: 1220462770453560406
+      Grass 38: -1695592351531654089
+      Grass 39: -6882467553266571962
+      Grass 4: -2477088580729387348
+      Grass 40: -173162084967102589
+      Grass 41: 4212787333274515532
+      Grass 42: -5987278272630208140
+      Grass 43: 5401521012542713023
+      Grass 44: -513415679709839544
+      Grass 45: -8450277671896420866
+      Grass 5: -2755620362228209336
+      Grass 6: 3925479464413340020
+      Grass 7: -8270025733737639108
+      Grass 8: -3659069560497393393
+      Grass 9: 6334495018525058745
+      Mushroom: 4232498003818995444
+      Pit 0: 8936752942580928355
+      Pit 1: -6726354103843899087
+      Pit 2: -499907056
+      Pool 0: 303754242
+      Pool 1: 7267149506618891292
+      Pool 10: -1539548902
+      Pool 11: 326487126
+      Pool 12: 1266513396
+      Pool 13: 1685598592
+      Pool 14: -7128266562632137125
+      Pool 15: -1960263750
+      Pool 16: 1265073411
+      Pool 2: 418342452
+      Pool 3: -1705462627
+      Pool 4: -776845670
+      Pool 5: 502639574
+      Pool 6: 1328408545134881862
+      Pool 7: -1899192847
+      Pool 8: -382405862
+      Pool 9: -4152732175843286829
+      Root 0: 6719683933673734918
+      Root 1: 6793495558703468300
+      Root 2: 2116505589138221899
+      Stone 0: 2800591520618250668
+      Stone 1: -7979248815992957524
+      Stone 10: -623665013829516558
+      Stone 11: -3631275970890359706
+      Stone 12: 5890436097235452254
+      Stone 13: -2736123108218052193
+      Stone 14: -7095620510156550062
+      Stone 15: 3031169641722904568
+      Stone 16: -8820868445188342575
+      Stone 17: -440189393312385744
+      Stone 18: 1953662562605575923
+      Stone 19: 1996108650436309196
+      Stone 2: -2295411802883347283
+      Stone 20: -2838275243649677828
+      Stone 21: 6013832641168679192
+      Stone 22: -7822978996124210359
+      Stone 23: -1877601452984139635
+      Stone 24: 3741578580348975371
+      Stone 25: 1678534478946348145
+      Stone 26: 3281163977817828439
+      Stone 27: 5416005291826325549
+      Stone 28: -4072351401576713117
+      Stone 29: 5399447132165005206
+      Stone 3: -5906410225684569605
+      Stone 30: 8237398736466633911
+      Stone 31: 7247220197622647155
+      Stone 32: 2670113077373272644
+      Stone 33: -2637184617676192629
+      Stone 34: 9044198073398423509
+      Stone 35: 8001450882818837573
+      Stone 36: 3642734274882426538
+      Stone 37: 2567684395228902646
+      Stone 38: 7080863838146211813
+      Stone 39: -8725778463082854389
+      Stone 4: -6444443347886054149
+      Stone 40: -4016139558143712740
+      Stone 41: -1393548896382728170
+      Stone 42: 1644893161538083220
+      Stone 43: -2178613981541109075
+      Stone 44: 7772422879969913651
+      Stone 45: 982001867538745595
+      Stone 46: -8219530934383703191
+      Stone 47: -7274481543875247341
+      Stone 48: -7444246527069799623
+      Stone 49: 901256004412712553
+      Stone 5: -5269264090282188853
+      Stone 50: -4837660891366317243
+      Stone 51: -6823900731777946192
+      Stone 52: 2202885217157402906
+      Stone 53: -8629002456838218335
+      Stone 6: -6940644109445662870
+      Stone 7: 5418129093759781294
+      Stone 8: -1645706165789343864
+      Stone 9: 3491807872114796336
+      Tree 0: 5589886196643239007
+      Tree 1: 4295909871276419732
+      Tree 10: 1809611717548925364
+      Tree 11: 2707659201633625873
+      Tree 12: 9174935793883775004
+      Tree 13: -3984154909851226770
+      Tree 14: 3345195340979270049
+      Tree 15: 648960205485877014
+      Tree 2: -3623090549768242708
+      Tree 3: 4234991110055495549
+      Tree 4: -2645134493506703827
+      Tree 5: -784901681612426922
+      Tree 6: 7397691483097700830
+      Tree 7: 3316166300430976816
+      Tree 8: -36384411551820859
+      Tree 9: -1034483753701572655
+      Wall 0: -1307279198
+      Wall 1: -887744580
+      Wall 2: -1072526419
+      Wall 3: -422909529
+      Wall 4: 316368395
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
