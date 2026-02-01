@@ -1,0 +1,57 @@
+{
+  "player": {
+    "playerID": "Hero_01",
+    "stats": {
+      "maxHp": 100.0,
+      "attackDamage": 15.0,
+      "attackSpeed": 100.0,
+      "moveSpeed": 5.0
+    },
+    "maxMp": 100.0,
+    "defense": 5.0,
+    "critChance": 0.05,
+    "critDamage": 1.5,
+    "sprintSpeed": 8.0,
+    "specialAttackUsedMp": 30.0,
+    "specialAttackSpeed": 120.0,
+    "baseMaxExp": 100.0,
+    "expIncrement": 20.0,
+    "baseRerollCount": 2,
+    "hpGainPerLevel": 10.0,
+    "atkGainPerLevel": 2.0,
+    "critChanceGainPerLevel": 0.01,
+    "baseUpgradeCost": 100,
+    "costMultiplier": 1.2,
+    "maxCritLevel": 10,
+    "maxAtkLevel": 50,
+    "elementalUnlockCost": 5000
+  },
+  "monsters": [
+    {
+      "monsterID": "Knight",
+      "stats": {
+        "maxHp": 150.0,
+        "attackDamage": 20.0,
+        "attackSpeed": 0.5,
+        "moveSpeed": 3.5
+      },
+      "attackRange": 2.0,
+      "chaseInRange": 12.0,
+      "chaseOutRange": 18.0,
+      "cognizanceRange": 15.0
+    },
+    {
+      "monsterID": "Archer",
+      "stats": {
+        "maxHp": 30.0,
+        "attackDamage": 5.0,
+        "attackSpeed": 5,
+        "moveSpeed": 2.0
+      },
+      "attackRange": 10,
+      "chaseInRange": 10,
+      "chaseOutRange": 50,
+      "cognizanceRange": 30.0
+    }
+  ]
+}
