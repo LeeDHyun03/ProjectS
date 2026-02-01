@@ -12,6 +12,11 @@ public class PlayerCombat : MonoBehaviour
     private bool isNormalAttacking = false;
     private bool isSpecialAttacking = false;
 
+    private float attackDamage = 10f;
+    private float attackSpeed = 100f;
+
+    public float AttackSpeed => attackSpeed;
+
     void OnEnable()
     {
         specialWeapon.OnSpecialAttackComplete += OnSpecialAttackAnimationComplete;
@@ -21,7 +26,13 @@ public class PlayerCombat : MonoBehaviour
     {
         specialWeapon.OnSpecialAttackComplete -= OnSpecialAttackAnimationComplete;
     }
-    
+
+    public void SetStats(float newAttackDamage, float newAttackSpeed)
+    {
+        attackDamage = newAttackDamage;
+        attackSpeed = newAttackSpeed;
+    }
+
     public void OnNormalAttack()
     {
         if(isSpecialAttacking)

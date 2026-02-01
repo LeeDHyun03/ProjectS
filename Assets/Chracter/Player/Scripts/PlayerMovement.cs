@@ -6,17 +6,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float maxDashTimer = 0.3f;
+    [SerializeField] private float maxAttackTimer = 0.1f;
 
     private float currentSpeed;
     private float currentDashTimer = 0f;
+    private float currentAttackTimer = 0f;
 
     private bool isDashing = false;
+    private bool isAttack = false;
 
     private Vector3 moveDir;
     private Vector3 dashDir;
+    private Vector3 attackDir;
 
     public bool IsMoving => moveDir.sqrMagnitude > 0.0001f;
+
     public bool IsSprinting => currentSpeed == sprintSpeed;
+
+    public bool IsAttacking => isAttack;
+
     private void Awake()
     {
         currentSpeed = moveSpeed;
@@ -24,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (IsMoving)
+        if (IsMoving && !isAttack)
         {
             transform.position += moveDir * currentSpeed * Time.deltaTime;
         }
@@ -38,6 +46,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 isDashing = false;
                 currentDashTimer = 0f;
+            }
+        }
+
+        if(isAttack)
+        {
+            float dashDistance = moveSpeed * Time.deltaTime;
+            transform.position += attackDir.normalized * dashDistance;
+            currentAttackTimer += Time.deltaTime;
+            if (currentAttackTimer >= maxDashTimer)
+            {
+                isAttack = false;
+                currentAttackTimer = 0f;
             }
         }
     }
@@ -56,6 +76,14 @@ public class PlayerMovement : MonoBehaviour
     public void DeactivateSprintMode()
     {
         currentSpeed = moveSpeed;
+    }
+
+    public void OnAttack(Vector2 attackDirection)
+    {
+        if(isAttack)
+            return;
+        attackDir = new Vector3(attackDirection.x, attackDirection.y, 0);
+        isAttack = true;
     }
 
     public void OnDash(Vector2 dashDirection)

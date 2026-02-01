@@ -6,15 +6,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private MouseFacing facing;
     [SerializeField] private Transform visualRoot;
-    [SerializeField] private Transform weaponRoot;
-    [SerializeField] private Vector3 weaponPosForDown;
-    [SerializeField] private Vector3 weaponPosForSide;
-    private Animator animator;
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
+    [SerializeField] private Animator animator;
 
     private void Update()
     {
@@ -26,6 +18,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
         animator.SetFloat("speed", movement.IsMoving ? 1f : 0f);
         animator.SetInteger("direction", (int)facing.CurrentDirection);
         animator.SetBool("isSprint", movement.IsSprinting ? true : false);
+        animator.SetBool("isAttack", movement.IsAttacking);
         ApplyFlip(facing.CurrentDirection);
     }
 
