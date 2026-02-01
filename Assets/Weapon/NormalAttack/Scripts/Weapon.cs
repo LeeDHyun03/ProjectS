@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -8,6 +9,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform visualRoot;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private float spriteAngleOffset = 180f;
+
 
     private Camera mainCam;
     private bool isAttacking = false;
@@ -40,6 +42,7 @@ public class Weapon : MonoBehaviour
         weaponSocket.parent = playerTransform;
         isAttacking = true;
     }
+
     public void EndAttack()
     {
         weaponSocket.parent = visualRoot;
