@@ -14,7 +14,7 @@ public class MSMineChecking : MonoBehaviour
     int mineCount = 0;
 
     public event Action OnMineTriggered;
-    public event Action OnClear;
+/*    public event Action OnClear;*/
     private void Awake()
     {
         col2D = GetComponent<Collider2D>();
@@ -41,10 +41,10 @@ public class MSMineChecking : MonoBehaviour
                 OnMineTriggered?.Invoke();
             }
         }
-        else if (isPlayerOnCollision(collision))
+/*        else if (collision.CompareTag("PZClear") && isPlayerOnCollision(collision))
         {
             OnClear?.Invoke();
-        }
+        }*/
     }
     private void OnTriggerExit2D(Collider2D collision)
     { 

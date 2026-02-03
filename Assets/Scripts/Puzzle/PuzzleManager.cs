@@ -1,20 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class PuzzleManager : MonoBehaviour
 {
+    public Transform player;
     protected int difficulty;
     private void Awake()
     {
         PuzzleDataManager.Instance?.SetCurrentManager(this);
-    }
-    void Start()
-    {
-        SetPuzzleLevel(0);
-    }
-
-    void Update()
-    {
-        
+        SetPuzzleLevel(2);  //юс╫ц
     }
     public void GiveReward(int difficulty)
     {
@@ -29,6 +23,20 @@ public abstract class PuzzleManager : MonoBehaviour
     {
         difficulty = level;
         Init(level);
+        Debug.Log(level+" start");
+    }
+    public void PuzzleReset()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
     public abstract void Init(int level);
+    private void OnEnable()
+    {
+        player.GetComponent<PZPlayer>().OnClear += Clear;
+    }
+    private void OnDisable()
+    {
+        player.GetComponent<PZPlayer>().OnClear -= Clear;
+    }
 }

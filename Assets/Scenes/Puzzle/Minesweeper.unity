@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 46125287}
   - component: {fileID: 46125286}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1521674304644120860, guid: bb997ddfabc27d14dbf6f5ba3c3d7b84, type: 3}
       propertyPath: m_Name
-      value: flag
+      value: Flag
       objectReference: {fileID: 0}
     - target: {fileID: 6197389457842966308, guid: bb997ddfabc27d14dbf6f5ba3c3d7b84, type: 3}
       propertyPath: m_LocalScale.x
@@ -1275,7 +1275,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1521674304644120860, guid: bb997ddfabc27d14dbf6f5ba3c3d7b84, type: 3}
       propertyPath: m_Name
-      value: flag
+      value: Flag
       objectReference: {fileID: 0}
     - target: {fileID: 6197389457842966308, guid: bb997ddfabc27d14dbf6f5ba3c3d7b84, type: 3}
       propertyPath: m_LocalScale.x
@@ -1995,7 +1995,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1521674304644120860, guid: bb997ddfabc27d14dbf6f5ba3c3d7b84, type: 3}
       propertyPath: m_Name
-      value: ClearFlag
+      value: Flag
       objectReference: {fileID: 0}
     - target: {fileID: 6197389457842966308, guid: bb997ddfabc27d14dbf6f5ba3c3d7b84, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6847,9 +6847,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828ccb346e22ef9439bbee4790c3a904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 46125287}
   mineChecking: {fileID: 1825624300}
   puzzleGrid: {fileID: 0}
-  player: {fileID: 46125287}
   puzzleDifficulty:
   - {fileID: 1226588502}
   - {fileID: 611919787}
