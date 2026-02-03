@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpearManAnimator
+  m_Controller: {fileID: 9100000, guid: 56ccb31d9f9ff844ebd1093d56e54d0c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c8df66ee5565ae845abefbe5c3e51506, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b9bae40445426ec49a259d304b7af276, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 11092c591b0b46c409d39237df4d331a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 885d85a2873463e47adbb65912bba208, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: eb6bad3adec7a624aaaf97b3e57d7609, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8e69ad62fa33a2244942b35af439fc49, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cd63eb4409c5720429964242c6cc1d09, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cd63eb4409c5720429964242c6cc1d09, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 805b28f6265f79747853a73b76a9ddd7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1ac0e88c0e262a949afe31ad54e5787a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e68f9096da11352419ffe25ef6686d35, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8708a291e52400246aa3028e831c13cb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 472c4bb5dcd275844aabca9414a9707f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5476875f6d909bc49817aaf73d87166c, type: 2}

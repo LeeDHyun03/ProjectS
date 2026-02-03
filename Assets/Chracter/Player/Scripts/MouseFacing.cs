@@ -17,6 +17,10 @@ public class MouseFacing : MonoBehaviour
     public Direction CurrentDirection { get; private set; } = Direction.DL;
     public event Action<Direction> DirectionChanged;
 
+    private bool isAttacking = false;
+
+    public void SetIsAttacking(bool newIsAttacking) { isAttacking = newIsAttacking; }
+
     private void Update()
     {
         Direction newDir = CalculateDirection();
