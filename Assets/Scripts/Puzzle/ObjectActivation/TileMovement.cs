@@ -22,15 +22,15 @@ public class TileMovement : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.Lerp(transform.position, nextTileVec, Time.deltaTime*6f);
+                transform.position = Vector3.Lerp(transform.position, nextTileVec, Time.deltaTime*8f);
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (isMove)
-            return; 
-        if (collision.CompareTag("Player"))
+            return;
+        if (collision.gameObject.CompareTag("Player"))
         {
             var dir = PlayerMoveDir();
 
