@@ -25,6 +25,7 @@ public class CharacterStateDataContainer : MonoBehaviour
     {
         public string monsterID;
         public CommonStats stats;
+        public float maxSuperArmor;
         public float attackRange;
         public float chaseInRange;
         public float chaseOutRange;

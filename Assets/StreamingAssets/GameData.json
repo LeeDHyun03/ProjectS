@@ -35,6 +35,7 @@
         "attackSpeed": 0.5,
         "moveSpeed": 3.5
       },
+      "maxSuperArmor": 10,
       "attackRange": 2.0,
       "chaseInRange": 12.0,
       "chaseOutRange": 18.0,
@@ -48,10 +49,39 @@
         "attackSpeed": 5,
         "moveSpeed": 2.0
       },
+      "maxSuperArmor": 10,
       "attackRange": 10,
       "chaseInRange": 10,
       "chaseOutRange": 50,
       "cognizanceRange": 30.0
+    },
+    {
+      "monsterID": "SpearMan",
+      "stats": {
+        "maxHp": 30.0,
+        "attackDamage": 5.0,
+        "attackSpeed": 2,
+        "moveSpeed": 2.0
+      },
+      "maxSuperArmor": 10,
+      "attackRange": 2.0,
+      "chaseInRange": 12.0,
+      "chaseOutRange": 18.0,
+      "cognizanceRange": 15.0
+    },
+    {
+      "monsterID": "Mage",
+      "stats": {
+        "maxHp": 30.0,
+        "attackDamage": 5.0,
+        "attackSpeed": 2,
+        "moveSpeed": 2.0
+      },
+      "maxSuperArmor": 10,
+      "attackRange": 2.0,
+      "chaseInRange": 12.0,
+      "chaseOutRange": 18.0,
+      "cognizanceRange": 15.0
     }
   ]
 }

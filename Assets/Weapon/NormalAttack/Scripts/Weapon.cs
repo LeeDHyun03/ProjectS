@@ -5,75 +5,70 @@ using UnityEngine.UIElements;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Transform weaponSocket;  
-    [SerializeField] private Transform visualRoot;
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private float spriteAngleOffset = 180f;
+    [SerializeField] private BoxCollider2D attackCollider;
+    [SerializeField] private LayerMask targetLayer;
 
+    private float attackDamage = 5;
 
-    private Camera mainCam;
-    private bool isAttacking = false;
-
-    private void Reset()
+    public void SetAttackStat(float newAttackDamage)
     {
-        weaponSocket = transform;
-        visualRoot = transform.parent;
+        attackDamage = newAttackDamage;
     }
 
-    private void Start()
+    public void StartAttack(bool isSecondAttack, bool isFilp)
     {
-        mainCam = Camera.main;
-        if(mainCam == null)
+        ExecuteOverlapAttack(isSecondAttack, isFilp);
+    }
+
+    private void ExecuteOverlapAttack(bool isSecondAttack, bool isFilp)
+    {
+        GameObject effect = PlayerEffectManager.Instance.OnAttackEffect();
+        if (effect != null)
         {
-            mainCam = FindFirstObjectByType<Camera>();
-        }
-    }
-
-    private void Update()
-    {
-        if (!isAttacking)
-        {
-            AimToMouse();
-        }
-    }
-
-    public void StartAttack()
-    {
-        weaponSocket.parent = playerTransform;
-        isAttacking = true;
-    }
-
-    public void EndAttack()
-    {
-        weaponSocket.parent = visualRoot;
-        isAttacking = false;
-    }
-
-    private void AimToMouse()
-    {
-        if (mainCam == null) return;
-
-        Vector2 mousePos = Mouse.current.position.ReadValue();
-
-        Vector3 weaponScreenPos = mainCam.WorldToScreenPoint(weaponSocket.position);
-
-        Vector2 dir = mousePos - (Vector2)weaponScreenPos;
-
-        if (dir.sqrMagnitude < 0.1f) return;
-
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        if (visualRoot.lossyScale.x > 0f)
-        {
-            angle = -angle + 180f;
+            if (isFilp)
+            {
+                if (isSecondAttack)
+                {
+                    effect.transform.localRotation *= Quaternion.Euler(0f, 180f, 0f);
+                }
+            }
+            else
+            {
+                if (!isSecondAttack)
+                {
+                    effect.transform.localRotation *= Quaternion.Euler(0f, 180f, 0f);
+                }
+            }
         }
 
-        Quaternion targetWorldRot = Quaternion.Euler(0f, 0f, angle);
-        Quaternion parentWorldRot = visualRoot.rotation;
+        Vector2 pos = attackCollider.transform.position;
+        Vector2 size = attackCollider.size;
+        float angle = attackCollider.transform.eulerAngles.z;
 
-        Quaternion relativeRot = Quaternion.Inverse(parentWorldRot) * targetWorldRot;
+        Collider2D[] hitCharacters = Physics2D.OverlapBoxAll(pos, size, angle, targetLayer);
 
-        weaponSocket.localRotation = Quaternion.Euler(0, 0, relativeRot.eulerAngles.z + spriteAngleOffset);
+        foreach (var collision in hitCharacters)
+        {
+            if (collision.TryGetComponent<Monster>(out Monster monster))
+            {
+                monster.TakeDamage(attackDamage);
+            }
+        }
+
+        DisableAttackCollider();
+    }
+
+    public void EnableAttackCollider() => attackCollider.enabled = true;
+    public void DisableAttackCollider() => attackCollider.enabled = false;
+
+    private void OnDrawGizmos()
+    {
+        if (attackCollider == null) return;
+        Gizmos.color = Color.red;
+        Matrix4x4 oldMatrix = Gizmos.matrix;
+        Gizmos.matrix = attackCollider.transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(Vector3.zero, attackCollider.size);
+        Gizmos.matrix = oldMatrix;
     }
 }
 

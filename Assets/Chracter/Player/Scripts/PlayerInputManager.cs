@@ -16,7 +16,7 @@ public class PlayerInputManager : MonoBehaviour
     private InputAction statusAction;
 
     public event Action<Vector2> MoveVectorChanged;
-    public event Action NormalAttackTriggered;
+    public event Action<Vector2> NormalAttackTriggered;
     public event Action SpecialAttackTriggered;
     public event Action<Vector2> DashTriggered;
     public event Action SprintStarted;
@@ -26,7 +26,7 @@ public class PlayerInputManager : MonoBehaviour
     public event Action StatusToggled;
 
     private float dashPressTime = 0;
-    private float sprintHoldTime;
+    private float sprintHoldTime = 0.5f;
     private bool isSprinting = false;
 
     private void Awake()
@@ -80,7 +80,16 @@ public class PlayerInputManager : MonoBehaviour
     private void OnNormalAttack(InputAction.CallbackContext ctx)
     {
         RestTriggered?.Invoke(false);
-        NormalAttackTriggered?.Invoke();
+        Vector2 attackDir;
+        if (moveAction.IsPressed())
+        {
+            attackDir = moveAction.ReadValue<Vector2>().normalized;
+        }
+        else
+        {
+            attackDir = Vector2.zero;
+        }
+        NormalAttackTriggered?.Invoke(attackDir);
     } 
     private void OnSpecialAttack(InputAction.CallbackContext ctx)
     {

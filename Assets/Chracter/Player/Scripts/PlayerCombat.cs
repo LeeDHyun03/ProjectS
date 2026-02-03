@@ -5,14 +5,12 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Weapon normalWeapon;
     [SerializeField] private SpecialWeapon specialWeapon;
-
-    public event Action NormalAttackTriggered;
+    public event Action<Vector2> NormalAttackTriggered;
     public event Action SpecialAttackTriggered;
 
-    private bool isNormalAttacking = false;
-    private bool isSpecialAttacking = false;
+    [SerializeField] private bool isNormalAttacking = false;
+    [SerializeField] private bool isSpecialAttacking = false;
 
-    private float attackDamage = 10f;
     private float attackSpeed = 100f;
 
     public float AttackSpeed => attackSpeed;
@@ -29,22 +27,21 @@ public class PlayerCombat : MonoBehaviour
 
     public void SetStats(float newAttackDamage, float newAttackSpeed)
     {
-        attackDamage = newAttackDamage;
+        normalWeapon.SetAttackStat(newAttackDamage);
         attackSpeed = newAttackSpeed;
     }
 
-    public void OnNormalAttack()
+    public void OnNormalAttack(Vector2 inputAttackDir)
     {
-        if(isSpecialAttacking)
+        if (isSpecialAttacking)
             return;
         isNormalAttacking = true;
-        normalWeapon.StartAttack();
-        NormalAttackTriggered?.Invoke();
+        NormalAttackTriggered?.Invoke(inputAttackDir);
     }
+
     public void OnNormalAttackAnimationComplete()
     {
         isNormalAttacking = false;
-        normalWeapon.EndAttack();
     }
 
     public void OnSpecialAttack()
@@ -64,12 +61,12 @@ public class PlayerCombat : MonoBehaviour
     public void EnableRestMode()
     {
         isNormalAttacking = true;
-        normalWeapon.StartAttack();
+        isSpecialAttacking = true;
     }
 
     public void DisableRestMode()
     {
         isNormalAttacking = false;
-        normalWeapon.EndAttack();
+        isSpecialAttacking = false;
     }
 }

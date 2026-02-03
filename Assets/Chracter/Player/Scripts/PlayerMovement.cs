@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float sprintSpeed = 8f;
+    [SerializeField] private float attackDashSpeed = 10;
     [SerializeField] private float maxDashTimer = 0.3f;
     [SerializeField] private float maxAttackTimer = 0.1f;
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool IsAttacking => isAttack;
 
+    private bool isAttackDash = false;
+
     private void Awake()
     {
         currentSpeed = moveSpeed;
@@ -32,33 +35,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (IsMoving && !isAttack)
-        {
-            transform.position += moveDir * currentSpeed * Time.deltaTime;
-        }
-
-        if(isDashing)
+        if (isDashing)
         {
             float dashDistance = moveSpeed * 2f * Time.deltaTime;
             transform.position += dashDir.normalized * dashDistance;
             currentDashTimer += Time.deltaTime;
-            if(currentDashTimer >= maxDashTimer)
+            if (currentDashTimer >= maxDashTimer)
             {
                 isDashing = false;
                 currentDashTimer = 0f;
             }
         }
 
-        if(isAttack)
+        if (isAttackDash)
         {
-            float dashDistance = moveSpeed * Time.deltaTime;
-            transform.position += attackDir.normalized * dashDistance;
+            float dashDistance = attackDashSpeed * Time.deltaTime;
+            transform.position += attackDir * dashDistance;
             currentAttackTimer += Time.deltaTime;
-            if (currentAttackTimer >= maxDashTimer)
+            if (currentAttackTimer >= maxAttackTimer)
             {
-                isAttack = false;
+                isAttackDash = false;
                 currentAttackTimer = 0f;
             }
+            return;
+        }
+
+        if (IsMoving && !isAttack)
+        {
+            transform.position += moveDir * currentSpeed * Time.deltaTime;
         }
     }
 
@@ -78,12 +82,17 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = moveSpeed;
     }
 
-    public void OnAttack(Vector2 attackDirection)
+    public void OnAttackDash(Vector2 attackDirection)
     {
-        if(isAttack)
-            return;
         attackDir = new Vector3(attackDirection.x, attackDirection.y, 0);
+        currentAttackTimer = 0;
         isAttack = true;
+        isAttackDash = true;
+    }
+
+    public void SetIsAttack(bool newIsAttack)
+    {
+        isAttack = newIsAttack;
     }
 
     public void OnDash(Vector2 dashDirection)

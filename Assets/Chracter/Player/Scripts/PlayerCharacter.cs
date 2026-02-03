@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Assertions;
 
 [RequireComponent(typeof(PlayerInputManager))]
 [RequireComponent(typeof(PlayerMovement))]
@@ -30,7 +31,6 @@ public class PlayerCharacter : Character
     [SerializeField] private float maxExp = 100f;
     [SerializeField] private float specialAttackUsedMp = 5;
 
-    private bool isAttacking = false;
     void Start()
     {
         ApplyMetaData();
@@ -71,11 +71,12 @@ public class PlayerCharacter : Character
         input.SprintStarted += ActivateSprintMode;
         input.SprintEnded += DeactivateSprintMode;
         input.NormalAttackTriggered += OnNormalAttack;
-        input.SpecialAttackTriggered += OnSpecialAttack; // 내부 함수로 변경
+        input.SpecialAttackTriggered += OnSpecialAttack;
         input.RestTriggered += RestModeChanged;
         input.StatusToggled += ToggleStatusDisplay;
 
         weapon.NormalAttackStarted += NormalAttackStarted;
+        weapon.NormalAttackCompleted += NormalAttackEnded;
 
         rest.OnHpCure += CureHp;
 
@@ -84,22 +85,30 @@ public class PlayerCharacter : Character
         OnExpChanged += ui.ExpBarUpdate;
     }
 
-    private void NormalAttackStarted(Vector3 dir)
+    private void NormalAttackStarted(Vector2 dir)
     {
-        movement.OnAttack(dir);
+        movement.OnAttackDash(dir);
+    }
+
+    private void NormalAttackEnded()
+    {
+        movement.SetIsAttack(false);
     }
 
     private void OnDisable()
     {
-        input.MoveVectorChanged -= movement.SetMoveInput;
-        input.DashTriggered -= movement.OnDash;
-        input.SprintStarted -= movement.ActivateSprintMode;
-        input.SprintEnded -= movement.DeactivateSprintMode;
+        input.MoveVectorChanged -= SetMoveInput;
+        input.DashTriggered -= OnDash;
+        input.SprintStarted -= ActivateSprintMode;
+        input.SprintEnded -= DeactivateSprintMode;
         input.NormalAttackTriggered -= OnNormalAttack;
-        input.SpecialAttackTriggered -= combat.OnSpecialAttack;
-        input.RestTriggered -= rest.RestModeChanged;
-        input.StatusToggled -= ui.ToggleStatusDisplay;
+        input.SpecialAttackTriggered -= OnSpecialAttack;
+        input.RestTriggered -= RestModeChanged;
+        input.StatusToggled -= ToggleStatusDisplay;
         rest.OnHpCure -= CureHp;
+
+        weapon.NormalAttackStarted -= NormalAttackStarted;
+        weapon.NormalAttackCompleted -= NormalAttackEnded;
 
         OnHpChanged -= ui.HpBarUpdate;
         OnMpChanged -= ui.MpBarUpdate;
@@ -126,9 +135,10 @@ public class PlayerCharacter : Character
         movement.DeactivateSprintMode();
     }
 
-    void OnNormalAttack()
+    void OnNormalAttack(Vector2 attackDir)
     {
-        combat.OnNormalAttack();
+        movement.SetIsAttack(true);
+        combat.OnNormalAttack(attackDir);
     }
 
     void OnSpecialAttack()
@@ -140,9 +150,15 @@ public class PlayerCharacter : Character
     void RestModeChanged(bool isResting)
     {
         if(isResting)
+        {
             combat.EnableRestMode();
+            weapon.SetIsAttacking(true);
+        }   
         else
+        {
             combat.DisableRestMode();
+            weapon.SetIsAttacking(false);
+        }
 
         animator.ToggledRestAnimation(isResting);
         rest.RestModeChanged(isResting);
