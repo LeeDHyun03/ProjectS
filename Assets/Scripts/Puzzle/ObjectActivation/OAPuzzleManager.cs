@@ -7,7 +7,7 @@ public class OAPuzzleManager : PuzzleManager
     Transform currentDifficulty => puzzleDifficulty[difficulty].transform;
     Transform objects => currentDifficulty.GetChild(0);
 
-    List<OAEnerge> energes = new List<OAEnerge>();
+    List<OAEnergy> energies = new List<OAEnergy>();
     List<OAActTile> RedActTiles = new List<OAActTile>();
     List<OAActTile> BlueActTiles = new List<OAActTile>();
 
@@ -19,10 +19,10 @@ public class OAPuzzleManager : PuzzleManager
     {
         for (int i = 0; i < objects.GetChild(0).childCount; i++)
         {
-            var ctr = objects.GetChild(0).GetChild(i).GetComponent<OAEnerge>();
+            var ctr = objects.GetChild(0).GetChild(i).GetComponent<OAEnergy>();
             ctr.SetPuzzleManager(this);
             ctr.OnActTrigger += HandleActTrigger; 
-            energes.Add(ctr);
+            energies.Add(ctr);
         }
         for (int i = 0; i < objects.GetChild(1).childCount; i++)
         {
@@ -66,7 +66,7 @@ public class OAPuzzleManager : PuzzleManager
 
     private void OnDisable()
     {
-        foreach (var a in energes)
+        foreach (var a in energies)
         {
             a.OnActTrigger -= HandleActTrigger;
         }

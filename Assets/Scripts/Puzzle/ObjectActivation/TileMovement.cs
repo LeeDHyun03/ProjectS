@@ -15,19 +15,21 @@ public class TileMovement : MonoBehaviour
     {
         if(isMove)
         {
-            if ((transform.position - nextTileVec).magnitude<0.01f)
+            if ((transform.position - nextTileVec).magnitude<0.05f)
             {
                 transform.position = nextTileVec;
                 isMove = false;
             }
             else
             {
-                transform.position = Vector3.Lerp(transform.position, nextTileVec, Time.deltaTime*5f);
+                transform.position = Vector3.Lerp(transform.position, nextTileVec, Time.deltaTime*6f);
             }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isMove)
+            return; 
         if (collision.CompareTag("Player"))
         {
             var dir = PlayerMoveDir();
@@ -56,7 +58,7 @@ public class TileMovement : MonoBehaviour
     }
     bool IsWallAhead(Vector3 dir)
     {
-        float checkDistance = 0.5f;
+        float checkDistance = 0.8f;
 
         Vector3 rayStart = transform.position + (dir * 0.6f);
         
