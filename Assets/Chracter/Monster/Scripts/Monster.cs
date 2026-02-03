@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,9 @@ public class Monster : Character
     public ActionType currentActionType;
     public ActionType nextActionType;
 
+    public event Action<float, float> OnChangedHp;
+    public event Action<float, float> OnChangedSuperArmor;
+
     [SerializeField] protected string monsterID;
     [SerializeField] private MonsterDetection detection;
     [SerializeField] private MonsterMovement movement;
@@ -32,6 +36,9 @@ public class Monster : Character
 
     private bool isPlayerSide = false;
     private bool isAttacking = false;
+
+    private float maxSuperArmor;
+    private float currentSuperArmor = 0;
 
     private void Start()
     {
@@ -54,6 +61,8 @@ public class Monster : Character
         detection.SetupDectectionRange(data.attackRange, data.chaseInRange, data.chaseOutRange, data.cognizanceRange);        detection.SetIsPlayerSide(false);
         movement.SetupMovement(moveSpeed);
         attack.SetAttackStat(attackDamage, attackSpeed);
+        maxSuperArmor = data.maxSuperArmor;
+        currentSuperArmor = maxSuperArmor;
     }
 
     private void OnEnable()
@@ -77,7 +86,7 @@ public class Monster : Character
     }
     private void CheckDirection()
     {
-        if (currentTarget == null) return;
+        if (currentTarget == null || currentTarget.transform == null) return;
         Vector3 direction = (currentTarget.transform.position - transform.position).normalized;
         transform.position += direction * moveSpeed * Time.deltaTime;
         if ((Mathf.Abs(direction.x) < 0.001f)) return;
@@ -94,9 +103,6 @@ public class Monster : Character
     {
         currentTarget = target;
         movement.SetTarget(currentTarget);
-
-        Debug.Log($"detectionState: {detectionState}");
-
         ActionType targetAction = ActionType.Idle;
         switch (detectionState)
         {
@@ -130,7 +136,6 @@ public class Monster : Character
     {
         currentActionType = action;
 
-        Debug.Log($"현재 액션: {action}");
         switch (action)
         {
             case ActionType.Attack:
@@ -188,5 +193,23 @@ public class Monster : Character
     public override void Dead()
     {
         animator.ApplyAnimation("isDie", true);
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        if(currentSuperArmor > 1)
+        {
+            float calcDamage = damage * 0.3f;
+            currentSuperArmor -= calcDamage;
+            if(currentSuperArmor <= 0) 
+            { 
+                currentSuperArmor = 0;
+                base.TakeDamage(maxHp * 0.1f);
+            }
+            OnChangedSuperArmor?.Invoke(currentSuperArmor, maxSuperArmor);
+            damage -= calcDamage;
+        }
+        base.TakeDamage(damage);
+        OnChangedHp?.Invoke(currentHp, maxHp);
     }
 }

@@ -62,7 +62,7 @@ public class ObjectPooler : MonoBehaviour
     public static void ReturnToPool(GameObject obj)
     {
         obj.SetActive(false);
+        if (obj.CompareTag("Untagged")) return;
         Instance.poolDictionary[obj.tag].Enqueue(obj);
     }
-
 }

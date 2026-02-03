@@ -25,12 +25,16 @@ public class AttackIndicator : MonoBehaviour
     private IEnumerator FillRoutine(float duration)
     {
         float t = 0;
-        while (t < fillSpriteSize.y)
+        while (t < 1)
         {
             t += Time.deltaTime / duration;
-            fillSprite.size = new Vector2(fillSpriteSize.x, t);
+
+            float currentFill = Mathf.Lerp(0, fillSpriteSize.y, t);
+
+            fillSprite.size = new Vector2(fillSpriteSize.x, currentFill);
             yield return null;
         }
+        fillSprite.size = fillSpriteSize;
         transform.parent = null;
         OnIndicatorComplete?.Invoke();
         OnIndicatorComplete = null;
