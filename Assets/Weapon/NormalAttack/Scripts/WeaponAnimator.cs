@@ -35,7 +35,6 @@ public class WeaponAnimator : MonoBehaviour
         if (combat != null)
         {
             combat.NormalAttackTriggered += OnNormalAttack;
-            combat.SpecialAttackTriggered += OnSpecialAttack;
         }
     }
 
@@ -44,7 +43,6 @@ public class WeaponAnimator : MonoBehaviour
         if (combat != null)
         {
             combat.NormalAttackTriggered -= OnNormalAttack;
-            combat.SpecialAttackTriggered -= OnSpecialAttack;
         }
     }
 
@@ -100,11 +98,6 @@ public class WeaponAnimator : MonoBehaviour
         currentAttackCount++;
         animator.SetInteger("attackCount", currentAttackCount);
         inputAttackDirection = inputAttackDir;
-    }
-
-    private void OnSpecialAttack()
-    {
-
     }
     #endregion
 

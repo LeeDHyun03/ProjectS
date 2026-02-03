@@ -78,7 +78,11 @@ public class PlayerCharacter : Character
         weapon.NormalAttackStarted += NormalAttackStarted;
         weapon.NormalAttackCompleted += NormalAttackEnded;
 
+        combat.SpecialAttackTriggered += OnSpecialAttackDash;
+
         rest.OnHpCure += CureHp;
+
+        animator.StartSpecialAttacked += OnActivateSpecialAttack;
 
         OnHpChanged += ui.HpBarUpdate;
         OnMpChanged += ui.MpBarUpdate;
@@ -105,10 +109,15 @@ public class PlayerCharacter : Character
         input.SpecialAttackTriggered -= OnSpecialAttack;
         input.RestTriggered -= RestModeChanged;
         input.StatusToggled -= ToggleStatusDisplay;
+
         rest.OnHpCure -= CureHp;
 
         weapon.NormalAttackStarted -= NormalAttackStarted;
         weapon.NormalAttackCompleted -= NormalAttackEnded;
+
+        combat.SpecialAttackTriggered -= OnSpecialAttackDash;
+
+        animator.StartSpecialAttacked -= OnActivateSpecialAttack;
 
         OnHpChanged -= ui.HpBarUpdate;
         OnMpChanged -= ui.MpBarUpdate;
@@ -144,7 +153,20 @@ public class PlayerCharacter : Character
     void OnSpecialAttack()
     {
         if(UsedMp(specialAttackUsedMp))
-            combat.OnSpecialAttack();
+        {
+            movement.OnSpecialAttack();
+            animator.ToggledSpecialAttackAnim(true);
+        }
+    }
+
+    public void OnActivateSpecialAttack()
+    {
+        combat.OnSpecialAttack();
+    }
+
+    void OnSpecialAttackDash(Vector2 attackDir)
+    {
+        movement.SetAttackDashDir(-attackDir);
     }
 
     void RestModeChanged(bool isResting)
@@ -153,7 +175,7 @@ public class PlayerCharacter : Character
         {
             combat.EnableRestMode();
             weapon.SetIsAttacking(true);
-        }   
+        }
         else
         {
             combat.DisableRestMode();
@@ -171,9 +193,8 @@ public class PlayerCharacter : Character
 
     public override void TakeDamage(float damage)
     {
-        // 방어력 적용 (PlayerData에 있는 defense 활용)
         float defense = DataManager.Instance.BaseData.player.defense;
-        float finalDamage = Mathf.Max(damage - defense, 1); // 최소 1 데미지
+        float finalDamage = Mathf.Max(damage - defense, 1);
 
         base.TakeDamage(finalDamage);
         OnHpChanged?.Invoke(currentHp, maxHp);

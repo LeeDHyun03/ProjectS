@@ -91,6 +91,7 @@ public class PlayerInputManager : MonoBehaviour
         }
         NormalAttackTriggered?.Invoke(attackDir);
     } 
+
     private void OnSpecialAttack(InputAction.CallbackContext ctx)
     {
         RestTriggered?.Invoke(false);

@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
 
     private float attackDamage = 5;
 
-    public void SetAttackStat(float newAttackDamage)
+    public void SetAttackDamage(float newAttackDamage)
     {
         attackDamage = newAttackDamage;
     }
@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
 
     private void ExecuteOverlapAttack(bool isSecondAttack, bool isFilp)
     {
-        GameObject effect = PlayerEffectManager.Instance.OnAttackEffect();
+        GameObject effect = PlayerEffectManager.Instance.OnNormalAttackEffect();
         if (effect != null)
         {
             if (isFilp)

@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isAttackDash = false;
 
+    private bool isSpecialAttack = false;
+
+    private bool isSpecialAttackDash = false;
     private void Awake()
     {
         currentSpeed = moveSpeed;
@@ -35,6 +38,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(isSpecialAttackDash)
+        {
+            float dashDistance = attackDashSpeed * Time.deltaTime;
+            transform.position += attackDir * dashDistance;
+            currentAttackTimer += Time.deltaTime;
+            if (currentAttackTimer >= maxAttackTimer)
+            {
+                isSpecialAttackDash = false;
+                isSpecialAttack = false;
+                currentAttackTimer = 0f;
+            }
+            return;
+        }
+
+        if (isSpecialAttack) return;
+
         if (isDashing)
         {
             float dashDistance = moveSpeed * 2f * Time.deltaTime;
@@ -84,15 +103,27 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnAttackDash(Vector2 attackDirection)
     {
-        attackDir = new Vector3(attackDirection.x, attackDirection.y, 0);
+        SetAttackDashDir(attackDirection);
         currentAttackTimer = 0;
         isAttack = true;
         isAttackDash = true;
     }
 
+    public void SetAttackDashDir(Vector2 attackDirection)
+    {
+        attackDir = new Vector3(attackDirection.x, attackDirection.y, 0);
+        attackDir.Normalize();
+        isSpecialAttackDash = true;
+    }
+
     public void SetIsAttack(bool newIsAttack)
     {
         isAttack = newIsAttack;
+    }
+
+    public void OnSpecialAttack()
+    {
+        isSpecialAttack = true;
     }
 
     public void OnDash(Vector2 dashDirection)

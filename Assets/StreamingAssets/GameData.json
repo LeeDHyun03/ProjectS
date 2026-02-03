@@ -7,7 +7,7 @@
       "attackSpeed": 100.0,
       "moveSpeed": 5.0
     },
-    "maxMp": 100.0,
+    "maxMp": 11000.0,
     "defense": 5.0,
     "critChance": 0.05,
     "critDamage": 1.5,

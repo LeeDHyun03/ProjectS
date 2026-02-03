@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Arrow
   - AttackIndicator
+  - WalkEffect
+  - NormalAttackEffect
+  - SpecialAttackEffect
   layers:
   - Default
   - TransparentFX

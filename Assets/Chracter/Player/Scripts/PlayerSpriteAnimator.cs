@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -7,6 +8,8 @@ public class PlayerSpriteAnimator : MonoBehaviour
     [SerializeField] private MouseFacing facing;
     [SerializeField] private Transform visualRoot;
     [SerializeField] private Animator animator;
+
+    public event Action StartSpecialAttacked;
 
     private void Update()
     {
@@ -37,6 +40,27 @@ public class PlayerSpriteAnimator : MonoBehaviour
     public void ToggledRestAnimation(bool isRest)
     {
         animator.SetBool("isRest", isRest);
+    }
+
+    public void ToggledSpecialAttackAnim(bool isAttack)
+    {
+        animator.SetBool("isSpecialAttack", isAttack);
+    }
+
+    public void BlockSpecialAttackAnim()
+    {
+        animator.SetBool("isSpecialAttacking", true);
+    }
+
+    public void AllowSpecialAttackAnim()
+    {
+        animator.SetBool("isSpecialAttacking", false);
+    }
+
+    public void SpecialAttackStart()
+    {
+        ToggledSpecialAttackAnim(false);
+        StartSpecialAttacked?.Invoke();
     }
 
     private void SpawnWalkEffect()

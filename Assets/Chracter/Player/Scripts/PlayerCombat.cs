@@ -5,8 +5,9 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Weapon normalWeapon;
     [SerializeField] private SpecialWeapon specialWeapon;
+
     public event Action<Vector2> NormalAttackTriggered;
-    public event Action SpecialAttackTriggered;
+    public event Action<Vector2> SpecialAttackTriggered;
 
     [SerializeField] private bool isNormalAttacking = false;
     [SerializeField] private bool isSpecialAttacking = false;
@@ -17,17 +18,20 @@ public class PlayerCombat : MonoBehaviour
 
     void OnEnable()
     {
+        specialWeapon.SpecialAttackTriggered += OnSpecialAttackDir;
         specialWeapon.OnSpecialAttackComplete += OnSpecialAttackAnimationComplete;
     }
 
     void OnDisable()
     {
+        specialWeapon.SpecialAttackTriggered -= OnSpecialAttackDir;
         specialWeapon.OnSpecialAttackComplete -= OnSpecialAttackAnimationComplete;
     }
 
     public void SetStats(float newAttackDamage, float newAttackSpeed)
     {
-        normalWeapon.SetAttackStat(newAttackDamage);
+        normalWeapon.SetAttackDamage(newAttackDamage);
+        specialWeapon.SetAttackDamage(newAttackDamage);
         attackSpeed = newAttackSpeed;
     }
 
@@ -46,16 +50,20 @@ public class PlayerCombat : MonoBehaviour
 
     public void OnSpecialAttack()
     {
-        if(isNormalAttacking)
+        if(isNormalAttacking || isSpecialAttacking)
             return;
         isSpecialAttacking = true;
         specialWeapon.EnableSpecialAttackCollider();
-        SpecialAttackTriggered?.Invoke();
     }
 
     public void OnSpecialAttackAnimationComplete()
     {
         isSpecialAttacking = false;
+    }
+
+    private void OnSpecialAttackDir(Vector2 attackDir)
+    {
+        SpecialAttackTriggered?.Invoke(attackDir);
     }
 
     public void EnableRestMode()
