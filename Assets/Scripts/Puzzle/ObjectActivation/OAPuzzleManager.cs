@@ -14,9 +14,9 @@ public class OAPuzzleManager : PuzzleManager
     Vector3 startVec => currentDifficulty.GetChild(3).position;
     int redActiveCount = 0;
     int blueActiveCount = 0;
-
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         for (int i = 0; i < objects.GetChild(0).childCount; i++)
         {
             var ctr = objects.GetChild(0).GetChild(i).GetComponent<OAEnergy>();
