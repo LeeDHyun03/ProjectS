@@ -6,7 +6,7 @@ public class TileMovement : MonoBehaviour
 {
     [Header("필수 할당 요소")]
     public Grid puzzleGrid;
-    public Transform player;
+    public GameObject player;
     bool isMove = false;
     Vector3Int currentCell => puzzleGrid.WorldToCell(transform.position);
     Vector3 nextTileVec;
@@ -54,7 +54,7 @@ public class TileMovement : MonoBehaviour
     }
     Vector3 PlayerMoveDir()
     {
-        return (transform.position- player.position).normalized;
+        return (transform.position- player.transform.position).normalized;
     }
     bool IsWallAhead(Vector3 dir)
     {

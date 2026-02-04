@@ -5,7 +5,7 @@ public abstract class PuzzleManager : MonoBehaviour
 {
     public Transform player;
     protected int difficulty;
-    private void Awake()
+    public virtual void Awake()
     {
         PuzzleDataManager.Instance?.SetCurrentManager(this);
         SetPuzzleLevel(2);  //юс╫ц
