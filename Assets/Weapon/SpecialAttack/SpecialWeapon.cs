@@ -5,34 +5,61 @@ using UnityEngine.InputSystem;
 
 public class SpecialWeapon : MonoBehaviour
 {
-    [SerializeField] private BoxCollider specialAttackCollider;
+    [SerializeField] private BoxCollider2D specialAttackCollider;
 
+    public event Action<Vector2> SpecialAttackTriggered;
     public event Action OnSpecialAttackComplete;
-    
+
+    private Vector2 attackDir = Vector2.zero;
+    private float attackDamage = 5;
+    [SerializeField] private LayerMask targetLayer;
+
     void Awake()
     {
-        specialAttackCollider ??= GetComponent<BoxCollider>();
-        specialAttackCollider.enabled = false;
+        if(specialAttackCollider != null )
+        {
+            specialAttackCollider.enabled = false;
+        }
+    }
+
+    public void SetAttackDamage(float newDamage)
+    {
+        attackDamage = newDamage;
     }
 
     public void EnableSpecialAttackCollider()
     {
-        transform.localScale = new Vector3(1, 1, 1);
         AimToMouse();
-        specialAttackCollider.enabled = true;
+        SpecialAttackTriggered?.Invoke(attackDir);
+
+        ObjectPooler.Instance.SpawnFromPool("SpecialAttackEffect", 
+            specialAttackCollider.transform.position, specialAttackCollider.transform.rotation);
+
         StartCoroutine(SpecialAttackTimer(1f));
+
+        Vector2 pos = specialAttackCollider.transform.position;
+        Vector2 size = specialAttackCollider.size;
+        float angle = specialAttackCollider.transform.eulerAngles.z;
+
+        Collider2D[] hitCharacters = Physics2D.OverlapBoxAll(pos, size, angle, targetLayer);
+
+        foreach (var collision in hitCharacters)
+        {
+            if (collision.TryGetComponent<Monster>(out Monster monster))
+            {
+                monster.TakeDamage(attackDamage);
+            }
+        }
     }
     
     IEnumerator SpecialAttackTimer(float duration)
     {
         yield return new WaitForSeconds(duration);
-        DisableSpecialAttackCollider();
+        SpecialAttackEnded();
     }
 
-    public void DisableSpecialAttackCollider()
+    public void SpecialAttackEnded()
     {
-        transform.localScale = new Vector3(0, 0, 0);
-        specialAttackCollider.enabled = false;
         OnSpecialAttackComplete?.Invoke();
     }
 
@@ -45,10 +72,11 @@ public class SpecialWeapon : MonoBehaviour
             : center;
 
         Vector2 dir = mousePos - center;
+        attackDir = dir.normalized;
         if (dir.sqrMagnitude < 0.0001f)
             return;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        Quaternion targetWorldRot = Quaternion.Euler(0f, -angle, 0f);
+        Quaternion targetWorldRot = Quaternion.Euler(0f, 0, angle);
         transform.rotation = targetWorldRot;
     }
 }
