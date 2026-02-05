@@ -3,7 +3,7 @@ using UnityEngine;
 public enum Puzzle
 {
     ObjectActivation,
-    Portal,
+    PastAndPresent,
     Rhythm,
     Minesweeper,
     KnockBack
