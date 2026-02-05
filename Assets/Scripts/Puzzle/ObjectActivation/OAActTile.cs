@@ -6,7 +6,7 @@ public enum OAActTileColor
     Blue
 }
 
-public class OAActTile : OATileController
+public class OAActTile : TileController
 {
     public OAActTileColor myColor;
     public bool isAct;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class OAEnergy : OATileController
+public class OAEnergy : TileController
 {
     public bool onButton; 
     public event Action<OAActTileColor, bool> OnActTrigger;

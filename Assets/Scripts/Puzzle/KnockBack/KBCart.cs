@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KBCart : MonoBehaviour
+public class KBCart : TileController
 {
     void Start()
     {
@@ -17,7 +17,7 @@ public class KBCart : MonoBehaviour
         float moveDist = 1.0f; // 한 칸 단위 이동
 
         // 벽 감지
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, currentDir, moveDist, LayerMask.GetMask("Obstacle"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, currentDir, moveDist);
 
         if (hit.collider != null)
         {
