@@ -26,62 +26,90 @@
     "maxAtkLevel": 50,
     "elementalUnlockCost": 5000
   },
-  "monsters": [
-    {
-      "monsterID": "Knight",
-      "stats": {
-        "maxHp": 150.0,
-        "attackDamage": 20.0,
-        "attackSpeed": 0.5,
-        "moveSpeed": 3.5
-      },
-      "maxSuperArmor": 10,
-      "attackRange": 2.0,
-      "chaseInRange": 12.0,
-      "chaseOutRange": 18.0,
-      "cognizanceRange": 15.0
-    },
-    {
-      "monsterID": "Archer",
-      "stats": {
-        "maxHp": 30.0,
-        "attackDamage": 5.0,
-        "attackSpeed": 5,
-        "moveSpeed": 2.0
-      },
-      "maxSuperArmor": 10,
-      "attackRange": 10,
-      "chaseInRange": 10,
-      "chaseOutRange": 50,
-      "cognizanceRange": 30.0
-    },
-    {
-      "monsterID": "SpearMan",
-      "stats": {
-        "maxHp": 30.0,
-        "attackDamage": 5.0,
-        "attackSpeed": 2,
-        "moveSpeed": 2.0
-      },
-      "maxSuperArmor": 10,
-      "attackRange": 2.0,
-      "chaseInRange": 12.0,
-      "chaseOutRange": 18.0,
-      "cognizanceRange": 15.0
-    },
-    {
-      "monsterID": "Mage",
-      "stats": {
-        "maxHp": 30.0,
-        "attackDamage": 5.0,
-        "attackSpeed": 2,
-        "moveSpeed": 2.0
-      },
-      "maxSuperArmor": 10,
-      "attackRange": 2.0,
-      "chaseInRange": 12.0,
-      "chaseOutRange": 18.0,
-      "cognizanceRange": 15.0
-    }
-  ]
+    "monsters": [
+        {
+            "monsterID": "Knight",
+            "stats": {
+                "maxHp": 150.0,
+                "attackDamage": 20.0,
+                "attackSpeed": 0.5,
+                "moveSpeed": 3.5
+            },
+            "maxSuperArmor": 10,
+            "attackRange": 2.0,
+            "chaseInRange": 12.0,
+            "chaseOutRange": 18.0,
+            "cognizanceRange": 15.0
+        },
+        {
+            "monsterID": "Archer",
+            "stats": {
+                "maxHp": 30.0,
+                "attackDamage": 5.0,
+                "attackSpeed": 5,
+                "moveSpeed": 2.0
+            },
+            "maxSuperArmor": 10,
+            "attackRange": 10,
+            "chaseInRange": 10,
+            "chaseOutRange": 50,
+            "cognizanceRange": 30.0
+        },
+        {
+            "monsterID": "SpearMan",
+            "stats": {
+                "maxHp": 30.0,
+                "attackDamage": 5.0,
+                "attackSpeed": 2,
+                "moveSpeed": 2.0
+            },
+            "maxSuperArmor": 10,
+            "attackRange": 2.0,
+            "chaseInRange": 12.0,
+            "chaseOutRange": 18.0,
+            "cognizanceRange": 15.0
+        },
+        {
+            "monsterID": "Mage",
+            "stats": {
+                "maxHp": 30.0,
+                "attackDamage": 5.0,
+                "attackSpeed": 5,
+                "moveSpeed": 2.0
+            },
+            "maxSuperArmor": 10,
+            "attackRange": 10,
+            "chaseInRange": 10,
+            "chaseOutRange": 50,
+            "cognizanceRange": 30.0
+        },
+        {
+            "monsterID": "DarkMage",
+            "stats": {
+                "maxHp": 30.0,
+                "attackDamage": 0,
+                "attackSpeed": 1,
+                "moveSpeed": 1.0
+            },
+            "maxSuperArmor": 10,
+            "attackRange": 10,
+            "chaseInRange": 10,
+            "chaseOutRange": 50,
+            "cognizanceRange": 30.0
+        },
+        {
+            "monsterID": "SmallKnight",
+            "stats": {
+                "maxHp": 20.0,
+                "attackDamage": 5.0,
+                "attackSpeed": 0.5,
+                "moveSpeed": 3.5
+            },
+            "maxSuperArmor": 10,
+            "attackRange": 2.0,
+            "chaseInRange": 12.0,
+            "chaseOutRange": 18.0,
+            "cognizanceRange": 15.0
+        }
+    ]
 }

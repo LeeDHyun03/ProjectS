@@ -1,9 +1,6 @@
 using UnityEngine;
 
-public class KnightSummoner : MonsterAttack
+public class KnightSummoner : MonoBehaviour
 {
-    public override void Attack()
-    {
-        
-    }
+
 }
