@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -7,6 +8,7 @@ public class MonsterSpriteAnimator : MonoBehaviour
     private Transform visualRoot;
     private Animator animator => GetComponent<Animator>();
 
+    public event Action OnEndedStun;
     public void ApplyAnimation(string animName, bool animBoolean)
     {
         animator.SetBool(animName, animBoolean);
@@ -18,5 +20,10 @@ public class MonsterSpriteAnimator : MonoBehaviour
         scale.x = dirX;
 
         visualRoot.localScale = scale;
+    }
+
+    public void EndedStun()
+    {
+        OnEndedStun?.Invoke();
     }
 }

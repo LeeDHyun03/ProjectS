@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(MonsterDetection))]
 [RequireComponent(typeof(MonsterMovement))]
@@ -71,6 +72,7 @@ public class Monster : Character
         detection.OnDetectionStateChanged += ChangeState;
         attack.OnAttackEnd += AttackEnd;
         attack.OnStartedAttack += Attack;
+        animator.OnEndedStun += EndedStun;
         col.isTrigger = false;
     }
 
@@ -79,6 +81,7 @@ public class Monster : Character
         detection.OnDetectionStateChanged -= ChangeState;
         attack.OnAttackEnd -= AttackEnd;
         attack.OnStartedAttack -= Attack;
+        animator.OnEndedStun -= EndedStun;
     }
 
     private void Update()
@@ -201,9 +204,11 @@ public class Monster : Character
         attack.CancelInvoke();
         CancelInvoke();
 
+        isDead = true;
+
         animator.ApplyAnimation("isDie", true);
         col.isTrigger = true;
-        Invoke(nameof(Despawn), 3f);
+        Invoke(nameof(Despawn), 1.5f);
     }
 
     private void Despawn() =>
@@ -223,8 +228,14 @@ public class Monster : Character
             OnChangedSuperArmor?.Invoke(currentSuperArmor, maxSuperArmor);
             damage -= calcDamage;
         }
+        movement.SetWaiting(true);
         animator.ApplyAnimation("isDamaged", true);
         base.TakeDamage(damage);
         OnChangedHp?.Invoke(currentHp, maxHp);
+    }
+
+    private void EndedStun()
+    {
+        movement.SetWaiting(false);
     }
 }
