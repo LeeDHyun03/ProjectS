@@ -3,41 +3,34 @@ using UnityEngine;
 public class ProjectileAttack : MonsterAttack
 {
     [SerializeField] private string projectileTag;
-
     [SerializeField] private float lifeTime = 3f;
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float ArrowAttackIndicatorSizeY = 1f;
+    [SerializeField] private float arrowIndicatorThickness = 1f;
 
     public override void Attack()
     {
-        ObjectPooler.Instance.SpawnFromPool(projectileTag, transform.position, Quaternion.identity)
-            .TryGetComponent<Arrow>(out Arrow projectile);
-        if (projectile == null) return;
+        var go = ObjectPooler.Instance.SpawnFromPool(projectileTag, transform.position, Quaternion.identity);
+        if (go == null || !go.TryGetComponent<Arrow>(out var projectile)) return;
 
         projectile.SetDefaultValue(dir, lifeTime, speed, attackDamage, isPlayerSide);
     }
 
     public void SetAttackIndicatorDirection()
     {
-        AttackIndicator attackIndicator = ActivateAttackIndicator();
+        var indicator = ActivateAttackIndicator(IndicatorShape.Box, transform.position, dir);
+        if (indicator == null) return;
 
-        attackIndicator.OnIndicatorComplete += BroadcastOnStartedAttack;
+        indicator.OnIndicatorComplete += BroadcastOnStartedAttack;
 
-        float lastPosX = (speed * lifeTime);
+        float travelDistance = speed * lifeTime;
+        Vector2 size = new Vector2(travelDistance, arrowIndicatorThickness);
 
-        Vector2 attackIndicatorSize = new Vector2(lastPosX, ArrowAttackIndicatorSizeY);
-        attackIndicator.StartIndicator(attackIndicatorSize, attackSpeed);
-    }
+        indicator.StartIndicator(size, attackSpeed);
 
-    protected override AttackIndicator ActivateAttackIndicator()
-    {
-        ObjectPooler.Instance.SpawnFromPool("AttackIndicator", transform.position, Quaternion.Euler(Vector3.zero))
-            .TryGetComponent<AttackIndicator>(out AttackIndicator attackIndicator);
-        if (attackIndicator == null) return null;
-        attackIndicator.transform.parent = this.transform;
-        attackIndicator.transform.localPosition = Vector3.zero;
-        Quaternion attackIndicatorDir = Quaternion.LookRotation(Vector3.forward, dir);
-        attackIndicator.transform.rotation = attackIndicatorDir * Quaternion.Euler(0f, 0f, 180f);
-        return attackIndicator;
+        if (indicator is MonoBehaviour mb)
+        {
+            mb.transform.SetParent(transform, worldPositionStays: true);
+            mb.transform.localPosition = Vector3.zero;
+        }
     }
 }
