@@ -26,11 +26,12 @@ public class Monster : Character
     [SerializeField] private MonsterMovement movement;
     [SerializeField] private MonsterAttack attack;
     [SerializeField] private MonsterSpriteAnimator animator;
+    [SerializeField] private BoxCollider2D col;
 
     [SerializeField] private bool hasAlert = false;
     [SerializeField] private List<Vector3> path = new();
 
-    private Character currentTarget;
+    public Character currentTarget;
 
     private float lastDir;
 
@@ -70,6 +71,7 @@ public class Monster : Character
         detection.OnDetectionStateChanged += ChangeState;
         attack.OnAttackEnd += AttackEnd;
         attack.OnStartedAttack += Attack;
+        col.isTrigger = false;
     }
 
     private void OnDisable()
@@ -190,10 +192,22 @@ public class Monster : Character
         }
     }
 
+
     public override void Dead()
     {
+        if(attack != null)
+            attack.DespawnIndicator();
+
+        attack.CancelInvoke();
+        CancelInvoke();
+
         animator.ApplyAnimation("isDie", true);
+        col.isTrigger = true;
+        Invoke(nameof(Despawn), 3f);
     }
+
+    private void Despawn() =>
+        ObjectPooler.ReturnToPool(gameObject);
 
     public override void TakeDamage(float damage)
     {
@@ -209,6 +223,7 @@ public class Monster : Character
             OnChangedSuperArmor?.Invoke(currentSuperArmor, maxSuperArmor);
             damage -= calcDamage;
         }
+        animator.ApplyAnimation("isDamaged", true);
         base.TakeDamage(damage);
         OnChangedHp?.Invoke(currentHp, maxHp);
     }
