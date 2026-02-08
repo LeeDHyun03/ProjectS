@@ -9,6 +9,11 @@ TagManager:
   - WalkEffect
   - NormalAttackEffect
   - SpecialAttackEffect
+  - Meteo
+  - StigmaHitEffect
+  - HitEffect
+  - StigmaEffect
+  - ElectricEffect
   layers:
   - Default
   - TransparentFX

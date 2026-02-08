@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(MonsterDetection))]
 [RequireComponent(typeof(MonsterMovement))]
@@ -26,11 +27,12 @@ public class Monster : Character
     [SerializeField] private MonsterMovement movement;
     [SerializeField] private MonsterAttack attack;
     [SerializeField] private MonsterSpriteAnimator animator;
+    [SerializeField] private BoxCollider2D col;
 
     [SerializeField] private bool hasAlert = false;
     [SerializeField] private List<Vector3> path = new();
 
-    private Character currentTarget;
+    public Character currentTarget;
 
     private float lastDir;
 
@@ -70,6 +72,8 @@ public class Monster : Character
         detection.OnDetectionStateChanged += ChangeState;
         attack.OnAttackEnd += AttackEnd;
         attack.OnStartedAttack += Attack;
+        animator.OnEndedStun += EndedStun;
+        col.isTrigger = false;
     }
 
     private void OnDisable()
@@ -77,6 +81,7 @@ public class Monster : Character
         detection.OnDetectionStateChanged -= ChangeState;
         attack.OnAttackEnd -= AttackEnd;
         attack.OnStartedAttack -= Attack;
+        animator.OnEndedStun -= EndedStun;
     }
 
     private void Update()
@@ -190,10 +195,24 @@ public class Monster : Character
         }
     }
 
+
     public override void Dead()
     {
+        if(attack != null)
+            attack.DespawnIndicator();
+
+        attack.CancelInvoke();
+        CancelInvoke();
+
+        isDead = true;
+
         animator.ApplyAnimation("isDie", true);
+        col.isTrigger = true;
+        Invoke(nameof(Despawn), 1.5f);
     }
+
+    private void Despawn() =>
+        ObjectPooler.ReturnToPool(gameObject);
 
     public override void TakeDamage(float damage)
     {
@@ -209,7 +228,14 @@ public class Monster : Character
             OnChangedSuperArmor?.Invoke(currentSuperArmor, maxSuperArmor);
             damage -= calcDamage;
         }
+        movement.SetWaiting(true);
+        animator.ApplyAnimation("isDamaged", true);
         base.TakeDamage(damage);
         OnChangedHp?.Invoke(currentHp, maxHp);
+    }
+
+    private void EndedStun()
+    {
+        movement.SetWaiting(false);
     }
 }
