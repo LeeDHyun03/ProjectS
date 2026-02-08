@@ -236338,6 +236338,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8414942342906142383, guid: d27c2d066ee01604487e116fddfa4a17, type: 3}
+      propertyPath: maxAttackTimer
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8743188717187031583, guid: d27c2d066ee01604487e116fddfa4a17, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -237942,6 +237946,89 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 684360279}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1534089723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534089726}
+  - component: {fileID: 1534089725}
+  - component: {fileID: 1534089724}
+  m_Layer: 0
+  m_Name: SystemHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1534089724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534089723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20b56fa858c96ba4eb39d0147317cb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knightPrefab: {fileID: 6075179628895295316, guid: 1c07890183a8fe544871cd2a87247963, type: 3}
+  archerPrefab: {fileID: 2006942388800813118, guid: bfc7b9bf10fd9ac4d96d66f860a691ac, type: 3}
+  spearManPrefab: {fileID: 920245331972919937, guid: b0e9868b422eec847842e127f98bd591, type: 3}
+  magePrefab: {fileID: 2006942388800813118, guid: bfc7b9bf10fd9ac4d96d66f860a691ac, type: 3}
+  minDistance: 3
+  rejectionSamples: 30
+  cameraAreaMultiplier: 1.2
+  centerExclusionRadius: 2
+  outerMinRatio: 0.75
+  spawnIntervalRange: {x: 0.1, y: 0.5}
+  spawnBatchRange: {x: 1, y: 3}
+  enemyThreshold: 50
+--- !u!114 &1534089725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534089723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd040fe3e49c8b6468a7a736e923723f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveAmountPerDay: 5
+  waveDuration: 1
+  spawnRandomFallbackThreshold: 1
+  spawnAreaAdditionalScaleFactor: 0.2
+  nightDuration: 5
+  globalLight: {fileID: 1723750859}
+  dayColor: {r: 1, g: 1, b: 1, a: 1}
+  twilightColor: {r: 1, g: 0.6, b: 0.3, a: 1}
+  nightColor: {r: 0.23921569, g: 0.1882353, b: 0.36862746, a: 1}
+  data:
+    normalStages: []
+    extraStages: []
+  currentPhase: 0
+  currentStage: 1
+--- !u!4 &1534089726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534089723}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.61592424}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1536694268
 GameObject:
@@ -241978,7 +242065,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.24093767, g: 0.18916874, b: 0.3679245, a: 1}
+  m_Color: {r: 0.23921569, g: 0.1882353, b: 0.36862746, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -254746,3 +254833,4 @@ SceneRoots:
   - {fileID: 188020037}
   - {fileID: 986189403}
   - {fileID: 633890638}
+  - {fileID: 1534089726}

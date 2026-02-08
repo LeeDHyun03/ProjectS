@@ -7,7 +7,7 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
 
-    // µ¥ÀÌÅÍ ÀúÀå¿ë º¯¼ö
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public CharacterStateDataContainer.GameDataRoot BaseData;
     public CharacterStateDataContainer.SaveData PlayerSave;
 
@@ -57,7 +57,7 @@ public class DataManager : MonoBehaviour
         => BaseData.player.stats.moveSpeed + (PlayerSave.spdLevel * 0.1f);
 
     public float GetFinalCritChance()
-        => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f); // ÃÖ´ë 80% Á¦ÇÑ ¿¹½Ã
+        => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f); // ï¿½Ö´ï¿½ 80% ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public float GetFinalCritDamage()
         => BaseData.player.critDamage + (PlayerSave.critDamageLevel * 0.05f);
