@@ -99,7 +99,6 @@ public class GameManager : MonoBehaviour
 
         int elapsedWave = (int)(elapsed / totalDuration * waveDuration * waveAmountPerDay);
 
-        // currentStage += (int)(elapsed / totalDuration);
         if (remainingCurrentTime >= dayDuration)
         {
             currentPhase = Phase.Night;
@@ -112,7 +111,6 @@ public class GameManager : MonoBehaviour
             currentPhase = Phase.Day;
             currentWaveTime = remainingCurrentTime;
             currentPhaseTime = remainingCurrentTime;
-            // currentWave = (int)(remainingCurrentTime / waveDuration);
         }
 
         // 소환되어야 하는 양 계산

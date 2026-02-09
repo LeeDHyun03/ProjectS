@@ -238005,11 +238005,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalStageMax: 5
   waveAmountPerDay: 5
-  waveDuration: 2
+  waveDuration: 1
   maxSpawnAreaExpansionFactor: 1
   spawnRandomFallbackThreshold: 1
   spawnAreaAdditionalScaleFactor: 0.2
-  nightDuration: 4
+  nightDuration: 3
   dayColor: {r: 1, g: 1, b: 1, a: 1}
   twilightColor: {r: 1, g: 0.6, b: 0.3, a: 1}
   nightColor: {r: 0.23921569, g: 0.1882353, b: 0.36862746, a: 1}

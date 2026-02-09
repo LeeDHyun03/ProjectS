@@ -60,38 +60,6 @@ public class MonsterSpawner : MonoBehaviour
             ObjectPooler.ReturnToPool(obj);
         }
     }
-    public void SpawnWaveFallbackLegacy(WaveStaticData.MonsterAmountInfo pendingWaveAmountInfo, float areaScaleFactor = 1)
-    {
-        Rect spawnRect = GetSpawnAreaRect(areaScaleFactor);
-
-        List<Vector2> points = new();
-        Queue<string> spawnQueue = new();
-
-        for (int i = 0; i < pendingWaveAmountInfo.GetTotalAmount(); i++)
-        {
-            Vector2 p = new(
-                Random.Range(spawnRect.xMin, spawnRect.xMax),
-                Random.Range(spawnRect.yMin, spawnRect.yMax)
-            );
-
-            if (Vector2.Distance(p, spawnRect.center) >= centerExclusionRadius)
-                points.Add(p);
-        }
-
-        List<string> shuffledWaveMonsterList = pendingWaveAmountInfo
-            .ToDictionary()
-            .SelectMany(x => Enumerable.Repeat(x.Key, x.Value))
-            .ToList()
-            .Shuffle();
-
-        foreach (var id in shuffledWaveMonsterList)
-        {
-            spawnQueue.Enqueue(id);
-        }
-
-        ImmediatelySpawnFromPoints(spawnQueue, points, spawnRect.center);
-
-    }
     public void SpawnWave(
         SpawnMethod spawnMethod,
         WaveStaticData.MonsterAmountInfo info,
