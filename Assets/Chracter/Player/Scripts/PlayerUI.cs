@@ -4,36 +4,42 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
+    public static PlayerUI Instance;
+    
     [SerializeField] private Image statusPanel;
-    [SerializeField] private Slider hpBar;
-    [SerializeField] private Slider mpBar;
-    [SerializeField] private Slider expBar;
+    [SerializeField] private Image hpBar;
+    [SerializeField] private Image mpBar;
+    [SerializeField] private Image expBar;
 
     private bool isStatusVisible = false;
-    void Start()
+
+    void Awake()
     {
-
-    }
-
-    void Update()
-    {
-
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void HpBarUpdate(float currentHp, float maxHp)
     {
         float healthPercent = currentHp / maxHp;
-        hpBar.value = healthPercent;
+        hpBar.fillAmount = healthPercent;
     }
     public void MpBarUpdate(float currentMp, float maxMp)
     {
         float mpPercent = currentMp / maxMp;
-        mpBar.value = mpPercent;
+        mpBar.fillAmount = mpPercent;
     }
     public void ExpBarUpdate(float currentExp, float maxExp)
     {
         float expPercent = currentExp / maxExp;
-        expBar.value = expPercent;
+        expBar.fillAmount = expPercent;
     }
 
     public void ToggleStatusDisplay()
