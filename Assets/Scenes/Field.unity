@@ -238014,7 +238014,7 @@ MonoBehaviour:
   twilightColor: {r: 1, g: 0.6, b: 0.3, a: 1}
   nightColor: {r: 0.23921569, g: 0.1882353, b: 0.36862746, a: 1}
   data:
-    statScaleFactors: {}
+    statScaleData: {}
     normalStages: []
     extraStages: []
   currentPhase: 0
