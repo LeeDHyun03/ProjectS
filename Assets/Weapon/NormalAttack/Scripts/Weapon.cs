@@ -9,10 +9,18 @@ public class Weapon : MonoBehaviour
     [SerializeField] private LayerMask targetLayer;
 
     private float attackDamage = 5;
+    private float critChance = 0;
+    private float critDamage = 0;
+    private float meleeAttackDamage = 0;
 
-    public void SetAttackDamage(float newAttackDamage)
+    public event Action<Monster> OnAttackSuccessed;
+
+    public void SetAttackDamage(float newAttackDamage, float newCritChance, float newCritDamage, float newMeleeAttackDamage)
     {
         attackDamage = newAttackDamage;
+        critChance = newCritChance;
+        critDamage = newCritDamage;
+        meleeAttackDamage = newMeleeAttackDamage;
     }
 
     public void StartAttack(bool isSecondAttack, bool isFilp)
@@ -51,7 +59,15 @@ public class Weapon : MonoBehaviour
         {
             if (collision.TryGetComponent<Monster>(out Monster monster))
             {
-                monster.TakeDamage(attackDamage);
+                float damage = attackDamage;
+                int randomIndex = UnityEngine.Random.Range(1, 101);
+                if(randomIndex <= critChance)
+                {
+                    damage *= (1 + critDamage);
+                }
+                damage *= 1 + (meleeAttackDamage / 100);
+                monster.TakeDamage(damage);
+                OnAttackSuccessed?.Invoke(monster);
             }
         }
 

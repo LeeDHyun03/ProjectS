@@ -62,6 +62,10 @@ public class CharacterStateDataContainer : MonoBehaviour
         public int maxAtkLevel = 50;
 
         public int elementalUnlockCost = 5000;
+
+        public float pride = 3;
+        public float anger = 3;
+        public float jealousy = 3;
     }
 
     [Serializable]
@@ -71,13 +75,16 @@ public class CharacterStateDataContainer : MonoBehaviour
 
         public int hpLevel;
         public int atkLevel;
+        public int atkSpdLevel;
         public int mpLevel;
         public int defLevel;
         public int spdLevel;
         public int critChanceLevel;
         public int critDamageLevel;
         public int rerollLevel;
-
+        public int prideLevel;
+        public int jealousyLevel;
+        public int angerLevel;
         public bool isElementalStarterUnlocked;
     }
 }

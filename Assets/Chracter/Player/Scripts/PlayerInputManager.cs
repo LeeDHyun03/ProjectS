@@ -141,6 +141,7 @@ public class PlayerInputManager : MonoBehaviour
             }
         }
     }
+
     private Vector2 GetMouseDirectionFromCenter()
     {
         Vector2 center = new(Screen.width * 0.5f, Screen.height * 0.5f);

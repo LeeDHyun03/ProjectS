@@ -7,7 +7,6 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
 
-    // 데이터 저장용 변수
     public CharacterStateDataContainer.GameDataRoot BaseData;
     public CharacterStateDataContainer.SaveData PlayerSave;
 
@@ -56,6 +55,9 @@ public class DataManager : MonoBehaviour
     public float GetFinalMoveSpeed()
         => BaseData.player.stats.moveSpeed + (PlayerSave.spdLevel * 0.1f);
 
+    public float GetFinalAttackSpeed()
+        => BaseData.player.stats.attackSpeed + (PlayerSave.atkSpdLevel * 0.1f);
+
     public float GetFinalCritChance()
         => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f); // 최대 80% 제한 예시
 
@@ -67,6 +69,15 @@ public class DataManager : MonoBehaviour
 
     public bool IsElementalStarterAvailable()
         => PlayerSave.isElementalStarterUnlocked;
+
+    public float GetFinalPride()
+        => BaseData.player.pride + PlayerSave.prideLevel;
+
+    public float GetFinalAnger()
+        => BaseData.player.anger + PlayerSave.angerLevel;
+
+    public float GetFinalJealousy()
+        => BaseData.player.jealousy + PlayerSave.jealousyLevel;
 
     public void Save()
     {

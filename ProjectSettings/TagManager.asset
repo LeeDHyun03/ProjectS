@@ -14,6 +14,7 @@ TagManager:
   - HitEffect
   - StigmaEffect
   - ElectricEffect
+  - FlameOnEffect
   layers:
   - Default
   - TransparentFX

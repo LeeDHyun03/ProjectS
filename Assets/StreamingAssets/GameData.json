@@ -24,7 +24,10 @@
     "costMultiplier": 1.2,
     "maxCritLevel": 10,
     "maxAtkLevel": 50,
-    "elementalUnlockCost": 5000
+    "elementalUnlockCost": 5000,
+    "pride": 3,
+    "jealousy": 3,
+    "anger": 3
   },
     "monsters": [
         {
