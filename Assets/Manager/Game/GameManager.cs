@@ -15,23 +15,6 @@ public class GameManager : MonoBehaviour
         Day,
         Night
     }
-
-    [SerializeField] private int normalStageMax = 5;
-    [SerializeField] private float waveAmountPerDay = 5;
-    [SerializeField] private float waveDuration = 6;
-
-    [SerializeField] private float maxSpawnAreaExpansionFactor = 5;
-
-    // 푸아송 샘플링 대신 랜덤 소환 방식을 선택할 최소 몬스터 수
-    [SerializeField] private int spawnRandomFallbackThreshold = 40;
-
-    // 한 번에 소환되어야 할 양이 너무 많을 때 소환 범위를 늘리는 정도 
-
-    [SerializeField] private float spawnAreaAdditionalScaleFactor = 0.2f;
-
-    [SerializeField] private float nightDuration = 60 * 7;
-
-
     [SerializeField] private Color dayColor = new(1, 1, 1);
 
     [SerializeField] private Color twilightColor = new(1f, 0.6f, 0.3f);
@@ -55,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     private bool inPuzzle = false;
 
+    private WaveStaticData.GeneralData general;
+
     public static GameManager Instance;
 
     void Awake()
@@ -73,6 +58,7 @@ public class GameManager : MonoBehaviour
         {
             string json = File.ReadAllText(baseJsonPath);
             data = JsonConvert.DeserializeObject<WaveStaticData.Root>(json);
+            general = data.general;
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -91,13 +77,13 @@ public class GameManager : MonoBehaviour
     public void ResumeFromPuzzle()
     {
         float elapsed = Time.time - lastUpdated;
-        float dayDuration = waveDuration * waveAmountPerDay;
-        float totalDuration = dayDuration + nightDuration;
+        float dayDuration = general.waveDuration * general.waveAmountPerDay;
+        float totalDuration = dayDuration + general.nightDuration;
 
         // 스킵된 날들을 전부 제외하고 남은 현재 진행 시간(초)
         float remainingCurrentTime = elapsed % totalDuration;
 
-        int elapsedWave = (int)(elapsed / totalDuration * waveDuration * waveAmountPerDay);
+        int elapsedWave = (int)(elapsed / totalDuration * general.waveDuration * general.waveAmountPerDay);
 
         if (remainingCurrentTime >= dayDuration)
         {
@@ -118,7 +104,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 1; i < elapsedWave + 1; i++)
         {
-            if (currentWave + i > waveAmountPerDay)
+            if (currentWave + i > general.waveAmountPerDay)
             {
                 currentWave = 1;
                 UpdateExtraStagePattern();
@@ -132,15 +118,15 @@ public class GameManager : MonoBehaviour
         int pendingWaveTotalAmount = pendingWaveAmountInfo.GetTotalAmount();
 
         // 너무 많이 소환되어야 할 경우 푸아송 샘플링 대신 완전 무작위 지정
-        if (pendingWaveTotalAmount >= spawnRandomFallbackThreshold)
+        if (pendingWaveTotalAmount >= general.spawnRandomFallbackThreshold)
         {
             MonsterSpawner.Instance.SpawnWave(
                 MonsterSpawner.SpawnMethod.RandomFallback,
                 pendingWaveAmountInfo,
                 Mathf.Min(
-                    maxSpawnAreaExpansionFactor,
-                    1 + (pendingWaveTotalAmount - spawnRandomFallbackThreshold)
-                    * spawnAreaAdditionalScaleFactor
+                    general.maxSpawnAreaExpansionFactor,
+                    1 + (pendingWaveTotalAmount - general.spawnRandomFallbackThreshold)
+                    * general.spawnAreaAdditionalScaleFactor
                 )
             );
         }
@@ -150,8 +136,8 @@ public class GameManager : MonoBehaviour
                 MonsterSpawner.SpawnMethod.PoissonDiscSampling,
                 pendingWaveAmountInfo,
                 Mathf.Min(
-                    maxSpawnAreaExpansionFactor,
-                    1 + pendingWaveTotalAmount * spawnAreaAdditionalScaleFactor
+                    general.maxSpawnAreaExpansionFactor,
+                    1 + pendingWaveTotalAmount * general.spawnAreaAdditionalScaleFactor
                 )
             );
         }
@@ -183,22 +169,22 @@ public class GameManager : MonoBehaviour
     }
     WaveStaticData.MonsterAmountInfo PickWaveAmountInfo(int extraStagePattern, int stage, int wave)
     {
-        return stage > normalStageMax - 1
+        return stage > general.normalStageMax - 1
             ? data.extraStages[extraStagePattern].waves[wave]
             : data.normalStages[stage].waves[wave];
     }
     void UpdateExtraStagePattern()
     {
-        if (++currentStage > normalStageMax) currentExtraStagePattern++;
+        if (++currentStage > general.normalStageMax) currentExtraStagePattern++;
         if (currentExtraStagePattern == 3) currentExtraStagePattern = 0;
     }
     public int ElapsedExtraStages
     {
-        get { return currentStage - normalStageMax; }
+        get { return currentStage - general.normalStageMax; }
     }
     public bool InExtraStage
     {
-        get { return currentStage > normalStageMax; }
+        get { return currentStage > general.normalStageMax; }
     }
     public WaveStaticData.ScalingInfoGroup CurrentScalingInfoGroup
     {
@@ -223,8 +209,8 @@ public class GameManager : MonoBehaviour
 
         if (currentPhase == Phase.Day)
         {
-            float dayToTwilightDuration = waveDuration * waveAmountPerDay / 2f;
-            float totalDayDuration = waveDuration * waveAmountPerDay;
+            float dayToTwilightDuration = general.waveDuration * general.waveAmountPerDay / 2f;
+            float totalDayDuration = general.waveDuration * general.waveAmountPerDay;
 
             if (currentPhaseTime < dayToTwilightDuration)
             {
@@ -238,7 +224,7 @@ public class GameManager : MonoBehaviour
                 GlobalLight.Instance.SetColor(Color.Lerp(twilightColor, nightColor, t));
             }
 
-            if (currentWaveTime >= waveDuration)
+            if (currentWaveTime >= general.waveDuration)
             {
                 currentWaveTime = 0;
                 if (currentWave == 5)
@@ -256,10 +242,10 @@ public class GameManager : MonoBehaviour
         }
         if (currentPhase == Phase.Night)
         {
-            float t = currentPhaseTime / nightDuration;
+            float t = currentPhaseTime / general.nightDuration;
             GlobalLight.Instance.SetColor(Color.Lerp(nightColor, dayColor, t));
 
-            if (currentPhaseTime >= nightDuration)
+            if (currentPhaseTime >= general.nightDuration)
             {
                 currentPhaseTime = 0;
                 currentWaveTime = 0;
