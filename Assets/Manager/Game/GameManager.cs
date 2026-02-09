@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     private bool inPuzzle = false;
 
+    private Vector2 lastSpawnCenterPosition;
+
     private WaveStaticData.GeneralData general;
 
     public static GameManager Instance;
@@ -120,9 +122,10 @@ public class GameManager : MonoBehaviour
         // 너무 많이 소환되어야 할 경우 푸아송 샘플링 대신 완전 무작위 지정
         if (pendingWaveTotalAmount >= general.spawnRandomFallbackThreshold)
         {
-            MonsterSpawner.Instance.SpawnWave(
-                MonsterSpawner.SpawnMethod.RandomFallback,
+            MonsterManager.Instance.SpawnWave(
+                MonsterManager.SpawnMethod.RandomFallback,
                 pendingWaveAmountInfo,
+                lastSpawnCenterPosition,
                 Mathf.Min(
                     general.maxSpawnAreaExpansionFactor,
                     1 + (pendingWaveTotalAmount - general.spawnRandomFallbackThreshold)
@@ -132,9 +135,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            MonsterSpawner.Instance.SpawnWave(
-                MonsterSpawner.SpawnMethod.PoissonDiscSampling,
+            MonsterManager.Instance.SpawnWave(
+                MonsterManager.SpawnMethod.PoissonDiscSampling,
                 pendingWaveAmountInfo,
+                lastSpawnCenterPosition,
                 Mathf.Min(
                     general.maxSpawnAreaExpansionFactor,
                     1 + pendingWaveTotalAmount * general.spawnAreaAdditionalScaleFactor
@@ -164,9 +168,12 @@ public class GameManager : MonoBehaviour
     // 퍼즐 맵으로 넘어가기 전에 현재 상황 저장
     public void SaveCurrentStateBeforeEnterPuzzle()
     {
-        MonsterSpawner.Instance.Test_ClearMobs();
+        MonsterManager.Instance.Test_ClearMobs();
+
+        lastSpawnCenterPosition = MonsterManager.Instance.GetCurrentSpawnAreaCenter();
         lastUpdated = Time.time;
     }
+
     WaveStaticData.MonsterAmountInfo PickWaveAmountInfo(int extraStagePattern, int stage, int wave)
     {
         return stage > general.normalStageMax - 1
@@ -234,9 +241,10 @@ public class GameManager : MonoBehaviour
                     return;
                 }
                 currentWave++;
-                MonsterSpawner.Instance.SpawnWave(
-                    MonsterSpawner.SpawnMethod.PoissonDiscSampling,
-                    PickWaveAmountInfo(currentExtraStagePattern, currentStage - 1, currentWave - 1)
+                MonsterManager.Instance.SpawnWave(
+                    MonsterManager.SpawnMethod.PoissonDiscSampling,
+                    PickWaveAmountInfo(currentExtraStagePattern, currentStage - 1, currentWave - 1),
+                    MonsterManager.Instance.GetCurrentSpawnAreaCenter()
                 );
             }
         }

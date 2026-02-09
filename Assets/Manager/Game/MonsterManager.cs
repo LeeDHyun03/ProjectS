@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,7 +6,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using WaveStaticData;
 
-public class MonsterSpawner : MonoBehaviour
+using Random = UnityEngine.Random;
+public class MonsterManager : MonoBehaviour
 {
 
     public enum SpawnMethod
@@ -27,28 +29,30 @@ public class MonsterSpawner : MonoBehaviour
     public Vector2 spawnIntervalRange = new Vector2(0.2f, 0.75f);
     public Vector2Int spawnBatchRange = new Vector2Int(1, 3);
 
-    public int enemyThreshold = 50;
+
+    public static MonsterManager instance;
+
+    private int aliveMonsterCount = 0;
 
     private Camera _cam;
-
-
-    public static MonsterSpawner instance;
 
     // 테스트용
     private List<GameObject> mobs = new();
 
+    // 몬스터 수 변화 추적용 이벤트 (인자는 업데이트 후 전체 몬스터 수)
+    public event Action<int> OnChangedAliveMonsterCount;
 
     void Awake()
     {
         _cam = Camera.main;
     }
-    public static MonsterSpawner Instance
+    public static MonsterManager Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = new GameObject().AddComponent<MonsterSpawner>();
+                instance = new GameObject().AddComponent<MonsterManager>();
             }
             return instance;
         }
@@ -63,10 +67,11 @@ public class MonsterSpawner : MonoBehaviour
     public void SpawnWave(
         SpawnMethod spawnMethod,
         WaveStaticData.MonsterAmountInfo info,
+        Vector2 center,
         float scaleFactor = 1
     )
     {
-        Rect spawnRect = GetSpawnAreaRect(scaleFactor);
+        Rect spawnRect = GetSpawnAreaRect(center, scaleFactor);
 
         /*
         while (CountEnemiesInRect(spawnRect) >= enemyThreshold)
@@ -91,7 +96,6 @@ public class MonsterSpawner : MonoBehaviour
         else
         {
             float sqrRadius = centerExclusionRadius * centerExclusionRadius;
-            Vector2 center = spawnRect.center;
 
             points = Enumerable.Range(0, info.GetTotalAmount())
                 .Select(_ => new Vector2(
@@ -116,9 +120,9 @@ public class MonsterSpawner : MonoBehaviour
 
         if (spawnMethod == SpawnMethod.PoissonDiscSampling)
         {
-            StartCoroutine(SequentiallySpawnFromPoints(spawnQueue, points, spawnRect.center));
+            StartCoroutine(SequentiallySpawnFromPoints(spawnQueue, points, center));
         }
-        else ImmediatelySpawnFromPoints(spawnQueue, points, spawnRect.center);
+        else ImmediatelySpawnFromPoints(spawnQueue, points, center);
     }
 
     void ImmediatelySpawnFromPoints(
@@ -196,21 +200,44 @@ public class MonsterSpawner : MonoBehaviour
         return dist >= maxRadius * outerMinRatio;
     }
 
-    float GetMaxRadius()
+    public Vector2 GetCurrentSpawnAreaCenter()
     {
-        Vector3 bl = _cam.ViewportToWorldPoint(new Vector3(0, 0));
-        Vector3 tr = _cam.ViewportToWorldPoint(new Vector3(1, 1));
-        return Vector2.Distance(bl, tr) * 0.5f * cameraAreaMultiplier;
+        return GetSpawnAreaCenter(GetSpawnAreaWorldPoints());
     }
 
-    Rect GetSpawnAreaRect(float scaleFactor = 1)
+    (Vector3, Vector3) GetSpawnAreaWorldPoints()
     {
-        Vector3 bl = _cam.ViewportToWorldPoint(new Vector3(0, 0));
-        Vector3 tr = _cam.ViewportToWorldPoint(new Vector3(1, 1));
+        return (
+            _cam.ViewportToWorldPoint(new Vector3(0, 0)),
+            _cam.ViewportToWorldPoint(new Vector3(1, 1))
+        );
+    }
+    Vector2 GetSpawnAreaCenter((Vector3, Vector3) points)
+    {
+        return (points.Item1 + points.Item2) * 0.5f;
+    }
+    float GetMaxRadius()
+    {
+        (Vector3, Vector3) points = GetSpawnAreaWorldPoints();
+        return Vector2.Distance(points.Item1, points.Item2) * 0.5f * cameraAreaMultiplier;
+    }
+    Rect GetSpawnAreaRect(Vector2 center, float scaleFactor = 1)
+    {
+        (Vector3, Vector3) points = GetSpawnAreaWorldPoints();
 
-        Vector2 size = (tr - bl) * cameraAreaMultiplier * scaleFactor;
-        Vector2 center = (bl + tr) * 0.5f;
+        Vector2 size = cameraAreaMultiplier * scaleFactor * (points.Item2 - points.Item1);
 
         return new Rect(center - size * 0.5f, size);
+    }
+    // 성공적으로 초기화된 몹의 경우에만 카운트함
+    public void OnMonsterSuccessfullySpawned()
+    {
+        aliveMonsterCount++;
+        OnChangedAliveMonsterCount?.Invoke(aliveMonsterCount);
+    }
+    public void OnMonsterDespawned()
+    {
+        aliveMonsterCount--;
+        OnChangedAliveMonsterCount?.Invoke(aliveMonsterCount);
     }
 }

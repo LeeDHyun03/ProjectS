@@ -218,8 +218,11 @@ public class Monster : Character, IPooledObject
         Invoke(nameof(Despawn), 1.5f);
     }
 
-    private void Despawn() =>
+    private void Despawn()
+    {
         ObjectPooler.ReturnToPool(gameObject);
+        MonsterManager.Instance.OnMonsterDespawned();
+    }
 
     public override void TakeDamage(float damage)
     {
@@ -258,6 +261,7 @@ public class Monster : Character, IPooledObject
         else
         {
             InitializeMonster(data);
+            MonsterManager.Instance.OnMonsterSuccessfullySpawned();
         }
     }
 }
