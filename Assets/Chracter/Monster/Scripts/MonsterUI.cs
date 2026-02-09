@@ -3,31 +3,33 @@ using UnityEngine.UI;
 
 public class MonsterUI : MonoBehaviour
 {
-    [SerializeField] private Slider hpBar;
-    [SerializeField] private Slider superArmorBar;
+    [SerializeField] private Image superArmorBar;
+    [SerializeField] private Image hpBar;
     [SerializeField] private Monster monster;
 
     private void OnEnable()
     {
-        monster.OnChangedHp += HpBarUpdate;
         monster.OnChangedSuperArmor += SuperArmorBarUpdate;
+
+        monster.OnChangedHp += HpBarUpdate;
     }
 
     private void OnDisable()
     {
-        monster.OnChangedHp -= HpBarUpdate;
         monster.OnChangedSuperArmor -= SuperArmorBarUpdate;
+
+        monster.OnChangedHp -= HpBarUpdate;
     }
 
     public void HpBarUpdate(float currentHp, float maxHp)
     {
         float healthPercent = currentHp / maxHp;
-        hpBar.value = healthPercent;
+        hpBar.fillAmount = healthPercent;
     }
 
     public void SuperArmorBarUpdate(float currentSuperArmor, float maxSuperArmor)
     {
-        //float superArmorPercent = currentSuperArmor / maxSuperArmor;
-        //superArmorBar.value = superArmorPercent;
+        float superArmorPercent = currentSuperArmor / maxSuperArmor;
+        superArmorBar.fillAmount = superArmorPercent;
     }
 }
