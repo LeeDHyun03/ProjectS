@@ -7,8 +7,33 @@ namespace WaveStaticData
     [Serializable]
     public class Root
     {
+        public StatScaleData statScaleData;
         public List<Waves> normalStages;
         public List<Waves> extraStages;
+    }
+
+    [Serializable]
+    public class StatScaleData
+    {
+        public ScalingInfoGroup normalStages;
+        public ScalingInfoGroup extraStages;
+    }
+
+    [Serializable]
+    public class ScalingInfoGroup
+    {
+        public StatScalingInfo health;
+        public StatScalingInfo atk;
+        public StatScalingInfo def;
+        public StatScalingInfo supArm;
+    }
+
+    [SerializeField]
+    public class StatScalingInfo
+    {
+        public string type;
+        public float value;
+        public int unitStage;
     }
 
     [Serializable]

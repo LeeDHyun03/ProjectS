@@ -1,4 +1,50 @@
 {
+    "statScaleData": {
+        "normalStages": {
+            "health": {
+                "type": "simple",
+                "value": 5,
+                "unitStage": 1
+            },
+            "atk": {
+                "type": "simple",
+                "value": 0,
+                "unitStage": 1
+            },
+            "def": {
+                "type": "simple",
+                "value": 0,
+                "unitStage": 1
+            },
+            "supArm": {
+                "type": "simple",
+                "value": 0,
+                "unitStage": 1
+            }
+        },
+        "extraStages": {
+            "health": {
+                "type": "compound",
+                "value": 20,
+                "unitStage": 1
+            },
+            "atk": {
+                "type": "simple",
+                "value": 10,
+                "unitStage": 1
+            },
+            "def": {
+                "type": "simple",
+                "value": 15,
+                "unitStage": 3
+            },
+            "supArm": {
+                "type": "simple",
+                "value": 15,
+                "unitStage": 3
+            }
+        }
+    },
     "normalStages": [
         {
             "waves": [

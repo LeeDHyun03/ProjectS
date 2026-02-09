@@ -18,9 +18,8 @@ public class PendingWaveTester : MonoBehaviour
 
     IEnumerator ReturnToFieldAtferSeconds()
     {
-        Debug.Log("잠시 뒤 다시 필드로 복귀");
+        Dbg.L("잠시 뒤 다시 필드로 복귀함");
         yield return new WaitForSeconds(5);
-        WaveManager.Instance.initializedByPuzzleTestScene = true;
         SceneManager.LoadScene("Field");
     }
 }

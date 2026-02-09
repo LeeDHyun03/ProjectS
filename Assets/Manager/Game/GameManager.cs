@@ -5,8 +5,10 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using Newtonsoft.Json;
 
-public class WaveManager : MonoBehaviour
+// 게임 상태 전환 (날, 필드 <-> 퍼즐) 및 웨이브 진행 등을 담당
+public class GameManager : MonoBehaviour
 {
     public enum Phase
     {
@@ -14,8 +16,11 @@ public class WaveManager : MonoBehaviour
         Night
     }
 
+    [SerializeField] private int normalStageMax = 5;
     [SerializeField] private float waveAmountPerDay = 5;
     [SerializeField] private float waveDuration = 6;
+
+    [SerializeField] private float maxSpawnAreaExpansionFactor = 5;
 
     // 푸아송 샘플링 대신 랜덤 소환 방식을 선택할 최소 몬스터 수
     [SerializeField] private int spawnRandomFallbackThreshold = 40;
@@ -26,7 +31,6 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] private float nightDuration = 60 * 7;
 
-    [SerializeField] private Light2D globalLight;
 
     [SerializeField] private Color dayColor = new(1, 1, 1);
 
@@ -51,32 +55,33 @@ public class WaveManager : MonoBehaviour
 
     private bool inPuzzle = false;
 
-    [HideInInspector] public bool initializedByPuzzleTestScene = false;
-
-    public static WaveManager Instance;
+    public static GameManager Instance;
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject);
 
         string baseJsonPath = Path.Combine(Application.streamingAssetsPath, "WaveData.json");
         if (File.Exists(baseJsonPath))
         {
             string json = File.ReadAllText(baseJsonPath);
-            data = JsonUtility.FromJson<WaveStaticData.Root>(json);
+            data = JsonConvert.DeserializeObject<WaveStaticData.Root>(json);
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("start 호출됨");
-        if (initializedByPuzzleTestScene) ResumeFromPuzzle();
-        else StartCoroutine(Test());
+
     }
     IEnumerator Test()
     {
-        Debug.Log("곧 퍼즐로감");
         yield return new WaitForSeconds(5);
         SaveCurrentStateBeforeEnterPuzzle();
         inPuzzle = true;
@@ -85,7 +90,6 @@ public class WaveManager : MonoBehaviour
     // 퍼즐 맵에서 돌아왔을 때 그동안 흘러갔어야 하는 진행 상황을 적용
     public void ResumeFromPuzzle()
     {
-        inPuzzle = false;
         float elapsed = Time.time - lastUpdated;
         float dayDuration = waveDuration * waveAmountPerDay;
         float totalDuration = dayDuration + nightDuration;
@@ -93,75 +97,121 @@ public class WaveManager : MonoBehaviour
         // 스킵된 날들을 전부 제외하고 남은 현재 진행 시간(초)
         float remainingCurrentTime = elapsed % totalDuration;
 
-        int elapsedWave = (int)((elapsed - (nightDuration * (elapsed / totalDuration))) / waveDuration);
+        int elapsedWave = (int)(elapsed / totalDuration * waveDuration * waveAmountPerDay);
 
-        currentStage = (int)(elapsed / totalDuration);
+        // currentStage += (int)(elapsed / totalDuration);
         if (remainingCurrentTime >= dayDuration)
         {
             currentPhase = Phase.Night;
             currentWaveTime = 0;
-            currentWave = 0;
+            // currentWave = 0;
             currentPhaseTime = remainingCurrentTime - dayDuration;
         }
         else
         {
             currentPhase = Phase.Day;
             currentWaveTime = remainingCurrentTime;
-            currentWave = (int)(remainingCurrentTime / waveDuration);
+            currentPhaseTime = remainingCurrentTime;
+            // currentWave = (int)(remainingCurrentTime / waveDuration);
         }
 
         // 소환되어야 하는 양 계산
         WaveStaticData.MonsterAmountInfo pendingWaveAmountInfo = new();
 
-        int targetStage = currentStage;
-        int targetExtraStagePattern = currentExtraStagePattern;
         for (int i = 1; i < elapsedWave + 1; i++)
         {
-            int targetWave = currentWave;
-            if (targetWave + i > waveAmountPerDay)
+            if (currentWave + i > waveAmountPerDay)
             {
-                targetWave = 1;
-                if (++targetStage > 5) targetExtraStagePattern++;
-                targetStage++;
+                currentWave = 1;
+                UpdateExtraStagePattern();
             }
             pendingWaveAmountInfo = pendingWaveAmountInfo.Add(
-                PickWaveAmountInfo(targetExtraStagePattern, targetStage - 1, targetWave - 1 + i)
+                PickWaveAmountInfo(currentExtraStagePattern, currentStage - 1, currentWave - 1 + i)
             );
         }
 
 
         int pendingWaveTotalAmount = pendingWaveAmountInfo.GetTotalAmount();
-        Debug.Log($"소환할양: {pendingWaveTotalAmount}");
 
         // 너무 많이 소환되어야 할 경우 푸아송 샘플링 대신 완전 무작위 지정
         if (pendingWaveTotalAmount >= spawnRandomFallbackThreshold)
         {
-            Debug.Log("Fallback");
-            MonsterSpawner.Instance.SpawnWaveFallback(
+            MonsterSpawner.Instance.SpawnWave(
+                MonsterSpawner.SpawnMethod.RandomFallback,
                 pendingWaveAmountInfo,
-                1 + (pendingWaveTotalAmount - spawnRandomFallbackThreshold)
+                Mathf.Min(
+                    maxSpawnAreaExpansionFactor,
+                    1 + (pendingWaveTotalAmount - spawnRandomFallbackThreshold)
                     * spawnAreaAdditionalScaleFactor
+                )
             );
         }
         else
         {
             MonsterSpawner.Instance.SpawnWave(
+                MonsterSpawner.SpawnMethod.PoissonDiscSampling,
                 pendingWaveAmountInfo,
-                1 + pendingWaveTotalAmount * spawnAreaAdditionalScaleFactor
+                Mathf.Min(
+                    maxSpawnAreaExpansionFactor,
+                    1 + pendingWaveTotalAmount * spawnAreaAdditionalScaleFactor
+                )
             );
+        }
+        inPuzzle = false;
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Field")
+        {
+            ResumeFromPuzzle();
+            StartCoroutine(Test());
         }
     }
     // 퍼즐 맵으로 넘어가기 전에 현재 상황 저장
     public void SaveCurrentStateBeforeEnterPuzzle()
     {
+        MonsterSpawner.Instance.Test_ClearMobs();
         lastUpdated = Time.time;
     }
     WaveStaticData.MonsterAmountInfo PickWaveAmountInfo(int extraStagePattern, int stage, int wave)
     {
-        return stage > waveAmountPerDay
+        return stage > normalStageMax - 1
             ? data.extraStages[extraStagePattern].waves[wave]
             : data.normalStages[stage].waves[wave];
     }
+    void UpdateExtraStagePattern()
+    {
+        if (++currentStage > normalStageMax) currentExtraStagePattern++;
+        if (currentExtraStagePattern == 3) currentExtraStagePattern = 0;
+    }
+    public int ElapsedExtraStages
+    {
+        get { return currentStage - normalStageMax; }
+    }
+    public bool InExtraStage
+    {
+        get { return currentStage > normalStageMax; }
+    }
+    public WaveStaticData.ScalingInfoGroup CurrentScalingInfoGroup
+    {
+        get
+        {
+            return InExtraStage
+                ? data.statScaleData.extraStages
+                : data.statScaleData.normalStages;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -181,13 +231,13 @@ public class WaveManager : MonoBehaviour
             if (currentPhaseTime < dayToTwilightDuration)
             {
                 float t = currentPhaseTime / dayToTwilightDuration;
-                globalLight.color = Color.Lerp(dayColor, twilightColor, t);
+                GlobalLight.Instance.SetColor(Color.Lerp(dayColor, twilightColor, t));
             }
             else
             {
                 float t = (currentPhaseTime - dayToTwilightDuration)
                     / (totalDayDuration - dayToTwilightDuration);
-                globalLight.color = Color.Lerp(twilightColor, nightColor, t);
+                GlobalLight.Instance.SetColor(Color.Lerp(twilightColor, nightColor, t));
             }
 
             if (currentWaveTime >= waveDuration)
@@ -201,6 +251,7 @@ public class WaveManager : MonoBehaviour
                 }
                 currentWave++;
                 MonsterSpawner.Instance.SpawnWave(
+                    MonsterSpawner.SpawnMethod.PoissonDiscSampling,
                     PickWaveAmountInfo(currentExtraStagePattern, currentStage - 1, currentWave - 1)
                 );
             }
@@ -208,14 +259,14 @@ public class WaveManager : MonoBehaviour
         if (currentPhase == Phase.Night)
         {
             float t = currentPhaseTime / nightDuration;
-            globalLight.color = Color.Lerp(nightColor, dayColor, t);
+            GlobalLight.Instance.SetColor(Color.Lerp(nightColor, dayColor, t));
 
             if (currentPhaseTime >= nightDuration)
             {
                 currentPhaseTime = 0;
                 currentWaveTime = 0;
                 currentWave = 0;
-                if (++currentStage > 5) currentExtraStagePattern++;
+                UpdateExtraStagePattern();
                 currentPhase = Phase.Day;
             }
         }

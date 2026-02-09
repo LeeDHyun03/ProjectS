@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    public static DataManager Instance;
+    private static DataManager instance;
 
     // ������ ����� ����
     public CharacterStateDataContainer.GameDataRoot BaseData;
@@ -14,9 +14,21 @@ public class DataManager : MonoBehaviour
     private string savePath;
     private string baseJsonPath;
 
+
+    public static DataManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameObject().AddComponent<DataManager>();
+            }
+            return instance;
+        }
+    }
+
     void Awake()
     {
-        Instance = this;
         savePath = Path.Combine(Application.persistentDataPath, "SaveData.json");
         LoadAll();
     }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(MonsterDetection))]
 [RequireComponent(typeof(MonsterMovement))]
-public class Monster : Character
+public class Monster : Character, IPooledObject
 {
     public enum ActionType
     {
@@ -44,6 +44,7 @@ public class Monster : Character
 
     private void Start()
     {
+        /*
         var dm = DataManager.Instance;
         var baseData = dm.BaseData.monsters;
         var data = baseData.Find(m => m.monsterID == monsterID);
@@ -54,21 +55,27 @@ public class Monster : Character
         else
         {
             InitializeMonster(data);
-        }
+        }*/
     }
 
     protected void InitializeMonster(CharacterStateDataContainer.MonsterData data)
     {
-        InitializeCharacter(data.stats);
-        detection.SetupDectectionRange(data.attackRange, data.chaseInRange, data.chaseOutRange, data.cognizanceRange);        detection.SetIsPlayerSide(false);
+        // Dbg.L("현스테이지", WaveManager.Instance.currentStage);
+        // data.Show("전");
+        var scaledData = data.TryScale();
+        // scaledData.Show("후");
+
+        InitializeCharacter(scaledData.stats);
+        detection.SetupDectectionRange(scaledData.attackRange, scaledData.chaseInRange, scaledData.chaseOutRange, scaledData.cognizanceRange); detection.SetIsPlayerSide(false);
         movement.SetupMovement(moveSpeed);
         attack.SetAttackStat(attackDamage, attackSpeed);
-        maxSuperArmor = data.maxSuperArmor;
+        maxSuperArmor = scaledData.maxSuperArmor;
         currentSuperArmor = maxSuperArmor;
     }
 
     private void OnEnable()
     {
+        OnObjectSpawn();
         detection.OnDetectionStateChanged += ChangeState;
         attack.OnAttackEnd += AttackEnd;
         attack.OnStartedAttack += Attack;
@@ -111,20 +118,20 @@ public class Monster : Character
         ActionType targetAction = ActionType.Idle;
         switch (detectionState)
         {
-            case MonsterDetection.DetectionState.Attack: 
-                targetAction = ActionType.Attack; 
+            case MonsterDetection.DetectionState.Attack:
+                targetAction = ActionType.Attack;
                 break;
-            case MonsterDetection.DetectionState.Chase: 
-                targetAction = ActionType.Move; 
+            case MonsterDetection.DetectionState.Chase:
+                targetAction = ActionType.Move;
                 break;
             case MonsterDetection.DetectionState.Cognizance:
                 if (hasAlert)
                     targetAction = ActionType.Alert;
                 else
                     targetAction = ActionType.Move;
-                    break;
-            case MonsterDetection.DetectionState.None: 
-                targetAction = ActionType.Idle; 
+                break;
+            case MonsterDetection.DetectionState.None:
+                targetAction = ActionType.Idle;
                 break;
         }
 
@@ -198,7 +205,7 @@ public class Monster : Character
 
     public override void Dead()
     {
-        if(attack != null)
+        if (attack != null)
             attack.DespawnIndicator();
 
         attack.CancelInvoke();
@@ -216,12 +223,12 @@ public class Monster : Character
 
     public override void TakeDamage(float damage)
     {
-        if(currentSuperArmor > 1)
+        if (currentSuperArmor > 1)
         {
             float calcDamage = damage * 0.3f;
             currentSuperArmor -= calcDamage;
-            if(currentSuperArmor <= 0) 
-            { 
+            if (currentSuperArmor <= 0)
+            {
                 currentSuperArmor = 0;
                 base.TakeDamage(maxHp * 0.1f);
             }
@@ -237,5 +244,20 @@ public class Monster : Character
     private void EndedStun()
     {
         movement.SetWaiting(false);
+    }
+
+    public void OnObjectSpawn()
+    {
+        var dm = DataManager.Instance;
+        var baseData = dm.BaseData.monsters;
+        var data = baseData.Find(m => m.monsterID == monsterID);
+        if (data == null)
+        {
+            Debug.LogError("Monster ID is Null");
+        }
+        else
+        {
+            InitializeMonster(data);
+        }
     }
 }

@@ -4340,6 +4340,33 @@ MonoBehaviour:
   - tag: SpecialAttackEffect
     prefab: {fileID: 935515099408440552, guid: 43c32ce2a9a090e479327de9fd7c02ce, type: 3}
     size: 5
+  - tag: AttackCircleIndicator
+    prefab: {fileID: 4452168000953738110, guid: e06a92d4deee8544f9012e10b3633f06, type: 3}
+    size: 5
+  - tag: Meteo
+    prefab: {fileID: 2214722936896191925, guid: 4925afbd864486e49ad0683410675353, type: 3}
+    size: 5
+  - tag: Knight
+    prefab: {fileID: 6075179628895295316, guid: 1c07890183a8fe544871cd2a87247963, type: 3}
+    size: 50
+  - tag: Archer
+    prefab: {fileID: 2006942388800813118, guid: bfc7b9bf10fd9ac4d96d66f860a691ac, type: 3}
+    size: 50
+  - tag: SpearMan
+    prefab: {fileID: 920245331972919937, guid: b0e9868b422eec847842e127f98bd591, type: 3}
+    size: 50
+  - tag: Mage
+    prefab: {fileID: 4759521609506702546, guid: 2f3ecf29eb1c005469acd3d13bf0e300, type: 3}
+    size: 50
+  - tag: DarkMage
+    prefab: {fileID: 1444788510785730998, guid: b7c3224beb9f81549b2ef22302fc9d50, type: 3}
+    size: 50
+  - tag: Rogue
+    prefab: {fileID: 6075179628895295316, guid: 1c07890183a8fe544871cd2a87247963, type: 3}
+    size: 50
+  - tag: SmallKnight
+    prefab: {fileID: 9144692205436849738, guid: 935eae058506ff54cb6184744c9ce438, type: 3}
+    size: 50
 --- !u!4 &165741302
 Transform:
   m_ObjectHideFlags: 0
@@ -49203,7 +49230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1112610640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237957,38 +237984,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1534089726}
   - component: {fileID: 1534089725}
-  - component: {fileID: 1534089724}
   m_Layer: 0
-  m_Name: SystemHolder
+  m_Name: System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1534089724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1534089723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20b56fa858c96ba4eb39d0147317cb9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knightPrefab: {fileID: 6075179628895295316, guid: 1c07890183a8fe544871cd2a87247963, type: 3}
-  archerPrefab: {fileID: 2006942388800813118, guid: bfc7b9bf10fd9ac4d96d66f860a691ac, type: 3}
-  spearManPrefab: {fileID: 920245331972919937, guid: b0e9868b422eec847842e127f98bd591, type: 3}
-  magePrefab: {fileID: 2006942388800813118, guid: bfc7b9bf10fd9ac4d96d66f860a691ac, type: 3}
-  minDistance: 3
-  rejectionSamples: 30
-  cameraAreaMultiplier: 1.2
-  centerExclusionRadius: 2
-  outerMinRatio: 0.75
-  spawnIntervalRange: {x: 0.1, y: 0.5}
-  spawnBatchRange: {x: 1, y: 3}
-  enemyThreshold: 50
 --- !u!114 &1534089725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238001,16 +238003,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd040fe3e49c8b6468a7a736e923723f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalStageMax: 5
   waveAmountPerDay: 5
-  waveDuration: 1
+  waveDuration: 2
+  maxSpawnAreaExpansionFactor: 1
   spawnRandomFallbackThreshold: 1
   spawnAreaAdditionalScaleFactor: 0.2
-  nightDuration: 5
-  globalLight: {fileID: 1723750859}
+  nightDuration: 4
   dayColor: {r: 1, g: 1, b: 1, a: 1}
   twilightColor: {r: 1, g: 0.6, b: 0.3, a: 1}
   nightColor: {r: 0.23921569, g: 0.1882353, b: 0.36862746, a: 1}
   data:
+    statScaleFactors: {}
     normalStages: []
     extraStages: []
   currentPhase: 0
@@ -238024,7 +238028,7 @@ Transform:
   m_GameObject: {fileID: 1534089723}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.61592424}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242042,6 +242046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723750860}
   - component: {fileID: 1723750859}
+  - component: {fileID: 1723750861}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -242116,6 +242121,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1723750861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723750858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf4c58d348cf584a98168ccba72a6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1724160487
 GameObject:
   m_ObjectHideFlags: 0

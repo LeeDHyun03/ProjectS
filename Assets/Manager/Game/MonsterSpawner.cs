@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using WaveStaticData;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    public GameObject knightPrefab;
-    public GameObject archerPrefab;
-    public GameObject spearManPrefab;
-    public GameObject magePrefab;
 
-    public float minDistance = 10f;
+    public enum SpawnMethod
+    {
+        RandomFallback,
+        PoissonDiscSampling
+    }
+    // 주의: minDistance가 지나치게 크면 뽑히는 샘플 포인트 수가 크게 적어져 문제 생길 수 있음
+    // minDistance = 2일 때 평균 샘플 수 50
+    // minDistance = 10일 때 평균 샘플 수 3
+    public float minDistance = 2.5f;
     public int rejectionSamples = 30;
 
     public float cameraAreaMultiplier = 1.2f;
-    public float centerExclusionRadius = 3f;
+    public float centerExclusionRadius = 1.5f;
 
     [Range(0f, 1f)] public float outerMinRatio = 0.75f;
 
-    public Vector2 spawnIntervalRange = new Vector2(0.1f, 0.4f);
+    public Vector2 spawnIntervalRange = new Vector2(0.2f, 0.75f);
     public Vector2Int spawnBatchRange = new Vector2Int(1, 3);
 
     public int enemyThreshold = 50;
@@ -26,15 +32,35 @@ public class MonsterSpawner : MonoBehaviour
     private Camera _cam;
 
 
-    public static MonsterSpawner Instance;
+    public static MonsterSpawner instance;
+
+    // 테스트용
+    private List<GameObject> mobs = new();
 
 
     void Awake()
     {
-        Instance = this;
         _cam = Camera.main;
     }
-    public void SpawnWaveFallback(WaveStaticData.MonsterAmountInfo pendingWaveAmountInfo, float areaScaleFactor = 1)
+    public static MonsterSpawner Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameObject().AddComponent<MonsterSpawner>();
+            }
+            return instance;
+        }
+    }
+    public void Test_ClearMobs()
+    {
+        foreach (var obj in mobs)
+        {
+            ObjectPooler.ReturnToPool(obj);
+        }
+    }
+    public void SpawnWaveFallbackLegacy(WaveStaticData.MonsterAmountInfo pendingWaveAmountInfo, float areaScaleFactor = 1)
     {
         Rect spawnRect = GetSpawnAreaRect(areaScaleFactor);
 
@@ -66,10 +92,13 @@ public class MonsterSpawner : MonoBehaviour
         ImmediatelySpawnFromPoints(spawnQueue, points, spawnRect.center);
 
     }
-    public void SpawnWave(WaveStaticData.MonsterAmountInfo info, float scaleFactor = 1)
+    public void SpawnWave(
+        SpawnMethod spawnMethod,
+        WaveStaticData.MonsterAmountInfo info,
+        float scaleFactor = 1
+    )
     {
         Rect spawnRect = GetSpawnAreaRect(scaleFactor);
-        bool areaExpended = false;
 
         /*
         while (CountEnemiesInRect(spawnRect) >= enemyThreshold)
@@ -78,15 +107,32 @@ public class MonsterSpawner : MonoBehaviour
             areaExpended = true;
         } */
 
-        List<Vector2> points = RectAreaPoissonDiskSampler.GeneratePoints(
-            minDistance,
-            spawnRect,
-            rejectionSamples,
-            spawnRect.center,
-            areaExpended ? Mathf.Min(spawnRect.width, spawnRect.height) * 0.5f : centerExclusionRadius,
-            info.GetTotalAmount() > 30 ? info.GetTotalAmount() : 30
-        );
+        List<Vector2> points;
 
+        if (spawnMethod == SpawnMethod.PoissonDiscSampling)
+        {
+            points = RectAreaPoissonDiskSampler.GeneratePoints(
+                minDistance,
+                spawnRect,
+                rejectionSamples,
+                spawnRect.center,
+                centerExclusionRadius,
+                info.GetTotalAmount() > 30 ? info.GetTotalAmount() : 30
+            );
+        }
+        else
+        {
+            float sqrRadius = centerExclusionRadius * centerExclusionRadius;
+            Vector2 center = spawnRect.center;
+
+            points = Enumerable.Range(0, info.GetTotalAmount())
+                .Select(_ => new Vector2(
+                     Random.Range(spawnRect.xMin, spawnRect.xMax),
+                    Random.Range(spawnRect.yMin, spawnRect.yMax)
+                ))
+                .Where(p => (p - center).sqrMagnitude >= sqrRadius)
+                .ToList();
+        }
         Queue<string> spawnQueue = new Queue<string>();
 
         List<string> shuffledWaveMonsterList = info
@@ -100,7 +146,11 @@ public class MonsterSpawner : MonoBehaviour
             spawnQueue.Enqueue(id);
         }
 
-        StartCoroutine(SequentiallySpawnFromPoints(spawnQueue, points, spawnRect.center));
+        if (spawnMethod == SpawnMethod.PoissonDiscSampling)
+        {
+            StartCoroutine(SequentiallySpawnFromPoints(spawnQueue, points, spawnRect.center));
+        }
+        else ImmediatelySpawnFromPoints(spawnQueue, points, spawnRect.center);
     }
 
     void ImmediatelySpawnFromPoints(
@@ -112,29 +162,24 @@ public class MonsterSpawner : MonoBehaviour
         int index = 0;
         while (spawnQueue.Count > 0 && index < points.Count)
         {
-            int batch = Random.Range(spawnBatchRange.x, spawnBatchRange.y + 1);
+            string id = spawnQueue.Dequeue();
 
-            for (int i = 0; i < batch && spawnQueue.Count > 0; i++)
+            Vector2 pos;
+            int guard = 0;
+
+            do
             {
-                string id = spawnQueue.Dequeue();
-
-                Vector2 pos;
-                int guard = 0;
-
-                do
-                {
-                    pos = points[index++];
-                    guard++;
-                }
-                while (
-                    id == "Archer" &&
-                    !IsOuterArea(pos, center) &&
-                    index < points.Count
-                // guard < 50
-                );
-                // TODO: 오브젝트 풀링
-                Instantiate(GetPrefab(id), pos, Quaternion.identity);
+                pos = points[index++];
+                guard++;
             }
+            while (
+                id == "Archer" &&
+                !IsOuterArea(pos, center) &&
+                index < points.Count
+            // guard < 50
+            );
+            mobs.Add(ObjectPooler.Instance.SpawnFromPool(id, pos, Quaternion.identity));
+            // Instantiate(GetPrefab(id), pos, Quaternion.identity);
         }
     }
 
@@ -155,7 +200,6 @@ public class MonsterSpawner : MonoBehaviour
 
                 Vector2 pos;
                 int guard = 0;
-
                 do
                 {
                     pos = points[index++];
@@ -167,8 +211,8 @@ public class MonsterSpawner : MonoBehaviour
                     index < points.Count &&
                     guard < 50
                 );
-                // TODO: 오브젝트 풀링
-                Instantiate(GetPrefab(id), pos, Quaternion.identity);
+                mobs.Add(ObjectPooler.Instance.SpawnFromPool(id, pos, Quaternion.identity));
+                // Instantiate(GetPrefab(id), pos, Quaternion.identity);
             }
 
             float wait = Random.Range(spawnIntervalRange.x, spawnIntervalRange.y);
@@ -176,17 +220,6 @@ public class MonsterSpawner : MonoBehaviour
         }
     }
 
-    GameObject GetPrefab(string id)
-    {
-        return id switch
-        {
-            "Knight" => knightPrefab,
-            "Archer" => archerPrefab,
-            "Mage" => magePrefab,
-            "SpearMan" => spearManPrefab,
-            _ => throw new System.Exception("올바르지 않은 몬스터 ID")
-        };
-    }
 
     bool IsOuterArea(Vector2 pos, Vector2 center)
     {
