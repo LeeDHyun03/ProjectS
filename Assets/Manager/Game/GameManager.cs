@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
         if (scene.name == "Field")
         {
             ResumeFromPuzzle();
-            StartCoroutine(Test());
+            // StartCoroutine(Test());
         }
     }
     // 퍼즐 맵으로 넘어가기 전에 현재 상황 저장

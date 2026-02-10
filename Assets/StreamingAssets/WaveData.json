@@ -2,11 +2,11 @@
     "general": {
         "normalStageMax": 5,
         "waveAmountPerDay": 5,
-        "waveDuration": 1,
-        "nightDuration": 3,
-        "maxSpawnAreaExpansionFactor": 1,
+        "waveDuration": 60,
+        "nightDuration": 420,
+        "maxSpawnAreaExpansionFactor": 1.5,
         "spawnAreaAdditionalScaleFactor": 0.2,
-        "spawnRandomFallbackThreshold": 1
+        "spawnRandomFallbackThreshold": 20
     },
     "statScaleData": {
         "normalStages": {
