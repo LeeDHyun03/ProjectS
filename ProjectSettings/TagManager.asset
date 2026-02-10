@@ -14,7 +14,13 @@ TagManager:
   - HitEffect
   - StigmaEffect
   - ElectricEffect
-  - FlameOnEffect
+  - Archer
+  - DarkMage
+  - Knight
+  - SmallKnight
+  - Rogue
+  - SpearMan
+  - Mage
   layers:
   - Default
   - TransparentFX

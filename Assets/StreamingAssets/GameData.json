@@ -1,34 +1,31 @@
 {
-  "player": {
-    "playerID": "Hero_01",
-    "stats": {
-      "maxHp": 100.0,
-      "attackDamage": 15.0,
-      "attackSpeed": 100.0,
-      "moveSpeed": 5.0
+    "player": {
+        "playerID": "Hero_01",
+        "stats": {
+            "maxHp": 100.0,
+            "attackDamage": 15.0,
+            "attackSpeed": 100.0,
+            "moveSpeed": 5.0
+        },
+        "maxMp": 11000.0,
+        "defense": 5.0,
+        "critChance": 0.05,
+        "critDamage": 1.5,
+        "sprintSpeed": 8.0,
+        "specialAttackUsedMp": 30.0,
+        "specialAttackSpeed": 120.0,
+        "baseMaxExp": 100.0,
+        "expIncrement": 20.0,
+        "baseRerollCount": 2,
+        "hpGainPerLevel": 10.0,
+        "atkGainPerLevel": 2.0,
+        "critChanceGainPerLevel": 0.01,
+        "baseUpgradeCost": 100,
+        "costMultiplier": 1.2,
+        "maxCritLevel": 10,
+        "maxAtkLevel": 50,
+        "elementalUnlockCost": 5000
     },
-    "maxMp": 11000.0,
-    "defense": 5.0,
-    "critChance": 0.05,
-    "critDamage": 1.5,
-    "sprintSpeed": 8.0,
-    "specialAttackUsedMp": 30.0,
-    "specialAttackSpeed": 120.0,
-    "baseMaxExp": 100.0,
-    "expIncrement": 20.0,
-    "baseRerollCount": 2,
-    "hpGainPerLevel": 10.0,
-    "atkGainPerLevel": 2.0,
-    "critChanceGainPerLevel": 0.01,
-    "baseUpgradeCost": 100,
-    "costMultiplier": 1.2,
-    "maxCritLevel": 10,
-    "maxAtkLevel": 50,
-    "elementalUnlockCost": 5000,
-    "pride": 3,
-    "jealousy": 3,
-    "anger": 3
-  },
     "monsters": [
         {
             "monsterID": "Knight",

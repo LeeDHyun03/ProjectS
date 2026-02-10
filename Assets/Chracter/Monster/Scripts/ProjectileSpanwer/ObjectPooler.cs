@@ -6,6 +6,8 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Instance;
+
+    /*
     private void Start()
     {
         if (Instance == null)
@@ -17,6 +19,7 @@ public class ObjectPooler : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 
     [System.Serializable]
     public class Pool
@@ -31,6 +34,14 @@ public class ObjectPooler : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
         foreach (Pool pool in pools)
         {

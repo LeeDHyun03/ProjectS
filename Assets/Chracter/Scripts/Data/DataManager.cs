@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    public static DataManager Instance;
+    private static DataManager instance;
 
     public CharacterStateDataContainer.GameDataRoot BaseData;
     public CharacterStateDataContainer.SaveData PlayerSave;
@@ -13,9 +13,21 @@ public class DataManager : MonoBehaviour
     private string savePath;
     private string baseJsonPath;
 
+
+    public static DataManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameObject().AddComponent<DataManager>();
+            }
+            return instance;
+        }
+    }
+
     void Awake()
     {
-        Instance = this;
         savePath = Path.Combine(Application.persistentDataPath, "SaveData.json");
         LoadAll();
     }
@@ -59,7 +71,7 @@ public class DataManager : MonoBehaviour
         => BaseData.player.stats.attackSpeed + (PlayerSave.atkSpdLevel * 0.1f);
 
     public float GetFinalCritChance()
-        => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f); // 최대 80% 제한 예시
+        => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f);
 
     public float GetFinalCritDamage()
         => BaseData.player.critDamage + (PlayerSave.critDamageLevel * 0.05f);
