@@ -7,9 +7,9 @@ public class PoissonDiscSampler
     public static List<Vector2> GeneratePoints(float radius, Vector2 regionSize, int rejectionSamples = 30, Vector2 center = default)
     {
         if (radius <= 0f)
-            throw new System.ArgumentException("radiusÀº À½¼ö°¡ µÉ ¼ö ¾ø´Ù.");
+            throw new System.ArgumentException("ë²”ìœ„ëŠ” 0ë³´ë‹¤ ìž‘ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         if (regionSize.x < 0f || regionSize.y < 0f)
-            throw new System.ArgumentException("regionSize´Â À½¼ö°¡ µÉ ¼ö ¾ø´Ù.");
+            throw new System.ArgumentException("ì˜ì—­ì˜ í¬ê¸°ëŠ” 0ë³´ë‹¤ ìž‘ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         if (rejectionSamples < 1)
             rejectionSamples = 1;
 
