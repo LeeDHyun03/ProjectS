@@ -7,7 +7,6 @@ public class DataManager : MonoBehaviour
 {
     private static DataManager instance;
 
-    // ������ ����� ����
     public CharacterStateDataContainer.GameDataRoot BaseData;
     public CharacterStateDataContainer.SaveData PlayerSave;
 
@@ -68,8 +67,11 @@ public class DataManager : MonoBehaviour
     public float GetFinalMoveSpeed()
         => BaseData.player.stats.moveSpeed + (PlayerSave.spdLevel * 0.1f);
 
+    public float GetFinalAttackSpeed()
+        => BaseData.player.stats.attackSpeed + (PlayerSave.atkSpdLevel * 0.1f);
+
     public float GetFinalCritChance()
-        => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f); // �ִ� 80% ���� ����
+        => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f);
 
     public float GetFinalCritDamage()
         => BaseData.player.critDamage + (PlayerSave.critDamageLevel * 0.05f);
@@ -79,6 +81,15 @@ public class DataManager : MonoBehaviour
 
     public bool IsElementalStarterAvailable()
         => PlayerSave.isElementalStarterUnlocked;
+
+    public float GetFinalPride()
+        => BaseData.player.pride + PlayerSave.prideLevel;
+
+    public float GetFinalAnger()
+        => BaseData.player.anger + PlayerSave.angerLevel;
+
+    public float GetFinalJealousy()
+        => BaseData.player.jealousy + PlayerSave.jealousyLevel;
 
     public void Save()
     {

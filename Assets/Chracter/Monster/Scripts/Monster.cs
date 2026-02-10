@@ -68,7 +68,7 @@ public class Monster : Character, IPooledObject
         InitializeCharacter(scaledData.stats);
         detection.SetupDectectionRange(scaledData.attackRange, scaledData.chaseInRange, scaledData.chaseOutRange, scaledData.cognizanceRange); detection.SetIsPlayerSide(false);
         movement.SetupMovement(moveSpeed);
-        attack.SetAttackStat(attackDamage, attackSpeed);
+        attack.SetAttackStat(attackDamage, normalAttackSpeed);
         maxSuperArmor = scaledData.maxSuperArmor;
         currentSuperArmor = maxSuperArmor;
     }
