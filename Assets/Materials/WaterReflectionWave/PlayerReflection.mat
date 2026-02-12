@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterReflectionWave
-  m_Shader: {fileID: 4800000, guid: 4d4f5f237c990f54d8f8a8e1d265429b, type: 3}
+  m_Name: PlayerReflection
+  m_Shader: {fileID: 4800000, guid: 2018043b29fd0454e8c878cc57cae487, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -27,11 +27,25 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ReflectionTex:
+        m_Texture: {fileID: 8400000, guid: 7ee17e0758c44ce4c926196fabd272b3, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RenderTex:
+        m_Texture: {fileID: 8400000, guid: 7ee17e0758c44ce4c926196fabd272b3, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DistortionStrength: 0.0797
-    - _WaveFrequency: 16.1
+    - PixelSnap: 0
+    - _Alpha: 1
+    - _DistortionDivisionFactor: 31.4
+    - _DistortionStrength: 0.0735
+    - _FlipY: 1
+    - _PixelSnap: 0
+    - _WaveFrequency: 77.3
     - _WaveSpeed: 5.3
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
