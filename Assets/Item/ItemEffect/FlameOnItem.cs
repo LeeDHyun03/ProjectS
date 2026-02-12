@@ -170,6 +170,7 @@ public class FlameOnItem : MonoBehaviour
             {
                 flameOnEff.Init(hitMonster, anger, controlConstant, currentFlameOnDuration, currentFlameOnStack, 1);
                 flameOnEff.OnFlameOnMonsterDie += FlameOnMonsterDie;
+                flameOnEff.OnFlameOnEnded += RemoveActivateFlameOnMonster;
                 activateFlameMonsters.Add(hitMonster, flameOnEff);
                 return;
             }

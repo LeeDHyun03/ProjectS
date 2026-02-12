@@ -38,8 +38,12 @@ public sealed class PlayerItemStatController : MonoBehaviour
         public float pride;
         public float anger;
         public float jealousy;
+
+        public int rerollCount;
     }
 
+    [SerializeField] private ItemIcon ItemIconPrefab;
+    [SerializeField] private Transform playerUITransform;
     private PlayerCharacter _player;
     public static readonly Dictionary<string, RunItem> _inv = new(StringComparer.OrdinalIgnoreCase);
     private PlayerConditionalStatController cond;
@@ -67,6 +71,10 @@ public sealed class PlayerItemStatController : MonoBehaviour
             inst = new RunItem { itemId = itemId, level = 1, stacks = 1 };
             _inv[itemId] = inst;
             amount -= 1;
+            ItemIcon itemIcon = Instantiate(ItemIconPrefab, playerUITransform);
+            Sprite iconSprite = ItemDataManager.Instance.LoadIcon(item);
+            Sprite iconFrameSprite = ItemDataManager.Instance.LoadItemFrame(item);
+            itemIcon.SetItemInfo(item.NameKr, item.Description, iconSprite, iconFrameSprite); 
         }
 
         if (amount > 0)
@@ -80,7 +88,6 @@ public sealed class PlayerItemStatController : MonoBehaviour
                 inst.stacks += amount;
             }
         }
-        Debug.LogWarning($"itemId: {itemId}");
         RebuildAndApply();
     }
 

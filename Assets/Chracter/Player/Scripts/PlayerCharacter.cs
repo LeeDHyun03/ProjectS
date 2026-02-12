@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -26,6 +27,9 @@ public class PlayerCharacter : Character
     public event Action<float, float> OnHpChanged;
     public event Action<float, float> OnMpChanged;
     public event Action<float, float> OnExpChanged;
+    public event Action<float, float, float, float, float, float, float, float, float, float> OnStatsUpdate;
+
+    public event Action<bool, float> OnChagnedDashCount;
 
     private float currentMp;
     private float currentExp;
@@ -38,11 +42,26 @@ public class PlayerCharacter : Character
     private float anger;
     private float pride;
     private float jealousy;
+    private int rerollCount;
+
+    private bool isDashing = false;
+    private bool isInvincibility = false;
+
+    private Coroutine invincibilityDurationRoutine;
+
+    private int maxDashCount = 3;
+    private int currentDashCount = 3;
+    private float dashChargedTime = 1;
+    private float dashChargedCurrentTime = 0;
+
+    private float mpChargedCurrentTime = 0;
+    private float mpChargedTime = 1;
 
     [SerializeField] private float sprintSpeed = 10f;
     [SerializeField] private float maxMp = 100f;
     [SerializeField] private float maxExp = 100f;
     [SerializeField] private float specialAttackUsedMp = 5;
+
 
     public float CurrentHp => currentHp;
     public float MaxHp => maxHp;
@@ -64,9 +83,14 @@ public class PlayerCharacter : Character
         ui = PlayerUI.Instance;
         statRefreshScheduler = GetComponent<PlayerStatRefreshScheduler>();
 
-        OnHpChanged += ui.HpBarUpdate;
-        OnMpChanged += ui.MpBarUpdate;
-        OnExpChanged += ui.ExpBarUpdate;
+        if (ui != null)
+        {
+            OnHpChanged += ui.HpBarUpdate;
+            OnMpChanged += ui.MpBarUpdate;
+            OnExpChanged += ui.ExpBarUpdate;
+            OnStatsUpdate += ui.StatsUpdate;
+            OnChagnedDashCount += ui.ChagnedDashGageBar;
+        }
 
         OnHpChanged += statRefreshScheduler.MarkDirty;
         OnMpChanged += statRefreshScheduler.MarkDirty;
@@ -75,7 +99,6 @@ public class PlayerCharacter : Character
         OnMpChanged?.Invoke(currentMp, maxMp);
         OnExpChanged?.Invoke(currentExp, maxExp);
     }
-
 
     #region Event Subscribe
     private void OnEnable()
@@ -98,11 +121,15 @@ public class PlayerCharacter : Character
 
         animator.StartSpecialAttacked += OnActivateSpecialAttack;
 
+        movement.OnDashEnded += DashEnded;
+
         if (ui != null)
         {
             OnHpChanged += ui.HpBarUpdate;
             OnMpChanged += ui.MpBarUpdate;
             OnExpChanged += ui.ExpBarUpdate;
+            OnStatsUpdate += ui.StatsUpdate;
+            OnChagnedDashCount += ui.ChagnedDashGageBar;
         }
 
         if(statRefreshScheduler != null)
@@ -133,11 +160,15 @@ public class PlayerCharacter : Character
 
         animator.StartSpecialAttacked -= OnActivateSpecialAttack;
 
+        movement.OnDashEnded -= DashEnded;
+
         if (ui != null)
         {
             OnHpChanged -= ui.HpBarUpdate;
             OnMpChanged -= ui.MpBarUpdate;
             OnExpChanged -= ui.ExpBarUpdate;
+            OnStatsUpdate -= ui.StatsUpdate;
+            OnChagnedDashCount -= ui.ChagnedDashGageBar;
         }
 
         if (statRefreshScheduler != null)
@@ -166,7 +197,18 @@ public class PlayerCharacter : Character
 
     void OnDash(Vector2 moveInput)
     {
+        if (isDashing || currentDashCount <= 0) return;
+        isDashing = true;
+        currentDashCount--;
+        OnChagnedDashCount?.Invoke(false, 0);
+        isInvincibility = true;
+        invincibilityDurationRoutine = StartCoroutine(TakeDamageInvincibility(0.25f));
         movement.OnDash(moveInput);
+    }
+
+    void DashEnded()
+    {
+        isDashing = false;
     }
 
     void ActivateSprintMode()
@@ -259,11 +301,15 @@ public class PlayerCharacter : Character
         maxExp = baseData.baseMaxExp;
         currentExp = 0;
 
+        rerollCount = baseStats.rerollCount;
+
         sprintSpeed = baseData.sprintSpeed;
         specialAttackUsedMp = baseData.specialAttackUsedMp;
 
         movement.SetSpeed(moveSpeed, sprintSpeed);
         combat.SetStats(attackDamage, normalAttackSpeed, critChance, critDamage, meleeDamage, rangedDamage, anger, pride, jealousy);
+
+        OnStatsUpdate?.Invoke(maxHp, maxMp, moveSpeed, attackDamage, critChance, defense, anger, pride, jealousy, rerollCount);
 
         itemStatController = GetComponent<PlayerItemStatController>();
         if (itemStatController) itemStatController.RebuildAndApply();
@@ -286,7 +332,10 @@ public class PlayerCharacter : Character
             critDamage = dm.GetFinalCritDamage(),
             pride = dm.GetFinalPride(),
             jealousy = dm.GetFinalJealousy(),
-            anger = dm.GetFinalAnger()
+            anger = dm.GetFinalAnger(),
+            rerollCount = dm.GetFinalRerollCount()
+
+
         };
     }
 
@@ -294,7 +343,6 @@ public class PlayerCharacter : Character
     {
         maxHp = s.maxHp;
         currentHp = Mathf.Clamp(currentHp, 0, maxHp);
-        if (currentHp <= 0) currentHp = maxHp;
 
         attackDamage = s.attackDamage;
         normalAttackSpeed = s.normalAttackSpeed;
@@ -314,15 +362,26 @@ public class PlayerCharacter : Character
 
         OnHpChanged?.Invoke(currentHp, maxHp);
         OnMpChanged?.Invoke(currentMp, maxMp);
+        OnStatsUpdate?.Invoke(maxHp, maxMp, moveSpeed, attackDamage, critChance, defense, anger, pride, jealousy, rerollCount);
     }
     #endregion
 
     public override void TakeDamage(float damage)
     {
+        if (isInvincibility) return;
         float finalDamage = Mathf.Max(damage - defense, 1f);
         base.TakeDamage(finalDamage);
         PlayerEffectManager.Instance.OnHitEffect();
         OnHpChanged?.Invoke(currentHp, maxHp);
+        isInvincibility = true;
+        invincibilityDurationRoutine = StartCoroutine(TakeDamageInvincibility(0.5f));
+    }
+
+    private IEnumerator TakeDamageInvincibility(float invincibilityDuration)
+    {
+        yield return new WaitForSeconds(invincibilityDuration);
+        isInvincibility = false;
+        StopCoroutine(invincibilityDurationRoutine);
     }
 
     private bool UsedMp(float useMp)
@@ -336,12 +395,6 @@ public class PlayerCharacter : Character
         return false;
     }
 
-    private void CureMp(float amountMp)
-    {
-        currentMp = Mathf.Clamp(currentMp + amountMp, 0, maxMp);
-        OnMpChanged?.Invoke(currentMp, maxMp);
-    }
-
     public void CureHp(float amountHp)
     {
         currentHp = Mathf.Clamp(currentHp + amountHp, 0, maxHp);
@@ -352,5 +405,32 @@ public class PlayerCharacter : Character
     {
         Debug.Log("플레이어 사망");
         // SaveData에 현재까지 모은 포인트를 저장하는 로직 추가 가능
+    }
+
+    void Update()
+    {
+        if(currentMp < maxMp)
+        {
+            mpChargedCurrentTime += Time.deltaTime;
+            if(mpChargedCurrentTime >= mpChargedTime)
+            {
+                currentMp++;
+                mpChargedCurrentTime = 0;
+                OnMpChanged?.Invoke(currentMp, maxMp);                
+            }
+        }
+
+        if(currentDashCount < maxDashCount)
+        {
+            dashChargedCurrentTime += Time.deltaTime;
+            if (dashChargedCurrentTime >= dashChargedTime)
+            {
+                currentDashCount++;
+                dashChargedCurrentTime = 0;
+                OnChagnedDashCount?.Invoke(true, 1);
+                return;
+            }
+            OnChagnedDashCount?.Invoke(true, dashChargedCurrentTime);
+        }
     }
 }

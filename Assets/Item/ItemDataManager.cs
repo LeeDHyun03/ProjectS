@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -23,8 +24,15 @@ namespace Roguelike.Items
         public IReadOnlyDictionary<string, ItemData> ItemsById => _itemsById;
 
         private readonly Dictionary<string, Sprite> _iconCache = new(StringComparer.Ordinal);
+        private readonly Dictionary<string, Sprite> _iconFrameCache = new();
         private readonly HashSet<string> _iconMissCache = new(StringComparer.Ordinal);
+        private readonly HashSet<string> _iconFrameMissCache = new(StringComparer.Ordinal);
         private const string DefaultIconKey = "Icons/Items/Default";
+        private const string DefaultIconFrameKey = "Icons/Frames/Frame_Default";
+        private const string CommonIconFrameKey = "Icons/Frames/Frame_Common";
+        private const string RareIconFrameKey = "Icons/Frames/Frame_Rare";
+        private const string EpicIconFrameKey = "Icons/Frames/Frame_Epic";
+        private const string LegendaryIconFrameKey = "Icons/Frames/Frame_Legendary";
 
         private void Awake()
         {
@@ -74,12 +82,20 @@ namespace Roguelike.Items
             _itemsById.Clear();
             _iconCache.Clear();
             _iconMissCache.Clear();
+            _iconFrameCache.Clear();
+            _iconFrameMissCache.Clear();
         }
 
         public Sprite LoadIcon(ItemData item)
         {
             if (item == null) return LoadIconByKey(DefaultIconKey);
             return LoadIconByKey(item.IconKey);
+        }
+
+        public Sprite LoadItemFrame(ItemData item)
+        {
+            if (item == null) return LoadIconFrameByKey(EItemRarity.Unknown);
+            return LoadIconFrameByKey(item.Rarity);
         }
 
         public Sprite LoadIconByKey(string iconKey)
@@ -105,6 +121,52 @@ namespace Roguelike.Items
             }
 
             _iconCache[iconKey] = sprite;
+            return sprite;
+        }
+
+        public Sprite LoadIconFrameByKey(EItemRarity rarityKey)
+        {
+            string iconFrameKey = DefaultIconFrameKey;
+            switch (rarityKey)
+            {
+                case EItemRarity.Common:
+                    iconFrameKey = CommonIconFrameKey;
+                    break;
+                case EItemRarity.Rare:
+                    iconFrameKey = RareIconFrameKey;
+                    break;
+                case EItemRarity.Epic:
+                    iconFrameKey = EpicIconFrameKey;
+                    break;
+                case EItemRarity.Legendary:
+                    iconFrameKey = LegendaryIconFrameKey;
+                    break;
+                case EItemRarity.Unknown:
+                    iconFrameKey = DefaultIconFrameKey;
+                    break;
+                default:
+                    iconFrameKey = DefaultIconFrameKey;
+                    break;
+            }
+
+            if (_iconFrameCache.TryGetValue(iconFrameKey, out Sprite frame))
+                return frame;
+
+            if (_iconFrameMissCache.Contains(iconFrameKey))
+                return _iconFrameCache.TryGetValue(DefaultIconKey, out Sprite d) ? d : null;
+
+            var sprite = Resources.Load<Sprite>(iconFrameKey);
+            if (sprite == null)
+            {
+                _iconFrameMissCache.Add(iconFrameKey);
+
+                if (iconFrameKey != DefaultIconFrameKey)
+                    return LoadIconFrameByKey(EItemRarity.Unknown);
+
+                return null;
+            }
+
+            _iconFrameCache[iconFrameKey] = sprite;
             return sprite;
         }
 
