@@ -18,6 +18,6 @@ public class KBPuzzleManager : PuzzleManager
     }
     public override void Init(int level)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

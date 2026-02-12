@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class TileController : MonoBehaviour
+public class PuzzleElement : MonoBehaviour
 {
-    protected PuzzleManager puzzleManager;
+    public PuzzleManager puzzleManager;
     public void SetPuzzleManager(PuzzleManager pzManager)
     {
         puzzleManager = pzManager;

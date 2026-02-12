@@ -1,34 +1,63 @@
+using System;
 using UnityEngine;
 
-public class KBCart : TileController
+public class KBCart : PuzzleElement
 {
-    void Start()
+    [SerializeField] Vector2 startVec;
+    public event Action OnRestart;
+    public Vector2 currentDir;
+    const int defualtDurability = 4;
+    public float moveSpeed = 5f;
+    int _durability;
+    public int Durability
     {
-        
-    }
-
-    void Update()
-    {
-
-    }
-    void CalculateKnockback(Vector3 attackDir)
-    {
-/*        Vector3 currentDir = GetSnappedDirection(attackDir);
-        float moveDist = 1.0f; // 한 칸 단위 이동
-
-        // 벽 감지
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, currentDir, moveDist);
-
-        if (hit.collider != null)
+        get=> _durability;
+        set
         {
-            // [반사각 로직] 부딪힌 면의 법선(hit.normal)을 기준으로 반사 방향 계산
-            Vector3 reflectDir = Vector3.Reflect(currentDir, hit.normal);
-            nextTileVec = puzzleGrid.GetCellCenterWorld(currentCell + Vector3Int.RoundToInt(reflectDir));
+            _durability = value;
+            if(Durability <=0)
+            {
+                OnRestart?.Invoke();
+                CartReset();
+            }
         }
-        else
+    }
+    private void Start()
+    {
+        Durability = defualtDurability;
+        startVec = transform.position;
+    }
+    private void Update()
+    {
+        if (Durability <= 0)
+            return;
+
+        MoveToMoveVec();
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name =="Log")
         {
-            nextTileVec = puzzleGrid.GetCellCenterWorld(currentCell + Vector3Int.RoundToInt(currentDir));
+            Durability--;
         }
-        isMove = true;*/
+
+        Vector3 wallNormal = collision.contacts[0].normal;
+
+        Vector3 reflectDir = Vector3.Reflect(currentDir, wallNormal);
+
+        currentDir = reflectDir;
+    }
+    void MoveToMoveVec()
+    {
+        if (currentDir == Vector2.zero)
+            return;
+
+        transform.Translate(moveSpeed * Time.deltaTime * currentDir);
+    }
+    void CartReset()
+    {
+        currentDir = Vector2.zero;
+        transform.position = startVec;
+        Durability = defualtDurability;
     }
 }
