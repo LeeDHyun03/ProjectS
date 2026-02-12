@@ -21,16 +21,19 @@ public class MCTree : PZInteraction
             { 
                 case status.Live:
                     sr.sprite = livingSprite;
+                    sr.sortingOrder = 1;
                     col.enabled = true;
                     break;
                 
                 case status.Die:
                     sr.sprite = deadSprite;
+                    sr.sortingOrder = 1;
                     col.enabled = false;
                     break;
                 
                 case status.Bridge:
                     col.enabled = false;
+                    sr.sortingOrder = 0;
                     BridgeFormChange(true);
                     break;
             }
@@ -84,7 +87,7 @@ public class MCTree : PZInteraction
     void BridgeFormChange(bool changed)
     {
         sr.sprite = changed ? bridgeSprite : deadSprite;
-        wallCollider.SetActive(changed);
+        wallCollider.SetActive(!changed);
     }
 
     public override void Interaction(bool enable)

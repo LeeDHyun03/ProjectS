@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.SettingsManagement;
 using UnityEngine;
 
 public class MCTurret : PZInteraction
@@ -15,8 +14,9 @@ public class MCTurret : PZInteraction
     SpriteRenderer sr;
 
     public event Action<Vector3> OnShotBullet;
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         sr = GetComponent<SpriteRenderer>();
     }
     void Update()

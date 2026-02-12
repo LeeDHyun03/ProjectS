@@ -16,7 +16,7 @@ public abstract class PuzzleManager : MonoBehaviour
     {
         PuzzleDataManager.Instance?.SetCurrentManager(this); 
 
-        SetPuzzleLevel(1);  
+        SetPuzzleLevel(0);  
     }
     public void GiveReward(int difficulty)
     {
