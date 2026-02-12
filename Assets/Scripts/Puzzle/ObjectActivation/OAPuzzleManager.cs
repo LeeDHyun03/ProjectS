@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class OAPuzzleManager : PuzzleManager
 {
-    public GameObject[] puzzleDifficulty = new GameObject[3];
     Transform currentDifficulty => puzzleDifficulty[difficulty].transform;
     Transform objects => currentDifficulty.GetChild(0);
 
     List<OAEnergy> energies = new List<OAEnergy>();
-    List<OAActTile> RedActTiles = new List<OAActTile>();
-    List<OAActTile> BlueActTiles = new List<OAActTile>();
+    List<OAActTile> redActTiles = new List<OAActTile>();
+    List<OAActTile> blueActTiles = new List<OAActTile>();
 
-    Vector3 startVec => currentDifficulty.GetChild(3).position;
+    //Vector3 startVec => currentDifficulty.GetChild(3).position;
     int redActiveCount = 0;
     int blueActiveCount = 0;
     public override void Awake()
@@ -29,9 +28,9 @@ public class OAPuzzleManager : PuzzleManager
             var ctr = objects.GetChild(1).GetChild(i).GetComponent<OAActTile>();
             ctr.SetPuzzleManager(this);
             if(ctr.myColor == OAActTileColor.Red)
-                RedActTiles.Add(ctr);
+                redActTiles.Add(ctr);
             else
-                BlueActTiles.Add(ctr);
+                blueActTiles.Add(ctr);
         }
         player.position = startVec;
     }
@@ -49,7 +48,7 @@ public class OAPuzzleManager : PuzzleManager
 
             if ((isActive && redActiveCount == 1) || (!isActive && redActiveCount == 0))
             {
-                foreach (var a in RedActTiles) a.ToggleActive();
+                foreach (var a in redActTiles) a.ToggleActive();
             }
         }
         else if (color == OAActTileColor.Blue)
@@ -59,13 +58,14 @@ public class OAPuzzleManager : PuzzleManager
 
             if ((isActive && blueActiveCount == 1) || (!isActive && blueActiveCount == 0))
             {
-                foreach (var a in BlueActTiles) a.ToggleActive();
+                foreach (var a in blueActTiles) a.ToggleActive();
             }
         }
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
+        base.OnDisable();
         foreach (var a in energies)
         {
             a.OnActTrigger -= HandleActTrigger;

@@ -1,14 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public abstract class PuzzleManager : MonoBehaviour
 {
     public Transform player;
+    public GameObject[] puzzleDifficulty = new GameObject[3];
+    [SerializeField] GameObject myMap;
     protected int difficulty;
+    public Vector3 startVec, firstVec;
     public virtual void Awake()
     {
-        PuzzleDataManager.Instance?.SetCurrentManager(this);
-        SetPuzzleLevel(2);  //юс╫ц
+        PuzzleDataManager.Instance?.SetCurrentManager(this); 
+
+        SetPuzzleLevel(2);  
     }
     public void GiveReward(int difficulty)
     {
@@ -22,21 +25,36 @@ public abstract class PuzzleManager : MonoBehaviour
     public void SetPuzzleLevel(int level)
     {
         difficulty = level;
+        myMap = Instantiate(puzzleDifficulty[level]);
+        firstVec = myMap.transform.Find("FirstVec").position;
+        player.position = firstVec;
+        startVec = myMap.transform.Find("StartVec").position;
         Init(level);
         Debug.Log(level+" start");
     }
     public void PuzzleReset()
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentSceneName);
+        Destroy(myMap);
+        myMap = Instantiate(puzzleDifficulty[difficulty]);
+        player.position = startVec;
     }
     public abstract void Init(int level);
-    private void OnEnable()
+    public virtual void OnEnable()
     {
-        player.GetComponent<PZPlayer>().OnClear += Clear;
+        if (player.TryGetComponent<PZPlayer>(out PZPlayer pZ))
+        {
+            pZ.OnClear += Clear;
+        }
+
     }
-    private void OnDisable()
+    public virtual void OnDisable()
     {
-        player.GetComponent<PZPlayer>().OnClear -= Clear;
+        if (player != null)
+        {
+            if (player.TryGetComponent<PZPlayer>(out PZPlayer pZ))
+            {
+                pZ.OnClear -= Clear;
+            }
+        }
     }
 }
