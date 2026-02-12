@@ -856,6 +856,7 @@ MonoBehaviour:
   - {fileID: 5748172437673077040, guid: cb08e5658f01da4469b831bd43399bb1, type: 3}
   - {fileID: 8407695760881883653, guid: 01a70d9ba372f994b884f911797d183b, type: 3}
   - {fileID: 8157120133303580509, guid: 1125b4066dfd80c4c88437f1dfcfeefa, type: 3}
+  myCon: {fileID: 0}
   myMap: {fileID: 0}
   startVec: {x: 0, y: 0, z: 0}
   firstVec: {x: 0, y: 0, z: 0}
