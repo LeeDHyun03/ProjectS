@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class OAPuzzleManager : PuzzleManager
 {
-    Transform currentDifficulty => puzzleDifficulty[difficulty].transform;
-    Transform objects => currentDifficulty.GetChild(0);
+    Transform objects;
 
     List<OAEnergy> energies = new List<OAEnergy>();
     List<OAActTile> redActTiles = new List<OAActTile>();
@@ -16,29 +15,8 @@ public class OAPuzzleManager : PuzzleManager
     public override void Awake()
     {
         base.Awake();
-        for (int i = 0; i < objects.GetChild(0).childCount; i++)
-        {
-            var ctr = objects.GetChild(0).GetChild(i).GetComponent<OAEnergy>();
-            ctr.SetPuzzleManager(this);
-            ctr.OnActTrigger += HandleActTrigger; 
-            energies.Add(ctr);
-        }
-        for (int i = 0; i < objects.GetChild(1).childCount; i++)
-        {
-            var ctr = objects.GetChild(1).GetChild(i).GetComponent<OAActTile>();
-            ctr.SetPuzzleManager(this);
-            if(ctr.myColor == OAActTileColor.Red)
-                redActTiles.Add(ctr);
-            else
-                blueActTiles.Add(ctr);
-        }
-        player.position = startVec;
+        PuzzleResetLoadParsing();
     }
-    public override void Init(int level)
-    {
-        puzzleDifficulty[level].SetActive(true);
-    }
-
     void HandleActTrigger(OAActTileColor color, bool isActive)
     {
         if (color == OAActTileColor.Red)
@@ -61,6 +39,33 @@ public class OAPuzzleManager : PuzzleManager
                 foreach (var a in blueActTiles) a.ToggleActive();
             }
         }
+    }
+    public override void PuzzleReset()
+    {
+        base.PuzzleReset();
+        PuzzleResetLoadParsing();
+    }
+    void PuzzleResetLoadParsing()
+    {
+        objects = myMap.transform.GetChild(0);
+        Debug.Log("OAPuzzleManager found " + objects.GetChild(0).childCount + " energies and " + objects.GetChild(1).childCount + " act tiles.");
+        for (int i = 0; i < objects.GetChild(0).childCount; i++)
+        {
+            var ctr = objects.GetChild(0).GetChild(i).GetComponent<OAEnergy>();
+            ctr.SetPuzzleManager(this);
+            ctr.OnActTrigger += HandleActTrigger; 
+            energies.Add(ctr);
+        }
+        for (int i = 0; i < objects.GetChild(1).childCount; i++)
+        {
+            var ctr = objects.GetChild(1).GetChild(i).GetComponent<OAActTile>();
+            ctr.SetPuzzleManager(this);
+            if(ctr.myColor == OAActTileColor.Red)
+                redActTiles.Add(ctr);
+            else
+                blueActTiles.Add(ctr);
+        }
+        Debug.Log("OAPuzzleManager registered " + energies.Count + " energies, " + redActTiles.Count + " red act tiles, and " + blueActTiles.Count + " blue act tiles.");
     }
 
     public override void OnDisable()

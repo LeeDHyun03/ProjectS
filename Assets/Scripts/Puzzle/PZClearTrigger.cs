@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PZPlayer : MonoBehaviour
+public class PZClearTrigger : MonoBehaviour
 {
     public event Action OnClear;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -10,5 +10,6 @@ public class PZPlayer : MonoBehaviour
         {
             OnClear?.Invoke();
         }
+
     }
 }

@@ -7,4 +7,9 @@ public class PuzzleElement : MonoBehaviour
     {
         puzzleManager = pzManager;
     }
+    public virtual void Awake()
+    {
+        if(puzzleManager == null)
+            puzzleManager = FindAnyObjectByType<PuzzleManager>();
+    }
 }

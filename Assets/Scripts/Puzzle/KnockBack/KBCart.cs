@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
 
-public class KBCart : PuzzleElement
+public class KBCart : MonoBehaviour
 {
     [SerializeField] Vector2 startVec;
-    public event Action OnRestart;
+    public event Action OnReAct;
     public Vector2 currentDir;
     const int defualtDurability = 4;
-    public float moveSpeed = 5f;
+    float moveSpeed = 20f;
+    float currentMoveSpeed;
     int _durability;
     public int Durability
     {
@@ -17,22 +18,31 @@ public class KBCart : PuzzleElement
             _durability = value;
             if(Durability <=0)
             {
-                OnRestart?.Invoke();
                 CartReset();
+                OnReAct?.Invoke();
             }
         }
     }
     private void Start()
     {
+        currentMoveSpeed = moveSpeed;
         Durability = defualtDurability;
         startVec = transform.position;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (Durability <= 0)
             return;
+        
+        if(currentMoveSpeed <=0f)
+        {
+            currentDir = Vector2.zero;
+            currentMoveSpeed = moveSpeed;
+            OnReAct?.Invoke();
+            return;
+        }
 
-        MoveToMoveVec();
+        MoveToMoveVec();        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -52,9 +62,10 @@ public class KBCart : PuzzleElement
         if (currentDir == Vector2.zero)
             return;
 
-        transform.Translate(moveSpeed * Time.deltaTime * currentDir);
+        transform.Translate(currentMoveSpeed * Time.deltaTime * currentDir);
+        currentMoveSpeed -= 0.15f;
     }
-    void CartReset()
+    public void CartReset()
     {
         currentDir = Vector2.zero;
         transform.position = startVec;

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class KBPuzzleManager : PuzzleManager
 {
+    public KBCart cart;
     public override void Awake()
     {
         base.Awake();
@@ -16,8 +17,9 @@ public class KBPuzzleManager : PuzzleManager
     {
         
     }
-    public override void Init(int level)
+    public override void PuzzleReset()
     {
-        
+        base.PuzzleReset();
+        cart.CartReset();
     }
 }

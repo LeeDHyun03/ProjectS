@@ -8,8 +8,9 @@ public class MCBullet : PuzzleElement
     Vector3 moveDir;
     public event Action OnTriggerEnterBullet;
     bool isCanMove;
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         myTurret = transform.parent.GetComponent<MCTurret>();
     }
     private void OnEnable()

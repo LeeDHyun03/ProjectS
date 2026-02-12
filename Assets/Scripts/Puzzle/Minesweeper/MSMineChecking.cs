@@ -60,6 +60,11 @@ public class MSMineChecking : MonoBehaviour
     }
     void SetMineCountText()
     {
+        if(mineCount == 0)
+        {
+            mineCountText.text = "";
+            return;
+        }
         string text = mineCount.ToString();
 
         mineCountText.text = text;

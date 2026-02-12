@@ -1,17 +1,22 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public abstract class PuzzleManager : MonoBehaviour
 {
     public Transform player;
+    public PZClearTrigger pZClear;
+    public PZConfinerTrigger pZConfiner;
+    public CinemachineConfiner2D confiner; 
     public GameObject[] puzzleDifficulty = new GameObject[3];
-    [SerializeField] GameObject myMap;
+    [SerializeField] protected BoxCollider2D myCon;
+    [SerializeField]protected GameObject myMap;
     protected int difficulty;
     public Vector3 startVec, firstVec;
     public virtual void Awake()
     {
         PuzzleDataManager.Instance?.SetCurrentManager(this); 
 
-        SetPuzzleLevel(2);  
+        SetPuzzleLevel(1);  
     }
     public void GiveReward(int difficulty)
     {
@@ -22,39 +27,51 @@ public abstract class PuzzleManager : MonoBehaviour
         Debug.Log("Clear");
         GiveReward(difficulty);
     }
-    public void SetPuzzleLevel(int level)
+    public virtual void SetPuzzleLevel(int level)
     {
         difficulty = level;
-        myMap = Instantiate(puzzleDifficulty[level]);
+        myMap = Instantiate(puzzleDifficulty[level], transform);
         firstVec = myMap.transform.Find("FirstVec").position;
         player.position = firstVec;
         startVec = myMap.transform.Find("StartVec").position;
-        Init(level);
+        if (player.TryGetComponent<PZClearTrigger>(out var existingPZ))
+        {
+            pZClear = existingPZ;
+        }
+        else if (pZClear == null)
+            pZClear = FindAnyObjectByType<PZClearTrigger>();
+        if(player.TryGetComponent<PZConfinerTrigger>(out var existingPZC))
+        {
+            pZConfiner = existingPZC;
+        }
+        else if (pZConfiner == null)
+            pZConfiner = FindAnyObjectByType<PZConfinerTrigger>();
         Debug.Log(level+" start");
     }
-    public void PuzzleReset()
+    public virtual void PuzzleReset()
     {
         Destroy(myMap);
-        myMap = Instantiate(puzzleDifficulty[difficulty]);
+        myMap = Instantiate(puzzleDifficulty[difficulty], transform);
         player.position = startVec;
     }
-    public abstract void Init(int level);
     public virtual void OnEnable()
     {
-        if (player.TryGetComponent<PZPlayer>(out PZPlayer pZ))
-        {
-            pZ.OnClear += Clear;
-        }
+        pZClear.OnClear += Clear;
+        pZConfiner.OnConfinerTrigger += SetConfiner;
 
     }
     public virtual void OnDisable()
     {
-        if (player != null)
+        pZClear.OnClear -= Clear;
+        pZConfiner.OnConfinerTrigger -= SetConfiner;
+    }
+    void SetConfiner()
+    {
+        if (myCon == null)
         {
-            if (player.TryGetComponent<PZPlayer>(out PZPlayer pZ))
-            {
-                pZ.OnClear -= Clear;
-            }
+            myCon = myMap.transform.Find("Confiner").GetComponentInChildren<BoxCollider2D>();
         }
+        confiner.BoundingShape2D = myCon;
+        myCon.enabled = false;
     }
 }
