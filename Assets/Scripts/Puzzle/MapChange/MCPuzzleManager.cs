@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MCPuzzleManager : PuzzleManager
 {
+    public bool isPast = true;
     public List<MCBullet> allBullets = new List<MCBullet>();
     public override void Awake()
     {
@@ -31,5 +32,13 @@ public class MCPuzzleManager : PuzzleManager
         {
             bullet.OnTriggerEnterBullet -= PuzzleReset;
         }
+    }
+    public void ChangedMap()
+    {
+        isPast = !isPast;
+    }
+    public void SetBullets(MCBullet mC)
+    {
+               allBullets.Add(mC);
     }
 }
