@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 273324416}
   - component: {fileID: 273324419}
   - component: {fileID: 273324418}
+  - component: {fileID: 273324421}
   - component: {fileID: 273324420}
   m_Layer: 0
   m_Name: Player
@@ -281,7 +282,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 273324415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a96fba881cd4f6d4cbdc793a964474d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 21913d2e415854a4ca9f1ae408a75b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &273324421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273324415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd8e39cce8e260479382cb686512be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &571611521
@@ -640,12 +653,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 273324417}
-  pZ: {fileID: 0}
+  pZClear: {fileID: 273324420}
+  pZConfiner: {fileID: 273324421}
   confiner: {fileID: 684130362}
   puzzleDifficulty:
   - {fileID: 2347833223273420135, guid: bf83de8a04647324e87b5994d676066e, type: 3}
   - {fileID: 742111850106406228, guid: ee3bbf573f527444ba64764ab4fb6efe, type: 3}
   - {fileID: 2784737538730227691, guid: abc9840e1ff90eb4ba308092a9026581, type: 3}
+  myCon: {fileID: 0}
   myMap: {fileID: 0}
   startVec: {x: 0, y: 0, z: 0}
   firstVec: {x: 0, y: 0, z: 0}
