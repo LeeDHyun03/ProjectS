@@ -17,9 +17,6 @@ public class MCPuzzleManager : PuzzleManager
     {
         
     }
-    public override void Init(int level)
-    {
-    }
     public override void OnEnable()
     {
         base.OnEnable();

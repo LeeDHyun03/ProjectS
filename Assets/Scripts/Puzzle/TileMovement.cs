@@ -10,7 +10,11 @@ public class TileMovement : MonoBehaviour
     bool isMove = false;
     Vector3Int currentCell => puzzleGrid.WorldToCell(transform.position);
     Vector3 nextTileVec;
-
+    private void Awake()
+    {
+        puzzleGrid = GetComponentInParent<Grid>();
+        player = FindAnyObjectByType<PZClearTrigger>().gameObject;
+    }
     void Update()
     {
         if(isMove)
@@ -66,6 +70,7 @@ public class TileMovement : MonoBehaviour
 
         if (hit.collider != null)
         {
+            Debug.Log("My name: "+gameObject.name+"/ Hit: " + hit.collider.name);
             if (hit.collider.CompareTag("PZObstacle"))
             {
                 return true;

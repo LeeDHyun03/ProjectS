@@ -5,14 +5,11 @@ public class MSPuzzleManager : PuzzleManager
 {
     public MSMineChecking mineChecking;
     public Grid puzzleGrid;
-
-    public override void Init(int level)
+    public override void SetPuzzleLevel(int level)
     {
-        puzzleDifficulty[level].SetActive(true);
-        puzzleGrid = puzzleDifficulty[level].GetComponent<Grid>();
+        base.SetPuzzleLevel(level);
+        puzzleGrid = myMap.GetComponent<Grid>();
         mineChecking.SetPuzzleGrid(puzzleGrid);
-        //var startCellVec = puzzleGrid.WorldToCell(player.position);
-        //startVec = puzzleGrid.GetCellCenterWorld(startCellVec);
     }
     void MoveToStartPoint()
     {

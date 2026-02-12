@@ -12,8 +12,9 @@ public class OAActTile : PuzzleElement
     public bool isAct;
     public Sprite able, unable;
     SpriteRenderer sr;
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         sr = GetComponent<SpriteRenderer>();
         ActiveChange();
     }

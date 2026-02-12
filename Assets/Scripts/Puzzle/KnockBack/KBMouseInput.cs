@@ -5,7 +5,10 @@ public class KBMouseInput : MonoBehaviour
     public GameObject arrow;
     public KBCart cart;
     bool isMouseUse = true;
-
+    private void Awake()
+    {
+        cart = FindAnyObjectByType<KBCart>();
+    }
     void Start()
     {
         
@@ -44,15 +47,16 @@ public class KBMouseInput : MonoBehaviour
     }
     private void OnEnable()
     {
-        cart.OnRestart += MouseDirChangeModeTrigger;
+        cart.OnReAct += MouseDirChangeModeTrigger;
     }
     void MouseDirChangeModeTrigger()
     {
         isMouseUse = true;
+        arrow.transform.position = cart.transform.position;
         arrow.SetActive(true);
     }
     private void OnDisable()
     {
-        cart.OnRestart -= MouseDirChangeModeTrigger;
+        cart.OnReAct -= MouseDirChangeModeTrigger;
     }
 }
