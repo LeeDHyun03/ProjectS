@@ -12,7 +12,6 @@ namespace WaterWalkEffectCreator
         }
         protected override bool CheckIfInMovementState()
         {
-            Debug.Log(playerMovement.IsMoving);
             return playerMovement.IsMoving;
         }
     }
