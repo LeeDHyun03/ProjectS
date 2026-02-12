@@ -11,6 +11,7 @@ public class MCBullet : PuzzleElement
     public override void Awake()
     {
         base.Awake();
+       ((MCPuzzleManager)puzzleManager).SetBullets(this);
         myTurret = transform.parent.GetComponent<MCTurret>();
     }
     private void OnEnable()

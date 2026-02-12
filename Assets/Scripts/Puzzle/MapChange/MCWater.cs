@@ -2,11 +2,11 @@ using UnityEngine;
 public class MCWater : PZInteraction
 {
     public GameObject interactionText;
-    public GameObject player;
     Collider2D col;
     bool isPlayerInteraction, CanInteraction;
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         col = GetComponent<Collider2D>();
     }
 
@@ -40,6 +40,7 @@ public class MCWater : PZInteraction
     }
     public void MoveToPlayerVec()
     {
-        transform.position = player.transform.position;
+        if (((MCPuzzleManager)puzzleManager).isPast)
+            transform.position = player.transform.position;
     }
 }

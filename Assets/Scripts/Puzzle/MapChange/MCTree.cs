@@ -49,8 +49,9 @@ public class MCTree : PZInteraction
         mySeed.OnGrewTrigger += StatusChange;
     }
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         sr = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
     }
