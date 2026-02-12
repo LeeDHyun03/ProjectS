@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterReflectionWave
+  m_Name: MonsterReflection
   m_Shader: {fileID: 4800000, guid: 4d4f5f237c990f54d8f8a8e1d265429b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -29,7 +29,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DistortionStrength: 0.0797
+    - _DistortionDivisionFactor: 35.3
+    - _DistortionStrength: 0.0648
     - _WaveFrequency: 16.1
     - _WaveSpeed: 5.3
     m_Colors: []

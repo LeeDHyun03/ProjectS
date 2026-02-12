@@ -20,6 +20,8 @@ public class MonsterMovement : MonoBehaviour
     private bool isWaiting = true;
     public void SetWaiting(bool waiting) => isWaiting = waiting;
 
+    public bool GetWaiting() => isWaiting;
+
     public void SetupPath(List<Vector3> newPath)
     {
         path = newPath;
