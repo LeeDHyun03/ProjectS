@@ -8,8 +8,9 @@ public class MCLever : PZInteraction
     SpriteRenderer sr;
     bool isActive;
     bool isInteractable;
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         sr = GetComponent<SpriteRenderer>();
     }
 

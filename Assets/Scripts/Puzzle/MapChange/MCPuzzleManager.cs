@@ -5,6 +5,7 @@ public class MCPuzzleManager : PuzzleManager
 {
     public bool isPast = true;
     public List<MCBullet> allBullets = new List<MCBullet>();
+
     public override void Awake()
     {
         base.Awake();
@@ -36,9 +37,10 @@ public class MCPuzzleManager : PuzzleManager
     public void ChangedMap()
     {
         isPast = !isPast;
+        myMap.transform.position = isPast ? new Vector3(0f,0f,0f) : new Vector3(-45f, 0f, 0f);
     }
     public void SetBullets(MCBullet mC)
     {
-               allBullets.Add(mC);
+        allBullets.Add(mC);
     }
 }
