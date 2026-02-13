@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class KBMouseInput : PZInteraction
 {
-    Collider2D arrowCol;
     SpriteRenderer arrowSr;
     public KBCart cart;
     bool isMouseUse = false;
@@ -10,12 +9,7 @@ public class KBMouseInput : PZInteraction
     {
         base.Awake();
         cart = FindAnyObjectByType<KBCart>();
-        arrowCol = gameObject.GetComponent<Collider2D>();
         arrowSr = gameObject.GetComponent<SpriteRenderer>();
-    }
-    void Start()
-    {
-        
     }
 
     void Update()
