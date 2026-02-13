@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Roguelike.Items;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -30,7 +31,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private List<Image> dashGageBars;
     [SerializeField] private TMP_Text currentMonsterCount;
     [SerializeField] private Image watchHand;
-    //[SerializeField] private Image bossHpBar;
+    [SerializeField] private RewardScreen rewardScreen;
+    [SerializeField] private Image bossHpBar;
+    [SerializeField] private Image bossHpFillBar;
 
     private bool isStatusVisible = false;
 
@@ -74,9 +77,28 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
+    public void ActivateRewardScreen()
+    {
+        rewardScreen.gameObject.SetActive(true);
+        List<string> itemIds = ItemDataManager.Instance.availableItemIds;
+        rewardScreen.SetRewards(RewardManager.PickItemsFromID(itemIds, 3));
+    }
+
+    public void DeactivateRewardScreen()
+    {
+        rewardScreen.gameObject.SetActive(false);
+    }
+
+    public void ActivateBossHpBar()
+    {
+        bossHpBar.gameObject.SetActive(true);
+    }
+
+    public RewardScreen GetRewardScreen() => rewardScreen;
+
     public void ChangedMonsterCount(int currentMonsterCount)
     {
-        this.currentMonsterCount.text = $"{currentMonsterCount}����";
+        this.currentMonsterCount.text = $"{currentMonsterCount}마리";
     }
 
     public void StatsUpdate(
@@ -127,7 +149,7 @@ public class PlayerUI : MonoBehaviour
     public void BossHpBarUpdate(float currentHp, float maxHp)
     {
         float hpBarPercent = currentHp / maxHp;
-        //bossHpBar.fillAmount = hpBarPercent;
+        bossHpFillBar.fillAmount = hpBarPercent;
     }
 
     public void ChagnedDashGageBar(bool isCharged, float fillAmount)

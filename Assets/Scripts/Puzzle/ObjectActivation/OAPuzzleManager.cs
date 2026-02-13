@@ -9,7 +9,6 @@ public class OAPuzzleManager : PuzzleManager
     List<OAActTile> redActTiles = new List<OAActTile>();
     List<OAActTile> blueActTiles = new List<OAActTile>();
 
-    //Vector3 startVec => currentDifficulty.GetChild(3).position;
     int redActiveCount = 0;
     int blueActiveCount = 0;
     public override void Awake()

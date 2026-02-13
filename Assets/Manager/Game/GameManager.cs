@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Color nightColor = new(0.23f, 0.18f, 0.36f);
 
+    [SerializeField] private BossMonster bossMonsterPrefab;
+
     [HideInInspector] public WaveStaticData.Root data;
 
     [HideInInspector] public Phase currentPhase = Phase.Day;
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public event Action<float, float> OnCurrentPhaseTimeChanged;
+
+
 
     void Awake()
     {
@@ -175,6 +179,12 @@ public class GameManager : MonoBehaviour
 
         lastSpawnCenterPosition = MonsterManager.Instance.GetCurrentSpawnAreaCenter();
         lastUpdated = Time.time;
+    }
+
+    public void SpawnBossMonster(Vector3 SpawnPos)
+    {
+        BossMonster bossMonster = Instantiate(bossMonsterPrefab, SpawnPos, Quaternion.identity);
+        PlayerUI.Instance.ActivateBossHpBar();
     }
 
     WaveStaticData.MonsterAmountInfo PickWaveAmountInfo(int extraStagePattern, int stage, int wave)

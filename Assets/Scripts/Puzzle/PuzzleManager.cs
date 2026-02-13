@@ -1,5 +1,4 @@
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class PuzzleManager : MonoBehaviour
@@ -14,7 +13,6 @@ public abstract class PuzzleManager : MonoBehaviour
     public GameObject ResetUI;
     protected int difficulty;
     public Vector3 startVec, firstVec;
-    protected bool isUiOpen = false;
     public virtual void Awake()
     {
         PuzzleDataManager.Instance?.SetCurrentManager(this); 
@@ -49,7 +47,6 @@ public abstract class PuzzleManager : MonoBehaviour
         }
         else if (pZConfiner == null)
             pZConfiner = FindAnyObjectByType<PZConfinerTrigger>();
-        Debug.Log(level+" start");
         pZClear.OnClear += Clear;
         pZConfiner.OnConfinerTrigger += SetConfiner;
     }
@@ -64,11 +61,6 @@ public abstract class PuzzleManager : MonoBehaviour
         pZClear.OnClear -= Clear;
         pZConfiner.OnConfinerTrigger -= SetConfiner;
     }
-    public virtual void Update()
-    {
-        if(isUiOpen && Input.GetKeyDown(KeyCode.R))
-            PuzzleReset();
-    }
     void SetConfiner()
     {
         if (myCon == null)
@@ -77,7 +69,6 @@ public abstract class PuzzleManager : MonoBehaviour
         }
         confiner.BoundingShape2D = myCon;
         myCon.enabled = false;
-        isUiOpen = true;
         ResetUI.SetActive(true);
     }
 }

@@ -23,12 +23,14 @@ public class MonsterUI : MonoBehaviour
 
     public void HpBarUpdate(float currentHp, float maxHp)
     {
+        if (hpBar == null) return;
         float healthPercent = currentHp / maxHp;
         hpBar.fillAmount = healthPercent;
     }
 
     public void SuperArmorBarUpdate(float currentSuperArmor, float maxSuperArmor)
     {
+        if (superArmorBar == null) return;
         float superArmorPercent = currentSuperArmor / maxSuperArmor;
         superArmorBar.fillAmount = superArmorPercent;
     }

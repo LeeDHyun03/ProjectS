@@ -1,3 +1,4 @@
+using Roguelike.Items;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,20 +19,20 @@ public class RewardScreen : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-
-    public void SetRewards(List<string> rewardItemIDList)
+    public void SetRewards(List<ItemData> rewardItemIDList)
     {
         tooltipContainer.DestroyChildren();
 
-        foreach (string id in rewardItemIDList)
+        foreach (ItemData itemData in rewardItemIDList)
         {
             GameObject tooltip = Instantiate(clickableItemTooltipPrefab, tooltipContainer);
-            tooltip.GetComponent<RewardItemButton>().Initialize(id);
+            tooltip.TryGetComponent<RewardItemButton>(out RewardItemButton button);
+            Time.timeScale = 0;
+            if (button != null)
+                button.Initialize(itemData);
+            else
+                Debug.Log("RewardItemButton is Null");
         }
     }
 }

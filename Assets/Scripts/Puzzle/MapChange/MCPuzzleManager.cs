@@ -5,6 +5,8 @@ public class MCPuzzleManager : PuzzleManager
 {
     public bool isPast = true;
     public List<MCBullet> allBullets = new List<MCBullet>();
+    Vector3 pastVec = new Vector3(0f, 0f, 0f);
+    Vector3 presentVec = new Vector3(-45f, 0f, 0f);
 
     public override void OnDisable()
     {
@@ -14,18 +16,10 @@ public class MCPuzzleManager : PuzzleManager
             bullet.OnTriggerEnterBullet -= PuzzleReset;
         }
     }
-    public override void Update()
-    {
-        base.Update();
-        if(isUiOpen && Input.GetKeyDown(KeyCode.T))
-        {
-            ChangedMap();
-        }
-    }
     public void ChangedMap()
     {
         isPast = !isPast;
-        myMap.transform.position = isPast ? new Vector3(0f,0f,0f) : new Vector3(-45f, 0f, 0f);
+        myMap.transform.position = isPast ? pastVec : presentVec;
     }
     public void SetBullets(MCBullet mC)
     {

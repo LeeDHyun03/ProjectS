@@ -14,7 +14,6 @@ public class ItemTooltip : MonoBehaviour
 
     [SerializeField] private Transform KeywordInfoList;
     [SerializeField] private GameObject KeywordInfoPrefab;
-    [SerializeField] private AutoScrollText autoScrollText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,6 +69,5 @@ public class ItemTooltip : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(
             KeywordInfoList as RectTransform
         );
-        autoScrollText.ResetState();
     }
 }

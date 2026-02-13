@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerInputManager : MonoBehaviour
 {
-    private PlayerInput playerInput;
+    [SerializeField] private PlayerInput playerInput;
 
     private InputAction moveAction;
     private InputAction normalAttackAction;
