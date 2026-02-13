@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    public event Action<float, float> OnCurrentPhaseTimeChanged;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -165,6 +167,7 @@ public class GameManager : MonoBehaviour
             // StartCoroutine(Test());
         }
     }
+
     // 퍼즐 맵으로 넘어가기 전에 현재 상황 저장
     public void SaveCurrentStateBeforeEnterPuzzle()
     {
@@ -219,6 +222,8 @@ public class GameManager : MonoBehaviour
             float dayToTwilightDuration = general.waveDuration * general.waveAmountPerDay / 2f;
             float totalDayDuration = general.waveDuration * general.waveAmountPerDay;
 
+            OnCurrentPhaseTimeChanged?.Invoke(currentPhaseTime, totalDayDuration);
+
             if (currentPhaseTime < dayToTwilightDuration)
             {
                 float t = currentPhaseTime / dayToTwilightDuration;
@@ -253,6 +258,7 @@ public class GameManager : MonoBehaviour
             float t = currentPhaseTime / general.nightDuration;
             GlobalLight.Instance.SetColor(Color.Lerp(nightColor, dayColor, t));
 
+            OnCurrentPhaseTimeChanged?.Invoke(currentPhaseTime, general.nightDuration);
             if (currentPhaseTime >= general.nightDuration)
             {
                 currentPhaseTime = 0;

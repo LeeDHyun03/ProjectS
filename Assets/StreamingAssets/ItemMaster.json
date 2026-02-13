@@ -30,7 +30,7 @@
         {
             "ItemId": "IT_004_Item004",
             "NameKr": "잔불",
-            "Description": "발화 효과가 발동될 때, 10/15/20% 확률로 발화 시간 1초 연장",
+            "Description": "<style=Key><link=ignition>발화</link></style> 효과가 발동될 때, 10/15/20% 확률로 <style=Key><link=ignition>발화</link></style> 시간 1초 연장",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -48,7 +48,7 @@
         {
             "ItemId": "IT_006___",
             "NameKr": "이 몸 등장",
-            "Description": "매 웨이브 시작 시 강화 보호 1/2 얻음",
+            "Description": "매 웨이브 시작 시 <style=Key><link=protectionPlus>발화</link></style> 1/2 얻음",
             "Rarity": "Rare",
             "MaxLevel": 2,
             "ProgressionType": "LevelUp",
@@ -57,7 +57,7 @@
         {
             "ItemId": "IT_007__",
             "NameKr": "완전체 표본",
-            "Description": "HP가 100/70/50% 이상인 상태에서 완전함 효과를 얻음",
+            "Description": "HP가 100/70/50% 이상인 상태에서 <style=Key><link=perfectness>완전함</link></style> 효과를 얻음",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -75,7 +75,7 @@
         {
             "ItemId": "IT_009_Item009",
             "NameKr": "역전",
-            "Description": "공격력 +10/13/17 보유한 침식 효과 10당 공격력 증가 1 얻음",
+            "Description": "공격력 +10/13/17 보유한 <style=Key><link=corrosion>침식</link></style> 효과 10당 공격력 증가 1 얻음",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -93,7 +93,7 @@
         {
             "ItemId": "IT_011__",
             "NameKr": "암살 의뢰서",
-            "Description": "20/18초마다 보스를 제외한 무작위 적(자신에게 피해를 입지 않은 적 우선) 2/3명에게 은신 효과를 4초간 부여함.",
+            "Description": "20/18초마다 보스를 제외한 무작위 적(자신에게 피해를 입지 않은 적 우선) 2/3명에게 <style=Key><link=hiding>은신</link></style> 효과를 4초간 부여함.",
             "Rarity": "Rare",
             "MaxLevel": 2,
             "ProgressionType": "LevelUp",
@@ -120,7 +120,7 @@
         {
             "ItemId": "IT_014_Item014",
             "NameKr": "산소",
-            "Description": "적에게 공격을 적중시켰을 때, 대상의 발화 수치가 최대라면 보유한 발화 수치 1당 5/7/9/12의 피해를 입히고 발화 효과를 즉시 소멸시킴",
+            "Description": "적에게 공격을 적중시켰을 때, 대상의 <style=Key><link=ignition>발화</link></style> 수치가 최대라면 보유한 <style=Key><link=ignition>발화</link></style> 수치 1당 5/7/9/12의 피해를 입히고 <style=Key><link=ignition>발화</link></style> 효과를 즉시 소멸시킴",
             "Rarity": "Legendary",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
@@ -129,7 +129,7 @@
         {
             "ItemId": "IT_015___",
             "NameKr": "변이 혈액 표본",
-            "Description": "공격력 +10 근접 공격 피해량 +10%",
+            "Description": "공격력 +10\n근접 공격 피해량 +10%",
             "Rarity": "Common",
             "MaxLevel": 1,
             "ProgressionType": "None",
@@ -138,7 +138,7 @@
         {
             "ItemId": "IT_016_Item016",
             "NameKr": "방화",
-            "Description": "발화 최대 수치 +1/2/3",
+            "Description": "<style=Key><link=ignition>발화</link></style> 최대 수치 +1/2/3",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -147,7 +147,7 @@
         {
             "ItemId": "IT_017_Item017",
             "NameKr": "면죄부",
-            "Description": "공격 적중 시 자신의 일정 범위 내에 존재하는 무작위 적 \n2/2/3/3명에게 낙인 부여 \n공격 적중 시 낙인 효과를 보유한 적 1명 당 10%의 확률로 낙인 \n효과를 보유한 모든 적의 낙인 효과를 최대 수치까지 증가시킴 \n위 효과로 적을 처치했다면 낙인 부여 효과를 1회 재사용함",
+            "Description": "공격 적중 시 자신의 일정 범위 내에 존재하는 무작위 적 2/2/3/3명에게 <style=Key><link=stigma>낙인</link></style>을 부여함\n\n또한 <style=Key><link=stigma>낙인</link></style> 효과를 보유한 적 1명 당 10%의 확률로 <style=Key><link=stigma>낙인</link></style> 효과를 보유한 모든 적의 <style=Key><link=stigma>낙인</link></style> 효과를 최대 수치까지 증가시킴\n\n위 효과로 적을 처치했다면 <style=Key><link=stigma>낙인</link></style> 부여 효과를 1회 재사용함",
             "Rarity": "Legendary",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
@@ -156,7 +156,7 @@
         {
             "ItemId": "IT_018_Item018",
             "NameKr": "마도서",
-            "Description": "공격력 -10, 분노 +30%, 질투 +30%, 교만 +20%",
+            "Description": "공격력 -10\n분노 +30%\n질투 +30%\n교만 +20%",
             "Rarity": "Common",
             "MaxLevel": 1,
             "ProgressionType": "None",
@@ -183,7 +183,7 @@
         {
             "ItemId": "IT_021_Item021",
             "NameKr": "계약서",
-            "Description": "20/18초마다 보ㅗ스를 제외한 무작위 적(자신에게 피해를 입지 않은 적 우선) 2/3명을 포섭함",
+            "Description": "20/18초마다 보스를 제외한 무작위 적(자신에게 피해를 입지 않은 적 우선) 2/3명을 포섭함",
             "Rarity": "Rare",
             "MaxLevel": 2,
             "ProgressionType": "LevelUp",
@@ -201,7 +201,7 @@
         {
             "ItemId": "IT_023_Item023",
             "NameKr": "각성",
-            "Description": "최대 MP -20% 위 효과로 잃은 MP 1당 가하는 피해량 증가 2% 얻음(최대 30%)",
+            "Description": "최대 MP -20%\n위 효과로 잃은 MP 1당 가하는 피해량 증가 2% 얻음 (최대 30%)",
             "Rarity": "Legendary",
             "MaxLevel": 5,
             "ProgressionType": "LevelUp",
@@ -219,7 +219,7 @@
         {
             "ItemId": "IT_025_Item025",
             "NameKr": "플라즈마",
-            "Description": "전이 피해를 입은 적이 발화 1 얻음",
+            "Description": "전이 피해를 입은 적이 <style=Key><link=ignition>발화</link></style> 1 얻음",
             "Rarity": "Common",
             "MaxLevel": 1,
             "ProgressionType": "None",
@@ -237,7 +237,7 @@
         {
             "ItemId": "IT_027_Item027",
             "NameKr": "파상풍",
-            "Description": "적에게 치명타 피해를 입히면, 대상에게 2.5초 동안 상처 15/25/25% 부여",
+            "Description": "적에게 치명타 피해를 입히면, 대상에게 2.5초 동안 <style=Key><link=wound>상처</link></style> 15/25/25% 부여",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -245,7 +245,7 @@
         },
         {
             "ItemId": "IT_028_Item028",
-            "NameKr": "치명타",
+            "NameKr": "조준경",
             "Description": "치명타 피해량 +8/12/16/20%",
             "Rarity": "Legendary",
             "MaxLevel": 4,
@@ -255,7 +255,7 @@
         {
             "ItemId": "IT_029_Item029",
             "NameKr": "치명성",
-            "Description": "치명타 확률 +5/6/7/8/, 치명타 피해량 +10/12/14/16%",
+            "Description": "치명타 확률 +5/6/7/8%\n치명타 피해량 +10/12/14/16%",
             "Rarity": "Legendary",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
@@ -273,7 +273,7 @@
         {
             "ItemId": "IT_031_Item031",
             "NameKr": "착화",
-            "Description": "발화 피해가 슈퍼 아머에 입히는 피해량 +20/35/30%",
+            "Description": "<style=Key><link=ignition>발화</link></style> 피해가 슈퍼 아머에 입히는 피해량 +20/35/30%",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -282,7 +282,7 @@
         {
             "ItemId": "IT_032_Item032",
             "NameKr": "점화",
-            "Description": "사격으로 피해를 입히면 대상에게 발화 1/1/2 부여",
+            "Description": "사격으로 피해를 입히면 대상에게 <style=Key><link=wound>상처</link></style> 1/1/2 부여",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -300,7 +300,7 @@
         {
             "ItemId": "IT_034_Item034",
             "NameKr": "전염",
-            "Description": "사격으로 피해를 입히면 대상 근처의 적에게 전이 피해를 입힘",
+            "Description": "사격으로 피해를 입히면 대상 근처의 적에게 <style=Key><link=transmission>전이</link></style> 피해를 입힘",
             "Rarity": "Common",
             "MaxLevel": 1,
             "ProgressionType": "None",
@@ -309,7 +309,7 @@
         {
             "ItemId": "IT_035_Item035",
             "NameKr": "전도체",
-            "Description": "근접 공격으로 피해를 입히면 대상 근처의 적에게 전이 피해를 입힘",
+            "Description": "근접 공격으로 피해를 입히면 대상 근처의 적에게 <style=Key><link=transmission>전이</link></style> 피해를 입힘",
             "Rarity": "Common",
             "MaxLevel": 1,
             "ProgressionType": "None",
@@ -399,7 +399,7 @@
         {
             "ItemId": "IT_045_Item045",
             "NameKr": "시선",
-            "Description": "낙인 효과를 보유한 적이 공격력 감소 10/13/16/20% 얻음",
+            "Description": "<style=Key><link=stigma>낙인</link></style> 효과를 보유한 적이 공격력 감소 10/13/16/20% 얻음",
             "Rarity": "Legendary",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
@@ -534,7 +534,7 @@
         {
             "ItemId": "IT_060_Item060",
             "NameKr": "꼬리표",
-            "Description": "적에게 근접 공격으로 피해를 입히면 대상에게 낙인 1 부여",
+            "Description": "적에게 근접 공격으로 피해를 입히면 대상에게 <style=Key><link=stigma>낙인</link></style> 1 부여",
             "Rarity": "Common",
             "MaxLevel": 1,
             "ProgressionType": "None",
@@ -552,7 +552,7 @@
         {
             "ItemId": "IT_062_Item062",
             "NameKr": "구설수",
-            "Description": "적에게 사격으로 피해를 입히면 대상에게 낙인 1 부여",
+            "Description": "적에게 사격으로 피해를 입히면 대상에게 <style=Key><link=stigma>낙인</link></style> 1 부여",
             "Rarity": "Common",
             "MaxLevel": 1,
             "ProgressionType": "None",
@@ -561,7 +561,7 @@
         {
             "ItemId": "IT_063_Item063",
             "NameKr": "광란",
-            "Description": "공격력 +5/7/9/11/13, 근접 공격 속도 +10/13/16/19/21",
+            "Description": "공격력 +5/7/9/11/13\n근접 공격 속도 +10/13/16/19/21",
             "Rarity": "Legendary",
             "MaxLevel": 5,
             "ProgressionType": "LevelUp",
@@ -579,7 +579,7 @@
         {
             "ItemId": "IT_065_Item065",
             "NameKr": "과호흡",
-            "Description": "낙인 효과를 보유한 적이 감속 20/25/30% 얻음",
+            "Description": "<style=Key><link=stigma>낙인</link></style> 효과를 보유한 적이 <style=Key><link=slow>감속</link></style> 20/25/30% 얻음",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -597,7 +597,7 @@
         {
             "ItemId": "IT_067_Item067",
             "NameKr": "경중",
-            "Description": "이동 속도 +10/20%, 공격력 +8/11",
+            "Description": "이동 속도 +10/20%\n공격력 +8/11",
             "Rarity": "Rare",
             "MaxLevel": 2,
             "ProgressionType": "LevelUp",
@@ -696,7 +696,7 @@
         {
             "ItemId": "IT_078_Item078",
             "NameKr": "면죄부",
-            "Description": "공격 적중 시 자신의 일정 범위 내에 존재하는 무작위 적 2/2/3/3명에게 낙인 부여. 공격 적중 시 낙인 효과를 보유한 적 1명 당 10%의 확률로 낙인 효과를 보유한 모든 적의 낙인 효과를 최대 수치까지 증가시킴. 위 효과로 적을 처치했다면 낙인 부여 효과를 1회 재사용",
+            "Description": "공격 적중 시 자신의 일정 범위 내에 존재하는 무작위 적 2/2/3/3명에게 <style=Key><link=stigma>낙인</link></style>을 부여함\n\n또한 <style=Key><link=stigma>낙인</link></style> 효과를 보유한 적 1명 당 10%의 확률로 <style=Key><link=stigma>낙인</link></style> 효과를 보유한 모든 적의 <style=Key><link=stigma>낙인</link></style> 효과를 최대 수치까지 증가시킴\n\n위 효과로 적을 처치했다면 <style=Key><link=stigma>낙인</link></style> 부여 효과를 1회 재사용함",
             "Rarity": "Legendary",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
@@ -705,7 +705,7 @@
         {
             "ItemId": "IT_079_Item079",
             "NameKr": "휘발유",
-            "Description": "발화 지속 시간 +1/2/3",
+            "Description": "<style=Key><link=ignition>발화</link></style> 지속 시간 +1/2/3",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -768,7 +768,7 @@
         {
             "ItemId": "IT_086_Item086",
             "NameKr": "집중력",
-            "Description": "현재 HP가 90/75% 이상일 때 치명타 확률 증가 15/20% 얻음",
+            "Description": "현재 HP가 90/75% 이상일 때 <style=Key><link=critChanceUp>치명타 확률 증가</link></style> 15/20% 얻음",
             "Rarity": "Rare",
             "MaxLevel": 2,
             "ProgressionType": "LevelUp",
@@ -911,7 +911,7 @@
         },
         {
             "ItemId": "IT_102_Item102",
-            "NameKr": "빈큼",
+            "NameKr": "빈틈",
             "Description": "치명타 피해량 +10/18% 공격력 +10/18%",
             "Rarity": "Rare",
             "MaxLevel": 2,
@@ -939,7 +939,7 @@
         {
             "ItemId": "IT_105_Item105",
             "NameKr": "반딧불",
-            "Description": "발화 효과를 보유한 적이 사망했을 때, 주변 가까운 적 1명에게 발화 효과 부여",
+            "Description": "<style=Key><link=ignition>발화</link></style> 효과를 보유한 적이 사망했을 때, 주변 가까운 적 1명에게 <style=Key><link=ignition>발화</link></style> 효과 부여",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
@@ -1038,7 +1038,7 @@
         {
             "ItemId": "IT_116__",
             "NameKr": "거센 불길",
-            "Description": "공격으로 피해를 입히면 대상에게 발화 1/1/2 부여 분노 +5/10/15",
+            "Description": "공격으로 피해를 입히면 대상에게 <style=Key><link=ignition>발화</link></style> 1/1/2 부여\n분노 +5/10/15",
             "Rarity": "Epic",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",

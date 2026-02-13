@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerInputManager))]
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDir;
     private Vector3 dashDir;
     private Vector3 attackDir;
+
+    public event Action OnDashEnded;
 
     public bool IsMoving => moveDir.sqrMagnitude > 0.0001f;
 
@@ -63,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 isDashing = false;
                 currentDashTimer = 0f;
+                OnDashEnded?.Invoke();
             }
         }
 

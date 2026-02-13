@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ed11946f543580e45bbb4bb2ab9980ff
+guid: 195eac4daf4a85f41bff538eb5ea709e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6038342703473049663
-    second: Watch_0
+      213: 7951341866390944743
+    second: ItemDescriptionPanel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Watch_0
+      name: ItemDescriptionPanel_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 841
-        height: 919
+        x: 6
+        y: 13
+        width: 68
+        height: 104
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 21, z: 9, w: 20}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cfba6fbd4f733ca0800000000000000
-      internalID: -6038342703473049663
+      spriteID: 7eb7ce9ac47d85e60800000000000000
+      internalID: 7951341866390944743
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: fdc07fcbec663234d896ee8f074792d1
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Watch_0: -6038342703473049663
+      ItemDescriptionPanel_0: 7951341866390944743
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
