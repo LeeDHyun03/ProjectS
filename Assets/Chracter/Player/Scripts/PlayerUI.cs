@@ -12,6 +12,9 @@ public class PlayerUI : MonoBehaviour
 
     public ItemTooltip itemTooltip;
     public ItemKeywordTooltip itemKeywordTooltip;
+
+    public ResultScreen resultScreen;
+
     [SerializeField] private Image statusPanel;
     [SerializeField] private Image hpBar;
     [SerializeField] private Image mpBar;
