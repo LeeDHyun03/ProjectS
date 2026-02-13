@@ -460,6 +460,7 @@ public class PlayerCharacter : Character
     public override void Dead()
     {
         Debug.Log("플레이어 사망");
+        PlayerUI.Instance.resultScreen.gameObject.SetActive(true);
         // SaveData에 현재까지 모은 포인트를 저장하는 로직 추가 가능
     }
 
