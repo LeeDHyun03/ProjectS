@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 80b8fef2a6306e5468bacbe92445c7a4
+guid: 0fd74aa890bd354478c527ac63e771ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 712035800519618848
-    second: Sword_0
+      213: 7848663412437863139
+    second: Devil Idle3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sword_0
+      name: Devil Idle3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 021355db9c8a1e900800000000000000
-      internalID: 712035800519618848
+      spriteID: 3eac6f32acd0cec60800000000000000
+      internalID: 7848663412437863139
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0474b0f4e27a5ab409bd8dcfe202214e
+    spriteID: 8b8b05d42a47df746a1890a6f09a4860
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sword_0: 712035800519618848
+      Devil Idle3_0: 7848663412437863139
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
