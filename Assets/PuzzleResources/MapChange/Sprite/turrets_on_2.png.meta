@@ -103,12 +103,12 @@ TextureImporter:
       name: turrets_on_2_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 7
         y: 0
-        width: 113
-        height: 85
+        width: 121
+        height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c64b17446086da646b22a9ef0274117f
     internalID: 0
     vertices: []
     indices: 

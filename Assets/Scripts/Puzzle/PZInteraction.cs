@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class PZInteraction : PuzzleElement
+public abstract class PZInteraction : PZElement
 {
     public GameObject player;
     public override void Awake()

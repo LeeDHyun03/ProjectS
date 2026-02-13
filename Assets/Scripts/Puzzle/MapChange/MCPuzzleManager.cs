@@ -6,32 +6,20 @@ public class MCPuzzleManager : PuzzleManager
     public bool isPast = true;
     public List<MCBullet> allBullets = new List<MCBullet>();
 
-    public override void Awake()
-    {
-        base.Awake();
-    }
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        foreach (var bullet in allBullets)
-        {
-            bullet.OnTriggerEnterBullet += PuzzleReset;
-        }
-    }
     public override void OnDisable()
     {
-        base.OnDisable(); foreach (var bullet in allBullets)
+        base.OnDisable(); 
+        foreach (var bullet in allBullets)
         {
             bullet.OnTriggerEnterBullet -= PuzzleReset;
+        }
+    }
+    public override void Update()
+    {
+        base.Update();
+        if(isUiOpen && Input.GetKeyDown(KeyCode.T))
+        {
+            ChangedMap();
         }
     }
     public void ChangedMap()
@@ -42,5 +30,6 @@ public class MCPuzzleManager : PuzzleManager
     public void SetBullets(MCBullet mC)
     {
         allBullets.Add(mC);
+        mC.OnTriggerEnterBullet += PuzzleReset;
     }
 }

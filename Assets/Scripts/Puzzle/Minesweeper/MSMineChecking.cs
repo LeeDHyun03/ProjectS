@@ -4,7 +4,7 @@ using TMPro;
 
 public class MSMineChecking : MonoBehaviour
 {
-    Grid puzzleGrid;
+    [SerializeField]Grid puzzleGrid;
     public Transform player;
     public TextMeshPro mineCountText;
 
@@ -14,7 +14,6 @@ public class MSMineChecking : MonoBehaviour
     int mineCount = 0;
 
     public event Action OnMineTriggered;
-/*    public event Action OnClear;*/
     private void Awake()
     {
         col2D = GetComponent<Collider2D>();
@@ -41,10 +40,6 @@ public class MSMineChecking : MonoBehaviour
                 OnMineTriggered?.Invoke();
             }
         }
-/*        else if (collision.CompareTag("PZClear") && isPlayerOnCollision(collision))
-        {
-            OnClear?.Invoke();
-        }*/
     }
     private void OnTriggerExit2D(Collider2D collision)
     { 
@@ -53,10 +48,13 @@ public class MSMineChecking : MonoBehaviour
     }
     void MoveToPlayerVector()
     {
-        col2D.enabled = false;
-        Vector3 moveVec = puzzleGrid.GetCellCenterWorld(playerCellVec);
-        transform.position = moveVec;
-        col2D.enabled = true;
+        if(puzzleGrid !=null)
+        {
+            col2D.enabled = false;
+            Vector3 moveVec = puzzleGrid.GetCellCenterWorld(playerCellVec);
+            transform.position = moveVec;
+            col2D.enabled = true;
+        }
     }
     void SetMineCountText()
     {
@@ -71,7 +69,7 @@ public class MSMineChecking : MonoBehaviour
     }
     bool IsCellVecDifferent()
     {
-        if(isPlayerMove)
+        if(isPlayerMove && puzzleGrid != null)
         {
             Vector3Int currentCellVec = puzzleGrid.WorldToCell(transform.position);
             playerCellVec = puzzleGrid.WorldToCell(player.position);

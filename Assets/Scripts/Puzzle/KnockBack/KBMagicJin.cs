@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KBMagicJin : PuzzleElement
+public class KBMagicJin : PZElement
 {
     public Sprite OnMagic;
     SpriteRenderer sr;

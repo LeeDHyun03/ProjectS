@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class OAEnergy : PuzzleElement
+public class OAEnergy : PZElement
 {
     public bool onButton; 
     public event Action<OAActTileColor, bool> OnActTrigger;

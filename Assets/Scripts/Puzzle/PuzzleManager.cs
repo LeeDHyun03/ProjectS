@@ -1,4 +1,5 @@
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class PuzzleManager : MonoBehaviour
@@ -10,13 +11,15 @@ public abstract class PuzzleManager : MonoBehaviour
     public GameObject[] puzzleDifficulty = new GameObject[3];
     [SerializeField] protected BoxCollider2D myCon;
     [SerializeField]protected GameObject myMap;
+    public GameObject ResetUI;
     protected int difficulty;
     public Vector3 startVec, firstVec;
+    protected bool isUiOpen = false;
     public virtual void Awake()
     {
         PuzzleDataManager.Instance?.SetCurrentManager(this); 
 
-        SetPuzzleLevel(0);  
+        SetPuzzleLevel(2);  
     }
     public void GiveReward(int difficulty)
     {
@@ -47,6 +50,8 @@ public abstract class PuzzleManager : MonoBehaviour
         else if (pZConfiner == null)
             pZConfiner = FindAnyObjectByType<PZConfinerTrigger>();
         Debug.Log(level+" start");
+        pZClear.OnClear += Clear;
+        pZConfiner.OnConfinerTrigger += SetConfiner;
     }
     public virtual void PuzzleReset()
     {
@@ -54,16 +59,15 @@ public abstract class PuzzleManager : MonoBehaviour
         myMap = Instantiate(puzzleDifficulty[difficulty], transform);
         player.position = startVec;
     }
-    public virtual void OnEnable()
-    {
-        pZClear.OnClear += Clear;
-        pZConfiner.OnConfinerTrigger += SetConfiner;
-
-    }
     public virtual void OnDisable()
     {
         pZClear.OnClear -= Clear;
         pZConfiner.OnConfinerTrigger -= SetConfiner;
+    }
+    public virtual void Update()
+    {
+        if(isUiOpen && Input.GetKeyDown(KeyCode.R))
+            PuzzleReset();
     }
     void SetConfiner()
     {
@@ -73,5 +77,7 @@ public abstract class PuzzleManager : MonoBehaviour
         }
         confiner.BoundingShape2D = myCon;
         myCon.enabled = false;
+        isUiOpen = true;
+        ResetUI.SetActive(true);
     }
 }

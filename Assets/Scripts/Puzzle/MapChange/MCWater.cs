@@ -1,13 +1,17 @@
+using System;
 using UnityEngine;
 public class MCWater : PZInteraction
 {
     public GameObject interactionText;
     Collider2D col;
+    SpriteRenderer sr;
     bool isPlayerInteraction, CanInteraction;
+    public event Action OnPutDownWater;
     public override void Awake()
     {
         base.Awake();
         col = GetComponent<Collider2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -23,9 +27,12 @@ public class MCWater : PZInteraction
             {
                 isPlayerInteraction = false;
                 col.enabled = true;
+                sr.sortingOrder = 1;
+                OnPutDownWater?.Invoke();
             }    
             else if (CanInteraction)
             {
+                sr.sortingOrder = 2;
                 isPlayerInteraction = true;
                 col.enabled = false;
                 Interaction(false);

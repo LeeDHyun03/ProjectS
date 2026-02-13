@@ -16,17 +16,10 @@ public class MCLever : PZInteraction
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (isInteractable && Input.GetKeyDown(KeyCode.Z))
         {
-            if(isActive)
-            {
-                isActive = false;
-            }
-            else if(isInteractable)
-            {
-                isActive = true;
-            }
-            Wall.SetActive(isActive);
+            isActive = !isActive;
+            Wall.SetActive(!isActive);
             sr.sprite = isActive ? onLever : offLever;
         }
     }

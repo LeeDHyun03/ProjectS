@@ -15,9 +15,14 @@ public class MSPuzzleManager : PuzzleManager
     {
         player.position = startVec;
     }
-    public override void OnEnable()
+    public override void PuzzleReset()
     {
-        base.OnEnable();
+        base.PuzzleReset();
+        puzzleGrid = myMap.GetComponent<Grid>();
+        mineChecking.SetPuzzleGrid(puzzleGrid);
+    }
+    public void OnEnable()
+    {
         mineChecking.OnMineTriggered += MoveToStartPoint;
     }
     public override void OnDisable()

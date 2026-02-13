@@ -42,13 +42,26 @@ public class OAPuzzleManager : PuzzleManager
     }
     public override void PuzzleReset()
     {
+        foreach (var a in energies)
+        {
+            if (a != null)
+                a.OnActTrigger -= HandleActTrigger;
+        }
+
+        energies.Clear();
+        redActTiles.Clear();
+        blueActTiles.Clear();
+
+        redActiveCount = 0;
+        blueActiveCount = 0;
+
         base.PuzzleReset();
+
         PuzzleResetLoadParsing();
     }
     void PuzzleResetLoadParsing()
     {
         objects = myMap.transform.GetChild(0);
-        Debug.Log("OAPuzzleManager found " + objects.GetChild(0).childCount + " energies and " + objects.GetChild(1).childCount + " act tiles.");
         for (int i = 0; i < objects.GetChild(0).childCount; i++)
         {
             var ctr = objects.GetChild(0).GetChild(i).GetComponent<OAEnergy>();
@@ -64,16 +77,6 @@ public class OAPuzzleManager : PuzzleManager
                 redActTiles.Add(ctr);
             else
                 blueActTiles.Add(ctr);
-        }
-        Debug.Log("OAPuzzleManager registered " + energies.Count + " energies, " + redActTiles.Count + " red act tiles, and " + blueActTiles.Count + " blue act tiles.");
-    }
-
-    public override void OnDisable()
-    {
-        base.OnDisable();
-        foreach (var a in energies)
-        {
-            a.OnActTrigger -= HandleActTrigger;
         }
     }
 }
