@@ -34,7 +34,7 @@ public class ItemRandomSelector
         float multiplier = 1f + rarityBias * rarityIndex;
         return baseWeight * multiplier;
     }
-    public static List<ItemData> PickItemsFromID(List<string> idList, int puzzleDifficulty)
+    public static List<ItemData> PickItemsFromID(List<string> idList, int puzzleDifficulty = 0)
     {
         List<ItemData> candidates = new();
 
@@ -46,7 +46,7 @@ public class ItemRandomSelector
 
         return PickItems(candidates, puzzleDifficulty);
     }
-    public static List<ItemData> PickItems(List<ItemData> candidates, int puzzleDifficulty)
+    public static List<ItemData> PickItems(List<ItemData> candidates, int puzzleDifficulty = 0)
     {
         List<ItemData> list = new(candidates);
         List<ItemData> result = new();
