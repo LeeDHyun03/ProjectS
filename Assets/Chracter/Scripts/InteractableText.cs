@@ -26,8 +26,15 @@ public class InteractableText : MonoBehaviour
     void CheckMouseHover()
     {
         Vector3 mousePos = Input.mousePosition;
-        Camera camera = Camera.main.GetComponent<Camera>();
-        bool isOverText = TMP_TextUtilities.IsIntersectingRectTransform(GetComponent<RectTransform>(), mousePos, camera);
+
+        Canvas canvas = tmpro.canvas;
+        Camera camera = canvas.worldCamera;
+
+        bool isOverText = TMP_TextUtilities.IsIntersectingRectTransform(
+            tmpro.rectTransform,
+            mousePos,
+            camera
+        );
 
         if (!isOverText)
         {
@@ -35,27 +42,31 @@ public class InteractableText : MonoBehaviour
             return;
         }
 
-        int targetLink = TMP_TextUtilities.FindIntersectingLink(tmpro, mousePos, camera);
+        int targetLink = TMP_TextUtilities.FindIntersectingLink(
+            tmpro,
+            mousePos,
+            camera
+        );
 
         if (currentActiveLink != targetLink) DisableTooltip();
+
         if (targetLink == -1) return;
 
         TMP_LinkInfo linkInfo = tmpro.textInfo.linkInfo[targetLink];
-
         string id = linkInfo.GetLinkID();
+
+        ItemKeywordDataManager.KeywordInfo keywordInfo = ItemKeywordDataManager.Instance.GetKeywordInfo(id);
+        if (keywordInfo == null) return;
+
         ItemKeywordTooltip tooltip = PlayerUI.Instance.itemKeywordTooltip;
-        if (ItemKeywordDataManager.Instance.GetKeywordInfo(id) != null)
-        {
-            ItemKeywordDataManager.KeywordInfo keywordInfo = ItemKeywordDataManager.Instance.GetKeywordInfo(id);
 
-            tooltip.gameObject.SetActive(true);
-            tooltip.GetComponent<ItemKeywordTooltip>().SetData(
-                keywordInfo.name,
-                keywordInfo.description
-            ).FollowMousePos();
+        tooltip.gameObject.SetActive(true);
+        tooltip.SetData(
+            keywordInfo.name,
+            keywordInfo.description
+        ).FollowMousePos();
 
-            currentActiveLink = targetLink;
-        }
+        currentActiveLink = targetLink;
     }
 
     void DisableTooltip()
