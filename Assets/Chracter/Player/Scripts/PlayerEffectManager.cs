@@ -7,6 +7,7 @@ public class PlayerEffectManager : MonoBehaviour
     [SerializeField] private Transform normalAttackEffectTransform;
     [SerializeField] private Transform walkEffectTransform;
     [SerializeField] private Transform specialAttackEffectTransform;
+    [SerializeField] private Transform hitEffectTransform;
 
     private void Awake()
     {
@@ -38,5 +39,11 @@ public class PlayerEffectManager : MonoBehaviour
     {
         ObjectPooler.Instance.SpawnFromPool("WalkEffect",
             walkEffectTransform.position, walkEffectTransform.localRotation);
+    }
+
+    public void OnHitEffect()
+    {
+        ObjectPooler.Instance.SpawnFromPool("HitEffect",
+            hitEffectTransform.position, hitEffectTransform.localRotation);
     }
 }

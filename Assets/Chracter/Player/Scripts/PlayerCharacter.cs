@@ -1,13 +1,14 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Assertions;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInputManager))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerCombat))]
 [RequireComponent(typeof(PlayerRest))]
-[RequireComponent(typeof(PlayerUI))]
 
 public class PlayerCharacter : Character
 {
@@ -16,54 +17,90 @@ public class PlayerCharacter : Character
     [SerializeField] private PlayerSpriteAnimator animator;
     [SerializeField] private PlayerCombat combat;
     [SerializeField] private PlayerRest rest;
-    [SerializeField] private PlayerUI ui;
     [SerializeField] private WeaponAnimator weapon;
+
+    private PlayerUI ui;
+    private PlayerStatRefreshScheduler statRefreshScheduler;
+
+    private PlayerItemStatController itemStatController;
 
     public event Action<float, float> OnHpChanged;
     public event Action<float, float> OnMpChanged;
     public event Action<float, float> OnExpChanged;
+    public event Action<float, float, float, float, float, float, float, float, float, float> OnStatsUpdate;
+
+    public event Action<bool, float> OnChagnedDashCount;
 
     private float currentMp;
     private float currentExp;
+
+    private float defense;
+    private float critChance;
+    private float critDamage;
+    private float meleeDamage;
+    private float rangedDamage;
+    private float anger;
+    private float pride;
+    private float jealousy;
+    private int rerollCount;
+
+    private bool isDashing = false;
+    private bool isInvincibility = false;
+
+    private Coroutine invincibilityDurationRoutine;
+
+    private int maxDashCount = 3;
+    private int currentDashCount = 3;
+    private float dashChargedTime = 1;
+    private float dashChargedCurrentTime = 0;
+
+    private float mpChargedCurrentTime = 0;
+    private float mpChargedTime = 1;
 
     [SerializeField] private float sprintSpeed = 10f;
     [SerializeField] private float maxMp = 100f;
     [SerializeField] private float maxExp = 100f;
     [SerializeField] private float specialAttackUsedMp = 5;
 
+
+    public float CurrentHp => currentHp;
+    public float MaxHp => maxHp;
+    public float CurrentMp => currentMp;
+    public float MaxMp => maxMp;
+    
+    #region Debug Func
+    public float DebugAttackDamage => attackDamage;
+    public float DebugMoveSpeed => moveSpeed;
+    public float DebugAttackSpeed => normalAttackSpeed;
+    public float CritChance => critChance;
+    #endregion
+
+
     void Start()
     {
         ApplyMetaData();
+
+        ui = PlayerUI.Instance;
+        statRefreshScheduler = GetComponent<PlayerStatRefreshScheduler>();
+
+        if (ui != null)
+        {
+            OnHpChanged += ui.HpBarUpdate;
+            OnMpChanged += ui.MpBarUpdate;
+            OnExpChanged += ui.ExpBarUpdate;
+            OnStatsUpdate += ui.StatsUpdate;
+            OnChagnedDashCount += ui.ChagnedDashGageBar;
+        }
+
+        OnHpChanged += statRefreshScheduler.MarkDirty;
+        OnMpChanged += statRefreshScheduler.MarkDirty;
 
         OnHpChanged?.Invoke(currentHp, maxHp);
         OnMpChanged?.Invoke(currentMp, maxMp);
         OnExpChanged?.Invoke(currentExp, maxExp);
     }
 
-    private void ApplyMetaData()
-    {
-        var dm = DataManager.Instance;
-        var baseData = dm.BaseData.player;
-
-        maxHp = dm.GetFinalMaxHp();
-        currentHp = maxHp;
-        attackDamage = dm.GetFinalAtk();
-        moveSpeed = dm.GetFinalMoveSpeed();
-        attackSpeed = baseData.stats.attackSpeed;
-
-        maxMp = dm.GetFinalMp();
-        currentMp = maxMp;
-
-        maxExp = baseData.baseMaxExp;
-        currentExp = 0;
-
-        sprintSpeed = baseData.sprintSpeed;
-        specialAttackUsedMp = baseData.specialAttackUsedMp;
-
-        movement.SetSpeed(moveSpeed, sprintSpeed);
-        combat.SetStats(attackDamage, attackSpeed);
-    }
-
+    #region Event Subscribe
     private void OnEnable()
     {
         input.MoveVectorChanged += SetMoveInput;
@@ -84,19 +121,23 @@ public class PlayerCharacter : Character
 
         animator.StartSpecialAttacked += OnActivateSpecialAttack;
 
-        OnHpChanged += ui.HpBarUpdate;
-        OnMpChanged += ui.MpBarUpdate;
-        OnExpChanged += ui.ExpBarUpdate;
-    }
+        movement.OnDashEnded += DashEnded;
 
-    private void NormalAttackStarted(Vector2 dir)
-    {
-        movement.OnAttackDash(dir);
-    }
+        if (ui != null)
+        {
+            OnHpChanged += ui.HpBarUpdate;
+            OnMpChanged += ui.MpBarUpdate;
+            OnExpChanged += ui.ExpBarUpdate;
+            OnStatsUpdate += ui.StatsUpdate;
+            OnChagnedDashCount += ui.ChagnedDashGageBar;
+        }
 
-    private void NormalAttackEnded()
-    {
-        movement.SetIsAttack(false);
+        if(statRefreshScheduler != null)
+        {
+            OnHpChanged += statRefreshScheduler.MarkDirty;
+            OnMpChanged += statRefreshScheduler.MarkDirty;
+        }
+
     }
 
     private void OnDisable()
@@ -119,9 +160,34 @@ public class PlayerCharacter : Character
 
         animator.StartSpecialAttacked -= OnActivateSpecialAttack;
 
-        OnHpChanged -= ui.HpBarUpdate;
-        OnMpChanged -= ui.MpBarUpdate;
-        OnExpChanged -= ui.ExpBarUpdate;
+        movement.OnDashEnded -= DashEnded;
+
+        if (ui != null)
+        {
+            OnHpChanged -= ui.HpBarUpdate;
+            OnMpChanged -= ui.MpBarUpdate;
+            OnExpChanged -= ui.ExpBarUpdate;
+            OnStatsUpdate -= ui.StatsUpdate;
+            OnChagnedDashCount -= ui.ChagnedDashGageBar;
+        }
+
+        if (statRefreshScheduler != null)
+        {
+            OnHpChanged -= statRefreshScheduler.MarkDirty;
+            OnMpChanged -= statRefreshScheduler.MarkDirty;
+        }
+    }
+
+    #region EventFunc
+
+    private void NormalAttackStarted(Vector2 dir)
+    {
+        movement.OnAttackDash(dir);
+    }
+
+    private void NormalAttackEnded()
+    {
+        movement.SetIsAttack(false);
     }
 
     void SetMoveInput(Vector2 moveInput)
@@ -131,7 +197,18 @@ public class PlayerCharacter : Character
 
     void OnDash(Vector2 moveInput)
     {
+        if (isDashing || currentDashCount <= 0) return;
+        isDashing = true;
+        currentDashCount--;
+        OnChagnedDashCount?.Invoke(false, 0);
+        isInvincibility = true;
+        invincibilityDurationRoutine = StartCoroutine(TakeDamageInvincibility(0.25f));
         movement.OnDash(moveInput);
+    }
+
+    void DashEnded()
+    {
+        isDashing = false;
     }
 
     void ActivateSprintMode()
@@ -152,7 +229,7 @@ public class PlayerCharacter : Character
 
     void OnSpecialAttack()
     {
-        if(UsedMp(specialAttackUsedMp))
+        if (UsedMp(specialAttackUsedMp))
         {
             movement.OnSpecialAttack();
             animator.ToggledSpecialAttackAnim(true);
@@ -171,7 +248,7 @@ public class PlayerCharacter : Character
 
     void RestModeChanged(bool isResting)
     {
-        if(isResting)
+        if (isResting)
         {
             combat.EnableRestMode();
             weapon.SetIsAttacking(true);
@@ -190,14 +267,121 @@ public class PlayerCharacter : Character
     {
         ui.ToggleStatusDisplay();
     }
+    #endregion
+
+    #endregion
+
+    #region State
+    private void ApplyMetaData()
+    {
+        var dm = DataManager.Instance;
+        var baseData = dm.BaseData.player;
+
+        var baseStats = BuildBaseStatsFromDataManager();
+
+        maxHp = baseStats.maxHp;
+        currentHp = maxHp;
+
+        attackDamage = baseStats.attackDamage;
+        moveSpeed = baseStats.moveSpeed;
+        normalAttackSpeed = baseStats.normalAttackSpeed;
+
+        maxMp = baseStats.maxMp;
+        currentMp = maxMp;
+
+        defense = baseStats.defense;
+        critChance = baseStats.critChance;
+        critDamage = baseStats.critDamage;
+        meleeDamage = 0;
+        rangedDamage = 0;
+        pride = baseStats.pride;
+        jealousy = baseStats.jealousy;
+        anger = baseStats.anger;
+
+        maxExp = baseData.baseMaxExp;
+        currentExp = 0;
+
+        rerollCount = baseStats.rerollCount;
+
+        sprintSpeed = baseData.sprintSpeed;
+        specialAttackUsedMp = baseData.specialAttackUsedMp;
+
+        movement.SetSpeed(moveSpeed, sprintSpeed);
+        combat.SetStats(attackDamage, normalAttackSpeed, critChance, critDamage, meleeDamage, rangedDamage, anger, pride, jealousy);
+
+        OnStatsUpdate?.Invoke(maxHp, maxMp, moveSpeed, attackDamage, critChance, defense, anger, pride, jealousy, rerollCount);
+
+        itemStatController = GetComponent<PlayerItemStatController>();
+        if (itemStatController) itemStatController.RebuildAndApply();
+    }
+
+    public PlayerItemStatController.PlayerStatBlock BuildBaseStatsFromDataManager()
+    {
+        var dm = DataManager.Instance;
+
+        return new PlayerItemStatController.PlayerStatBlock
+        {
+            maxHp = dm.GetFinalMaxHp(),
+            attackDamage = dm.GetFinalAtk(),
+            moveSpeed = dm.GetFinalMoveSpeed(),
+            normalAttackSpeed = dm.GetFinalAttackSpeed(),
+
+            maxMp = dm.GetFinalMp(),
+            defense = dm.GetFinalDef(),
+            critChance = dm.GetFinalCritChance(),
+            critDamage = dm.GetFinalCritDamage(),
+            pride = dm.GetFinalPride(),
+            jealousy = dm.GetFinalJealousy(),
+            anger = dm.GetFinalAnger(),
+            rerollCount = dm.GetFinalRerollCount()
+
+
+        };
+    }
+
+    public void ApplyFinalStats(PlayerItemStatController.PlayerStatBlock s)
+    {
+        maxHp = s.maxHp;
+        currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+
+        attackDamage = s.attackDamage;
+        normalAttackSpeed = s.normalAttackSpeed;
+        moveSpeed = s.moveSpeed;
+
+        maxMp = s.maxMp;
+        currentMp = Mathf.Clamp(currentMp, 0, maxMp);
+        if (currentMp <= 0) currentMp = maxMp;
+
+        defense = s.defense;
+        critChance = s.critChance;
+        critDamage = s.critDamage;
+        meleeDamage = s.normalAttackDamage;
+        rangedDamage = s.specialAttackDamage;
+        movement.SetSpeed(moveSpeed, sprintSpeed);
+        combat.SetStats(attackDamage, normalAttackSpeed, critChance, critDamage, meleeDamage, rangedDamage, anger, pride, jealousy);
+
+        OnHpChanged?.Invoke(currentHp, maxHp);
+        OnMpChanged?.Invoke(currentMp, maxMp);
+        OnStatsUpdate?.Invoke(maxHp, maxMp, moveSpeed, attackDamage, critChance, defense, anger, pride, jealousy, rerollCount);
+    }
+    #endregion
 
     public override void TakeDamage(float damage)
     {
-        float defense = DataManager.Instance.BaseData.player.defense;
-        float finalDamage = Mathf.Max(damage - defense, 1);
-
+        if (isInvincibility) return;
+        float finalDamage = Mathf.Max(damage - defense, 1f);
         base.TakeDamage(finalDamage);
+        PlayerEffectManager.Instance.OnHitEffect();
         OnHpChanged?.Invoke(currentHp, maxHp);
+        isInvincibility = true;
+        invincibilityDurationRoutine = StartCoroutine(TakeDamageInvincibility(0.5f));
+    }
+
+    private IEnumerator TakeDamageInvincibility(float invincibilityDuration)
+    {
+        yield return new WaitForSeconds(invincibilityDuration);
+        isInvincibility = false;
+        StopCoroutine(invincibilityDurationRoutine);
     }
 
     private bool UsedMp(float useMp)
@@ -211,13 +395,7 @@ public class PlayerCharacter : Character
         return false;
     }
 
-    private void CureMp(float amountMp)
-    {
-        currentMp = Mathf.Clamp(currentMp + amountMp, 0, maxMp);
-        OnMpChanged?.Invoke(currentMp, maxMp);
-    }
-
-    private void CureHp(float amountHp)
+    public void CureHp(float amountHp)
     {
         currentHp = Mathf.Clamp(currentHp + amountHp, 0, maxHp);
         OnHpChanged?.Invoke(currentHp, maxHp);
@@ -225,7 +403,34 @@ public class PlayerCharacter : Character
 
     public override void Dead()
     {
-        Debug.Log("ÇÃ·¹ÀÌ¾î »ç¸Á");
-        // SaveData¿¡ ÇöÀç±îÁö ¸ðÀº Æ÷ÀÎÆ®¸¦ ÀúÀåÇÏ´Â ·ÎÁ÷ Ãß°¡ °¡´É
+        Debug.Log("í”Œë ˆì´ì–´ ì‚¬ë§");
+        // SaveDataì— í˜„ìž¬ê¹Œì§€ ëª¨ì€ í¬ì¸íŠ¸ë¥¼ ì €ìž¥í•˜ëŠ” ë¡œì§ ì¶”ê°€ ê°€ëŠ¥
+    }
+
+    void Update()
+    {
+        if(currentMp < maxMp)
+        {
+            mpChargedCurrentTime += Time.deltaTime;
+            if(mpChargedCurrentTime >= mpChargedTime)
+            {
+                currentMp++;
+                mpChargedCurrentTime = 0;
+                OnMpChanged?.Invoke(currentMp, maxMp);                
+            }
+        }
+
+        if(currentDashCount < maxDashCount)
+        {
+            dashChargedCurrentTime += Time.deltaTime;
+            if (dashChargedCurrentTime >= dashChargedTime)
+            {
+                currentDashCount++;
+                dashChargedCurrentTime = 0;
+                OnChagnedDashCount?.Invoke(true, 1);
+                return;
+            }
+            OnChagnedDashCount?.Invoke(true, dashChargedCurrentTime);
+        }
     }
 }

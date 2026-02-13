@@ -1,0 +1,42 @@
+{
+    "ignition": {
+        "name": "발화",
+        "description": "- 최대 수치: 5\n- 4초 동안 지속되며, 매 초마다 분노 능력치에 비례한 피해를 입음"
+    },
+    "protectionPlus": {
+        "name": "강화 보호",
+        "description": "- 최대 수치: 2\n- 피격 시 수치를 1 소모하고 피해를 받지 않음"
+    },
+    "perfectness": {
+        "name": "완전함",
+        "description": "- 근접 공격 피해량 +30%\n-사격 피해량 +30%\n이동 속도 +20%"
+    },
+    "corrosion": {
+        "name": "침식",
+        "description": "- 최대 수치: 250\n- 수치 50당 받는 피해가 10% 증가함"
+    },
+    "hiding": {
+        "name": "은신",
+        "description": "지속 시간동안 주변 적의 인식 범위에 들어가도\n공격 대상 및 추격 대상으로 인식되지 않음"
+    },
+    "stigma": {
+        "name": "낙인",
+        "description": "- 최대 수치: 4\n- 3초 후에 효과가 소멸하며, 교만 능력치에 비례한 피해를 입음\n- 최대 수치에 도달한 경우, 위 효과를 즉시 발동하고 잃은 HP에 비례한 추가 피해를 입음"
+    },
+    "wound": {
+        "name": "상처",
+        "description": "- 이동 속도 -(수치)%\n- 받는 치명타 피해량 +(수치)%"
+    },
+    "slow": {
+        "name": "감속",
+        "description": "이동 속도 -(수치)%"
+    },
+    "transmission": {
+        "name": "전이",
+        "description": "대상과 주변 일정 거리 내의 무작위 적 3명이 질투 능력치에 비례한 피해를 입고, \n30% 확률로 경직됨"
+    },
+    "critChanceUp": {
+        "name": "치명타 확률 증가",
+        "description": "치명타 확률 +(수치)%"
+    }
+}

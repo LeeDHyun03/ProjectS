@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(MonsterDetection))]
-[RequireComponent(typeof(MonsterMovement))]
-public class Monster : Character
+public class Monster : Character, IPooledObject
 {
     public enum ActionType
     {
@@ -22,26 +22,28 @@ public class Monster : Character
     public event Action<float, float> OnChangedSuperArmor;
 
     [SerializeField] protected string monsterID;
-    [SerializeField] private MonsterDetection detection;
+    [SerializeField] protected MonsterDetection detection;
     [SerializeField] private MonsterMovement movement;
     [SerializeField] private MonsterAttack attack;
     [SerializeField] private MonsterSpriteAnimator animator;
-
+    [SerializeField] private BoxCollider2D col;
+    [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private bool hasAlert = false;
     [SerializeField] private List<Vector3> path = new();
 
-    private Character currentTarget;
+    public Character currentTarget;
 
-    private float lastDir;
+    protected float lastDir;
 
     private bool isPlayerSide = false;
-    private bool isAttacking = false;
+    protected bool isAttacking = false;
 
     private float maxSuperArmor;
     private float currentSuperArmor = 0;
 
     private void Start()
     {
+        /*
         var dm = DataManager.Instance;
         var baseData = dm.BaseData.monsters;
         var data = baseData.Find(m => m.monsterID == monsterID);
@@ -52,24 +54,32 @@ public class Monster : Character
         else
         {
             InitializeMonster(data);
-        }
+        }*/
     }
 
-    protected void InitializeMonster(CharacterStateDataContainer.MonsterData data)
+    protected virtual void InitializeMonster(CharacterStateDataContainer.MonsterData data)
     {
-        InitializeCharacter(data.stats);
-        detection.SetupDectectionRange(data.attackRange, data.chaseInRange, data.chaseOutRange, data.cognizanceRange);        detection.SetIsPlayerSide(false);
+        // Dbg.L("현스테이지", WaveManager.Instance.currentStage);
+        // data.Show("전");
+        var scaledData = data.TryScale();
+        // scaledData.Show("후");
+
+        InitializeCharacter(scaledData.stats);
+        detection.SetupDectectionRange(scaledData.attackRange, scaledData.chaseInRange, scaledData.chaseOutRange, scaledData.cognizanceRange); detection.SetIsPlayerSide(false);
         movement.SetupMovement(moveSpeed);
-        attack.SetAttackStat(attackDamage, attackSpeed);
-        maxSuperArmor = data.maxSuperArmor;
+        attack.SetAttackStat(attackDamage, normalAttackSpeed);
+        maxSuperArmor = scaledData.maxSuperArmor;
         currentSuperArmor = maxSuperArmor;
     }
 
     private void OnEnable()
     {
+        OnObjectSpawn();
         detection.OnDetectionStateChanged += ChangeState;
         attack.OnAttackEnd += AttackEnd;
         attack.OnStartedAttack += Attack;
+        animator.OnEndedStun += EndedStun;
+        col.isTrigger = false;
     }
 
     private void OnDisable()
@@ -77,6 +87,7 @@ public class Monster : Character
         detection.OnDetectionStateChanged -= ChangeState;
         attack.OnAttackEnd -= AttackEnd;
         attack.OnStartedAttack -= Attack;
+        animator.OnEndedStun -= EndedStun;
     }
 
     private void Update()
@@ -106,20 +117,20 @@ public class Monster : Character
         ActionType targetAction = ActionType.Idle;
         switch (detectionState)
         {
-            case MonsterDetection.DetectionState.Attack: 
-                targetAction = ActionType.Attack; 
+            case MonsterDetection.DetectionState.Attack:
+                targetAction = ActionType.Attack;
                 break;
-            case MonsterDetection.DetectionState.Chase: 
-                targetAction = ActionType.Move; 
+            case MonsterDetection.DetectionState.Chase:
+                targetAction = ActionType.Move;
                 break;
             case MonsterDetection.DetectionState.Cognizance:
                 if (hasAlert)
                     targetAction = ActionType.Alert;
                 else
                     targetAction = ActionType.Move;
-                    break;
-            case MonsterDetection.DetectionState.None: 
-                targetAction = ActionType.Idle; 
+                break;
+            case MonsterDetection.DetectionState.None:
+                targetAction = ActionType.Idle;
                 break;
         }
 
@@ -190,26 +201,71 @@ public class Monster : Character
         }
     }
 
+
     public override void Dead()
     {
+        if (attack != null)
+            attack.DespawnIndicator();
+
+        attack.CancelInvoke();
+        CancelInvoke();
+
+        isDead = true;
+
         animator.ApplyAnimation("isDie", true);
+        col.isTrigger = true;
+        Invoke(nameof(Despawn), 1.5f);
+    }
+
+    private void Despawn()
+    {
+        ObjectPooler.ReturnToPool(gameObject);
+        MonsterManager.Instance.OnMonsterDespawned();
+    }
+
+    protected void CallOnChangedHp(float currentHp, float maxHp)
+    {
+        OnChangedHp?.Invoke(currentHp, maxHp);
     }
 
     public override void TakeDamage(float damage)
     {
-        if(currentSuperArmor > 1)
+        if (currentSuperArmor > 1)
         {
             float calcDamage = damage * 0.3f;
             currentSuperArmor -= calcDamage;
-            if(currentSuperArmor <= 0) 
-            { 
+            if (currentSuperArmor <= 0)
+            {
                 currentSuperArmor = 0;
                 base.TakeDamage(maxHp * 0.1f);
             }
             OnChangedSuperArmor?.Invoke(currentSuperArmor, maxSuperArmor);
             damage -= calcDamage;
         }
+        movement.SetWaiting(true);
+        animator.ApplyAnimation("isDamaged", true);
         base.TakeDamage(damage);
-        OnChangedHp?.Invoke(currentHp, maxHp);
+        CallOnChangedHp(currentHp, maxHp);
+    }
+
+    private void EndedStun()
+    {
+        movement.SetWaiting(false);
+    }
+
+    public void OnObjectSpawn()
+    {
+        var dm = DataManager.Instance;
+        var baseData = dm.BaseData.monsters;
+        var data = baseData.Find(m => m.monsterID == monsterID);
+        if (data == null)
+        {
+            Debug.LogError("Monster ID is Null");
+        }
+        else
+        {
+            InitializeMonster(data);
+            MonsterManager.Instance.OnMonsterSuccessfullySpawned();
+        }
     }
 }

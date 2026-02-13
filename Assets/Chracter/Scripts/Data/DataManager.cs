@@ -5,18 +5,29 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    public static DataManager Instance;
+    private static DataManager instance;
 
-    // 데이터 저장용 변수
     public CharacterStateDataContainer.GameDataRoot BaseData;
     public CharacterStateDataContainer.SaveData PlayerSave;
 
     private string savePath;
     private string baseJsonPath;
 
+
+    public static DataManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameObject().AddComponent<DataManager>();
+            }
+            return instance;
+        }
+    }
+
     void Awake()
     {
-        Instance = this;
         savePath = Path.Combine(Application.persistentDataPath, "SaveData.json");
         LoadAll();
     }
@@ -56,8 +67,11 @@ public class DataManager : MonoBehaviour
     public float GetFinalMoveSpeed()
         => BaseData.player.stats.moveSpeed + (PlayerSave.spdLevel * 0.1f);
 
+    public float GetFinalAttackSpeed()
+        => BaseData.player.stats.attackSpeed + (PlayerSave.atkSpdLevel * 0.1f);
+
     public float GetFinalCritChance()
-        => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f); // 최대 80% 제한 예시
+        => Mathf.Min(BaseData.player.critChance + (PlayerSave.critChanceLevel * BaseData.player.critChanceGainPerLevel), 0.8f);
 
     public float GetFinalCritDamage()
         => BaseData.player.critDamage + (PlayerSave.critDamageLevel * 0.05f);
@@ -67,6 +81,15 @@ public class DataManager : MonoBehaviour
 
     public bool IsElementalStarterAvailable()
         => PlayerSave.isElementalStarterUnlocked;
+
+    public float GetFinalPride()
+        => BaseData.player.pride + PlayerSave.prideLevel;
+
+    public float GetFinalAnger()
+        => BaseData.player.anger + PlayerSave.angerLevel;
+
+    public float GetFinalJealousy()
+        => BaseData.player.jealousy + PlayerSave.jealousyLevel;
 
     public void Save()
     {

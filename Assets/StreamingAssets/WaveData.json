@@ -1,0 +1,413 @@
+{
+    "general": {
+        "normalStageMax": 5,
+        "waveAmountPerDay": 5,
+        "waveDuration": 60,
+        "nightDuration": 420,
+        "maxSpawnAreaExpansionFactor": 1.5,
+        "spawnAreaAdditionalScaleFactor": 0.2,
+        "spawnRandomFallbackThreshold": 20
+    },
+    "statScaleData": {
+        "normalStages": {
+            "health": {
+                "type": "simple",
+                "value": 5,
+                "unitStage": 1
+            },
+            "atk": {
+                "type": "simple",
+                "value": 0,
+                "unitStage": 1
+            },
+            "def": {
+                "type": "simple",
+                "value": 0,
+                "unitStage": 1
+            },
+            "supArm": {
+                "type": "simple",
+                "value": 0,
+                "unitStage": 1
+            }
+        },
+        "extraStages": {
+            "health": {
+                "type": "compound",
+                "value": 20,
+                "unitStage": 1
+            },
+            "atk": {
+                "type": "simple",
+                "value": 10,
+                "unitStage": 1
+            },
+            "def": {
+                "type": "simple",
+                "value": 15,
+                "unitStage": 3
+            },
+            "supArm": {
+                "type": "simple",
+                "value": 15,
+                "unitStage": 3
+            }
+        }
+    },
+    "normalStages": [
+        {
+            "waves": [
+                {
+                    "Knight": 4,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 6,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 7,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 10,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 11,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                }
+            ]
+        },
+        {
+            "waves": [
+                {
+                    "Knight": 4,
+                    "Archer": 0,
+                    "SpearMan": 2,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 4,
+                    "Archer": 2,
+                    "SpearMan": 2,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 4,
+                    "Archer": 2,
+                    "SpearMan": 2,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 4,
+                    "SpearMan": 4,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 4,
+                    "SpearMan": 4,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                }
+            ]
+        },
+        {
+            "waves": [
+                {
+                    "Knight": 8,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 2,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 3,
+                    "SpearMan": 3,
+                    "Mage": 3,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 3,
+                    "SpearMan": 3,
+                    "Mage": 3,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 6,
+                    "Archer": 3,
+                    "SpearMan": 0,
+                    "Mage": 3,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 6,
+                    "Archer": 3,
+                    "SpearMan": 0,
+                    "Mage": 3,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                }
+            ]
+        },
+        {
+            "waves": [
+                {
+                    "Knight": 8,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 2,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 6,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 2
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 0,
+                    "SpearMan": 3,
+                    "Mage": 2,
+                    "DarkMage": 0,
+                    "Rogue": 2
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 0,
+                    "SpearMan": 3,
+                    "Mage": 2,
+                    "DarkMage": 0,
+                    "Rogue": 2
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 6,
+                    "SpearMan": 0,
+                    "Mage": 2,
+                    "DarkMage": 2,
+                    "Rogue": 4
+                }
+            ]
+        },
+        {
+            "waves": [
+                {
+                    "Knight": 4,
+                    "Archer": 4,
+                    "SpearMan": 2,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 6,
+                    "Archer": 4,
+                    "SpearMan": 0,
+                    "Mage": 3,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 4,
+                    "Archer": 0,
+                    "SpearMan": 4,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 3
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 0,
+                    "SpearMan": 3,
+                    "Mage": 3,
+                    "DarkMage": 2,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 4,
+                    "Archer": 2,
+                    "SpearMan": 2,
+                    "Mage": 2,
+                    "DarkMage": 1,
+                    "Rogue": 2
+                }
+            ]
+        }
+    ],
+    "extraStages": [
+        {
+            "waves": [
+                {
+                    "Knight": 10,
+                    "Archer": 0,
+                    "SpearMan": 2,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 8,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 3,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 4,
+                    "Archer": 0,
+                    "SpearMan": 4,
+                    "Mage": 4,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 12,
+                    "Archer": 2,
+                    "SpearMan": 3,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 8,
+                    "Archer": 3,
+                    "SpearMan": 4,
+                    "Mage": 3,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                }
+            ]
+        },
+        {
+            "waves": [
+                {
+                    "Knight": 0,
+                    "Archer": 8,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 2
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 6,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 2,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 4,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 6
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 8,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 3,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 10,
+                    "SpearMan": 0,
+                    "Mage": 0,
+                    "DarkMage": 2,
+                    "Rogue": 5
+                }
+            ]
+        },
+        {
+            "waves": [
+                {
+                    "Knight": 6,
+                    "Archer": 4,
+                    "SpearMan": 3,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 4,
+                    "Archer": 0,
+                    "SpearMan": 0,
+                    "Mage": 3,
+                    "DarkMage": 2,
+                    "Rogue": 0
+                },
+                {
+                    "Knight": 0,
+                    "Archer": 6,
+                    "SpearMan": 2,
+                    "Mage": 0,
+                    "DarkMage": 0,
+                    "Rogue": 4
+                },
+                {
+                    "Knight": 2,
+                    "Archer": 2,
+                    "SpearMan": 2,
+                    "Mage": 2,
+                    "DarkMage": 2,
+                    "Rogue": 2
+                },
+                {
+                    "Knight": 6,
+                    "Archer": 6,
+                    "SpearMan": 4,
+                    "Mage": 3,
+                    "DarkMage": 2,
+                    "Rogue": 4
+                }
+            ]
+        }
+    ]
+}

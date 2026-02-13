@@ -1,0 +1,1057 @@
+{
+    "Items": [
+        {
+            "ItemId": "IT_001__",
+            "NameKr": "회피 만렙",
+            "Description": "피격 시 20% 확률로 피해를 받지 않음",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_001__"
+        },
+        {
+            "ItemId": "IT_002__",
+            "NameKr": "절대적 운",
+            "Description": "리롤 권을 사용할 때 25%확률로 소모되지 않음",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_002__"
+        },
+        {
+            "ItemId": "IT_003__",
+            "NameKr": "전술 지침서",
+            "Description": "근접 공격 피해량 +20/40% 사격 피해량 +25/40%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_003__"
+        },
+        {
+            "ItemId": "IT_004_Item004",
+            "NameKr": "잔불",
+            "Description": "<style=Key><link=ignition>발화</link></style> 효과가 발동될 때, 10/15/20% 확률로 <style=Key><link=ignition>발화</link></style> 시간 1초 연장",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_004_Item004"
+        },
+        {
+            "ItemId": "IT_005_Item005",
+            "NameKr": "일격",
+            "Description": "근접 공격 피해량 +35% 사격 피해량 +35% 근접 공격 속도 -15% 사격 공격 속도 -15%",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_005_Item005"
+        },
+        {
+            "ItemId": "IT_006___",
+            "NameKr": "이 몸 등장",
+            "Description": "매 웨이브 시작 시 <style=Key><link=protectionPlus>발화</link></style> 1/2 얻음",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_006___"
+        },
+        {
+            "ItemId": "IT_007__",
+            "NameKr": "완전체 표본",
+            "Description": "HP가 100/70/50% 이상인 상태에서 <style=Key><link=perfectness>완전함</link></style> 효과를 얻음",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_007__"
+        },
+        {
+            "ItemId": "IT_008_Item008",
+            "NameKr": "올인",
+            "Description": "방어력 -30% 방어력 +10/15 분노 +20/35% 질투 +20/35% 교만 +17/28%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_008_Item008"
+        },
+        {
+            "ItemId": "IT_009_Item009",
+            "NameKr": "역전",
+            "Description": "공격력 +10/13/17 보유한 <style=Key><link=corrosion>침식</link></style> 효과 10당 공격력 증가 1 얻음",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_009_Item009"
+        },
+        {
+            "ItemId": "IT_010___",
+            "NameKr": "약 주고 병주고",
+            "Description": "적에게 처음으로 피해를 입혔을 때, 대상이 슈퍼 아머를 보유하지 않았다면 1의 슈퍼 아머를 부여함",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_010___"
+        },
+        {
+            "ItemId": "IT_011__",
+            "NameKr": "암살 의뢰서",
+            "Description": "20/18초마다 보스를 제외한 무작위 적(자신에게 피해를 입지 않은 적 우선) 2/3명에게 <style=Key><link=hiding>은신</link></style> 효과를 4초간 부여함.",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_011__"
+        },
+        {
+            "ItemId": "IT_012__",
+            "NameKr": "심화 훈련서",
+            "Description": "공격력 +9/11/13 근접 공격 속도 +10/10/12% 사격 공격 속도 +8/8/10%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_012__"
+        },
+        {
+            "ItemId": "IT_013_Item013",
+            "NameKr": "시기",
+            "Description": "전이 가능 범위 +25/40% 질투 +7/10",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_013_Item013"
+        },
+        {
+            "ItemId": "IT_014_Item014",
+            "NameKr": "산소",
+            "Description": "적에게 공격을 적중시켰을 때, 대상의 <style=Key><link=ignition>발화</link></style> 수치가 최대라면 보유한 <style=Key><link=ignition>발화</link></style> 수치 1당 5/7/9/12의 피해를 입히고 <style=Key><link=ignition>발화</link></style> 효과를 즉시 소멸시킴",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_014_Item014"
+        },
+        {
+            "ItemId": "IT_015___",
+            "NameKr": "변이 혈액 표본",
+            "Description": "공격력 +10\n근접 공격 피해량 +10%",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_015___"
+        },
+        {
+            "ItemId": "IT_016_Item016",
+            "NameKr": "방화",
+            "Description": "<style=Key><link=ignition>발화</link></style> 최대 수치 +1/2/3",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_016_Item016"
+        },
+        {
+            "ItemId": "IT_017_Item017",
+            "NameKr": "면죄부",
+            "Description": "공격 적중 시 자신의 일정 범위 내에 존재하는 무작위 적 2/2/3/3명에게 <style=Key><link=stigma>낙인</link></style>을 부여함\n\n또한 <style=Key><link=stigma>낙인</link></style> 효과를 보유한 적 1명 당 10%의 확률로 <style=Key><link=stigma>낙인</link></style> 효과를 보유한 모든 적의 <style=Key><link=stigma>낙인</link></style> 효과를 최대 수치까지 증가시킴\n\n위 효과로 적을 처치했다면 <style=Key><link=stigma>낙인</link></style> 부여 효과를 1회 재사용함",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_017_Item017"
+        },
+        {
+            "ItemId": "IT_018_Item018",
+            "NameKr": "마도서",
+            "Description": "공격력 -10\n분노 +30%\n질투 +30%\n교만 +20%",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_018_Item018"
+        },
+        {
+            "ItemId": "IT_019_Item019",
+            "NameKr": "돌덩이",
+            "Description": "잃은 HP 1%당 공격력 0.3~0.5% 증가 (역경)",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_019_Item019"
+        },
+        {
+            "ItemId": "IT_020_Item020",
+            "NameKr": "기절",
+            "Description": "공격으로 대상의 슈퍼 아머를 파괴했을 때, 대상의 기절 시간 0.5/0.75/1초 증가",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_020_Item020"
+        },
+        {
+            "ItemId": "IT_021_Item021",
+            "NameKr": "계약서",
+            "Description": "20/18초마다 보스를 제외한 무작위 적(자신에게 피해를 입지 않은 적 우선) 2/3명을 포섭함",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_021_Item021"
+        },
+        {
+            "ItemId": "IT_022__",
+            "NameKr": "강철 갑옷",
+            "Description": "방어력 +15/20/30%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_022__"
+        },
+        {
+            "ItemId": "IT_023_Item023",
+            "NameKr": "각성",
+            "Description": "최대 MP -20%\n위 효과로 잃은 MP 1당 가하는 피해량 증가 2% 얻음 (최대 30%)",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_023_Item023"
+        },
+        {
+            "ItemId": "IT_024_Item024",
+            "NameKr": "화살촉",
+            "Description": "사격 범위 +20/30/40%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_024_Item024"
+        },
+        {
+            "ItemId": "IT_025_Item025",
+            "NameKr": "플라즈마",
+            "Description": "전이 피해를 입은 적이 <style=Key><link=ignition>발화</link></style> 1 얻음",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_025_Item025"
+        },
+        {
+            "ItemId": "IT_026_Item026",
+            "NameKr": "파열",
+            "Description": "치명타 적중 시, 대상이 슈퍼 아머를 보유하고 있다면 슈퍼 아머 수치의 50/70%에 해당하는 피해를 줌",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_026_Item026"
+        },
+        {
+            "ItemId": "IT_027_Item027",
+            "NameKr": "파상풍",
+            "Description": "적에게 치명타 피해를 입히면, 대상에게 2.5초 동안 <style=Key><link=wound>상처</link></style> 15/25/25% 부여",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_027_Item027"
+        },
+        {
+            "ItemId": "IT_028_Item028",
+            "NameKr": "조준경",
+            "Description": "치명타 피해량 +8/12/16/20%",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_028_Item028"
+        },
+        {
+            "ItemId": "IT_029_Item029",
+            "NameKr": "치명성",
+            "Description": "치명타 확률 +5/6/7/8%\n치명타 피해량 +10/12/14/16%",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_029_Item029"
+        },
+        {
+            "ItemId": "IT_030_Item030",
+            "NameKr": "충만",
+            "Description": "현재 MP가 50% 이상일 때, 보호막을 20/30/40만큼 얻음",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_030_Item030"
+        },
+        {
+            "ItemId": "IT_031_Item031",
+            "NameKr": "착화",
+            "Description": "<style=Key><link=ignition>발화</link></style> 피해가 슈퍼 아머에 입히는 피해량 +20/35/30%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_031_Item031"
+        },
+        {
+            "ItemId": "IT_032_Item032",
+            "NameKr": "점화",
+            "Description": "사격으로 피해를 입히면 대상에게 <style=Key><link=wound>상처</link></style> 1/1/2 부여",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_032_Item032"
+        },
+        {
+            "ItemId": "IT_033_Item033",
+            "NameKr": "전파",
+            "Description": "전이 피해로 적이 처치되었을 때, 33/50%확률로 대상 주변의 일정 거리 내에 있는 무작위 적에게 전이 피해를 입힘",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_033_Item033"
+        },
+        {
+            "ItemId": "IT_034_Item034",
+            "NameKr": "전염",
+            "Description": "사격으로 피해를 입히면 대상 근처의 적에게 <style=Key><link=transmission>전이</link></style> 피해를 입힘",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_034_Item034"
+        },
+        {
+            "ItemId": "IT_035_Item035",
+            "NameKr": "전도체",
+            "Description": "근접 공격으로 피해를 입히면 대상 근처의 적에게 <style=Key><link=transmission>전이</link></style> 피해를 입힘",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_035_Item035"
+        },
+        {
+            "ItemId": "IT_036_Item036",
+            "NameKr": "재정비",
+            "Description": "적 처치 시 MP 3/4/5 회복",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_036_Item036"
+        },
+        {
+            "ItemId": "IT_037__",
+            "NameKr": "잠입용 부츠",
+            "Description": "밤 시간대 이동속도 +20/25/30%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_037__"
+        },
+        {
+            "ItemId": "IT_038__",
+            "NameKr": "작전 개시",
+            "Description": "대시 후 10/15/20/25/30의 보호막을 5초 동안 얻음",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_038__"
+        },
+        {
+            "ItemId": "IT_039_Item039",
+            "NameKr": "완충",
+            "Description": "획득 보호막량 10/20/30/40/50% 증가",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_039_Item039"
+        },
+        {
+            "ItemId": "IT_040_Item040",
+            "NameKr": "열등감",
+            "Description": "질투 +3/8/15, 전이 대상 수 +1/1/2",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_040_Item040"
+        },
+        {
+            "ItemId": "IT_041_Item041",
+            "NameKr": "연장",
+            "Description": "근접 공격 범위 +20/30/40%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_041_Item041"
+        },
+        {
+            "ItemId": "IT_042_Item042",
+            "NameKr": "역지사지",
+            "Description": "적에게 피해를 받으면 공격자에게 방어력의 20/25/30%에 해당하는 피해를 줌",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_042_Item042"
+        },
+        {
+            "ItemId": "IT_043_Item043",
+            "NameKr": "야맹증",
+            "Description": "밤에 존재하는 적들이 공격력 감소 10/20/30%와 최대 HP 감소 5/10/15% 얻음",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_043_Item043"
+        },
+        {
+            "ItemId": "IT_044_Item044",
+            "NameKr": "신중",
+            "Description": "공격력 +20/30% 사격 공격 속도 -15/10%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_044_Item044"
+        },
+        {
+            "ItemId": "IT_045_Item045",
+            "NameKr": "시선",
+            "Description": "<style=Key><link=stigma>낙인</link></style> 효과를 보유한 적이 공격력 감소 10/13/16/20% 얻음",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_045_Item045"
+        },
+        {
+            "ItemId": "IT_046__",
+            "NameKr": "시간아 천천히",
+            "Description": "웨이브 제한 시간 +3/5/7/9초",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_046__"
+        },
+        {
+            "ItemId": "IT_047__",
+            "NameKr": "쉴드 브레이커",
+            "Description": "적의 슈퍼 아머에 입히는 피해량 +30/40/50%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_047__"
+        },
+        {
+            "ItemId": "IT_048_Item048",
+            "NameKr": "수호",
+            "Description": "20/18/16/14초마다 최대 HP 5/6/7/8% 보호막 생성",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_048_Item048"
+        },
+        {
+            "ItemId": "IT_049_Item049",
+            "NameKr": "송곳니",
+            "Description": "적 처치 시 HP 1/2/3 회복",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_049_Item049"
+        },
+        {
+            "ItemId": "IT_050_Item050",
+            "NameKr": "불씨",
+            "Description": "8/6초마다 자신 주변 일정 범위 내의 적에게 발화 1 부여",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_050_Item050"
+        },
+        {
+            "ItemId": "IT_051__",
+            "NameKr": "변신 타임",
+            "Description": "재충전 시 5/10/15/20",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_051__"
+        },
+        {
+            "ItemId": "IT_052___",
+            "NameKr": "방어는 최선의 공격",
+            "Description": "근접 공격이 공격력 대신 방어력의 110/120/130%만큼의 피해를 줌",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_052___"
+        },
+        {
+            "ItemId": "IT_053_Item053",
+            "NameKr": "민첩",
+            "Description": "공격력 +5/7/9/11/13, 사격 공격 속도 +10/13/16/19/21%",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_053_Item053"
+        },
+        {
+            "ItemId": "IT_054_Item054",
+            "NameKr": "등불",
+            "Description": "근접 공격으로 피해를 입히면 대상에게 발화 1/1/2 부여",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_054_Item054"
+        },
+        {
+            "ItemId": "IT_055_Item055",
+            "NameKr": "들숨",
+            "Description": "MP 초과 획득 가능 수치 +30/40/50%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_055_Item055"
+        },
+        {
+            "ItemId": "IT_056_Item056",
+            "NameKr": "단안경",
+            "Description": "사격 최대 거리 +10/20/30%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_056_Item056"
+        },
+        {
+            "ItemId": "IT_057__",
+            "NameKr": "단단한 갑주",
+            "Description": "방어력 +7/10/13/16",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_057__"
+        },
+        {
+            "ItemId": "IT_058__",
+            "NameKr": "녹슨 단검",
+            "Description": "공격으로 적에게 피해를 입히면 대상에게 4초 동안 방어력 감소 5/7/9/11/13",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_058__"
+        },
+        {
+            "ItemId": "IT_059_Item059",
+            "NameKr": "냉정",
+            "Description": "사격 시 소모하는 MP -2/3/4",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_059_Item059"
+        },
+        {
+            "ItemId": "IT_060_Item060",
+            "NameKr": "꼬리표",
+            "Description": "적에게 근접 공격으로 피해를 입히면 대상에게 <style=Key><link=stigma>낙인</link></style> 1 부여",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_060_Item060"
+        },
+        {
+            "ItemId": "IT_061__",
+            "NameKr": "기초 훈련서",
+            "Description": "공격력 +3/5/9/12",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_061__"
+        },
+        {
+            "ItemId": "IT_062_Item062",
+            "NameKr": "구설수",
+            "Description": "적에게 사격으로 피해를 입히면 대상에게 <style=Key><link=stigma>낙인</link></style> 1 부여",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_062_Item062"
+        },
+        {
+            "ItemId": "IT_063_Item063",
+            "NameKr": "광란",
+            "Description": "공격력 +5/7/9/11/13\n근접 공격 속도 +10/13/16/19/21",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_063_Item063"
+        },
+        {
+            "ItemId": "IT_064__",
+            "NameKr": "관성의 법칙",
+            "Description": "이동속도 10%당 피해량 10% 증가 (최대 40%)",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_064__"
+        },
+        {
+            "ItemId": "IT_065_Item065",
+            "NameKr": "과호흡",
+            "Description": "<style=Key><link=stigma>낙인</link></style> 효과를 보유한 적이 <style=Key><link=slow>감속</link></style> 20/25/30% 얻음",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_065_Item065"
+        },
+        {
+            "ItemId": "IT_066_Item066",
+            "NameKr": "과몰입",
+            "Description": "공격으로 치명타 피해를 입히면 치명타 피해량이 3/5/7% 증가 (최대 5회) 치명타 피해를 입히지 못했다면 효과 초기화",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_066_Item066"
+        },
+        {
+            "ItemId": "IT_067_Item067",
+            "NameKr": "경중",
+            "Description": "이동 속도 +10/20%\n공격력 +8/11",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_067_Item067"
+        },
+        {
+            "ItemId": "IT_068_Item068",
+            "NameKr": "경량화",
+            "Description": "이동 속도 +10/15%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_068_Item068"
+        },
+        {
+            "ItemId": "IT_069_Item069",
+            "NameKr": "결맞음",
+            "Description": "전이 피해를 받았을 때 17/23/28% 확률로 주변 적에게 전이 피해를 입힘",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_069_Item069"
+        },
+        {
+            "ItemId": "IT_070__",
+            "NameKr": "강화의 부적",
+            "Description": "공격력 +4/6/8/10/12 증가",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_070__"
+        },
+        {
+            "ItemId": "IT_071_Item071",
+            "NameKr": "화형",
+            "Description": "분노 +45/60% 발화 효과 발동 간격 -0.55/0.7초",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_071_Item071"
+        },
+        {
+            "ItemId": "IT_072__",
+            "NameKr": "정교한 칼날",
+            "Description": "근접 공격이 원거리 공격을 튕겨낼 수 있음(튕겨낸 투사체는 소멸)",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_072__"
+        },
+        {
+            "ItemId": "IT_073__",
+            "NameKr": "읽어버린 피뢰침",
+            "Description": "질투 +55/70% 전이 대상 수 +4/5",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_073__"
+        },
+        {
+            "ItemId": "IT_074__",
+            "NameKr": "위기를 기회로",
+            "Description": "매 3번째 낮마다 한 번, HP가 0이 되는 피해를 받았을 때 해당 피해를 무시하고 최대 HP의 30%만큼 회복함",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_074__"
+        },
+        {
+            "ItemId": "IT_075__",
+            "NameKr": "아킬레스의 방패",
+            "Description": "최대 HP +50%, 최대 MP +40%, 공격력 +30%, 방어력 +30%",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_075__"
+        },
+        {
+            "ItemId": "IT_076_Item076",
+            "NameKr": "심판",
+            "Description": "적에게 공격으로 피해를 입혔을 때 현재 치명타 확률의 43/53% (최소 2%)만큼의 확률로 대상 현재 체력의 15/20%에 해당하는 피해를 줌(보스의 경우 4/8%로 적용)",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_076_Item076"
+        },
+        {
+            "ItemId": "IT_077_Item077",
+            "NameKr": "사망신고서",
+            "Description": "슈퍼 아머 파괴 시 최대 HP 25% 피해 (엘리트 포함)",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_077_Item077"
+        },
+        {
+            "ItemId": "IT_078_Item078",
+            "NameKr": "면죄부",
+            "Description": "공격 적중 시 자신의 일정 범위 내에 존재하는 무작위 적 2/2/3/3명에게 <style=Key><link=stigma>낙인</link></style>을 부여함\n\n또한 <style=Key><link=stigma>낙인</link></style> 효과를 보유한 적 1명 당 10%의 확률로 <style=Key><link=stigma>낙인</link></style> 효과를 보유한 모든 적의 <style=Key><link=stigma>낙인</link></style> 효과를 최대 수치까지 증가시킴\n\n위 효과로 적을 처치했다면 <style=Key><link=stigma>낙인</link></style> 부여 효과를 1회 재사용함",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_078_Item078"
+        },
+        {
+            "ItemId": "IT_079_Item079",
+            "NameKr": "휘발유",
+            "Description": "<style=Key><link=ignition>발화</link></style> 지속 시간 +1/2/3",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_079_Item079"
+        },
+        {
+            "ItemId": "IT_080_Item080",
+            "NameKr": "회절",
+            "Description": "적에게 전이 피해를 입힐 때, 대상 주변의 인접한 적들에게 50% 감소된 피해를 입힘",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_080_Item080"
+        },
+        {
+            "ItemId": "IT_081_Item081",
+            "NameKr": "확산",
+            "Description": "적에게 공격 적중 시 대상에 발화 효과를 4만큼 부여하고, 33% 확률로 자신도 얻음. 자신이 보유한 발화 수치 1당 분노 10% (최대 40%)",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_081_Item081"
+        },
+        {
+            "ItemId": "IT_082_Item082",
+            "NameKr": "평정",
+            "Description": "사격 시 소모하는 MP -30/50%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_082_Item082"
+        },
+        {
+            "ItemId": "IT_083_Item083",
+            "NameKr": "패닉",
+            "Description": "낙인 종료 시 3초간 적 방어력 15/20/30% 감소",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_083_Item083"
+        },
+        {
+            "ItemId": "IT_084__",
+            "NameKr": "캠핑 도구",
+            "Description": "휴식 회복량 +20/40%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_084__"
+        },
+        {
+            "ItemId": "IT_085_Item085",
+            "NameKr": "취약",
+            "Description": "공격으로 적의 슈퍼 아머를 파괴했을 때, 대상에게 4초 동안 받는 피해량 증가 10/20/30% 부여",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_085_Item085"
+        },
+        {
+            "ItemId": "IT_086_Item086",
+            "NameKr": "집중력",
+            "Description": "현재 HP가 90/75% 이상일 때 <style=Key><link=critChanceUp>치명타 확률 증가</link></style> 15/20% 얻음",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_086_Item086"
+        },
+        {
+            "ItemId": "IT_087__",
+            "NameKr": "집중 사격",
+            "Description": "사격을 하지 않을 때, 빠르게 사격 집중 수치가 증가함(최댓값 충전까지 2.5초) 사격 시 보유한 사격 집중을 모두 소모하여 소모한 수치 10당 사격 피해량 +10/13/16%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_087__"
+        },
+        {
+            "ItemId": "IT_088__",
+            "NameKr": "집중 공격",
+            "Description": "근접 공격을 하지 않을 때, 빠르게 준비 자세 수치가 증가함(최댓값 충전까지 2초) 근접 공격 시 보유한 준비 자세를 모두 소모하여 소모한 수치 10당 공격 범위 +5/6%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_088__"
+        },
+        {
+            "ItemId": "IT_089__",
+            "NameKr": "잘난 척",
+            "Description": "공격력 +3/4/5/6/ 교만 +10/15/20/25%",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_089__"
+        },
+        {
+            "ItemId": "IT_090_Item090",
+            "NameKr": "욕망",
+            "Description": "적을 처치하여 얻는 MP +20/25/30%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_090_Item090"
+        },
+        {
+            "ItemId": "IT_091__",
+            "NameKr": "영구 파손",
+            "Description": "공격으로 대상의 슈퍼 아머를 파괴했을 때, 4초 동안 대상에게 공격 속도 감소 10/20/30% 부여",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_091__"
+        },
+        {
+            "ItemId": "IT_092_Item092",
+            "NameKr": "연사",
+            "Description": "사격 공격 속도 +10/15/20/25/30% 치명타 확률 +8/10/13/18/23%",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_092_Item092"
+        },
+        {
+            "ItemId": "IT_093_Item093",
+            "NameKr": "연막탄",
+            "Description": "매 낮 시간마다 한 번, HP가 20% 이하가 되었을 때 5초 동안 신속 40%, 은신 효과를 얻고 최대 HP의 20%에 해당하는 보호막을 얻음",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_093_Item093"
+        },
+        {
+            "ItemId": "IT_094____",
+            "NameKr": "아픈 건 딱 질색",
+            "Description": "방어력 +5/7/9/11 HP +10/13/16/19",
+            "Rarity": "Legendary",
+            "MaxLevel": 4,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_094____"
+        },
+        {
+            "ItemId": "IT_095_Item095",
+            "NameKr": "심호흡",
+            "Description": "추가 MP 1당 공격력 0.35/0.4/0.5% 증가",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_095_Item095"
+        },
+        {
+            "ItemId": "IT_096_Item096",
+            "NameKr": "심야",
+            "Description": "밤 시간 +10/15/20/25/30초",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_096_Item096"
+        },
+        {
+            "ItemId": "IT_097__",
+            "NameKr": "시작이 반이다",
+            "Description": "적에게 처음으로 사격 피해를 주었을 때 가하는 피해량이 40/60% 증가함",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_097__"
+        },
+        {
+            "ItemId": "IT_098_Item098",
+            "NameKr": "시샘",
+            "Description": "근접 및 사격 공격이 공격력 대신 질투만큼의 피해를 입힘",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_098_Item098"
+        },
+        {
+            "ItemId": "IT_099__",
+            "NameKr": "숨은 그림자",
+            "Description": "밤 시간에 가하는 피해량 증가 30% 얻음",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_099__"
+        },
+        {
+            "ItemId": "IT_100_Item100",
+            "NameKr": "삿대질",
+            "Description": "낙인 종료 시 120/130/150% 고정 치명타 피해",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_100_Item100"
+        },
+        {
+            "ItemId": "IT_101__",
+            "NameKr": "빨간 구두",
+            "Description": "근접 공격이 MP를 10/7만큼 소모하고, 가하는 근접 공격 피해가 30/40% 증가함 공격 시에 MP가 부족할 경우 위 효과가 발동되지 않고, 부족한 MP만큼 침식 얻음",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_101__"
+        },
+        {
+            "ItemId": "IT_102_Item102",
+            "NameKr": "빈틈",
+            "Description": "치명타 피해량 +10/18% 공격력 +10/18%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_102_Item102"
+        },
+        {
+            "ItemId": "IT_103_Item103",
+            "NameKr": "불장난",
+            "Description": "발화 효과를 보유한 적을 공격하는 발화 수치를 1 소모하고 즉시 발화 효과 발동",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_103_Item103"
+        },
+        {
+            "ItemId": "IT_104__",
+            "NameKr": "방탄 유리",
+            "Description": "원거리 공격으로부터 받는 피해량 -20/30%",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_104__"
+        },
+        {
+            "ItemId": "IT_105_Item105",
+            "NameKr": "반딧불",
+            "Description": "<style=Key><link=ignition>발화</link></style> 효과를 보유한 적이 사망했을 때, 주변 가까운 적 1명에게 <style=Key><link=ignition>발화</link></style> 효과 부여",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_105_Item105"
+        },
+        {
+            "ItemId": "IT_106_Item106",
+            "NameKr": "망원경",
+            "Description": "치명타 확률 +10/14/19%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_106_Item106"
+        },
+        {
+            "ItemId": "IT_107_Item107",
+            "NameKr": "마나샘",
+            "Description": "MP 자연 회복 속도 +25/35/40%",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_107_Item107"
+        },
+        {
+            "ItemId": "IT_108_Item108",
+            "NameKr": "두통",
+            "Description": "공격으로 적의 슈퍼 아머를 파괴했을 때, 4초 동안 대상에게 뇌진탕 부여",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_108_Item108"
+        },
+        {
+            "ItemId": "IT_109_Item109",
+            "NameKr": "동질감",
+            "Description": "전이 대상 수 +1/2",
+            "Rarity": "Rare",
+            "MaxLevel": 2,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_109_Item109"
+        },
+        {
+            "ItemId": "IT_110_Item110",
+            "NameKr": "대노",
+            "Description": "근접 및 사격 공격이 공격력 대신 분노만큼의 피해를 입힘",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_110_Item110"
+        },
+        {
+            "ItemId": "IT_111___",
+            "NameKr": "높은 회복 탄력성",
+            "Description": "[사념] 자원 재충전 시간 -0.5/0.75/1초",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_111___"
+        },
+        {
+            "ItemId": "IT_112_Item112",
+            "NameKr": "난사",
+            "Description": "사격 공격 속도 +100% 사격 피해량 -70%",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_112_Item112"
+        },
+        {
+            "ItemId": "IT_113__",
+            "NameKr": "긴 호흡",
+            "Description": "최대 MP +10/15/20/25/30",
+            "Rarity": "Legendary",
+            "MaxLevel": 5,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_113__"
+        },
+        {
+            "ItemId": "IT_114_Item114",
+            "NameKr": "기민",
+            "Description": "대시 후 2/2.5/3초 동안 치명타 확률이 10/15/20% 증가함(재사용 대기시간: 4초)",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_114_Item114"
+        },
+        {
+            "ItemId": "IT_115_Item115",
+            "NameKr": "계약",
+            "Description": "가하는 피해량 증가 50%, 받는 피해량 증가 50% 얻음",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_115_Item115"
+        },
+        {
+            "ItemId": "IT_116__",
+            "NameKr": "거센 불길",
+            "Description": "공격으로 피해를 입히면 대상에게 <style=Key><link=ignition>발화</link></style> 1/1/2 부여\n분노 +5/10/15",
+            "Rarity": "Epic",
+            "MaxLevel": 3,
+            "ProgressionType": "LevelUp",
+            "IconKey": "Icons/Items/IT_116__"
+        },
+        {
+            "ItemId": "IT_117_Item117",
+            "NameKr": "거만",
+            "Description": "근접 및 사격 공격이 공격력이 대신 [교만]만큼의 피해를 입힘",
+            "Rarity": "Common",
+            "MaxLevel": 1,
+            "ProgressionType": "None",
+            "IconKey": "Icons/Items/IT_117_Item117"
+        }
+    ]
+}

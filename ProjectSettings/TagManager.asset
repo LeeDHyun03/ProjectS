@@ -9,6 +9,24 @@ TagManager:
   - WalkEffect
   - NormalAttackEffect
   - SpecialAttackEffect
+  - Meteo
+  - StigmaHitEffect
+  - HitEffect
+  - StigmaEffect
+  - ElectricEffect
+  - Archer
+  - DarkMage
+  - Knight
+  - SmallKnight
+  - Rogue
+  - SpearMan
+  - Mage
+  - FlameOnEffect
+  - WaterWalkEffect
+  - ExplosionEffect
+  - MagicZoneArea
+  - SwordWaveProjectile
+  - MagicSword
   layers:
   - Default
   - TransparentFX
@@ -30,7 +48,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - ref
   - 
   - 
   - 
@@ -45,6 +63,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: end
+    uniqueID: 64360897
+    locked: 0
+  - name: mid
+    uniqueID: 1884203753
+    locked: 0
+  - name: start
+    uniqueID: 711729333
     locked: 0
   m_RenderingLayers:
   - Default

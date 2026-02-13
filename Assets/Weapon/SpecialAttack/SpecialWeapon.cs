@@ -9,10 +9,15 @@ public class SpecialWeapon : MonoBehaviour
 
     public event Action<Vector2> SpecialAttackTriggered;
     public event Action OnSpecialAttackComplete;
+    public event Action<Monster> OnAttackSuccessed;
 
     private Vector2 attackDir = Vector2.zero;
     private float attackDamage = 5;
+    private float critChance = 0;
+    private float critDamage = 0;
+    private float rangedAttackDamage = 0;
     [SerializeField] private LayerMask targetLayer;
+
 
     void Awake()
     {
@@ -22,9 +27,12 @@ public class SpecialWeapon : MonoBehaviour
         }
     }
 
-    public void SetAttackDamage(float newDamage)
+    public void SetAttackDamage(float newDamage, float newCritChance, float newCritDamage, float newRangedDamage)
     {
         attackDamage = newDamage;
+        critChance = newCritChance;
+        critDamage = newCritDamage;
+        rangedAttackDamage = newRangedDamage;
     }
 
     public void EnableSpecialAttackCollider()
@@ -47,7 +55,15 @@ public class SpecialWeapon : MonoBehaviour
         {
             if (collision.TryGetComponent<Monster>(out Monster monster))
             {
-                monster.TakeDamage(attackDamage);
+                float damage = attackDamage;
+                int randomIndex = UnityEngine.Random.Range(1, 101);
+                if (randomIndex <= critChance)
+                {
+                    damage *= (1 + critDamage);
+                }
+                damage *= 1 + (rangedAttackDamage / 100);
+                monster.TakeDamage(damage);
+                OnAttackSuccessed?.Invoke(monster);
             }
         }
     }

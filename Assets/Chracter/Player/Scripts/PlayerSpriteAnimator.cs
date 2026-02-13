@@ -9,6 +9,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
     [SerializeField] private Transform visualRoot;
     [SerializeField] private Animator animator;
 
+    [SerializeField] private WaterWalkEffectCreator.Player waterWalkEffectCreator;
     public event Action StartSpecialAttacked;
 
     private void Update()
@@ -33,7 +34,7 @@ public class PlayerSpriteAnimator : MonoBehaviour
             scale.x = -Mathf.Abs(scale.x);
         else if (dir == MouseFacing.Direction.UR || dir == MouseFacing.Direction.DR)
             scale.x = Mathf.Abs(scale.x);
-        
+
         visualRoot.localScale = scale;
     }
 
@@ -65,6 +66,6 @@ public class PlayerSpriteAnimator : MonoBehaviour
 
     private void SpawnWalkEffect()
     {
-        PlayerEffectManager.Instance.OnWalkEffect();
+        if (!waterWalkEffectCreator.inWaterTile) PlayerEffectManager.Instance.OnWalkEffect();
     }
 }

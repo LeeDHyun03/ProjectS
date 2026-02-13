@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -90,7 +91,7 @@ public class PlayerInputManager : MonoBehaviour
             attackDir = Vector2.zero;
         }
         NormalAttackTriggered?.Invoke(attackDir);
-    } 
+    }
 
     private void OnSpecialAttack(InputAction.CallbackContext ctx)
     {
@@ -114,7 +115,7 @@ public class PlayerInputManager : MonoBehaviour
         {
             dashDir = GetMouseDirectionFromCenter();
         }
-         
+
         DashTriggered?.Invoke(dashDir);
         dashPressTime = Time.time;
         isSprinting = false;
@@ -141,6 +142,7 @@ public class PlayerInputManager : MonoBehaviour
             }
         }
     }
+
     private Vector2 GetMouseDirectionFromCenter()
     {
         Vector2 center = new(Screen.width * 0.5f, Screen.height * 0.5f);
