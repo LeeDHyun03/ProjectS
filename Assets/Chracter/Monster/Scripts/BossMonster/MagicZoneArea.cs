@@ -84,6 +84,8 @@ public class MagicZoneArea : MonoBehaviour
             yield return null;
         }
 
+        SfxManager.Instance.Play("Boss_Magic2");
+
         lifeRoutine = null;
 
         trigger.enabled = false;

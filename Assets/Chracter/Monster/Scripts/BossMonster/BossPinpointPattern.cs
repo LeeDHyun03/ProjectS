@@ -45,6 +45,8 @@ public class BossPinpointPattern : MonoBehaviour
             meteo.SetDefaultValue(pos, damage, aoeRadius, false, preDelay);
             meteo.StartFall();
 
+            SfxManager.Instance.Play("Boss_Pinpoint1");
+
             // 원형 인디케이터 Spawn
             GameObject go = ObjectPooler.Instance.SpawnFromPool(circleIndicatorPoolKey, pos, Quaternion.identity);
             go.TryGetComponent<IAttackIndicator>(out IAttackIndicator indicator);

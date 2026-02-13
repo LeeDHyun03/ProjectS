@@ -56,6 +56,7 @@ public class BossSwordWavePattern : MonoBehaviour
         indicator?.SetFill01(1f);
 
         ObjectPooler.Instance.SpawnFromPool("SwordWaveProjectile", transform.position, Quaternion.identity).TryGetComponent<SwordWaveProjectile>(out SwordWaveProjectile proj);
+        SfxManager.Instance.Play("Release");
         if (proj == null) yield break;
         proj.Launch(snapDir, speed, damage, lifeTime, growthInterval, growthStep, gameObject);
 
