@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 public class MCWater : PZInteraction
 {
     public GameObject interactionText;
     Collider2D col;
     bool isPlayerInteraction, CanInteraction;
+    public event Action OnPutDownWater;
     public override void Awake()
     {
         base.Awake();
@@ -23,6 +25,7 @@ public class MCWater : PZInteraction
             {
                 isPlayerInteraction = false;
                 col.enabled = true;
+                OnPutDownWater?.Invoke();
             }    
             else if (CanInteraction)
             {

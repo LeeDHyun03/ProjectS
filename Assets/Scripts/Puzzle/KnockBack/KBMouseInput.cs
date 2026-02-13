@@ -1,13 +1,17 @@
 using UnityEngine;
 
-public class KBMouseInput : MonoBehaviour
+public class KBMouseInput : PZInteraction
 {
-    public GameObject arrow;
+    Collider2D arrowCol;
+    SpriteRenderer arrowSr;
     public KBCart cart;
-    bool isMouseUse = true;
-    private void Awake()
+    bool isMouseUse = false;
+    public override void Awake()
     {
+        base.Awake();
         cart = FindAnyObjectByType<KBCart>();
+        arrowCol = gameObject.GetComponent<Collider2D>();
+        arrowSr = gameObject.GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -22,7 +26,7 @@ public class KBMouseInput : MonoBehaviour
         {
             cart.currentDir = PlayerToMouseDir();
             isMouseUse = false;
-            arrow.SetActive(false);
+            ToggleVisibility(false);
         }
     }
     Vector3 GetMouseVec()
@@ -43,7 +47,7 @@ public class KBMouseInput : MonoBehaviour
     {
         if (!isMouseUse)
             return;
-        arrow.transform.right = PlayerToMouseDir();
+        transform.right = PlayerToMouseDir();
     }
     private void OnEnable()
     {
@@ -51,12 +55,19 @@ public class KBMouseInput : MonoBehaviour
     }
     void MouseDirChangeModeTrigger()
     {
-        isMouseUse = true;
-        arrow.transform.position = cart.transform.position;
-        arrow.SetActive(true);
+        transform.position = cart.transform.position;
     }
     private void OnDisable()
     {
         cart.OnReAct -= MouseDirChangeModeTrigger;
+    }
+    public override void Interaction(bool enable)
+    {
+        isMouseUse = enable;
+        ToggleVisibility(enable);
+    }
+    void ToggleVisibility(bool toggle)
+    {
+        arrowSr.enabled = toggle;
     }
 }

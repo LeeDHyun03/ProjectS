@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public class MCBullet : PuzzleElement
+public class MCBullet : PZElement
 {
     public MCTurret myTurret;
-    [SerializeField] float moveSpeed = 7.55f;
+    [SerializeField] float moveSpeed = 40f;
     Vector3 moveDir;
     public event Action OnTriggerEnterBullet;
     bool isCanMove;

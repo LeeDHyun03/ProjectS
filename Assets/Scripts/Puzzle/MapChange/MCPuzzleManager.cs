@@ -22,14 +22,11 @@ public class MCPuzzleManager : PuzzleManager
     public override void OnEnable()
     {
         base.OnEnable();
-        foreach (var bullet in allBullets)
-        {
-            bullet.OnTriggerEnterBullet += PuzzleReset;
-        }
     }
     public override void OnDisable()
     {
-        base.OnDisable(); foreach (var bullet in allBullets)
+        base.OnDisable(); 
+        foreach (var bullet in allBullets)
         {
             bullet.OnTriggerEnterBullet -= PuzzleReset;
         }
@@ -42,5 +39,6 @@ public class MCPuzzleManager : PuzzleManager
     public void SetBullets(MCBullet mC)
     {
         allBullets.Add(mC);
+        mC.OnTriggerEnterBullet += PuzzleReset;
     }
 }

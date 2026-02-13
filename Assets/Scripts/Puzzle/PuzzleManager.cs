@@ -16,7 +16,7 @@ public abstract class PuzzleManager : MonoBehaviour
     {
         PuzzleDataManager.Instance?.SetCurrentManager(this); 
 
-        SetPuzzleLevel(0);  
+        SetPuzzleLevel(1);  
     }
     public void GiveReward(int difficulty)
     {
@@ -47,6 +47,8 @@ public abstract class PuzzleManager : MonoBehaviour
         else if (pZConfiner == null)
             pZConfiner = FindAnyObjectByType<PZConfinerTrigger>();
         Debug.Log(level+" start");
+        pZClear.OnClear += Clear;
+        pZConfiner.OnConfinerTrigger += SetConfiner;
     }
     public virtual void PuzzleReset()
     {
@@ -56,8 +58,6 @@ public abstract class PuzzleManager : MonoBehaviour
     }
     public virtual void OnEnable()
     {
-        pZClear.OnClear += Clear;
-        pZConfiner.OnConfinerTrigger += SetConfiner;
 
     }
     public virtual void OnDisable()

@@ -42,7 +42,21 @@ public class OAPuzzleManager : PuzzleManager
     }
     public override void PuzzleReset()
     {
+        foreach (var a in energies)
+        {
+            if (a != null)
+                a.OnActTrigger -= HandleActTrigger;
+        }
+
+        energies.Clear();
+        redActTiles.Clear();
+        blueActTiles.Clear();
+
+        redActiveCount = 0;
+        blueActiveCount = 0;
+
         base.PuzzleReset();
+
         PuzzleResetLoadParsing();
     }
     void PuzzleResetLoadParsing()
@@ -71,9 +85,5 @@ public class OAPuzzleManager : PuzzleManager
     public override void OnDisable()
     {
         base.OnDisable();
-        foreach (var a in energies)
-        {
-            a.OnActTrigger -= HandleActTrigger;
-        }
     }
 }
