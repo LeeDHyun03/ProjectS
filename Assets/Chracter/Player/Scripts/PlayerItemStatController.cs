@@ -231,4 +231,49 @@ public sealed class PlayerItemStatController : MonoBehaviour
         else if (stat.Equals("Envy", StringComparison.OrdinalIgnoreCase)) s.anger *= value;
         else if (stat.Equals("Pride", StringComparison.OrdinalIgnoreCase)) s.anger *= value;
     }
+
+    public void ResetRunItems()
+    {
+        _inv.Clear();
+        RebuildAndApply();
+    }
+
+    public void LoadRunItems(IEnumerable<RunItem> items)
+    {
+        _inv.Clear();
+
+        if (!ItemDataManager.Instance || !ItemDataManager.Instance.IsLoaded)
+            return;
+
+        if (items != null)
+        {
+            foreach (var it in items)
+            {
+                if (it == null) continue;
+                if (string.IsNullOrWhiteSpace(it.itemId)) continue;
+                if (!ItemDataManager.Instance.TryGetItem(it.itemId, out var item)) continue;
+
+                var runItem = new RunItem
+                {
+                    itemId = it.itemId.Trim(),
+                    level = Mathf.Max(1, it.level),
+                    stacks = Mathf.Max(1, it.stacks)
+                };
+
+                _inv[runItem.itemId] = runItem;
+            }
+        }
+
+        RebuildAndApply();
+    }
+
+    private void ClearItemIcons()
+    {
+        if (playerUITransform == null) return;
+
+        for (int i = playerUITransform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(playerUITransform.GetChild(i).gameObject);
+        }
+    }
 }

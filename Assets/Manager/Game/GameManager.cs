@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        PlayerUI.Instance.resultScreen.gameObject.SetActive(true);
     }
     IEnumerator Test()
     {
@@ -175,8 +175,6 @@ public class GameManager : MonoBehaviour
     // 퍼즐 맵으로 넘어가기 전에 현재 상황 저장
     public void SaveCurrentStateBeforeEnterPuzzle()
     {
-        MonsterManager.Instance.Test_ClearMobs();
-
         lastSpawnCenterPosition = MonsterManager.Instance.GetCurrentSpawnAreaCenter();
         lastUpdated = Time.time;
     }
@@ -278,5 +276,18 @@ public class GameManager : MonoBehaviour
                 currentPhase = Phase.Day;
             }
         }
+    }
+    public bool CanReceiveNightBenefit()
+    {
+        if (currentPhase != Phase.Night)
+            return false;
+
+        if (MonsterManager.Instance == null)
+            return false;
+
+        if (MonsterManager.Instance.HasAliveMonster())
+            return false;
+
+        return true;
     }
 }

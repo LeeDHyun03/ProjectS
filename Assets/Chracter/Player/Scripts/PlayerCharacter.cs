@@ -283,6 +283,7 @@ public class PlayerCharacter : Character
 
     void RestModeChanged(bool isResting)
     {
+        if (!GameManager.Instance.CanReceiveNightBenefit()) return;
         if (isResting)
         {
             combat.EnableRestMode();
@@ -487,5 +488,12 @@ public class PlayerCharacter : Character
             }
             OnChagnedDashCount?.Invoke(true, dashChargedCurrentTime);
         }
+    }
+
+    public void SetHp(float currentHp, float maxHp)
+    {
+        this.maxHp = maxHp;
+        this.currentHp = currentHp;
+        OnHpChanged?.Invoke(currentHp, maxHp);
     }
 }
