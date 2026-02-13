@@ -14,8 +14,7 @@ public class PlayerRest : MonoBehaviour
 
     public void RestModeChanged(bool isResting)
     {
-        //아이템 선택 중
-        if (Time.timeScale < 1) return;
+        if (Time.timeScale < 0.9f && !isResting) return;
         currentTime = 0f;
         currentRestMode = isResting;
         Time.timeScale = currentRestMode ? 2 : 1;

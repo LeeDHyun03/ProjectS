@@ -173,13 +173,22 @@ public class GameManager : MonoBehaviour
         }
 
         float elapsed = Time.time - lastUpdated;
+
         float dayDuration = general.waveDuration * general.waveAmountPerDay;
-        float totalDuration = dayDuration + general.nightDuration;
+        float nightDuration = general.nightDuration;
+        float totalDuration = dayDuration + nightDuration;
+
+        int fullDays = (int)(elapsed / totalDuration);
+        float remainingTime = elapsed % totalDuration;
+
+        int additionalWaves = remainingTime >= dayDuration
+            ? general.waveAmountPerDay
+            : (int)(remainingTime / general.waveDuration);
 
         // 스킵된 날들을 전부 제외하고 남은 현재 진행 시간(초)
         float remainingCurrentTime = elapsed % totalDuration;
 
-        int elapsedWave = (int)(elapsed / totalDuration * general.waveDuration * general.waveAmountPerDay);
+        int elapsedWave = fullDays * general.waveAmountPerDay + additionalWaves;
 
         if (remainingCurrentTime >= dayDuration)
         {

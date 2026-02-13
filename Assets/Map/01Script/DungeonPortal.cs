@@ -55,8 +55,7 @@ public class DungeonPortal : MonoBehaviour
     {
         if (isAlreadyEnterScene) return;
 
-        // TODO: 비활할것
-        // if (!GameManager.Instance.CanReceiveNightBenefit()) return;
+        if (!GameManager.Instance.CanReceiveNightBenefit()) return;
 
         if (!collision.TryGetComponent<PlayerCharacter>(out var character)) return;
         if (!character.isInteracting) return;
