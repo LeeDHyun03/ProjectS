@@ -121,7 +121,7 @@
             "ItemId": "IT_014_Item014",
             "NameKr": "산소",
             "Description": "적에게 공격을 적중시켰을 때, 대상의 <style=Key><link=ignition>발화</link></style> 수치가 최대라면 보유한 <style=Key><link=ignition>발화</link></style> 수치 1당 5/7/9/12의 피해를 입히고 <style=Key><link=ignition>발화</link></style> 효과를 즉시 소멸시킴",
-            "Rarity": "Legendary",
+            "Rarity": "Epic",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_014_Item014"
@@ -130,7 +130,7 @@
             "ItemId": "IT_015___",
             "NameKr": "변이 혈액 표본",
             "Description": "공격력 +10\n근접 공격 피해량 +10%",
-            "Rarity": "Common",
+            "Rarity": "Epic",
             "MaxLevel": 1,
             "ProgressionType": "None",
             "IconKey": "Icons/Items/IT_015___"
@@ -157,7 +157,7 @@
             "ItemId": "IT_018_Item018",
             "NameKr": "마도서",
             "Description": "공격력 -10\n분노 +30%\n질투 +30%\n교만 +20%",
-            "Rarity": "Common",
+            "Rarity": "Epic",
             "MaxLevel": 1,
             "ProgressionType": "None",
             "IconKey": "Icons/Items/IT_018_Item018"
@@ -247,7 +247,7 @@
             "ItemId": "IT_028_Item028",
             "NameKr": "조준경",
             "Description": "치명타 피해량 +8/12/16/20%",
-            "Rarity": "Legendary",
+            "Rarity": "Common",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_028_Item028"
@@ -256,7 +256,7 @@
             "ItemId": "IT_029_Item029",
             "NameKr": "치명성",
             "Description": "치명타 확률 +5/6/7/8%\n치명타 피해량 +10/12/14/16%",
-            "Rarity": "Legendary",
+            "Rarity": "Common",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_029_Item029"
@@ -400,7 +400,7 @@
             "ItemId": "IT_045_Item045",
             "NameKr": "시선",
             "Description": "<style=Key><link=stigma>낙인</link></style> 효과를 보유한 적이 공격력 감소 10/13/16/20% 얻음",
-            "Rarity": "Legendary",
+            "Rarity": "Common",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_045_Item045"
@@ -544,7 +544,7 @@
             "ItemId": "IT_061__",
             "NameKr": "기초 훈련서",
             "Description": "공격력 +3/5/9/12",
-            "Rarity": "Legendary",
+            "Rarity": "Common",
             "MaxLevel": 4,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_061__"
@@ -562,7 +562,7 @@
             "ItemId": "IT_063_Item063",
             "NameKr": "광란",
             "Description": "공격력 +5/7/9/11/13\n근접 공격 속도 +10/13/16/19/21",
-            "Rarity": "Legendary",
+            "Rarity": "Common",
             "MaxLevel": 5,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_063_Item063"
@@ -580,7 +580,7 @@
             "ItemId": "IT_065_Item065",
             "NameKr": "과호흡",
             "Description": "<style=Key><link=stigma>낙인</link></style> 효과를 보유한 적이 <style=Key><link=slow>감속</link></style> 20/25/30% 얻음",
-            "Rarity": "Epic",
+            "Rarity": "Common",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_065_Item065"
@@ -607,7 +607,7 @@
             "ItemId": "IT_068_Item068",
             "NameKr": "경량화",
             "Description": "이동 속도 +10/15%",
-            "Rarity": "Rare",
+            "Rarity": "Common",
             "MaxLevel": 2,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_068_Item068"
@@ -625,7 +625,7 @@
             "ItemId": "IT_070__",
             "NameKr": "강화의 부적",
             "Description": "공격력 +4/6/8/10/12 증가",
-            "Rarity": "Legendary",
+            "Rarity": "Common",
             "MaxLevel": 5,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_070__"
@@ -706,7 +706,7 @@
             "ItemId": "IT_079_Item079",
             "NameKr": "휘발유",
             "Description": "<style=Key><link=ignition>발화</link></style> 지속 시간 +1/2/3",
-            "Rarity": "Epic",
+            "Rarity": "Rare",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_079_Item079"
@@ -940,7 +940,7 @@
             "ItemId": "IT_105_Item105",
             "NameKr": "반딧불",
             "Description": "<style=Key><link=ignition>발화</link></style> 효과를 보유한 적이 사망했을 때, 주변 가까운 적 1명에게 <style=Key><link=ignition>발화</link></style> 효과 부여",
-            "Rarity": "Epic",
+            "Rarity": "Rare",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_105_Item105"
@@ -949,7 +949,7 @@
             "ItemId": "IT_106_Item106",
             "NameKr": "망원경",
             "Description": "치명타 확률 +10/14/19%",
-            "Rarity": "Epic",
+            "Rarity": "Rare",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_106_Item106"
@@ -1012,7 +1012,7 @@
             "ItemId": "IT_113__",
             "NameKr": "긴 호흡",
             "Description": "최대 MP +10/15/20/25/30",
-            "Rarity": "Legendary",
+            "Rarity": "Rare",
             "MaxLevel": 5,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_113__"
@@ -1039,7 +1039,7 @@
             "ItemId": "IT_116__",
             "NameKr": "거센 불길",
             "Description": "공격으로 피해를 입히면 대상에게 <style=Key><link=ignition>발화</link></style> 1/1/2 부여\n분노 +5/10/15",
-            "Rarity": "Epic",
+            "Rarity": "Rare",
             "MaxLevel": 3,
             "ProgressionType": "LevelUp",
             "IconKey": "Icons/Items/IT_116__"
