@@ -28,6 +28,20 @@
     },
     "monsters": [
         {
+            "monsterID": "Boss",
+            "stats": {
+                "maxHp": 1500.0,
+                "attackDamage": 20.0,
+                "attackSpeed": 0.5,
+                "moveSpeed": 3.5
+            },
+            "maxSuperArmor": 10,
+            "attackRange": 2.0,
+            "chaseInRange": 12.0,
+            "chaseOutRange": 18.0,
+            "cognizanceRange": 15.0
+        },
+        {
             "monsterID": "Knight",
             "stats": {
                 "maxHp": 150.0,

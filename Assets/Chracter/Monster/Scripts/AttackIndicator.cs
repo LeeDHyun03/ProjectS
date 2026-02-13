@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class AttackIndicator : MonoBehaviour,IAttackIndicator
+public class AttackIndicator : MonoBehaviour, IAttackIndicator
 {
     [SerializeField] private SpriteRenderer fillSprite;
     [SerializeField] private SpriteRenderer borderSprite;
@@ -47,6 +47,8 @@ public class AttackIndicator : MonoBehaviour,IAttackIndicator
         filling = null;
         ObjectPooler.ReturnToPool(gameObject);
     }
+
+    public Vector2 GetBaseSize() => fillSprite.size;
 
     private void OnDisable()
     {
