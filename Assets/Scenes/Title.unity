@@ -17867,14 +17867,14 @@ MonoBehaviour:
       Clip: {fileID: 8300000, guid: b045758d3cb57c040ac59aa0b8d3211c, type: 3}
     - Name: Mine_Explosion
       Clip: {fileID: 8300000, guid: 7370c7fa1fa6da242ac53c0d24bb068b, type: 3}
-    - Name: QA_Collision
+    - Name: OA_Collision
       Clip: {fileID: 8300000, guid: adbabe2a96bf468458af1eb0183c818f, type: 3}
-    - Name: QA_Off
+    - Name: OA_Off
       Clip: {fileID: 8300000, guid: 847c021011b9b9148beea4700c0574c7, type: 3}
-    - Name: QA_On
+    - Name: OA_On
       Clip: {fileID: 8300000, guid: 847c021011b9b9148beea4700c0574c7, type: 3}
-    - Name: QA_Off
-      Clip: {fileID: 8300000, guid: 847c021011b9b9148beea4700c0574c7, type: 3}
+    - Name: OA_Push
+      Clip: {fileID: 8300000, guid: ebad3b4ee4e254c4a81708566d8e875b, type: 3}
     - Name: Switch_Button
       Clip: {fileID: 8300000, guid: 7a62b24080eab8c4a80f3dc8a97798ca, type: 3}
     - Name: Switch_Cannon
@@ -17924,10 +17924,10 @@ MonoBehaviour:
       Clip: {fileID: 8300000, guid: 6da19926341a3414e9c702cab6cbb96e, type: 3}
     - Name: Puzzle
       Clip: {fileID: 8300000, guid: bee4df671143a9f43aae7a61ae982147, type: 3}
-    - Name: Boss
-      Clip: {fileID: 8300000, guid: 5417d1a78c489134195e9011ddfd9217, type: 3}
     - Name: Result
       Clip: {fileID: 8300000, guid: 2116e06f85eb25049a7da913d771952f, type: 3}
+    - Name: Boss
+      Clip: {fileID: 8300000, guid: 5417d1a78c489134195e9011ddfd9217, type: 3}
   masterVolume: 1
   bgmVolume: 1
   bgmPlayer: {fileID: 0}
