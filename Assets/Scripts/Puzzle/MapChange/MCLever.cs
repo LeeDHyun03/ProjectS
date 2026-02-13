@@ -21,6 +21,7 @@ public class MCLever : PZInteraction
             isActive = !isActive;
             Wall.SetActive(!isActive);
             sr.sprite = isActive ? onLever : offLever;
+            SoundManager.Instance.PlaySfx("MC_Button");
         }
     }
     public override void Interaction(bool enable)

@@ -25,10 +25,20 @@ public class OAEnergy : PZElement
         if (c == "RedAct_Button")
         {
             OnActTrigger?.Invoke(OAActTileColor.Red, isActive);
+            OnOffSfxPlay(isActive);
+
         }
         else if (c == "BlueAct_Button")
         {
             OnActTrigger?.Invoke(OAActTileColor.Blue, isActive);
+            OnOffSfxPlay(isActive);
         }
+    }
+    void OnOffSfxPlay(bool act)
+    {
+        if (act)
+            SoundManager.Instance.PlaySfx("OA_On");
+        else
+            SoundManager.Instance.PlaySfx("OA_Off");    
     }
 }
