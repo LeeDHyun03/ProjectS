@@ -7,7 +7,7 @@ public class KBCart : MonoBehaviour
     public event Action OnReAct;
     public Vector2 currentDir;
     const int defualtDurability = 4;
-    float moveSpeed = 20f;
+    float moveSpeed = 15f;
     float currentMoveSpeed;
     int _durability;
     public int Durability
@@ -19,7 +19,6 @@ public class KBCart : MonoBehaviour
             if(Durability <=0)
             {
                 CartReset();
-                OnReAct?.Invoke();
             }
         }
     }
@@ -63,12 +62,13 @@ public class KBCart : MonoBehaviour
             return;
 
         transform.Translate(currentMoveSpeed * Time.deltaTime * currentDir);
-        currentMoveSpeed -= 0.15f;
+        currentMoveSpeed -= 0.3f;
     }
     public void CartReset()
     {
         currentDir = Vector2.zero;
         transform.position = startVec;
         Durability = defualtDurability;
+        OnReAct?.Invoke();
     }
 }

@@ -44,6 +44,7 @@ public class MCTree : PZInteraction
     Collider2D col;
     public GameObject wallCollider;
     public GameObject cuttingText;
+    public GameObject cuttingTreeObj;
     
     private SpriteRenderer sr;
     private bool isCanTreeCutting;
@@ -88,6 +89,7 @@ public class MCTree : PZInteraction
     {
         sr.sprite = changed ? bridgeSprite : deadSprite;
         wallCollider.SetActive(!changed);
+        cuttingTreeObj.SetActive(changed);
     }
 
     public override void Interaction(bool enable)

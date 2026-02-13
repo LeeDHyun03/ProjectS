@@ -21,9 +21,8 @@ public class MSPuzzleManager : PuzzleManager
         puzzleGrid = myMap.GetComponent<Grid>();
         mineChecking.SetPuzzleGrid(puzzleGrid);
     }
-    public override void OnEnable()
+    public void OnEnable()
     {
-        base.OnEnable();
         mineChecking.OnMineTriggered += MoveToStartPoint;
     }
     public override void OnDisable()
