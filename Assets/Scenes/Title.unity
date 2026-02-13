@@ -4339,7 +4339,31 @@ MonoBehaviour:
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1889465101}
+        m_TargetAssemblyTypeName: BgmManager, Assembly-CSharp
+        m_MethodName: ChangeMasterVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1889465100}
+        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
+        m_MethodName: ChangeSfxVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &335559203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11385,7 +11409,19 @@ MonoBehaviour:
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1889465100}
+        m_TargetAssemblyTypeName: SfxManager, Assembly-CSharp
+        m_MethodName: ChangeSfxVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1144600490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15195,7 +15231,19 @@ MonoBehaviour:
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1889465101}
+        m_TargetAssemblyTypeName: BgmManager, Assembly-CSharp
+        m_MethodName: ChangeBgmVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1607593654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17717,6 +17765,153 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 114985454}
   content: {fileID: 1356014932}
+--- !u!1 &1889465099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1889465102}
+  - component: {fileID: 1889465101}
+  - component: {fileID: 1889465100}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1889465100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889465099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fded4e0b99839f54198fb83acab5c8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFXS:
+    Character_Sfx:
+    - Name: Character_Swing1
+      Clip: {fileID: 8300000, guid: 01cc0aa804460bb46966f6d36b9c9689, type: 3}
+    - Name: Character_Swing2
+      Clip: {fileID: 8300000, guid: 9b5bca17c83e4b74997a44f0bc804643, type: 3}
+    - Name: Character_SpecialAttack
+      Clip: {fileID: 8300000, guid: 69955b1f12047a3488b9b7bcc13851c2, type: 3}
+    - Name: Character_Critical
+      Clip: {fileID: 8300000, guid: e21ced68f4472df4b8cbea549e9ee53b, type: 3}
+    - Name: Character_Dash
+      Clip: {fileID: 8300000, guid: 22ca1a914c6005048bcfe3f8b849499e, type: 3}
+    - Name: Character_WaterWalk
+      Clip: {fileID: 8300000, guid: e7450ece99aeb114bb8acdc1570d0bfd, type: 3}
+    - Name: Character_LevelUp
+      Clip: {fileID: 8300000, guid: 5dc870cfd5d278e40a38a39b72ea8623, type: 3}
+    - Name: Character_TakeDamage
+      Clip: {fileID: 8300000, guid: 694513431555d444a8fdc7b2fb0aa33b, type: 3}
+    - Name: Character_Die
+      Clip: {fileID: 8300000, guid: d42097105a5cd074b89737bc707a3d47, type: 3}
+    Monster_Sfx:
+    - Name: Monster_Archer1
+      Clip: {fileID: 8300000, guid: 1d34e7849f169044893815bae0da0486, type: 3}
+    - Name: Monster_Archer2
+      Clip: {fileID: 8300000, guid: 5f037f8699c9ece4390ec10b5791d0b8, type: 3}
+    - Name: Monster_DarkMage
+      Clip: {fileID: 8300000, guid: 1297f158e4e597b41befcc3a04576208, type: 3}
+    - Name: Monster_Knight
+      Clip: {fileID: 8300000, guid: cea36325bea00064aa5cd46de6cf722b, type: 3}
+    - Name: Monster_Mage1
+      Clip: {fileID: 8300000, guid: 9d82d439e979dea4aac2f2b81fc92411, type: 3}
+    - Name: Monster_Mage2
+      Clip: {fileID: 8300000, guid: 04790e3f9d7265e4cb790409f14927eb, type: 3}
+    - Name: Monster_SpearMan
+      Clip: {fileID: 8300000, guid: 3fae932a4748b934e9144dd151c5d202, type: 3}
+    - Name: Monster_Hit
+      Clip: {fileID: 8300000, guid: d313da4ca94b38a4587ca76f8893531c, type: 3}
+    - Name: Monster_SuperArmorBroken
+      Clip: {fileID: 8300000, guid: 3e7f10a1142084e409e98794544d2ceb, type: 3}
+    - Name: Boss_BladeShot
+      Clip: {fileID: 8300000, guid: 6ceb20334ea962748abfddd50a04e08f, type: 3}
+    - Name: Boss_Dash
+      Clip: {fileID: 8300000, guid: 27ad323f620977441a5424192f892220, type: 3}
+    - Name: Boss_Maigc1
+      Clip: {fileID: 8300000, guid: 36a504d473954054e92b8018fa40c8b6, type: 3}
+    - Name: Boss_Maigc2
+      Clip: {fileID: 8300000, guid: b0e935c354e85a24a9e1f918f5e6f3c7, type: 3}
+    - Name: Boss_Pinpoint1
+      Clip: {fileID: 8300000, guid: 43cd01d281491db45afe42f0daf58103, type: 3}
+    - Name: Boss_Pinpoint2
+      Clip: {fileID: 8300000, guid: b0e935c354e85a24a9e1f918f5e6f3c7, type: 3}
+    - Name: Boss_Release
+      Clip: {fileID: 8300000, guid: f63433026dfec6e47ae3b59ff7e6fa98, type: 3}
+    - Name: Boss_Maigc2
+      Clip: {fileID: 8300000, guid: b0e935c354e85a24a9e1f918f5e6f3c7, type: 3}
+    Puzzle_Sfx: []
+    Item_Sfx:
+    - Name: Item_GetItem
+      Clip: {fileID: 8300000, guid: 9f89ca6f0d5f3994f9e60a7f95ff8c75, type: 3}
+    - Name: Item_Fire
+      Clip: {fileID: 8300000, guid: c8496d5ce90e5424791aee494747bb34, type: 3}
+    - Name: Item_Transfer
+      Clip: {fileID: 8300000, guid: d8cdb31a086aa66498f73d32889c7e2d, type: 3}
+    - Name: Item_Mark1
+      Clip: {fileID: 8300000, guid: 6d74ba092d2dff04197d9cadafd75113, type: 3}
+    - Name: Item_Mark2
+      Clip: {fileID: 8300000, guid: 151b2c8b8a87c804dbcf3197da0ce964, type: 3}
+    UI_Sfx:
+    - Name: UI_Click
+      Clip: {fileID: 8300000, guid: f8a5fd7c5b813584a8d21547484125f7, type: 3}
+  channels: 25
+  masterVolume: 1
+  sfxVolume: 1
+--- !u!114 &1889465101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889465099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031189cf1d18d034fa549a243b338137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGM:
+    Bgm:
+    - Name: Title
+      Clip: {fileID: 8300000, guid: 947d4ee82e42c6143af17e4caea1fbdb, type: 3}
+    - Name: Field
+      Clip: {fileID: 8300000, guid: 5c1bb7b4c2689a74b8413bfb3616cc7a, type: 3}
+    - Name: Rest
+      Clip: {fileID: 8300000, guid: 6da19926341a3414e9c702cab6cbb96e, type: 3}
+    - Name: Puzzle
+      Clip: {fileID: 8300000, guid: bee4df671143a9f43aae7a61ae982147, type: 3}
+    - Name: Boss
+      Clip: {fileID: 8300000, guid: 5417d1a78c489134195e9011ddfd9217, type: 3}
+    - Name: Result
+      Clip: {fileID: 8300000, guid: 2116e06f85eb25049a7da913d771952f, type: 3}
+  masterVolume: 1
+  bgmVolume: 1
+  bgmPlayer: {fileID: 0}
+--- !u!4 &1889465102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889465099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900146089
 GameObject:
   m_ObjectHideFlags: 0
@@ -18833,6 +19028,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096988617}
   m_CullTransparentMesh: 1
+--- !u!1 &2098638406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2098638408}
+  - component: {fileID: 2098638407}
+  - component: {fileID: 2098638409}
+  m_Layer: 0
+  m_Name: SoundSetting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2098638407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098638406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2063cc57099b23744a6bbe9dcf4b648b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmName: Title
+--- !u!4 &2098638408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098638406}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098638409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098638406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ad8ace351423d43acd1a483948e94f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterSlider: {fileID: 335559202}
+  bgmSlider: {fileID: 1607593653}
+  sfxSlider: {fileID: 1144600489}
 --- !u!1 &2099024601
 GameObject:
   m_ObjectHideFlags: 0
@@ -19416,3 +19672,5 @@ SceneRoots:
   - {fileID: 1555013694}
   - {fileID: 580825084}
   - {fileID: 1070159944}
+  - {fileID: 1889465102}
+  - {fileID: 2098638408}
