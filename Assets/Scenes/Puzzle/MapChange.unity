@@ -1831,11 +1831,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 57570809417467068, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4599344925009389003, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4720301525466344024, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1879,15 +1879,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6682455864557777757, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8465503010469120787, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8578165834686583780, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9063918648496916677, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_Name
@@ -1895,11 +1895,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9063918648496916677, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9217450101870660081, guid: 5607cfa105920da48bf00dbeb7cb2ad6, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

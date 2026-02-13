@@ -20,7 +20,7 @@ public class KBCart : MonoBehaviour
             _durability = value;
             if(Durability <=0)
             {
-                SoundManager.Instance.PlaySfx("KB_Destruction");
+                //SoundManager.Instance.PlaySfx("KB_Destruction");
                 Invoke(nameof(CartReset),1f);
             }
         }
@@ -55,7 +55,7 @@ public class KBCart : MonoBehaviour
         if(collision.gameObject.name =="Log")
         {
             Durability--;
-            SoundManager.Instance.PlaySfx("KB_Collision");
+            //SoundManager.Instance.PlaySfx("KB_Collision");
             sr.sprite = brokenCart[defualtDurability - Durability];
         }
 

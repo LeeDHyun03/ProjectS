@@ -34,7 +34,7 @@ public class MCTree : PZInteraction
                 case status.Bridge:
                     col.enabled = false;
                     sr.sortingOrder = 0;
-                    SoundManager.Instance.PlaySfx("MC_FallTree");
+                    //SoundManager.Instance.PlaySfx("MC_FallTree");
                     BridgeFormChange(true);
                     break;
             }

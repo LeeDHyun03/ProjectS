@@ -19,7 +19,7 @@ public class PZResetUI : PZElement
         if (!isFading && Input.GetKeyDown(KeyCode.R))
         {
             anim.SetTrigger("Fade");
-            SoundManager.Instance.PlaySfx("PZ_Exit");
+            //SoundManager.Instance.PlaySfx("PZ_Exit");
         }
 
         if (mapChanged && Input.GetKeyDown(KeyCode.T))
