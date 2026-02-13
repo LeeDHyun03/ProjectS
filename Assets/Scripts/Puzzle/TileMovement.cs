@@ -41,7 +41,7 @@ public class TileMovement : MonoBehaviour
             if (IsWallAhead(dir))
                 return;
 
-            SoundManager.Instance.PlaySfx("OA_Push");
+            //SoundManager.Instance.PlaySfx("OA_Push");
             nextTileVec = puzzleGrid.GetCellCenterWorld(NextTileVec(dir));
             isMove = true;
         }
@@ -73,7 +73,7 @@ public class TileMovement : MonoBehaviour
         {
             if (hit.collider.CompareTag("PZObstacle"))
             {
-                SoundManager.Instance.PlaySfx("OA_Collision");
+                //SoundManager.Instance.PlaySfx("OA_Collision");
 
                 return true;
             }

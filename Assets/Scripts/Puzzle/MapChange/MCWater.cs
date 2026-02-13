@@ -40,7 +40,7 @@ public class MCWater : PZInteraction
                 col.enabled = true;
                 transform.position = player.transform.position;
                 OnPutDownWater?.Invoke();
-                SoundManager.Instance.PlaySfx("MC_PickUp");
+                //SoundManager.Instance.PlaySfx("MC_PickUp");
             }
             else if (CanInteraction)
             {
@@ -49,7 +49,7 @@ public class MCWater : PZInteraction
                 isPlayerInteraction = true;
                 col.enabled = false;
                 CanInteraction = false;
-                SoundManager.Instance.PlaySfx("MC_PutDown");
+                //SoundManager.Instance.PlaySfx("MC_PutDown");
             }
         }
     }
