@@ -5,5 +5,6 @@ public interface IAttackIndicator
 {
     event Action OnIndicatorComplete;
     void StartIndicator(Vector2 size, float duration);
-    
+
+    public Vector2 GetBaseSize();
 }

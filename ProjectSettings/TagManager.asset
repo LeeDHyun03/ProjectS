@@ -23,6 +23,10 @@ TagManager:
   - Mage
   - FlameOnEffect
   - WaterWalkEffect
+  - ExplosionEffect
+  - MagicZoneArea
+  - SwordWaveProjectile
+  - MagicSword
   layers:
   - Default
   - TransparentFX
