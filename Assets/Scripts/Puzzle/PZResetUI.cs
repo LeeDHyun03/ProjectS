@@ -19,16 +19,21 @@ public class PZResetUI : PZElement
         if (!isFading && Input.GetKeyDown(KeyCode.R))
         {
             anim.SetTrigger("Fade");
+            SfxManager.Instance.Play("PZ_Exit");
         }
 
         if (mapChanged && Input.GetKeyDown(KeyCode.T))
         {
-            ((MCPuzzleManager)puzzleManager).ChangedMap();
+            anim.SetTrigger("Fade_Time");
         }
     }
     public void FadeInOut()
     {
         puzzleManager.PuzzleReset();
+    }
+    public void TimeChange()
+    {
+        ((MCPuzzleManager)puzzleManager).ChangedMap();
     }
     public void FadingStop()
     {

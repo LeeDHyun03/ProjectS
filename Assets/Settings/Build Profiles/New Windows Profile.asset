@@ -22,6 +22,18 @@ MonoBehaviour:
   m_Scenes:
   - m_enabled: 0
     m_path: Assets/Scenes/CharacterTestScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Title.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Field.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Puzzle/KnockBack.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Puzzle/MapChange.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Puzzle/Minesweeper.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Puzzle/ObjectActivation.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []

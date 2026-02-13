@@ -38,6 +38,7 @@ public class MSMineChecking : MonoBehaviour
             if(isPlayerOnCollision(collision))
             {
                 OnMineTriggered?.Invoke();
+                SfxManager.Instance.Play("Mine_Explosion");
             }
         }
     }

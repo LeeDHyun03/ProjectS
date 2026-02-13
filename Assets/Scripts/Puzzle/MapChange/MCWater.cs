@@ -1,15 +1,24 @@
 using System;
+using TMPro;
 using UnityEngine;
 public class MCWater : PZInteraction
 {
-    public GameObject interactionText;
+    public TextMeshPro interactionText;
     Collider2D col;
     SpriteRenderer sr;
     bool isPlayerInteraction, CanInteraction;
     public event Action OnPutDownWater;
+
+    Vector3 offset = new Vector3(0f, 0.5f, 0f);
+
+    string pickUp = "들기\n< Z >";
+    string putDown = "내려놓기\n< Z >";
+
     public override void Awake()
     {
         base.Awake();
+        interactionText = GetComponentInChildren<TextMeshPro>();
+        interactionText.gameObject.SetActive(false);
         col = GetComponent<Collider2D>();
         sr = GetComponent<SpriteRenderer>();
     }
@@ -25,29 +34,33 @@ public class MCWater : PZInteraction
         {
             if(isPlayerInteraction)
             {
+                interactionText.text = pickUp;
+
                 isPlayerInteraction = false;
                 col.enabled = true;
-                sr.sortingOrder = 1;
+                transform.position = player.transform.position;
                 OnPutDownWater?.Invoke();
-            }    
+                SfxManager.Instance.Play("Switch_PickUp");
+            }
             else if (CanInteraction)
             {
-                sr.sortingOrder = 2;
+                interactionText.text = putDown;
+
                 isPlayerInteraction = true;
                 col.enabled = false;
-                Interaction(false);
+                CanInteraction = false;
+                SfxManager.Instance.Play("Switch_PutDown");
             }
         }
-
     }
     public override void Interaction(bool enable)
     {
-        interactionText.SetActive(enable);
+        interactionText.gameObject.SetActive(enable);
         CanInteraction = enable;
     }
     public void MoveToPlayerVec()
     {
         if (((MCPuzzleManager)puzzleManager).isPast)
-            transform.position = player.transform.position;
+            transform.position = player.transform.position + offset;
     }
 }

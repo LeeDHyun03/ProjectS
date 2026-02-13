@@ -34,6 +34,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private List<Image> dashGageBars;
     [SerializeField] private TMP_Text currentMonsterCount;
     [SerializeField] private Image watchHand;
+    [SerializeField] private Image watchNight;
     [SerializeField] private RewardScreen rewardScreen;
     [SerializeField] private Image bossHpBar;
     [SerializeField] private Image bossHpFillBar;
@@ -192,5 +193,8 @@ public class PlayerUI : MonoBehaviour
     {
         float angle = (currentTime / maxTime) * 360f;
         watchHand.transform.localRotation = Quaternion.Euler(0, 0, -angle);
+        if(GameManager.Instance.currentPhase == GameManager.Phase.Day)
+            watchNight.gameObject.SetActive(false);
+        else watchNight.gameObject.SetActive(true);
     }
 }

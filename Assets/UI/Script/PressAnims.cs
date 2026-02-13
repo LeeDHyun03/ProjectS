@@ -8,8 +8,8 @@ public class PressAnims : MonoBehaviour
 
     public void Press_Animation()
     {
+        SfxManager.Instance.Play("UI_Click");
         animator.SetBool("isPress", true);
-        // 사운드 추가
         StartCoroutine(Delay());
     }
 

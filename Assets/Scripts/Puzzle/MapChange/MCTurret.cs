@@ -34,6 +34,7 @@ public class MCTurret : PZInteraction
         {
             currentTime = 0;
             sr.sprite = defaultTurret;
+            SfxManager.Instance.Play("Switch_Cannon");
             myBullet.SetActive(true);
             OnShotBullet?.Invoke(RandomDir());
         }

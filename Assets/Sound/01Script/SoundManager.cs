@@ -42,6 +42,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField, Min(1)] private int Channels = 25;
 
     [Header("Volume")]
+    [SerializeField, Range(0f, 1f)] private float masterVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float bgmVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float sfxVolume = 1f;
 
@@ -53,11 +54,12 @@ public class SoundManager : MonoBehaviour
     private int channelIndex;
 
     // =========================
-    // Runtime Maps (fast)
+    // Runtime Maps
     // =========================
     private Dictionary<string, AudioClip> bgmMap;
     private Dictionary<string, AudioClip> sfxMap;
 
+    private const string PREF_MASTER = "MasterVolume";
     private const string PREF_BGM = "BgmVolume";
     private const string PREF_SFX = "SfxVolume";
 
@@ -71,14 +73,18 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        BuildMaps();     // O(n) 1회
-        InitPlayers();   // AudioSource 구성
-        LoadVolumes();   // PlayerPrefs 적용
+        BuildMaps();
+        InitPlayers();
+        LoadVolumes();
     }
 
+    // =========================
+    // Map Build
+    // =========================
     private void BuildMaps()
     {
         bgmMap = BuildMap(BGM?.Bgm, "BGM");
@@ -105,6 +111,7 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             var e = list[i];
+
             if (string.IsNullOrWhiteSpace(e.Name) || e.Clip == null)
                 continue;
 
@@ -118,6 +125,9 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    // =========================
+    // Player Init
+    // =========================
     private void InitPlayers()
     {
         // BGM Player
@@ -130,7 +140,7 @@ public class SoundManager : MonoBehaviour
             bgmPlayer.loop = true;
         }
 
-        // SFX Players (multi-channel)
+        // SFX Players
         var sfxObj = new GameObject("SfxPlayers");
         sfxObj.transform.SetParent(transform);
 
@@ -146,8 +156,12 @@ public class SoundManager : MonoBehaviour
         ApplyVolumes();
     }
 
+    // =========================
+    // Volume
+    // =========================
     private void LoadVolumes()
     {
+        masterVolume = PlayerPrefs.GetFloat(PREF_MASTER, masterVolume);
         bgmVolume = PlayerPrefs.GetFloat(PREF_BGM, bgmVolume);
         sfxVolume = PlayerPrefs.GetFloat(PREF_SFX, sfxVolume);
         ApplyVolumes();
@@ -155,20 +169,41 @@ public class SoundManager : MonoBehaviour
 
     private void ApplyVolumes()
     {
-        if (bgmPlayer) bgmPlayer.volume = bgmVolume;
+        if (bgmPlayer)
+            bgmPlayer.volume = masterVolume * bgmVolume;
 
         if (sfxPlayers != null)
         {
+            float finalSfx = masterVolume * sfxVolume;
             for (int i = 0; i < sfxPlayers.Length; i++)
-                sfxPlayers[i].volume = sfxVolume;
+                sfxPlayers[i].volume = finalSfx;
         }
     }
 
-    // =========================
-    // Play Sound
-    // =========================
+    public void ChangeMasterVolume(float value)
+    {
+        masterVolume = Mathf.Clamp01(value);
+        PlayerPrefs.SetFloat(PREF_MASTER, masterVolume);
+        ApplyVolumes();
+    }
 
-    // SoundManager.Instance.PlayBgm("Main")
+    public void ChangeBgmVolume(float value)
+    {
+        bgmVolume = Mathf.Clamp01(value);
+        PlayerPrefs.SetFloat(PREF_BGM, bgmVolume);
+        ApplyVolumes();
+    }
+
+    public void ChangeSfxVolume(float value)
+    {
+        sfxVolume = Mathf.Clamp01(value);
+        PlayerPrefs.SetFloat(PREF_SFX, sfxVolume);
+        ApplyVolumes();
+    }
+
+    // =========================
+    // Play
+    // =========================
     public void PlayBgm(string name)
     {
         if (bgmPlayer == null || bgmMap == null) return;
@@ -179,14 +214,13 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        // 같은 BGM이면 재시작 안함(원하면 제거)
-        if (bgmPlayer.isPlaying && bgmPlayer.clip == clip) return;
+        if (bgmPlayer.isPlaying && bgmPlayer.clip == clip)
+            return;
 
         bgmPlayer.clip = clip;
         bgmPlayer.Play();
     }
 
-    // SoundManager.Instance.PlaySfx("Dash")
     public void PlaySfx(string name)
     {
         if (sfxPlayers == null || sfxMap == null) return;
@@ -197,35 +231,19 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        // 라운드로빈으로 빈 채널 탐색
         for (int i = 0; i < sfxPlayers.Length; i++)
         {
             int idx = (channelIndex + i) % sfxPlayers.Length;
-            if (sfxPlayers[idx].isPlaying) continue;
+
+            if (sfxPlayers[idx].isPlaying)
+                continue;
 
             channelIndex = (idx + 1) % sfxPlayers.Length;
-            sfxPlayers[idx].PlayOneShot(clip); // clip 교체 없이 재생 (안전/효율 좋음)
+            sfxPlayers[idx].PlayOneShot(clip);
             return;
         }
 
-        // 전부 재생 중이면 "무시" (원하면 아래 한 줄로 덮어쓰기 가능)
+        // 전부 재생 중이면 무시
         // sfxPlayers[channelIndex].PlayOneShot(clip);
-    }
-
-    public void ChangeBgmVolume(float value)
-    {
-        bgmVolume = Mathf.Clamp01(value);
-        PlayerPrefs.SetFloat(PREF_BGM, bgmVolume);
-        if (bgmPlayer) bgmPlayer.volume = bgmVolume;
-    }
-
-    public void ChangeSfxVolume(float value)
-    {
-        sfxVolume = Mathf.Clamp01(value);
-        PlayerPrefs.SetFloat(PREF_SFX, sfxVolume);
-
-        if (sfxPlayers == null) return;
-        for (int i = 0; i < sfxPlayers.Length; i++)
-            sfxPlayers[i].volume = sfxVolume;
     }
 }

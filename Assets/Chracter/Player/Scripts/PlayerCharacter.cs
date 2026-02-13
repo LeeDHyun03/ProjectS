@@ -283,6 +283,7 @@ public class PlayerCharacter : Character
 
     void RestModeChanged(bool isResting)
     {
+        if (!GameManager.Instance.CanReceiveNightBenefit()) return;
         if (isResting)
         {
             combat.EnableRestMode();
@@ -459,6 +460,7 @@ public class PlayerCharacter : Character
     public override void Dead()
     {
         Debug.Log("플레이어 사망");
+        PlayerUI.Instance.resultScreen.gameObject.SetActive(true);
         // SaveData에 현재까지 모은 포인트를 저장하는 로직 추가 가능
     }
 
@@ -487,5 +489,12 @@ public class PlayerCharacter : Character
             }
             OnChagnedDashCount?.Invoke(true, dashChargedCurrentTime);
         }
+    }
+
+    public void SetHp(float currentHp, float maxHp)
+    {
+        this.maxHp = maxHp;
+        this.currentHp = currentHp;
+        OnHpChanged?.Invoke(currentHp, maxHp);
     }
 }
