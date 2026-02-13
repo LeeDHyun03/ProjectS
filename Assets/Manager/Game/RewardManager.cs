@@ -12,7 +12,7 @@ public class RewardManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -39,6 +39,7 @@ public class RewardManager : MonoBehaviour
         foreach (string id in idList)
         {
             bool itemFound = ItemDataManager.Instance.TryGetItem(id, out var item);
+            Dbg.L("찾음?", itemFound);
             if (itemFound) candidates.Add(item);
         }
 

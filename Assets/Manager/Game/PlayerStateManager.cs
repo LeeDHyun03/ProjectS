@@ -21,6 +21,7 @@ public class PlayerStateManager : MonoBehaviour
         public float hp;
         public float maxHp;
         public List<RunItemSnapshot> items = new();
+        public Vector2 position;
     }
 
 
@@ -61,7 +62,8 @@ public class PlayerStateManager : MonoBehaviour
         snapshot = new PlayerRunSnapshot
         {
             hp = player.GetCurrentHp,
-            maxHp = player.GetMaxHp,   
+            maxHp = player.GetMaxHp,
+            position = player.transform.position,
             items = new List<RunItemSnapshot>()
         };
 
@@ -87,6 +89,7 @@ public class PlayerStateManager : MonoBehaviour
         if (snapshot == null) return;
 
         player.SetHp(snapshot.hp, snapshot.maxHp);
+        player.transform.position = snapshot.position;
 
         var itemCtrl = player.GetComponent<PlayerItemStatController>();
         if (itemCtrl != null)

@@ -31,7 +31,7 @@ public class PlayerCharacter : Character
 
     public event Action<bool, float> OnChagnedDashCount;
 
-    public event Action OnLevelUp;
+    public event Action<int> OnLevelUp;
 
     private float currentMp;
     private float currentExp;
@@ -71,7 +71,7 @@ public class PlayerCharacter : Character
     public float MaxHp => maxHp;
     public float CurrentMp => currentMp;
     public float MaxMp => maxMp;
-    
+
     #region Debug Func
     public float DebugAttackDamage => attackDamage;
     public float DebugMoveSpeed => moveSpeed;
@@ -454,7 +454,12 @@ public class PlayerCharacter : Character
         currentExp = 0;
         maxExp += expIncrement;
         CureHp(maxHp);
-        OnLevelUp?.Invoke();
+        InvokeLevelUpEvent();
+    }
+
+    public void InvokeLevelUpEvent(int diff = 0)
+    {
+        OnLevelUp?.Invoke(diff);
     }
 
     public override void Dead()
@@ -466,18 +471,18 @@ public class PlayerCharacter : Character
 
     void Update()
     {
-        if(currentMp < maxMp)
+        if (currentMp < maxMp)
         {
             mpChargedCurrentTime += Time.deltaTime;
-            if(mpChargedCurrentTime >= mpChargedTime)
+            if (mpChargedCurrentTime >= mpChargedTime)
             {
                 currentMp++;
                 mpChargedCurrentTime = 0;
-                OnMpChanged?.Invoke(currentMp, maxMp);                
+                OnMpChanged?.Invoke(currentMp, maxMp);
             }
         }
 
-        if(currentDashCount < maxDashCount)
+        if (currentDashCount < maxDashCount)
         {
             dashChargedCurrentTime += Time.deltaTime;
             if (dashChargedCurrentTime >= dashChargedTime)

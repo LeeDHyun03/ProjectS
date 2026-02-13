@@ -11,6 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Field.unity
     guid: 946029f9917e4b1469c36f730ddcc182
+  - enabled: 1
+    path: Assets/Scenes/Puzzle/KnockBack.unity
+    guid: 0b6dcb7f0fd148545820bd7fb9d766ea
+  - enabled: 1
+    path: Assets/Scenes/Puzzle/MapChange.unity
+    guid: c10a6c5c29791ae48b86569d37e7ab22
+  - enabled: 1
+    path: Assets/Scenes/Puzzle/Minesweeper.unity
+    guid: 4bd0dabfb1eb4e248915f08d25a80849
+  - enabled: 1
+    path: Assets/Scenes/Puzzle/ObjectActivation.unity
+    guid: 3b3021e450da7f146a4ab114a85fb2b7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

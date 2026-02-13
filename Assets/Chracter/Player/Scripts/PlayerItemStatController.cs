@@ -72,8 +72,7 @@ public sealed class PlayerItemStatController : MonoBehaviour
         {
             inst = new RunItem { itemId = itemId, level = 1, stacks = 1 };
             _inv[itemId] = inst;
-            amount -= 1;
-            ItemIcon itemIcon = Instantiate(ItemIconPrefab, playerUITransform);
+            ItemIcon itemIcon = Instantiate(ItemIconPrefab, PlayerUI.Instance.playerUITransform);
             Sprite iconSprite = ItemDataManager.Instance.LoadIcon(item);
             Sprite iconFrameSprite = ItemDataManager.Instance.LoadItemFrame(item);
             itemIcon.SetItemInfo(item.NameKr, item.Description, iconSprite, iconFrameSprite);
@@ -267,7 +266,7 @@ public sealed class PlayerItemStatController : MonoBehaviour
         RebuildAndApply();
     }
 
-    private void ClearItemIcons()
+    public void ClearItemIcons()
     {
         if (playerUITransform == null) return;
 

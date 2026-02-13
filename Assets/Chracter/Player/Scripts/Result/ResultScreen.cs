@@ -23,7 +23,7 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] private float duration = 1.5f;
 
     [SerializeField] private Color normalColor = Color.white;
-    [SerializeField] private Color overColor = new Color(1f, 0.5f, 0f);
+    [SerializeField] private Color overColor = new(1f, 0.5f, 0f);
 
     private Action _onComplete;
     private Vector2 characterInitialPos;
@@ -34,29 +34,53 @@ public class ResultScreen : MonoBehaviour
     {
         restartButton.onClick.AddListener(() =>
         {
-            Time.timeScale = 1;
+            Reset();
             SceneManager.LoadScene("Field");
             gameObject.SetActive(false);
         });
         returnToMainButton.onClick.AddListener(() =>
         {
-            Time.timeScale = 1;
+            Reset();
             SceneManager.LoadScene("Title");
+            gameObject.SetActive(false);
         });
+    }
+    void Reset()
+    {
+        Time.timeScale = 1;
+        PlayerCharacter player = FindFirstObjectByType<PlayerCharacter>();
+        player.transform.position = new Vector2(0, 0);
+        PlayerItemStatController statController = player.GetComponent<PlayerItemStatController>();
+        statController.ResetRunItems();
+        statController.ClearItemIcons();
+
+        GameManager.Instance.ResetGameState();
+
+        Dbg.L("asdasdasd", GameManager.Instance.currentStage);
+        PlayerUI.Instance.GetRewardScreen().gameObject.SetActive(false);
+        // ^ 죽는 타이밍에 레벨업해서 재시작 시 아이템 보상을 획득할 수 있는 현상 방지
     }
     void OnEnable()
     {
+        Act();
+    }
+
+    void Act()
+    {
+        characterIcon.anchoredPosition = new Vector2(-486, 132);
         Time.timeScale = 0;
         characterInitialPos = characterIcon.anchoredPosition;
 
-        // progress = (현재 스테이지 x 5 + 현재 웨이브) / 25;
-        progress = 1;
+        Debug.Log(GameManager.Instance.currentStage);
+        Debug.Log(GameManager.Instance.GetElapsedTotalWave());
+        progress = GameManager.Instance.GetElapsedTotalWave() / 25f;
 
         if (progress >= 1)
         {
             title.text = "Clear";
         }
         Play(progress, OnProgressFinished);
+
     }
 
     void OnProgressFinished()
@@ -64,9 +88,8 @@ public class ResultScreen : MonoBehaviour
         if (progress > 1)
         {
             stage5Text.color = overColor;
-            stage5Text.text = $"Stage\n{10}"; // 10 -> 현재 스테이지로
+            stage5Text.text = $"Stage\n{GameManager.Instance.currentStage}";
         }
-        Debug.Log("애니메이션 종료");
     }
 
     public void Play(float targetProgress, Action onComplete = null)

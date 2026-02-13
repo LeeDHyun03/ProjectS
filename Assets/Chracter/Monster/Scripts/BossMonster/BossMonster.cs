@@ -32,7 +32,7 @@ public class BossMonster : Monster
     {
         if (!patternFlow) patternFlow = GetComponent<BossPatternFlow>();
 
-        // Prop´Â ¶Õ±â(·±Å¸ÀÓ ¾ÈÀüÀåÄ¡)
+        // Propï¿½ï¿½ ï¿½Õ±ï¿½(ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡)
         int bossLayer = LayerMask.NameToLayer(bossLayerName);
         int propLayer = LayerMask.NameToLayer(propLayerName);
         if (bossLayer >= 0 && propLayer >= 0)
@@ -47,7 +47,7 @@ public class BossMonster : Monster
         if (detection != null)
             detection.OnDetectionStateChanged += HandleDetectionChanged;
 
-        if(bossMovement != null)
+        if (bossMovement != null)
         {
             bossMovement.OnAimUpdated += HandleDashAimUpdated;
             bossMovement.OnDashCommitted += HandleDashCommitted;
@@ -76,10 +76,10 @@ public class BossMonster : Monster
 
     protected override void InitializeMonster(CharacterStateDataContainer.MonsterData data)
     {
-        // Dbg.L("Çö½ºÅ×ÀÌÁö", WaveManager.Instance.currentStage);
-        // data.Show("Àü");
+        // Dbg.L("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", WaveManager.Instance.currentStage);
+        // data.Show("ï¿½ï¿½");
         var scaledData = data.TryScale();
-        // scaledData.Show("ÈÄ");
+        // scaledData.Show("ï¿½ï¿½");
 
         InitializeCharacter(scaledData.stats);
         detection.SetupDectectionRange(scaledData.attackRange, scaledData.chaseInRange, scaledData.chaseOutRange, scaledData.cognizanceRange); detection.SetIsPlayerSide(false);
@@ -129,7 +129,7 @@ public class BossMonster : Monster
             patternFlow.StopFlow();
     }
 
-    // ¿ÜºÎ(ÆäÀÌÁî ÀüÈ¯/»ç¸Á/ÄÆ½Å)¿¡¼­ °­Á¦ Á¤Áö¿ë
+    // ï¿½Üºï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯/ï¿½ï¿½ï¿½/ï¿½Æ½ï¿½)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public void ForceStop()
     {
         StopCombat();
@@ -140,7 +140,7 @@ public class BossMonster : Monster
 
         Debug.Log($"{currentHp} / {maxHp}");
         currentHp -= damage;
-        if(currentHp <= 0)
+        if (currentHp <= 0)
         {
             Dead();
         }
@@ -150,8 +150,8 @@ public class BossMonster : Monster
     public override void Dead()
     {
         CancelInvoke();
-
         isDead = true;
+        PlayerUI.Instance.resultScreen.gameObject.SetActive(true);
     }
 
 

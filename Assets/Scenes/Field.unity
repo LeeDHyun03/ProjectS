@@ -96864,7 +96864,7 @@ Transform:
   m_GameObject: {fileID: 633890634}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.4, y: -0.8, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -125085,7 +125085,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.142857
+  orthographic size: 6.857143
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -125110,7 +125110,7 @@ Transform:
   m_GameObject: {fileID: 986189397}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.4, y: -0.8, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -316304,11 +316304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8341630961834475299, guid: d27c2d066ee01604487e116fddfa4a17, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8341630961834475299, guid: d27c2d066ee01604487e116fddfa4a17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8341630961834475299, guid: d27c2d066ee01604487e116fddfa4a17, type: 3}
       propertyPath: m_LocalPosition.z
@@ -317953,6 +317953,8 @@ MonoBehaviour:
     extraStages: []
   currentPhase: 0
   currentStage: 1
+  fromRestartButton: 0
+  prevSolvedPuzzleDiff: 0
 --- !u!4 &1534089726
 Transform:
   m_ObjectHideFlags: 0
@@ -325612,6 +325614,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1357760410104729999, guid: ef80f1ff06f81274f902c5fb96aac631, type: 3}
+      propertyPath: playerUITransform
+      value: 
+      objectReference: {fileID: 4876970}
     - target: {fileID: 1425165841455274103, guid: ef80f1ff06f81274f902c5fb96aac631, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas

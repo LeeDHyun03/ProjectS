@@ -36,7 +36,6 @@ public class MonsterManager : MonoBehaviour
 
     public bool HasAliveMonster() => aliveMonsterCount > 0;
 
-    // 테스트용
     private List<GameObject> mobs = new();
 
     // 몬스터 수 변화 추적용 이벤트 (인자는 업데이트 후 전체 몬스터 수)
@@ -55,11 +54,11 @@ public class MonsterManager : MonoBehaviour
             return instance;
         }
     }
-    public void Test_ClearMobs()
+    public void ClearMobs()
     {
         foreach (var obj in mobs)
         {
-            ObjectPooler.ReturnToPool(obj);
+            obj.GetComponent<Monster>().Despawn();
         }
     }
     public void SpawnWave(

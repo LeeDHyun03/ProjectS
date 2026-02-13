@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using Newtonsoft.Json;
+using Roguelike.Items;
 
 // 게임 상태 전환 (날, 필드 <-> 퍼즐) 및 웨이브 진행 등을 담당
 public class GameManager : MonoBehaviour
@@ -44,6 +45,11 @@ public class GameManager : MonoBehaviour
 
     private WaveStaticData.GeneralData general;
 
+
+    public bool fromRestartButton = false;
+
+    public int prevSolvedPuzzleDiff = 0;
+
     public static GameManager Instance;
 
     public event Action<float, float> OnCurrentPhaseTimeChanged;
@@ -69,10 +75,40 @@ public class GameManager : MonoBehaviour
             general = data.general;
         }
     }
+    public int GetElapsedTotalWave()
+    {
+        return (currentStage - 1) * general.waveAmountPerDay + currentWave;
+    }
+    public void ResetGameState()
+    {
+        fromRestartButton = true;
+
+        GlobalLight.Instance.SetColor(dayColor);
+
+        currentPhase = Phase.Day;
+
+        currentStage = 1;
+
+        currentWave = 0;
+
+        currentWaveTime = 0;
+
+        currentPhaseTime = 0;
+
+        currentExtraStagePattern = 0;
+
+        lastUpdated = 0;
+
+        inPuzzle = false;
+
+        prevSolvedPuzzleDiff = 0;
+
+        lastSpawnCenterPosition = new Vector2(0, 0);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
     IEnumerator Test()
     {
@@ -81,9 +117,61 @@ public class GameManager : MonoBehaviour
         inPuzzle = true;
         SceneManager.LoadScene("P_MineScene");
     }
+    IEnumerator GiveItemDelayed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        var rewardScreen = PlayerUI.Instance.GetRewardScreen();
+        rewardScreen.gameObject.SetActive(true);
+        List<string> itemIds = new()
+        {
+                    "IT_004_Item004",
+        "IT_007__",
+        "IT_014_Item014",
+        "IT_015___",
+        "IT_016_Item016",
+        "IT_018_Item018",
+        "IT_028_Item028",
+        "IT_029_Item029",
+        "IT_034_Item034",
+        "IT_035_Item035",
+        "IT_045_Item045",
+        "IT_060_Item060",
+        "IT_061__",
+        "IT_062_Item062",
+        "IT_063_Item063",
+        "IT_065_Item065",
+        "IT_067_Item067",
+        "IT_068_Item068",
+        "IT_070__",
+        "IT_078_Item078",
+        "IT_079_Item079",
+        "IT_086_Item086",
+        "IT_102_Item102",
+        "IT_105_Item105",
+        "IT_106_Item106",
+        "IT_113__",
+        "IT_116__"
+        };
+
+        rewardScreen.SetRewards(RewardManager.PickItemsFromID(itemIds, 3));
+
+        prevSolvedPuzzleDiff = 0;
+    }
     // 퍼즐 맵에서 돌아왔을 때 그동안 흘러갔어야 하는 진행 상황을 적용
     public void ResumeFromPuzzle()
     {
+        PlayerCharacter playerCharacter = FindFirstObjectByType<PlayerCharacter>();
+        PlayerStateManager.Instance.RestoreTo(playerCharacter);
+
+        //playerCharacter.InvokeLevelUpEvent();
+
+        if (fromRestartButton)
+        {
+            // Time.time 관련 문제 방지
+            fromRestartButton = false;
+            return;
+        }
+
         float elapsed = Time.time - lastUpdated;
         float dayDuration = general.waveDuration * general.waveAmountPerDay;
         float totalDuration = dayDuration + general.nightDuration;
@@ -117,8 +205,12 @@ public class GameManager : MonoBehaviour
                 currentWave = 1;
                 UpdateExtraStagePattern();
             }
+            Debug.Log("--------------------");
+            Debug.Log(currentExtraStagePattern);
+            Debug.Log(currentStage - 1);
+            Debug.Log(currentWave - 1 + i);
             pendingWaveAmountInfo = pendingWaveAmountInfo.Add(
-                PickWaveAmountInfo(currentExtraStagePattern, currentStage - 1, currentWave - 1 + i)
+                PickWaveAmountInfo(currentExtraStagePattern, currentStage - 1, Mathf.Min(currentWave - 1 + i, 4))
             );
         }
 
@@ -167,7 +259,13 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "Field")
         {
+            /*
+            FindFirstObjectByType<PlayerCharacter>().InvokeLevelUpEvent(prevSolvedPuzzleDiff);
+            */
+            StartCoroutine(GiveItemDelayed());
             ResumeFromPuzzle();
+            Dbg.L("검증:", currentWave);
+            Dbg.L(currentStage.ToString());
             // StartCoroutine(Test());
         }
     }
@@ -175,6 +273,7 @@ public class GameManager : MonoBehaviour
     // 퍼즐 맵으로 넘어가기 전에 현재 상황 저장
     public void SaveCurrentStateBeforeEnterPuzzle()
     {
+        PlayerStateManager.Instance.SaveFrom(FindFirstObjectByType<PlayerCharacter>());
         lastSpawnCenterPosition = MonsterManager.Instance.GetCurrentSpawnAreaCenter();
         lastUpdated = Time.time;
     }

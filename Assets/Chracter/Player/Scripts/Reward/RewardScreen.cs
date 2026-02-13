@@ -22,6 +22,7 @@ public class RewardScreen : MonoBehaviour
 
     public void SetRewards(List<ItemData> rewardItemIDList)
     {
+        Dbg.L("개수세봐", rewardItemIDList.Count);
         tooltipContainer.DestroyChildren();
 
         foreach (ItemData itemData in rewardItemIDList)

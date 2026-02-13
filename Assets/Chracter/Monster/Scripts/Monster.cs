@@ -217,7 +217,7 @@ public class Monster : Character, IPooledObject
         Invoke(nameof(Despawn), 1.5f);
     }
 
-    private void Despawn()
+    public void Despawn()
     {
         ObjectPooler.ReturnToPool(gameObject);
         MonsterManager.Instance.OnMonsterDespawned();

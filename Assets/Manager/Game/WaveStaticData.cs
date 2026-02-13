@@ -20,7 +20,7 @@ namespace WaveStaticData
         public int normalStageMax;
 
         // 하루에 나오는 웨이브 수
-        public float waveAmountPerDay;
+        public int waveAmountPerDay;
 
         // 웨이브 당 할당된 시간 (초)
         public float waveDuration;

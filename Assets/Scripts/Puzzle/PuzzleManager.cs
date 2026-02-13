@@ -1,27 +1,29 @@
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class PuzzleManager : MonoBehaviour
 {
     public Transform player;
     public PZClearTrigger pZClear;
     public PZConfinerTrigger pZConfiner;
-    public CinemachineConfiner2D confiner; 
+    public CinemachineConfiner2D confiner;
     public GameObject[] puzzleDifficulty = new GameObject[3];
     [SerializeField] protected BoxCollider2D myCon;
-    [SerializeField]protected GameObject myMap;
+    [SerializeField] protected GameObject myMap;
     public GameObject ResetUI;
     protected int difficulty;
     public Vector3 startVec, firstVec;
     public virtual void Awake()
     {
-        PuzzleDataManager.Instance?.SetCurrentManager(this); 
+        PuzzleDataManager.Instance?.SetCurrentManager(this);
 
-        SetPuzzleLevel(2);  
+        SetPuzzleLevel(2);
     }
     public void GiveReward(int difficulty)
     {
-
+        GameManager.Instance.prevSolvedPuzzleDiff = difficulty;
+        SceneManager.LoadScene("Field");
     }
     public void Clear()
     {
@@ -41,7 +43,7 @@ public abstract class PuzzleManager : MonoBehaviour
         }
         else if (pZClear == null)
             pZClear = FindAnyObjectByType<PZClearTrigger>();
-        if(player.TryGetComponent<PZConfinerTrigger>(out var existingPZC))
+        if (player.TryGetComponent<PZConfinerTrigger>(out var existingPZC))
         {
             pZConfiner = existingPZC;
         }

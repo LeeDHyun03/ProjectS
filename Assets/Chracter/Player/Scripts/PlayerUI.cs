@@ -15,6 +15,8 @@ public class PlayerUI : MonoBehaviour
 
     public ResultScreen resultScreen;
 
+    public Transform playerUITransform;
+
     [SerializeField] private Image statusPanel;
     [SerializeField] private Image hpBar;
     [SerializeField] private Image mpBar;
@@ -74,6 +76,7 @@ public class PlayerUI : MonoBehaviour
 
     private void OnDisable()
     {
+        PlayerUI.Instance.itemTooltip.gameObject.SetActive(false);
         MonsterManager.Instance.OnChangedAliveMonsterCount -= ChangedMonsterCount;
         if (GameManager.Instance != null)
         {
@@ -81,11 +84,11 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    public void ActivateRewardScreen()
+    public void ActivateRewardScreen(int diff)
     {
         rewardScreen.gameObject.SetActive(true);
         List<string> itemIds = ItemDataManager.Instance.availableItemIds;
-        rewardScreen.SetRewards(RewardManager.PickItemsFromID(itemIds, 3));
+        rewardScreen.SetRewards(ItemRandomSelector.PickItemsFromID(itemIds, diff));
     }
 
     public void DeactivateRewardScreen()
@@ -193,7 +196,7 @@ public class PlayerUI : MonoBehaviour
     {
         float angle = (currentTime / maxTime) * 360f;
         watchHand.transform.localRotation = Quaternion.Euler(0, 0, -angle);
-        if(GameManager.Instance.currentPhase == GameManager.Phase.Day)
+        if (GameManager.Instance.currentPhase == GameManager.Phase.Day)
             watchNight.gameObject.SetActive(false);
         else watchNight.gameObject.SetActive(true);
     }
