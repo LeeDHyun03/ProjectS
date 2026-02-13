@@ -4,12 +4,14 @@ using UnityEngine;
 public class KBCart : MonoBehaviour
 {
     [SerializeField] Vector2 startVec;
+    SpriteRenderer sr;
     public event Action OnReAct;
     public Vector2 currentDir;
     const int defualtDurability = 4;
     float moveSpeed = 15f;
     float currentMoveSpeed;
     int _durability;
+    [SerializeField] Sprite[] brokenCart = new Sprite[5];
     public int Durability
     {
         get=> _durability;
@@ -18,15 +20,19 @@ public class KBCart : MonoBehaviour
             _durability = value;
             if(Durability <=0)
             {
-                CartReset();
+                Invoke(nameof(CartReset),1f);
             }
         }
+    }
+    private void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
     }
     private void Start()
     {
         currentMoveSpeed = moveSpeed;
-        Durability = defualtDurability;
         startVec = transform.position;
+        CartReset();
     }
     private void FixedUpdate()
     {
@@ -48,6 +54,7 @@ public class KBCart : MonoBehaviour
         if(collision.gameObject.name =="Log")
         {
             Durability--;
+            sr.sprite = brokenCart[defualtDurability - Durability];
         }
 
         Vector3 wallNormal = collision.contacts[0].normal;
@@ -66,6 +73,7 @@ public class KBCart : MonoBehaviour
     }
     public void CartReset()
     {
+        sr.sprite = brokenCart[0];
         currentDir = Vector2.zero;
         transform.position = startVec;
         Durability = defualtDurability;
