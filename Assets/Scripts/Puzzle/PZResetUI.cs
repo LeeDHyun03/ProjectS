@@ -24,12 +24,16 @@ public class PZResetUI : PZElement
 
         if (mapChanged && Input.GetKeyDown(KeyCode.T))
         {
-            ((MCPuzzleManager)puzzleManager).ChangedMap();
+            anim.SetTrigger("Fade_Time");
         }
     }
     public void FadeInOut()
     {
         puzzleManager.PuzzleReset();
+    }
+    public void TimeChange()
+    {
+        ((MCPuzzleManager)puzzleManager).ChangedMap();
     }
     public void FadingStop()
     {
