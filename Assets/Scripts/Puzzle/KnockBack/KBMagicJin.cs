@@ -12,5 +12,6 @@ public class KBMagicJin : PZElement
     private void OnTriggerEnter2D(Collider2D collision)
     {
         sr.sprite = OnMagic;
+        //SoundManager.Instance.PlaySfx("KB_On");
     }
 }

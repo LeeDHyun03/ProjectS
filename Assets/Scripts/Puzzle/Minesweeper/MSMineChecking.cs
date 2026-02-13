@@ -38,6 +38,7 @@ public class MSMineChecking : MonoBehaviour
             if(isPlayerOnCollision(collision))
             {
                 OnMineTriggered?.Invoke();
+                //SoundManager.Instance.PlaySfx("MS_Explosion");
             }
         }
     }
