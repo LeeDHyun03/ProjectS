@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(MonsterDetection))]
-[RequireComponent(typeof(MonsterMovement))]
 public class Monster : Character, IPooledObject
 {
     public enum ActionType
@@ -23,21 +22,21 @@ public class Monster : Character, IPooledObject
     public event Action<float, float> OnChangedSuperArmor;
 
     [SerializeField] protected string monsterID;
-    [SerializeField] private MonsterDetection detection;
+    [SerializeField] protected MonsterDetection detection;
     [SerializeField] private MonsterMovement movement;
     [SerializeField] private MonsterAttack attack;
     [SerializeField] private MonsterSpriteAnimator animator;
     [SerializeField] private BoxCollider2D col;
-
+    [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private bool hasAlert = false;
     [SerializeField] private List<Vector3> path = new();
 
     public Character currentTarget;
 
-    private float lastDir;
+    protected float lastDir;
 
     private bool isPlayerSide = false;
-    private bool isAttacking = false;
+    protected bool isAttacking = false;
 
     private float maxSuperArmor;
     private float currentSuperArmor = 0;
@@ -58,7 +57,7 @@ public class Monster : Character, IPooledObject
         }*/
     }
 
-    protected void InitializeMonster(CharacterStateDataContainer.MonsterData data)
+    protected virtual void InitializeMonster(CharacterStateDataContainer.MonsterData data)
     {
         // Dbg.L("현스테이지", WaveManager.Instance.currentStage);
         // data.Show("전");
@@ -224,6 +223,11 @@ public class Monster : Character, IPooledObject
         MonsterManager.Instance.OnMonsterDespawned();
     }
 
+    protected void CallOnChangedHp(float currentHp, float maxHp)
+    {
+        OnChangedHp?.Invoke(currentHp, maxHp);
+    }
+
     public override void TakeDamage(float damage)
     {
         if (currentSuperArmor > 1)
@@ -241,7 +245,7 @@ public class Monster : Character, IPooledObject
         movement.SetWaiting(true);
         animator.ApplyAnimation("isDamaged", true);
         base.TakeDamage(damage);
-        OnChangedHp?.Invoke(currentHp, maxHp);
+        CallOnChangedHp(currentHp, maxHp);
     }
 
     private void EndedStun()

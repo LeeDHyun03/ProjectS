@@ -46,6 +46,8 @@ public class AttackCircleIndicator : MonoBehaviour, IAttackIndicator
         ObjectPooler.ReturnToPool(gameObject);
     }
 
+    public Vector2 GetBaseSize() => borderSprite.size;
+
     private void OnDisable()
     {
         if (filling != null)
