@@ -238,6 +238,7 @@ public class Monster : Character, IPooledObject
             {
                 currentSuperArmor = 0;
                 base.TakeDamage(maxHp * 0.1f);
+                SfxManager.Instance.Play("Monster_SuperArmorBroken");
             }
             OnChangedSuperArmor?.Invoke(currentSuperArmor, maxSuperArmor);
             damage -= calcDamage;
@@ -245,6 +246,7 @@ public class Monster : Character, IPooledObject
         movement.SetWaiting(true);
         animator.ApplyAnimation("isDamaged", true);
         base.TakeDamage(damage);
+        SfxManager.Instance.Play("Monster_Hit");
         CallOnChangedHp(currentHp, maxHp);
     }
 

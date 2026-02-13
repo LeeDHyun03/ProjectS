@@ -75,7 +75,7 @@ public class Meteo : MonoBehaviour, IPooledObject
 
         if (boomEffect != null)
             boomEffect.Play();
-
+        SfxManager.Instance.Play("Mage2");
         DoDamage();
 
 

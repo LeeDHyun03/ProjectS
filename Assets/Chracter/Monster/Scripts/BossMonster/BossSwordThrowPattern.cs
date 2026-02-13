@@ -97,6 +97,7 @@ public class BossSwordThrowPattern : MonoBehaviour
             s.AimAt(target.position);
             s.LaunchTowards(target.position, projectileSpeed, projectileLifeTime, projectileDamage, targetMask, instigator: gameObject);
 
+            SfxManager.Instance.Play("Boss_BladeShot");
             yield return new WaitForSeconds(fireInterval);
         }
 

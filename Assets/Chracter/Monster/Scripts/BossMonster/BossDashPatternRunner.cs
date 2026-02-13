@@ -109,6 +109,8 @@ public class BossDashPatternRunner : MonoBehaviour
         Coroutine telegraphRoutine = StartCoroutine(CoTelegraphVisual(preDelay, dynamicLen));
         yield return movement.DashToTargetLocked(target, preDelay, postDelay, mode);
 
+        SfxManager.Instance.Play("Boss_Dash");
+
         if (telegraphRoutine != null)
             StopCoroutine(telegraphRoutine);
 

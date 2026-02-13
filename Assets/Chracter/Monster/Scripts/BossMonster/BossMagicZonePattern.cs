@@ -40,6 +40,7 @@ public class BossMagicZonePattern : MonoBehaviour
                 ObjectPooler.Instance.SpawnFromPool("MagicZoneArea", pos, Quaternion.identity).TryGetComponent<MagicZoneArea>(out MagicZoneArea zone);
                 if(zone != null)
                     zone.Activate(zoneRadius, duration, tickInterval, tickDamage, targetMask, gameObject);
+                SfxManager.Instance.Play("Boss_Magic");
             };
         }
     }

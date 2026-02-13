@@ -154,7 +154,6 @@ public class BossMonster : Monster
         isDead = true;
     }
 
-
     private void Update()
     {
         if (!engaged) return;
