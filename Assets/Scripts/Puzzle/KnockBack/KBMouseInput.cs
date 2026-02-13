@@ -18,6 +18,8 @@ public class KBMouseInput : PZInteraction
 
         if (Input.GetMouseButtonDown(0) && isMouseUse)
         {
+            SoundManager.Instance.PlaySfx("KB_Push");
+
             cart.currentDir = PlayerToMouseDir();
             isMouseUse = false;
             ToggleVisibility(false);
