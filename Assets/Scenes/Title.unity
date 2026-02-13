@@ -17850,7 +17850,41 @@ MonoBehaviour:
       Clip: {fileID: 8300000, guid: f63433026dfec6e47ae3b59ff7e6fa98, type: 3}
     - Name: Boss_Maigc2
       Clip: {fileID: 8300000, guid: b0e935c354e85a24a9e1f918f5e6f3c7, type: 3}
-    Puzzle_Sfx: []
+    Puzzle_Sfx:
+    - Name: Puzzle_Enter
+      Clip: {fileID: 8300000, guid: 016d7d4fdbff9b2488b80b10a103c01e, type: 3}
+    - Name: Puzzle_Exit
+      Clip: {fileID: 8300000, guid: 2cac9a6cfa8dee7498db896d7bc06523, type: 3}
+    - Name: Puzzle_ChestOpen
+      Clip: {fileID: 8300000, guid: 2cac9a6cfa8dee7498db896d7bc06523, type: 3}
+    - Name: KickBack_Collision
+      Clip: {fileID: 8300000, guid: 2f75ac80f90e436428c2576c8d008b5c, type: 3}
+    - Name: KickBack_Destruction
+      Clip: {fileID: 8300000, guid: dd9a5a9794b1d6b48abbca063692b352, type: 3}
+    - Name: KickBack_On
+      Clip: {fileID: 8300000, guid: 6a007e8a2e293cf44b8493c7f18de5ff, type: 3}
+    - Name: KickBack_Push
+      Clip: {fileID: 8300000, guid: b045758d3cb57c040ac59aa0b8d3211c, type: 3}
+    - Name: Mine_Explosion
+      Clip: {fileID: 8300000, guid: 7370c7fa1fa6da242ac53c0d24bb068b, type: 3}
+    - Name: QA_Collision
+      Clip: {fileID: 8300000, guid: adbabe2a96bf468458af1eb0183c818f, type: 3}
+    - Name: QA_Off
+      Clip: {fileID: 8300000, guid: 847c021011b9b9148beea4700c0574c7, type: 3}
+    - Name: QA_On
+      Clip: {fileID: 8300000, guid: 847c021011b9b9148beea4700c0574c7, type: 3}
+    - Name: QA_Off
+      Clip: {fileID: 8300000, guid: 847c021011b9b9148beea4700c0574c7, type: 3}
+    - Name: Switch_Button
+      Clip: {fileID: 8300000, guid: 7a62b24080eab8c4a80f3dc8a97798ca, type: 3}
+    - Name: Switch_Cannon
+      Clip: {fileID: 8300000, guid: f75b6346d1ab47d428210e663819ec0c, type: 3}
+    - Name: Switch_FallTree
+      Clip: {fileID: 8300000, guid: fd64797334c8a274ea8a1a4438cc04d5, type: 3}
+    - Name: Switch_PickUp
+      Clip: {fileID: 8300000, guid: f946ab4f9677ec04e8b9c0301b7486bb, type: 3}
+    - Name: Switch_PutDown
+      Clip: {fileID: 8300000, guid: 07cbfce9bd40da140a7b693858964f38, type: 3}
     Item_Sfx:
     - Name: Item_GetItem
       Clip: {fileID: 8300000, guid: 9f89ca6f0d5f3994f9e60a7f95ff8c75, type: 3}
