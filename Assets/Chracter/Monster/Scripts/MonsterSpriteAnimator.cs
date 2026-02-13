@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterSpriteAnimator : MonoBehaviour
 {
     [SerializeField]
-    private Transform visualRoot;
+    protected Transform visualRoot;
     private Animator animator => GetComponent<Animator>();
 
     public event Action OnEndedStun;
