@@ -36,9 +36,10 @@ public class OAEnergy : PZElement
     }
     void OnOffSfxPlay(bool act)
     {
-/*        if (act)
-            SoundManager.Instance.PlaySfx("OA_On");
+        if (act)
+            SfxManager.Instance.Play("OA_On");
+
         else
-            SoundManager.Instance.PlaySfx("OA_Off"); */   
+            SfxManager.Instance.Play("OA_Off");
     }
 }

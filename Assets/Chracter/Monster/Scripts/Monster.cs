@@ -265,7 +265,6 @@ public class Monster : Character, IPooledObject
         else
         {
             InitializeMonster(data);
-            MonsterManager.Instance.OnMonsterSuccessfullySpawned();
         }
     }
 }

@@ -34,7 +34,7 @@ public class MonsterManager : MonoBehaviour
 
     private int aliveMonsterCount = 0;
 
-    private Camera _cam;
+    public bool HasAliveMonster() => aliveMonsterCount > 0;
 
     // 테스트용
     private List<GameObject> mobs = new();
@@ -44,10 +44,6 @@ public class MonsterManager : MonoBehaviour
     public event Action OnDeathMonster;
 
 
-    void Awake()
-    {
-        _cam = Camera.main;
-    }
     public static MonsterManager Instance
     {
         get
@@ -153,7 +149,7 @@ public class MonsterManager : MonoBehaviour
             // guard < 50
             );
             mobs.Add(ObjectPooler.Instance.SpawnFromPool(id, pos, Quaternion.identity));
-            // Instantiate(GetPrefab(id), pos, Quaternion.identity);
+            OnMonsterSuccessfullySpawned();
         }
     }
 
@@ -188,6 +184,7 @@ public class MonsterManager : MonoBehaviour
                     guard < 50
                 );
                 mobs.Add(ObjectPooler.Instance.SpawnFromPool(id, pos, Quaternion.identity));
+                OnMonsterSuccessfullySpawned();
             }
             if (spawnQueue.Count <= 0 || index >= points.Count) yield break;
 
@@ -213,8 +210,8 @@ public class MonsterManager : MonoBehaviour
     (Vector3, Vector3) GetSpawnAreaWorldPoints()
     {
         return (
-            _cam.ViewportToWorldPoint(new Vector3(0, 0)),
-            _cam.ViewportToWorldPoint(new Vector3(1, 1))
+            Camera.main.ViewportToWorldPoint(new Vector3(0, 0)),
+            Camera.main.ViewportToWorldPoint(new Vector3(1, 1))
         );
     }
     Vector2 GetSpawnAreaCenter((Vector3, Vector3) points)
