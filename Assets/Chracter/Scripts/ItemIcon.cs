@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Roguelike.Items;
 using TMPro;
 using UnityEngine;
@@ -8,26 +10,26 @@ public class ItemIcon : MonoBehaviour
     [SerializeField] private Image IconImage;
     [SerializeField] private Image IconFrame;
 
+    private string itemName;
+    private string itemDescription;
 
-    [SerializeField] private Image DescriptionIconImage;
-    [SerializeField] private Image DescriptionIconFrame;
-    [SerializeField] private TMP_Text ItemName;
-    [SerializeField] private TMP_Text DescriptionText;
-    [SerializeField] private Image DescriptionPanel;
-
-    public void SetItemInfo(string itemName, string description, Sprite iconSprite, Sprite iconFrameSprite)
+    public void SetItemInfo(string name, string description, Sprite iconSprite, Sprite iconFrameSprite)
     {
+        itemName = name;
+        itemDescription = description;
         IconImage.sprite = iconSprite;
         IconFrame.sprite = iconFrameSprite;
-        ItemName.text = itemName;
-        DescriptionText.text = description;
-        DescriptionIconImage.sprite = iconSprite;
-        DescriptionIconFrame.sprite = iconFrameSprite;
-
     }
-
     public void OnDescriptionDisplay(bool isActivate)
     {
-        DescriptionPanel.gameObject.SetActive(isActivate);
+        ItemTooltip itemTooltip = PlayerUI.Instance.itemTooltip;
+
+        itemTooltip.gameObject.SetActive(isActivate);
+
+        if (isActivate)
+        {
+            itemTooltip.SetData(itemName, itemDescription, IconImage.sprite, IconFrame.sprite);
+            itemTooltip.gameObject.ShowAtRightOfUI(transform);
+        }
     }
 }

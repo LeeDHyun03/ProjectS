@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public static PlayerUI Instance;
-    
+
+    public ItemTooltip itemTooltip;
+    public ItemKeywordTooltip itemKeywordTooltip;
     [SerializeField] private Image statusPanel;
     [SerializeField] private Image hpBar;
     [SerializeField] private Image mpBar;
@@ -57,7 +59,7 @@ public class PlayerUI : MonoBehaviour
     private void OnEnable()
     {
         MonsterManager.Instance.OnChangedAliveMonsterCount += ChangedMonsterCount;
-        if(GameManager.Instance != null)
+        if (GameManager.Instance != null)
         {
             GameManager.Instance.OnCurrentPhaseTimeChanged += ChagnedCurrentPhaseTime;
         }
@@ -74,11 +76,11 @@ public class PlayerUI : MonoBehaviour
 
     public void ChangedMonsterCount(int currentMonsterCount)
     {
-        this.currentMonsterCount.text = $"{currentMonsterCount}¸¶¸®";
+        this.currentMonsterCount.text = $"{currentMonsterCount}ï¿½ï¿½ï¿½ï¿½";
     }
 
     public void StatsUpdate(
-        float maxHpIndex, float maxMpIndex, float speedIndex, float atkIndex, float critChance, 
+        float maxHpIndex, float maxMpIndex, float speedIndex, float atkIndex, float critChance,
         float defIndex, float angerIndex, float prideIndex, float jealousyIndex, float rerollIndex)
     {
         this.maxHpIndex.text = $"{maxHpIndex}";
@@ -97,7 +99,7 @@ public class PlayerUI : MonoBehaviour
     {
         hpBarIndex.text = $"{currentHp} / {maxHp}";
         float healthPercent = currentHp / maxHp;
-        if(healthPercent <= 0)
+        if (healthPercent <= 0)
             hpBar.fillAmount = 0;
         else
             hpBar.fillAmount = healthPercent;

@@ -12,7 +12,7 @@ public sealed class DevItemStatTest : MonoBehaviour
     private void Start()
     {
         if (!player) player = FindFirstObjectByType<PlayerCharacter>();
-        
+
         _itemStats = player ? player.GetComponent<PlayerItemStatController>() : null;
 
         Invoke("StartLoad", 3);

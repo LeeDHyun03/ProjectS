@@ -74,7 +74,7 @@ public sealed class PlayerItemStatController : MonoBehaviour
             ItemIcon itemIcon = Instantiate(ItemIconPrefab, playerUITransform);
             Sprite iconSprite = ItemDataManager.Instance.LoadIcon(item);
             Sprite iconFrameSprite = ItemDataManager.Instance.LoadItemFrame(item);
-            itemIcon.SetItemInfo(item.NameKr, item.Description, iconSprite, iconFrameSprite); 
+            itemIcon.SetItemInfo(item.NameKr, item.Description, iconSprite, iconFrameSprite);
         }
 
         if (amount > 0)
@@ -209,7 +209,7 @@ public sealed class PlayerItemStatController : MonoBehaviour
             else if (stat.Equals("Wrath", StringComparison.OrdinalIgnoreCase)) s.anger += value;
             else if (stat.Equals("Envy", StringComparison.OrdinalIgnoreCase)) s.jealousy += value;
             else if (stat.Equals("Pride", StringComparison.OrdinalIgnoreCase)) s.anger += value;
-                return;
+            return;
         }
 
         float m = 1f + (value / 100f);
