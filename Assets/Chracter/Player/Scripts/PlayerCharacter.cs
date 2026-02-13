@@ -31,6 +31,8 @@ public class PlayerCharacter : Character
 
     public event Action<bool, float> OnChagnedDashCount;
 
+    public event Action OnLevelUp;
+
     private float currentMp;
     private float currentExp;
 
@@ -43,6 +45,7 @@ public class PlayerCharacter : Character
     private float pride;
     private float jealousy;
     private int rerollCount;
+    private float expIncrement;
 
     private bool isDashing = false;
     private bool isInvincibility = false;
@@ -62,6 +65,7 @@ public class PlayerCharacter : Character
     [SerializeField] private float maxExp = 100f;
     [SerializeField] private float specialAttackUsedMp = 5;
 
+    public bool isInteracting = false;
 
     public float CurrentHp => currentHp;
     public float MaxHp => maxHp;
@@ -90,6 +94,12 @@ public class PlayerCharacter : Character
             OnExpChanged += ui.ExpBarUpdate;
             OnStatsUpdate += ui.StatsUpdate;
             OnChagnedDashCount += ui.ChagnedDashGageBar;
+            OnLevelUp += ui.ActivateRewardScreen;
+        }
+
+        if (MonsterManager.Instance != null)
+        {
+            MonsterManager.Instance.OnDeathMonster += GainExp;
         }
 
         OnHpChanged += statRefreshScheduler.MarkDirty;
@@ -109,6 +119,7 @@ public class PlayerCharacter : Character
         input.SprintEnded += DeactivateSprintMode;
         input.NormalAttackTriggered += OnNormalAttack;
         input.SpecialAttackTriggered += OnSpecialAttack;
+        input.InteractTriggered += OnInteractionTrigger;
         input.RestTriggered += RestModeChanged;
         input.StatusToggled += ToggleStatusDisplay;
 
@@ -123,6 +134,11 @@ public class PlayerCharacter : Character
 
         movement.OnDashEnded += DashEnded;
 
+        if (MonsterManager.Instance != null)
+        {
+            MonsterManager.Instance.OnDeathMonster += GainExp;
+        }
+
         if (ui != null)
         {
             OnHpChanged += ui.HpBarUpdate;
@@ -130,9 +146,10 @@ public class PlayerCharacter : Character
             OnExpChanged += ui.ExpBarUpdate;
             OnStatsUpdate += ui.StatsUpdate;
             OnChagnedDashCount += ui.ChagnedDashGageBar;
+            OnLevelUp += ui.ActivateRewardScreen;
         }
 
-        if(statRefreshScheduler != null)
+        if (statRefreshScheduler != null)
         {
             OnHpChanged += statRefreshScheduler.MarkDirty;
             OnMpChanged += statRefreshScheduler.MarkDirty;
@@ -148,6 +165,7 @@ public class PlayerCharacter : Character
         input.SprintEnded -= DeactivateSprintMode;
         input.NormalAttackTriggered -= OnNormalAttack;
         input.SpecialAttackTriggered -= OnSpecialAttack;
+        input.InteractTriggered -= OnInteractionTrigger;
         input.RestTriggered -= RestModeChanged;
         input.StatusToggled -= ToggleStatusDisplay;
 
@@ -162,6 +180,11 @@ public class PlayerCharacter : Character
 
         movement.OnDashEnded -= DashEnded;
 
+        if (MonsterManager.Instance != null)
+        {
+            MonsterManager.Instance.OnDeathMonster -= GainExp;
+        }
+
         if (ui != null)
         {
             OnHpChanged -= ui.HpBarUpdate;
@@ -169,6 +192,7 @@ public class PlayerCharacter : Character
             OnExpChanged -= ui.ExpBarUpdate;
             OnStatsUpdate -= ui.StatsUpdate;
             OnChagnedDashCount -= ui.ChagnedDashGageBar;
+            OnLevelUp -= ui.ActivateRewardScreen;
         }
 
         if (statRefreshScheduler != null)
@@ -246,6 +270,17 @@ public class PlayerCharacter : Character
         movement.SetAttackDashDir(-attackDir);
     }
 
+    void OnInteractionTrigger()
+    {
+        isInteracting = true;
+    }
+
+    IEnumerator OnInteractionRoutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        isInteracting = false;
+    }
+
     void RestModeChanged(bool isResting)
     {
         if (isResting)
@@ -305,6 +340,8 @@ public class PlayerCharacter : Character
 
         sprintSpeed = baseData.sprintSpeed;
         specialAttackUsedMp = baseData.specialAttackUsedMp;
+
+        expIncrement = baseData.expIncrement;
 
         movement.SetSpeed(moveSpeed, sprintSpeed);
         combat.SetStats(attackDamage, normalAttackSpeed, critChance, critDamage, meleeDamage, rangedDamage, anger, pride, jealousy);
@@ -399,6 +436,24 @@ public class PlayerCharacter : Character
     {
         currentHp = Mathf.Clamp(currentHp + amountHp, 0, maxHp);
         OnHpChanged?.Invoke(currentHp, maxHp);
+    }
+
+    public void GainExp()
+    {
+        currentExp += 7;
+        if (currentExp >= maxExp)
+        {
+            LevelUp();
+        }
+        OnExpChanged?.Invoke(currentExp, maxExp);
+    }
+
+    private void LevelUp()
+    {
+        currentExp = 0;
+        maxExp += expIncrement;
+        CureHp(maxHp);
+        OnLevelUp?.Invoke();
     }
 
     public override void Dead()

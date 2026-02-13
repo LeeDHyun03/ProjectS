@@ -14,9 +14,12 @@ namespace Roguelike.Items
 
         [SerializeField] private string masterFileName = "ItemMaster.json";
         [SerializeField] private string effectsFileName = "ItemEffects.json";
+        [SerializeField] private string availableItemFileName = "AvailableItem.json";
 
         public bool IsLoaded { get; private set; }
         public string LastError { get; private set; }
+
+        public List<string> availableItemIds = new();
 
         private readonly Dictionary<string, ItemData> _itemsById =
             new Dictionary<string, ItemData>(StringComparer.OrdinalIgnoreCase);
@@ -61,6 +64,11 @@ namespace Roguelike.Items
             yield return LoadTextFromStreamingAssets(effectsFileName, s => effectsJson = s);
             if (!string.IsNullOrEmpty(LastError)) yield break;
             if (!AttachEffects(effectsJson)) yield break;
+
+            string availableJson = null;
+            yield return LoadTextFromStreamingAssets(availableItemFileName, s => availableJson = s);
+            if(!string.IsNullOrEmpty(LastError)) yield break;
+            if (!AvailableItemAdd(availableJson)) yield break;
 
             foreach (var kv in _itemsById)
                 kv.Value.Effects.Sort((a, b) => a.EffectIndex.CompareTo(b.EffectIndex));
@@ -336,5 +344,35 @@ namespace Roguelike.Items
 
             item.Effects.Add(e);
         }
+
+        private bool AvailableItemAdd(string json)
+        {
+            AvailableItemDbJson db;
+            try
+            {
+                db = JsonUtility.FromJson<AvailableItemDbJson>(json);
+            }
+            catch (Exception e)
+            {
+                LastError = $"AvailableItem parse failed: {e.Message}";
+                Debug.LogError($"[ItemDataManager] {LastError}");
+                return false;
+            }
+
+            if(db == null)
+            {
+                LastError = "Item parsed but 'ItemId' is missing.";
+                Debug.LogError($"[ItemDataManager] {LastError}");
+                return false;
+            }
+
+            foreach(string itemId in db.ItemIds)
+            {
+                availableItemIds.Add(itemId);
+            }
+
+            return true;
+        }
+
     }
 }

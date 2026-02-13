@@ -17,14 +17,14 @@ public class BossMonster : Monster
 
     private bool facingLocked = false;
 
-    //[SerializeField] private PlayerUI playerUI;
+    [SerializeField] private PlayerUI playerUI;
 
     private Character target;
     private bool engaged;
 
     private void Start()
     {
-        //OnChangedHp += playerUI.BossHpChanged;
+        OnChangedHp += playerUI.BossHpBarUpdate;
         OnObjectSpawn();
     }
 
@@ -54,7 +54,7 @@ public class BossMonster : Monster
             bossMovement.OnDashEnd += HandleDashEnd;
         }
 
-        //OnChangedHp += playerUI.BossHpChanged;
+        OnChangedHp += playerUI.BossHpBarUpdate;
     }
 
 
@@ -70,7 +70,7 @@ public class BossMonster : Monster
             bossMovement.OnDashEnd -= HandleDashEnd;
         }
 
-        //OnChangedHp -= playerUI.BossHpChanged;
+        OnChangedHp -= playerUI.BossHpBarUpdate;
         StopCombat();
     }
 

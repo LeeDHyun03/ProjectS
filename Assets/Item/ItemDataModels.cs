@@ -17,6 +17,12 @@ namespace Roguelike.Items
     }
 
     [Serializable]
+    public sealed class AvailableItemDbJson
+    {
+        public List<string> ItemIds;
+    }
+
+    [Serializable]
     public sealed class ItemMasterJson
     {
         public string ItemId;

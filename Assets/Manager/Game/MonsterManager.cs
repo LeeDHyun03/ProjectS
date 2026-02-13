@@ -41,6 +41,8 @@ public class MonsterManager : MonoBehaviour
 
     // 몬스터 수 변화 추적용 이벤트 (인자는 업데이트 후 전체 몬스터 수)
     public event Action<int> OnChangedAliveMonsterCount;
+    public event Action OnDeathMonster;
+
 
     void Awake()
     {
@@ -168,6 +170,8 @@ public class MonsterManager : MonoBehaviour
 
             for (int i = 0; i < batch && spawnQueue.Count > 0; i++)
             {
+                if (index >= points.Count) break;
+
                 string id = spawnQueue.Dequeue();
 
                 Vector2 pos;
@@ -184,8 +188,9 @@ public class MonsterManager : MonoBehaviour
                     guard < 50
                 );
                 mobs.Add(ObjectPooler.Instance.SpawnFromPool(id, pos, Quaternion.identity));
-                // Instantiate(GetPrefab(id), pos, Quaternion.identity);
             }
+            if (spawnQueue.Count <= 0 || index >= points.Count) yield break;
+
 
             float wait = Random.Range(spawnIntervalRange.x, spawnIntervalRange.y);
             yield return new WaitForSeconds(wait);
@@ -239,5 +244,6 @@ public class MonsterManager : MonoBehaviour
     {
         aliveMonsterCount--;
         OnChangedAliveMonsterCount?.Invoke(aliveMonsterCount);
+        OnDeathMonster?.Invoke();
     }
 }

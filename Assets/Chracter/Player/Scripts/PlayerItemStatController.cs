@@ -64,6 +64,8 @@ public sealed class PlayerItemStatController : MonoBehaviour
         if (!ItemDataManager.Instance || !ItemDataManager.Instance.IsLoaded) return;
         if (!ItemDataManager.Instance.TryGetItem(itemId, out var item)) return;
 
+        Time.timeScale = 1f;
+
         amount = Mathf.Max(1, amount);
 
         if (!_inv.TryGetValue(itemId, out var inst))
